@@ -248,6 +248,7 @@ public class UserSelectPage extends javax.swing.JFrame {
         landingPage.setLocationRelativeTo(null);
         landingPage.setResizable(false);
         landingPage.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
     /**

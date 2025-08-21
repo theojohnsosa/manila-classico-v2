@@ -124,6 +124,11 @@ public class LandingPage extends javax.swing.JFrame {
         stafLoginButton.setFocusable(false);
         stafLoginButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         stafLoginButton.setOpaque(true);
+        stafLoginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stafLoginButtonActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(155, 164, 177));
@@ -233,7 +238,16 @@ public class LandingPage extends javax.swing.JFrame {
         userSelectPage.setLocationRelativeTo(null);
         userSelectPage.setResizable(false);
         userSelectPage.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_continueAsCustomerButtonActionPerformed
+
+    private void stafLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stafLoginButtonActionPerformed
+        StaffLoginPage staffLoginPage = new StaffLoginPage();
+        staffLoginPage.setLocationRelativeTo(null);
+        staffLoginPage.setResizable(false);
+        staffLoginPage.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_stafLoginButtonActionPerformed
 
     /**
      * @param args the command line arguments
