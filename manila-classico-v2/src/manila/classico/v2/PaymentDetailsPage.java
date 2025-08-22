@@ -34,7 +34,6 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         barberTextField.setText(barber);
         dateTextField.setText(date);
         timeTextField.setText(time);
-        totalAmountTextField.setText(price);
         totalAmountTextField.setText(totalAmount);
 
         payNowButton.setEnabled(false);
@@ -43,31 +42,35 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         group.add(cashToggleButton);
         group.add(gcashToggleButton);
 
-        cashToggleButton.setSelected(true);
+        cashToggleButton.setSelected(false);
+        gcashToggleButton.setSelected(false);
+
+        Runnable validate = () -> {
+            String amountInput = paymentAmountTextField.getText().trim();
+            String total = totalAmountTextField.getText().replace("₱", "").trim();
+            String contactInput = contactTextField.getText().trim();
+
+            boolean methodSelected = cashToggleButton.isSelected() || gcashToggleButton.isSelected();
+            boolean hasContact = !contactInput.isEmpty();
+            boolean correctAmount = !amountInput.isEmpty() && amountInput.equals(total);
+
+            payNowButton.setEnabled(methodSelected && hasContact && correctAmount);
+        };
 
         paymentAmountTextField.getDocument().addDocumentListener(new DocumentListener() {
-            private void check() {
-                String input = paymentAmountTextField.getText().trim();
-                String total = totalAmountTextField.getText().replace("₱", "").trim();
-                boolean methodSelected = cashToggleButton.isSelected() || gcashToggleButton.isSelected();
-                if (!input.isEmpty() && methodSelected && input.equals(total)) {
-                    payNowButton.setEnabled(true);
-                } else {
-                    payNowButton.setEnabled(false);
-                }
-            }
-            public void insertUpdate(DocumentEvent e) { check(); }
-            public void removeUpdate(DocumentEvent e) { check(); }
-            public void changedUpdate(DocumentEvent e) { check(); }
+            public void insertUpdate(DocumentEvent e) { validate.run(); }
+            public void removeUpdate(DocumentEvent e) { validate.run(); }
+            public void changedUpdate(DocumentEvent e) { validate.run(); }
         });
 
-        cashToggleButton.addActionListener(e -> {
-            gcashToggleButton.setSelected(!cashToggleButton.isSelected() && gcashToggleButton.isSelected());
+        contactTextField.getDocument().addDocumentListener(new DocumentListener() {
+            public void insertUpdate(DocumentEvent e) { validate.run(); }
+            public void removeUpdate(DocumentEvent e) { validate.run(); }
+            public void changedUpdate(DocumentEvent e) { validate.run(); }
         });
 
-        gcashToggleButton.addActionListener(e -> {
-            cashToggleButton.setSelected(!gcashToggleButton.isSelected() && cashToggleButton.isSelected());
-        });
+        cashToggleButton.addActionListener(e -> validate.run());
+        gcashToggleButton.addActionListener(e -> validate.run());
 
         payNowButton.addActionListener(e -> {
             String paymentMethod = cashToggleButton.isSelected() ? "Cash" : "GCash";
@@ -90,10 +93,6 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
 
             this.dispose();
         });
-    }
-    
-    public PaymentDetailsPage() {
-        throw new UnsupportedOperationException("Default constructor is not supported. Use the one with parameters.");
     }
 
     /**
@@ -463,7 +462,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PaymentDetailsPage().setVisible(true);
+//                new PaymentDetailsPage().setVisible(true);
             }
         });
     }
