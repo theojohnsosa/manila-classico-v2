@@ -4,8 +4,6 @@
  */
 package manila.classico.v2;
 
-import java.text.SimpleDateFormat;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,6 +18,21 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
      */
     public PaymentDetailsPage() {
         initComponents();
+    }
+    
+    public PaymentDetailsPage(String fullName, String contact, String service,
+                              String barber, String date, String time,
+                              String price, String totalAmount) {
+        initComponents();
+
+        customerTextField.setText(fullName);
+        contactTextField.setText(contact);
+        serviceTextField.setText(service);
+        barberTextField.setText(barber);
+        dateTextField.setText(date);
+        timeTextField.setText(time);
+        totalAmountTextField.setText(price);
+        totalAmountTextField.setText(totalAmount); 
     }
 
     /**
@@ -60,7 +73,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         timeTextField = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        totalAmountTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -246,10 +259,10 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Total Amount:");
 
-        jTextField1.setBackground(new java.awt.Color(253, 253, 254));
-        jTextField1.setFont(new java.awt.Font("SF Pro Display", 1, 30)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(154, 164, 177)));
+        totalAmountTextField.setBackground(new java.awt.Color(253, 253, 254));
+        totalAmountTextField.setFont(new java.awt.Font("SF Pro Display", 1, 30)); // NOI18N
+        totalAmountTextField.setForeground(new java.awt.Color(0, 0, 0));
+        totalAmountTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(154, 164, 177)));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -293,7 +306,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(totalAmountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(38, 38, 38)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -337,7 +350,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1)
+                    .addComponent(totalAmountTextField)
                     .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(68, Short.MAX_VALUE))
         );
@@ -413,12 +426,12 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JTextField serviceTextField;
     private javax.swing.JTextField timeTextField;
+    private javax.swing.JTextField totalAmountTextField;
     // End of variables declaration//GEN-END:variables
 }

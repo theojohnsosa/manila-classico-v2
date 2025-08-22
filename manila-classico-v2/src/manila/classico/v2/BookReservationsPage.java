@@ -261,7 +261,7 @@ public class BookReservationsPage extends javax.swing.JFrame {
     private void bookNowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookNowButtonActionPerformed
         String fullName = fullNameTextField.getText();
         String contact = contactNumberTextField.getText();
-        String service = serviceComboBox.getSelectedItem().toString();
+        String serviceFull = serviceComboBox.getSelectedItem().toString();
         String barber = barberComboBox.getSelectedItem().toString();
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -269,15 +269,26 @@ public class BookReservationsPage extends javax.swing.JFrame {
 
         String time = timeComboBox.getSelectedItem().toString();
 
-        // Add directly to shared data
-        ReservationsData.addReservation(fullName, contact, service, barber, date, time);
+        String serviceName = serviceFull;
+        String price = "";
+        String totalAmount = "";
 
-        JOptionPane.showMessageDialog(null, "Reservation Successful!");
+        if (serviceFull.contains("–") && serviceFull.contains("₱")) {
+            String[] parts = serviceFull.split("–");
+            if (parts.length > 1) {
+                serviceName = parts[0].trim();            
+                price = parts[1].replace("₱", "").trim(); 
+                totalAmount = "₱" + price;                
+            }
+        }
 
-        UserSelectPage userSelectPage = new UserSelectPage();
-        userSelectPage.setLocationRelativeTo(null);
-        userSelectPage.setResizable(false);
-        userSelectPage.setVisible(true);
+        PaymentDetailsPage paymentDetails = new PaymentDetailsPage(
+            fullName, contact, serviceName, barber, date, time, price, totalAmount
+        );
+        paymentDetails.setLocationRelativeTo(null);
+        paymentDetails.setResizable(false);
+        paymentDetails.setVisible(true);
+
         this.dispose();
     }//GEN-LAST:event_bookNowButtonActionPerformed
 

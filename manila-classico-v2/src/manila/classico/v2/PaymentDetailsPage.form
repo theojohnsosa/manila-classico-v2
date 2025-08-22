@@ -89,7 +89,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jTextField1" min="-2" pref="161" max="-2" attributes="0"/>
+                          <Component id="totalAmountTextField" min="-2" pref="161" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
@@ -143,7 +143,7 @@
                   <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jTextField1" max="32767" attributes="0"/>
+                      <Component id="totalAmountTextField" max="32767" attributes="0"/>
                       <Component id="jLabel10" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="68" max="32767" attributes="0"/>
@@ -618,7 +618,7 @@
             <Property name="text" type="java.lang.String" value="Total Amount:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="totalAmountTextField">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="fe" green="fd" red="fd" type="rgb"/>
