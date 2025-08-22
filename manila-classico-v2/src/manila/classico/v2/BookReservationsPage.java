@@ -96,7 +96,7 @@ public class BookReservationsPage extends javax.swing.JFrame {
         jLabel2.setText("Contact Number");
 
         serviceComboBox.setBackground(new java.awt.Color(253, 253, 254));
-        serviceComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        serviceComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Haircut – ₱150", "Haircut & Shampoo – ₱300", "Haircut and Shave – ₱300 ", "Haircut Delux – ₱380", "Classico Signature – ₱400", "Beard Trim – ₱200" }));
         serviceComboBox.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
@@ -104,7 +104,7 @@ public class BookReservationsPage extends javax.swing.JFrame {
         jLabel3.setText("Service");
 
         barberComboBox.setBackground(new java.awt.Color(253, 253, 254));
-        barberComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        barberComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carlos Mendoza", "Roberto Silva", "Raffy Tulfo" }));
         barberComboBox.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
 
         jLabel4.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
@@ -120,7 +120,7 @@ public class BookReservationsPage extends javax.swing.JFrame {
 
         timeComboBox.setBackground(new java.awt.Color(253, 253, 254));
         timeComboBox.setForeground(new java.awt.Color(155, 164, 177));
-        timeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        timeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "9:00 AM", "9:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "1:00 PM", "1:30 PM", "2:00 PM", "2:30 PM", "3:00 PM", "3:30 PM", "4:00 PM", "4:30 PM" }));
         timeComboBox.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
 
         jLabel6.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
