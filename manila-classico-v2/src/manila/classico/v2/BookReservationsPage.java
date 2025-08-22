@@ -4,18 +4,21 @@
  */
 package manila.classico.v2;
 
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author theojohnsosa
  */
-public class BookReservationPage extends javax.swing.JFrame {
+public class BookReservationsPage extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(BookReservationPage.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(BookReservationsPage.class.getName());
 
     /**
      * Creates new form LandingPage
      */
-    public BookReservationPage() {
+    public BookReservationsPage() {
         initComponents();
     }
 
@@ -132,6 +135,11 @@ public class BookReservationPage extends javax.swing.JFrame {
         bookNowButton.setFocusPainted(false);
         bookNowButton.setFocusable(false);
         bookNowButton.setOpaque(true);
+        bookNowButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bookNowButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -217,7 +225,7 @@ public class BookReservationPage extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(94, Short.MAX_VALUE)
+                .addContainerGap(107, Short.MAX_VALUE)
                 .addComponent(backButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -250,6 +258,29 @@ public class BookReservationPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
+    private void bookNowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookNowButtonActionPerformed
+        String fullName = fullNameTextField.getText();
+        String contact = contactNumberTextField.getText();
+        String service = serviceComboBox.getSelectedItem().toString();
+        String barber = barberComboBox.getSelectedItem().toString();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String date = sdf.format(dateDateChooser.getDate());
+
+        String time = timeComboBox.getSelectedItem().toString();
+
+        // Add directly to shared data
+        ReservationsData.addReservation(fullName, contact, service, barber, date, time);
+
+        JOptionPane.showMessageDialog(null, "Reservation Successful!");
+
+        UserSelectPage userSelectPage = new UserSelectPage();
+        userSelectPage.setLocationRelativeTo(null);
+        userSelectPage.setResizable(false);
+        userSelectPage.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_bookNowButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -272,7 +303,7 @@ public class BookReservationPage extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new BookReservationPage().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new BookReservationsPage().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

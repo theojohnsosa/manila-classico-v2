@@ -228,11 +228,10 @@ public class StaffLoginPage extends javax.swing.JFrame {
         String adminCodeInput = new String(adminCodePasswordField.getPassword());
         
         if (adminIdInput.equals(adminId) && adminCodeInput.equals(adminCode)) {
-            JOptionPane.showMessageDialog(null, "Logging in....", "Access Granted", JOptionPane.INFORMATION_MESSAGE);
-            LandingPage landingPage = new LandingPage();
-            landingPage.setLocationRelativeTo(null);
-            landingPage.setResizable(false);
-            landingPage.setVisible(true);
+            ReservationsPage reservationsPage = new ReservationsPage();
+            reservationsPage.setLocationRelativeTo(null);
+            reservationsPage.setResizable(false);
+            reservationsPage.setVisible(true);
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Invalid Credentials.", "Incorrect Credentials", JOptionPane.INFORMATION_MESSAGE);

@@ -258,7 +258,7 @@ public class UserSelectPage extends javax.swing.JFrame {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void makeReservationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makeReservationButtonActionPerformed
-        BookReservationPage bookReservationPage = new BookReservationPage();
+        BookReservationsPage bookReservationPage = new BookReservationsPage();
         bookReservationPage.setLocationRelativeTo(null);
         bookReservationPage.setResizable(false);
         bookReservationPage.setVisible(true);
