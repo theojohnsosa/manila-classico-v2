@@ -4,6 +4,11 @@
  */
 package manila.classico.v2;
 
+import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
+import javax.swing.event.DocumentListener;
+import javax.swing.event.DocumentEvent;
+
 
 /**
  *
@@ -16,13 +21,11 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
     /**
      * Creates new form LandingPage
      */
-    public PaymentDetailsPage() {
-        initComponents();
-    }
     
     public PaymentDetailsPage(String fullName, String contact, String service,
                               String barber, String date, String time,
                               String price, String totalAmount) {
+        
         initComponents();
 
         customerTextField.setText(fullName);
@@ -32,7 +35,65 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         dateTextField.setText(date);
         timeTextField.setText(time);
         totalAmountTextField.setText(price);
-        totalAmountTextField.setText(totalAmount); 
+        totalAmountTextField.setText(totalAmount);
+
+        payNowButton.setEnabled(false);
+
+        ButtonGroup group = new ButtonGroup();
+        group.add(cashToggleButton);
+        group.add(gcashToggleButton);
+
+        cashToggleButton.setSelected(true);
+
+        paymentAmountTextField.getDocument().addDocumentListener(new DocumentListener() {
+            private void check() {
+                String input = paymentAmountTextField.getText().trim();
+                String total = totalAmountTextField.getText().replace("₱", "").trim();
+                boolean methodSelected = cashToggleButton.isSelected() || gcashToggleButton.isSelected();
+                if (!input.isEmpty() && methodSelected && input.equals(total)) {
+                    payNowButton.setEnabled(true);
+                } else {
+                    payNowButton.setEnabled(false);
+                }
+            }
+            public void insertUpdate(DocumentEvent e) { check(); }
+            public void removeUpdate(DocumentEvent e) { check(); }
+            public void changedUpdate(DocumentEvent e) { check(); }
+        });
+
+        cashToggleButton.addActionListener(e -> {
+            gcashToggleButton.setSelected(!cashToggleButton.isSelected() && gcashToggleButton.isSelected());
+        });
+
+        gcashToggleButton.addActionListener(e -> {
+            cashToggleButton.setSelected(!gcashToggleButton.isSelected() && cashToggleButton.isSelected());
+        });
+
+        payNowButton.addActionListener(e -> {
+            String paymentMethod = cashToggleButton.isSelected() ? "Cash" : "GCash";
+            String full = customerTextField.getText().trim();
+            String cont = contactTextField.getText().trim();
+            String serv = serviceTextField.getText().trim();
+            String bar = barberTextField.getText().trim();
+            String d = dateTextField.getText().trim();
+            String t = timeTextField.getText().trim();
+            String total = totalAmountTextField.getText().trim();
+
+            ReservationsData.addReservation(full, cont, serv, bar, d, t, paymentMethod, total);
+
+            JOptionPane.showMessageDialog(this, "Payment successful! Reservation confirmed.");
+
+            UserSelectPage userSelectPage = new UserSelectPage();
+            userSelectPage.setLocationRelativeTo(null);
+            userSelectPage.setResizable(false);
+            userSelectPage.setVisible(true);
+
+            this.dispose();
+        });
+    }
+    
+    public PaymentDetailsPage() {
+        throw new UnsupportedOperationException("Default constructor is not supported. Use the one with parameters.");
     }
 
     /**
@@ -53,14 +114,14 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         customerTextField = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
+        cashToggleButton = new javax.swing.JToggleButton();
+        gcashToggleButton = new javax.swing.JToggleButton();
         jLabel12 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        paymentAmountTextField = new javax.swing.JTextField();
+        payNowButton = new javax.swing.JButton();
         contactTextField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -122,23 +183,23 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Payment Method");
 
-        jToggleButton1.setBackground(new java.awt.Color(164, 145, 129));
-        jToggleButton1.setFont(new java.awt.Font("SF Pro Display", 1, 15)); // NOI18N
-        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-money-20.png"))); // NOI18N
-        jToggleButton1.setText("Cash Payment");
-        jToggleButton1.setBorder(null);
-        jToggleButton1.setFocusPainted(false);
-        jToggleButton1.setOpaque(true);
+        cashToggleButton.setBackground(new java.awt.Color(164, 145, 129));
+        cashToggleButton.setFont(new java.awt.Font("SF Pro Display", 1, 15)); // NOI18N
+        cashToggleButton.setForeground(new java.awt.Color(255, 255, 255));
+        cashToggleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-money-20.png"))); // NOI18N
+        cashToggleButton.setText("Cash Payment");
+        cashToggleButton.setBorder(null);
+        cashToggleButton.setFocusPainted(false);
+        cashToggleButton.setOpaque(true);
 
-        jToggleButton2.setBackground(new java.awt.Color(164, 145, 129));
-        jToggleButton2.setFont(new java.awt.Font("SF Pro Display", 1, 15)); // NOI18N
-        jToggleButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-mobile-phone-20.png"))); // NOI18N
-        jToggleButton2.setText("GCash");
-        jToggleButton2.setBorder(null);
-        jToggleButton2.setFocusPainted(false);
-        jToggleButton2.setOpaque(true);
+        gcashToggleButton.setBackground(new java.awt.Color(164, 145, 129));
+        gcashToggleButton.setFont(new java.awt.Font("SF Pro Display", 1, 15)); // NOI18N
+        gcashToggleButton.setForeground(new java.awt.Color(255, 255, 255));
+        gcashToggleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-mobile-phone-20.png"))); // NOI18N
+        gcashToggleButton.setText("GCash");
+        gcashToggleButton.setBorder(null);
+        gcashToggleButton.setFocusPainted(false);
+        gcashToggleButton.setOpaque(true);
 
         jLabel12.setFont(new java.awt.Font("SF Pro Display", 1, 20)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
@@ -157,16 +218,17 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Your Payment Amount");
 
-        jTextField3.setBackground(new java.awt.Color(253, 253, 254));
-        jTextField3.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(154, 164, 177)));
+        paymentAmountTextField.setBackground(new java.awt.Color(253, 253, 254));
+        paymentAmountTextField.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        paymentAmountTextField.setForeground(new java.awt.Color(0, 0, 0));
+        paymentAmountTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(154, 164, 177)));
 
-        jButton1.setBackground(new java.awt.Color(164, 145, 129));
-        jButton1.setFont(new java.awt.Font("SF Pro Display", 1, 15)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Pay Now");
-        jButton1.setBorder(null);
+        payNowButton.setBackground(new java.awt.Color(164, 145, 129));
+        payNowButton.setFont(new java.awt.Font("SF Pro Display", 1, 15)); // NOI18N
+        payNowButton.setForeground(new java.awt.Color(255, 255, 255));
+        payNowButton.setText("Pay Now");
+        payNowButton.setBorder(null);
+        payNowButton.setOpaque(true);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -178,12 +240,12 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
                     .addComponent(jLabel13)
                     .addComponent(jLabel12)
                     .addComponent(jLabel11)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jToggleButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cashToggleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(gcashToggleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextField2)
-                    .addComponent(jTextField3)
+                    .addComponent(paymentAmountTextField)
                     .addComponent(jLabel14)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(payNowButton, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38))
         );
         jPanel2Layout.setVerticalGroup(
@@ -192,9 +254,9 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel11)
                 .addGap(18, 18, 18)
-                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cashToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(gcashToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(jLabel12)
                 .addGap(18, 18, 18)
@@ -204,9 +266,9 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(paymentAmountTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(payNowButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(68, 68, 68))
         );
 
@@ -399,16 +461,21 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new PaymentDetailsPage().setVisible(true));
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new PaymentDetailsPage().setVisible(true);
+            }
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JTextField barberTextField;
+    private javax.swing.JToggleButton cashToggleButton;
     private javax.swing.JTextField contactTextField;
     private javax.swing.JTextField customerTextField;
     private javax.swing.JTextField dateTextField;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JToggleButton gcashToggleButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -427,9 +494,8 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
+    private javax.swing.JButton payNowButton;
+    private javax.swing.JTextField paymentAmountTextField;
     private javax.swing.JTextField serviceTextField;
     private javax.swing.JTextField timeTextField;
     private javax.swing.JTextField totalAmountTextField;

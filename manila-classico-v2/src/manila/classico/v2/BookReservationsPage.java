@@ -4,9 +4,6 @@
  */
 package manila.classico.v2;
 
-import java.text.SimpleDateFormat;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author theojohnsosa
@@ -259,13 +256,16 @@ public class BookReservationsPage extends javax.swing.JFrame {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void bookNowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookNowButtonActionPerformed
-        String fullName = fullNameTextField.getText();
-        String contact = contactNumberTextField.getText();
+        String fullName = fullNameTextField.getText().trim();
+        String contact = contactNumberTextField.getText().trim();
         String serviceFull = serviceComboBox.getSelectedItem().toString();
         String barber = barberComboBox.getSelectedItem().toString();
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String date = sdf.format(dateDateChooser.getDate());
+        String date = "";
+        if (dateDateChooser.getDate() != null) {
+            java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
+            date = sdf.format(dateDateChooser.getDate());
+        }
 
         String time = timeComboBox.getSelectedItem().toString();
 
@@ -276,9 +276,9 @@ public class BookReservationsPage extends javax.swing.JFrame {
         if (serviceFull.contains("–") && serviceFull.contains("₱")) {
             String[] parts = serviceFull.split("–");
             if (parts.length > 1) {
-                serviceName = parts[0].trim();            
-                price = parts[1].replace("₱", "").trim(); 
-                totalAmount = "₱" + price;                
+                serviceName = parts[0].trim();
+                price = parts[1].replace("₱", "").trim();
+                totalAmount = "₱" + price;
             }
         }
 

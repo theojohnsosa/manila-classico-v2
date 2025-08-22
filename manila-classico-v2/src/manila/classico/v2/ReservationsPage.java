@@ -4,7 +4,6 @@
  */
 package manila.classico.v2;
 
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -22,12 +21,6 @@ public class ReservationsPage extends javax.swing.JFrame {
         reservationsTable.setModel(ReservationsData.getModel());
     }
     
-    public void addReservation(String fullName, String contact, String service,
-                               String barber, String date, String time) {
-        DefaultTableModel model = (DefaultTableModel) reservationsTable.getModel();
-        model.addRow(new Object[]{fullName, contact, service, barber, date, time});
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
