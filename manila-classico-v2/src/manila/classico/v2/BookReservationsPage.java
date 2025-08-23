@@ -258,29 +258,30 @@ public class BookReservationsPage extends javax.swing.JFrame {
     private void bookNowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookNowButtonActionPerformed
         String fullName = fullNameTextField.getText().trim();
         String contact = contactNumberTextField.getText().trim();
-        String serviceFull = serviceComboBox.getSelectedItem().toString();
-        String barber = barberComboBox.getSelectedItem().toString();
-
-        String date = "";
-        if (dateDateChooser.getDate() != null) {
-            java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
-            date = sdf.format(dateDateChooser.getDate());
+        String serviceItem = (String) serviceComboBox.getSelectedItem();
+        String barber = (String) barberComboBox.getSelectedItem();
+        java.util.Date chosenDate = dateDateChooser.getDate();
+        String time = (String) timeComboBox.getSelectedItem();
+        
+        if (fullName.isEmpty() || contact.isEmpty() || chosenDate == null || time == null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please complete all fields.");
+            return;
         }
-
-        String time = timeComboBox.getSelectedItem().toString();
-
-        String serviceName = serviceFull;
-        String price = "";
-        String totalAmount = "";
-
-        if (serviceFull.contains("–") && serviceFull.contains("₱")) {
-            String[] parts = serviceFull.split("–");
-            if (parts.length > 1) {
-                serviceName = parts[0].trim();
-                price = parts[1].replace("₱", "").trim();
-                totalAmount = "₱" + price;
-            }
+        
+        String serviceName = serviceItem;
+        String pesoString = null;
+        int idx = serviceItem.indexOf("–");
+        if (idx > -1) {
+            serviceName = serviceItem.substring(0, idx).trim();
+            String right = serviceItem.substring(idx + 1).trim(); // e.g., "₱150"
+            pesoString = right; // keep as is (already with peso)
         }
+        
+        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
+        String date = sdf.format(chosenDate);
+        
+        String price = (pesoString != null) ? pesoString : "₱0";
+        String totalAmount = price;
 
         PaymentDetailsPage paymentDetails = new PaymentDetailsPage(
             fullName, contact, serviceName, barber, date, time, price, totalAmount
@@ -288,7 +289,6 @@ public class BookReservationsPage extends javax.swing.JFrame {
         paymentDetails.setLocationRelativeTo(null);
         paymentDetails.setResizable(false);
         paymentDetails.setVisible(true);
-
         this.dispose();
     }//GEN-LAST:event_bookNowButtonActionPerformed
 

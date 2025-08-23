@@ -4,6 +4,7 @@
  */
 package manila.classico.v2;
 
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,7 +19,26 @@ public class ReservationsPage extends javax.swing.JFrame {
      */
     public ReservationsPage() {
         initComponents();
-        reservationsTable.setModel(ReservationsData.getModel());
+        // Use the shared table model directly, no manual duplication
+        reservationsTable.setModel(ReservationsData.getTableModel());
+    }
+    
+    private void loadReservations() {
+        DefaultTableModel model = (DefaultTableModel) reservationsTable.getModel();
+        model.setRowCount(0); // clear old rows
+
+        for (Reservation r : ReservationsData.getReservations()) {
+            model.addRow(new Object[]{
+                r.getFullName(),
+                r.getContactNumber(),
+                r.getService(),
+                r.getBarber(),
+                r.getDate(),
+                r.getTime(),
+                r.getPaymentMethod(),
+                r.getTotalAmount()
+            });
+        }
     }
     
     /**
@@ -345,13 +365,9 @@ public class ReservationsPage extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            for (javax.swing.UIManager.LookAndFeelInfo info :
+                    javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
@@ -360,9 +376,7 @@ public class ReservationsPage extends javax.swing.JFrame {
         } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new ReservationsPage().setVisible(true));
     }
 

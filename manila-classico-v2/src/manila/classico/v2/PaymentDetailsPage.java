@@ -6,8 +6,8 @@ package manila.classico.v2;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
-import javax.swing.event.DocumentListener;
 import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 
 /**
@@ -21,6 +21,8 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
     /**
      * Creates new form LandingPage
      */
+    
+    private boolean payNowProcessed = false;
     
     public PaymentDetailsPage(String fullName, String contact, String service,
                               String barber, String date, String time,
@@ -83,8 +85,6 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
             String total = totalAmountTextField.getText().trim();
 
             ReservationsData.addReservation(full, cont, serv, bar, d, t, paymentMethod, total);
-
-            JOptionPane.showMessageDialog(this, "Payment successful! Reservation confirmed.");
 
             UserSelectPage userSelectPage = new UserSelectPage();
             userSelectPage.setLocationRelativeTo(null);
@@ -228,6 +228,11 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         payNowButton.setText("Pay Now");
         payNowButton.setBorder(null);
         payNowButton.setOpaque(true);
+        payNowButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                payNowButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -437,6 +442,39 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         userSelectPage.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
+
+    private void payNowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payNowButtonActionPerformed
+        if (payNowProcessed) return;
+        payNowProcessed = true;
+
+        String paymentMethod = cashToggleButton.isSelected() ? "Cash" : "GCash";
+        String full  = customerTextField.getText().trim();
+        String cont  = contactTextField.getText().trim();
+        String serv  = serviceTextField.getText().trim();
+        String bar   = barberTextField.getText().trim();
+        String d     = dateTextField.getText().trim();
+        String t     = timeTextField.getText().trim();
+        String total = totalAmountTextField.getText().trim();
+
+        boolean added = ReservationsData.addReservation(full, cont, serv, bar, d, t, paymentMethod, total);
+
+        // Message only once
+        if (added) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Payment successful! Reservation confirmed.");
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "This reservation was already added. Skipping duplicate.");
+        }
+
+        // Optional: prevent re-press
+        payNowButton.setEnabled(false);
+
+        // Navigate
+        UserSelectPage userSelectPage = new UserSelectPage();
+        userSelectPage.setLocationRelativeTo(null);
+        userSelectPage.setResizable(false);
+        userSelectPage.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_payNowButtonActionPerformed
 
     /**
      * @param args the command line arguments

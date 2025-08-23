@@ -30,7 +30,7 @@ public class UserSelectPage extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        viewQueueStatusButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -50,15 +50,20 @@ public class UserSelectPage extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(253, 253, 254));
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
 
-        jButton1.setBackground(new java.awt.Color(164, 145, 129));
-        jButton1.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("<html><div style=\"text-align: center;\">View Queue Status</div></html>");
-        jButton1.setBorder(null);
-        jButton1.setFocusPainted(false);
-        jButton1.setFocusable(false);
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.setOpaque(true);
+        viewQueueStatusButton.setBackground(new java.awt.Color(164, 145, 129));
+        viewQueueStatusButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        viewQueueStatusButton.setForeground(new java.awt.Color(255, 255, 255));
+        viewQueueStatusButton.setText("<html><div style=\"text-align: center;\">View Queue Status</div></html>");
+        viewQueueStatusButton.setBorder(null);
+        viewQueueStatusButton.setFocusPainted(false);
+        viewQueueStatusButton.setFocusable(false);
+        viewQueueStatusButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        viewQueueStatusButton.setOpaque(true);
+        viewQueueStatusButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewQueueStatusButtonActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(155, 164, 177));
@@ -78,7 +83,7 @@ public class UserSelectPage extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(viewQueueStatusButton)
                 .addGap(19, 19, 19))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(85, Short.MAX_VALUE)
@@ -101,7 +106,7 @@ public class UserSelectPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(viewQueueStatusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
@@ -265,6 +270,14 @@ public class UserSelectPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_makeReservationButtonActionPerformed
 
+    private void viewQueueStatusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewQueueStatusButtonActionPerformed
+        ViewQueuePage viewQueuePage = new ViewQueuePage();
+        viewQueuePage.setLocationRelativeTo(null);
+        viewQueuePage.setResizable(false);
+        viewQueuePage.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_viewQueueStatusButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -292,7 +305,6 @@ public class UserSelectPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -305,5 +317,6 @@ public class UserSelectPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JButton makeReservationButton;
+    private javax.swing.JButton viewQueueStatusButton;
     // End of variables declaration//GEN-END:variables
 }
