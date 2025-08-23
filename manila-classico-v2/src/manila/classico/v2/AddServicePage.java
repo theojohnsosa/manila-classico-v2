@@ -189,7 +189,13 @@ public class AddServicePage extends javax.swing.JFrame {
             Service newService = new Service(name, price);
             ServiceManager.addService(newService);
             JOptionPane.showMessageDialog(this, "Service added successfully.");
-            this.dispose(); // Close AddServicePage
+            
+            ServicesPage servicesPage = new ServicesPage();
+            servicesPage.setLocationRelativeTo(null);
+            servicesPage.setResizable(false);
+            servicesPage.setVisible(true);
+            this.dispose();
+            
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Invalid price input.");
         }
