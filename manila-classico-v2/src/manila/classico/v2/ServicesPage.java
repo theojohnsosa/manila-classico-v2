@@ -16,20 +16,25 @@ public class ServicesPage extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ServicesPage.class.getName());
 
+    private DefaultTableModel tableModel;
     /**
      * Creates new form ReservationPage
      */
     public ServicesPage() {
         initComponents();
-        loadServices(ServicesData.getServices());
+        setupTable();
+        loadServicesToTable(ServiceManager.getServices());
     }
     
-    private void loadServices(List<Service> list) {
-        DefaultTableModel model = (DefaultTableModel) servicesTable.getModel();
-        model.setRowCount(0); // clear old rows
+    private void setupTable() {
+        tableModel = new DefaultTableModel(new Object[]{"Service", "Price"}, 0);
+        servicesTable.setModel(tableModel);
+    }
 
-        for (Service s : list) {
-            model.addRow(new Object[]{ s.getName(), s.getPrice() });
+    private void loadServicesToTable(java.util.List<Service> services) {
+        tableModel.setRowCount(0);
+        for (Service s : services) {
+            tableModel.addRow(new Object[]{s.getName(), s.getPrice()});
         }
     }
     
@@ -415,34 +420,39 @@ public class ServicesPage extends javax.swing.JFrame {
     }//GEN-LAST:event_addServiceButtonActionPerformed
 
     private void deleteServiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteServiceButtonActionPerformed
-        String query = searchTextField.getText().trim();
+        String keyword = searchTextField.getText().trim();
 
-        boolean removed;
-        if (!query.isEmpty()) {
-            removed = ServicesData.removeService(query);
-        } else {
-            removed = ServicesData.removeLastService();
-        }
-
-        if (removed) {
-            JOptionPane.showMessageDialog(this, "Service deleted successfully!");
-            if (!query.isEmpty()) {
-                loadServices(ServicesData.searchServices(query));
+        if (!keyword.isEmpty()) {
+            List<Service> foundServices = ServiceManager.searchServices(keyword);
+            if (!foundServices.isEmpty()) {
+                for (Service s : foundServices) {
+                    ServiceManager.removeService(s);
+                }
+                loadServicesToTable(ServiceManager.getServices());
+                JOptionPane.showMessageDialog(this, foundServices.size() + " service(s) deleted.");
+                return;
             } else {
-                loadServices(ServicesData.getServices());
+                JOptionPane.showMessageDialog(this, "No matching service found.");
+                return;
             }
-        } else {
-            JOptionPane.showMessageDialog(this, "No service found to delete.");
         }
+
+        // Delete last service if no keyword
+        ServiceManager.removeLastService();
+        loadServicesToTable(ServiceManager.getServices());
     }//GEN-LAST:event_deleteServiceButtonActionPerformed
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-        String query = searchTextField.getText().trim();
-        if (query.isEmpty()) {
-            loadServices(ServicesData.getServices());
-        } else {
-            loadServices(ServicesData.searchServices(query));
+        String keyword = searchTextField.getText().trim();
+    if (keyword.isEmpty()) {
+        loadServicesToTable(ServiceManager.getServices());
+    } else {
+        java.util.List<Service> foundServices = ServiceManager.searchServices(keyword);
+        if (foundServices.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No services found.");
         }
+        loadServicesToTable(foundServices);
+    }
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void reservationsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationsButtonActionPerformed
@@ -453,6 +463,10 @@ public class ServicesPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_reservationsButtonActionPerformed
 
+    public void refreshTable() {
+        loadServicesToTable(ServiceManager.getServices());
+    }
+    
     /**
      * @param args the command line arguments
      */

@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 public class AddServicePage extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AddServicePage.class.getName());
-
+    
     /**
      * Creates new form LandingPage
      */
@@ -179,19 +179,19 @@ public class AddServicePage extends javax.swing.JFrame {
         String name = serviceNameTextField.getText().trim();
         String priceText = servicePriceTextField.getText().trim();
 
-        if (!name.isEmpty() && !priceText.isEmpty()) {
-            try {
-                double price = Double.parseDouble(priceText);
-                boolean added = ServicesData.addService(name, price);
-                if (added) {
-                    JOptionPane.showMessageDialog(this, "Service added successfully!");
-                    this.dispose(); // close AddServicePage
-                }
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(this, "Invalid price. Enter numbers only.");
-            }
-        } else {
-            JOptionPane.showMessageDialog(this, "Please fill in all fields.");
+        if (name.isEmpty() || priceText.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please fill all fields.");
+            return;
+        }
+
+        try {
+            double price = Double.parseDouble(priceText);
+            Service newService = new Service(name, price);
+            ServiceManager.addService(newService);
+            JOptionPane.showMessageDialog(this, "Service added successfully.");
+            this.dispose(); // Close AddServicePage
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Invalid price input.");
         }
     }//GEN-LAST:event_addNewServiceButtonActionPerformed
 
