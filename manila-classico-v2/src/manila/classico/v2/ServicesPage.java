@@ -4,40 +4,32 @@
  */
 package manila.classico.v2;
 
+import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author theojohnsosa
  */
-public class ReservationsPage extends javax.swing.JFrame {
+public class ServicesPage extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ReservationsPage.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ServicesPage.class.getName());
 
     /**
      * Creates new form ReservationPage
      */
-    public ReservationsPage() {
+    public ServicesPage() {
         initComponents();
-        // Use the shared table model directly, no manual duplication
-        reservationsTable.setModel(ReservationsData.getTableModel());
+        loadServices(ServicesData.getServices());
     }
     
-    private void loadReservations() {
-        DefaultTableModel model = (DefaultTableModel) reservationsTable.getModel();
+    private void loadServices(List<Service> list) {
+        DefaultTableModel model = (DefaultTableModel) servicesTable.getModel();
         model.setRowCount(0); // clear old rows
 
-        for (Reservation r : ReservationsData.getReservations()) {
-            model.addRow(new Object[]{
-                r.getFullName(),
-                r.getContactNumber(),
-                r.getService(),
-                r.getBarber(),
-                r.getDate(),
-                r.getTime(),
-                r.getPaymentMethod(),
-                r.getTotalAmount()
-            });
+        for (Service s : list) {
+            model.addRow(new Object[]{ s.getName(), s.getPrice() });
         }
     }
     
@@ -58,8 +50,8 @@ public class ReservationsPage extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         signOutButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        servicesButton = new javax.swing.JButton();
+        reservationsButton = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
@@ -69,8 +61,10 @@ public class ReservationsPage extends javax.swing.JFrame {
         searchTextField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        reservationsTable = new javax.swing.JTable();
+        servicesTable = new javax.swing.JTable();
         searchButton = new javax.swing.JButton();
+        addServiceButton = new javax.swing.JButton();
+        deleteServiceButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -159,30 +153,30 @@ public class ReservationsPage extends javax.swing.JFrame {
         jButton1.setFocusable(false);
         jButton1.setOpaque(true);
 
-        jButton2.setBackground(new java.awt.Color(164, 145, 129));
-        jButton2.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-calendar-100.png"))); // NOI18N
-        jButton2.setText("Reservations");
-        jButton2.setBorder(null);
-        jButton2.setFocusPainted(false);
-        jButton2.setFocusable(false);
-        jButton2.setOpaque(true);
-
-        servicesButton.setBackground(new java.awt.Color(253, 253, 254));
-        servicesButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        servicesButton.setForeground(new java.awt.Color(154, 164, 177));
-        servicesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-dashboard-100 (1).png"))); // NOI18N
-        servicesButton.setText("Services");
-        servicesButton.setBorder(null);
-        servicesButton.setFocusPainted(false);
-        servicesButton.setFocusable(false);
-        servicesButton.setOpaque(true);
-        servicesButton.addActionListener(new java.awt.event.ActionListener() {
+        reservationsButton.setBackground(new java.awt.Color(253, 253, 254));
+        reservationsButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        reservationsButton.setForeground(new java.awt.Color(154, 164, 177));
+        reservationsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-calendar-100-2.png"))); // NOI18N
+        reservationsButton.setText("Reservations");
+        reservationsButton.setBorder(null);
+        reservationsButton.setFocusPainted(false);
+        reservationsButton.setFocusable(false);
+        reservationsButton.setOpaque(true);
+        reservationsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                servicesButtonActionPerformed(evt);
+                reservationsButtonActionPerformed(evt);
             }
         });
+
+        jButton3.setBackground(new java.awt.Color(164, 145, 129));
+        jButton3.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-scissors-100.png"))); // NOI18N
+        jButton3.setText("Services");
+        jButton3.setBorder(null);
+        jButton3.setFocusPainted(false);
+        jButton3.setFocusable(false);
+        jButton3.setOpaque(true);
 
         jButton4.setBackground(new java.awt.Color(253, 253, 254));
         jButton4.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
@@ -234,8 +228,8 @@ public class ReservationsPage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(servicesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(reservationsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -249,9 +243,9 @@ public class ReservationsPage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(reservationsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(servicesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -266,11 +260,11 @@ public class ReservationsPage extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 40)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(114, 74, 49));
-        jLabel3.setText("Reservations");
+        jLabel3.setText("Services");
 
         jLabel4.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(154, 164, 177));
-        jLabel4.setText("Manage customer appointments and bookings");
+        jLabel4.setText("Manage barbershop services and pricing");
 
         searchTextField.setBackground(new java.awt.Color(253, 253, 254));
         searchTextField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
@@ -280,23 +274,23 @@ public class ReservationsPage extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("SF Pro Display", 1, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Upcoming Reservations");
+        jLabel5.setText("Available Services");
 
-        reservationsTable.setBackground(new java.awt.Color(253, 253, 254));
-        reservationsTable.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
-        reservationsTable.setForeground(new java.awt.Color(0, 0, 0));
-        reservationsTable.setModel(new javax.swing.table.DefaultTableModel(
+        servicesTable.setBackground(new java.awt.Color(253, 253, 254));
+        servicesTable.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        servicesTable.setForeground(new java.awt.Color(0, 0, 0));
+        servicesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Full Name", "Contact", "Service", "Barber", "Date", "Time", "Payment Method", "Total"
+                "Service", "Price"
             }
         ));
-        jScrollPane1.setViewportView(reservationsTable);
+        jScrollPane1.setViewportView(servicesTable);
 
         searchButton.setBackground(new java.awt.Color(164, 145, 129));
         searchButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
@@ -312,6 +306,36 @@ public class ReservationsPage extends javax.swing.JFrame {
             }
         });
 
+        addServiceButton.setBackground(new java.awt.Color(164, 145, 129));
+        addServiceButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        addServiceButton.setForeground(new java.awt.Color(255, 255, 255));
+        addServiceButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-plus-100 7.png"))); // NOI18N
+        addServiceButton.setText("Add Service");
+        addServiceButton.setBorder(null);
+        addServiceButton.setFocusPainted(false);
+        addServiceButton.setFocusable(false);
+        addServiceButton.setOpaque(true);
+        addServiceButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addServiceButtonActionPerformed(evt);
+            }
+        });
+
+        deleteServiceButton.setBackground(new java.awt.Color(164, 145, 129));
+        deleteServiceButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        deleteServiceButton.setForeground(new java.awt.Color(255, 255, 255));
+        deleteServiceButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-trash-18.png"))); // NOI18N
+        deleteServiceButton.setText("Delete Service");
+        deleteServiceButton.setBorder(null);
+        deleteServiceButton.setFocusPainted(false);
+        deleteServiceButton.setFocusable(false);
+        deleteServiceButton.setOpaque(true);
+        deleteServiceButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteServiceButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -320,14 +344,20 @@ public class ReservationsPage extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
                     .addComponent(jLabel5)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(addServiceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(deleteServiceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 18, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -335,9 +365,14 @@ public class ReservationsPage extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(deleteServiceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addServiceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -371,66 +406,87 @@ public class ReservationsPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_signOutButtonActionPerformed
 
-    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-        String query = searchTextField.getText().trim().toLowerCase();
-        DefaultTableModel model = (DefaultTableModel) reservationsTable.getModel();
-        model.setRowCount(0); // Clear old rows
+    private void addServiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addServiceButtonActionPerformed
+        AddServicePage addServicePage = new AddServicePage();
+        addServicePage.setLocationRelativeTo(null);
+        addServicePage.setResizable(false);
+        addServicePage.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_addServiceButtonActionPerformed
 
-        for (Reservation r : ReservationsData.getReservations()) {
-            // Check if query matches ANY field
-            if (r.getFullName().toLowerCase().contains(query) ||
-                r.getContactNumber().toLowerCase().contains(query) ||
-                r.getService().toLowerCase().contains(query) ||
-                r.getBarber().toLowerCase().contains(query) ||
-                r.getDate().toLowerCase().contains(query) ||
-                r.getTime().toLowerCase().contains(query) ||
-                r.getPaymentMethod().toLowerCase().contains(query) ||
-                r.getTotalAmount().toLowerCase().contains(query)) {
+    private void deleteServiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteServiceButtonActionPerformed
+        String query = searchTextField.getText().trim();
 
-                model.addRow(new Object[]{
-                    r.getFullName(),
-                    r.getContactNumber(),
-                    r.getService(),
-                    r.getBarber(),
-                    r.getDate(),
-                    r.getTime(),
-                    r.getPaymentMethod(),
-                    r.getTotalAmount()
-                });
+        boolean removed;
+        if (!query.isEmpty()) {
+            removed = ServicesData.removeService(query);
+        } else {
+            removed = ServicesData.removeLastService();
+        }
+
+        if (removed) {
+            JOptionPane.showMessageDialog(this, "Service deleted successfully!");
+            if (!query.isEmpty()) {
+                loadServices(ServicesData.searchServices(query));
+            } else {
+                loadServices(ServicesData.getServices());
             }
+        } else {
+            JOptionPane.showMessageDialog(this, "No service found to delete.");
+        }
+    }//GEN-LAST:event_deleteServiceButtonActionPerformed
+
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        String query = searchTextField.getText().trim();
+        if (query.isEmpty()) {
+            loadServices(ServicesData.getServices());
+        } else {
+            loadServices(ServicesData.searchServices(query));
         }
     }//GEN-LAST:event_searchButtonActionPerformed
 
-    private void servicesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_servicesButtonActionPerformed
-        ServicesPage servicesPage = new ServicesPage();
-        servicesPage.setLocationRelativeTo(null);
-        servicesPage.setResizable(false);
-        servicesPage.setVisible(true);
+    private void reservationsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationsButtonActionPerformed
+        ReservationsPage reservationsPage = new ReservationsPage();
+        reservationsPage.setLocationRelativeTo(null);
+        reservationsPage.setResizable(false);
+        reservationsPage.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_servicesButtonActionPerformed
+    }//GEN-LAST:event_reservationsButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info :
-                    javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
-        java.awt.EventQueue.invokeLater(() -> new ReservationsPage().setVisible(true));
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ServicesPage().setVisible(true);
+            }
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addServiceButton;
+    private javax.swing.JButton deleteServiceButton;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -445,10 +501,10 @@ public class ReservationsPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable reservationsTable;
+    private javax.swing.JButton reservationsButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchTextField;
-    private javax.swing.JButton servicesButton;
+    private javax.swing.JTable servicesTable;
     private javax.swing.JButton signOutButton;
     // End of variables declaration//GEN-END:variables
 }
