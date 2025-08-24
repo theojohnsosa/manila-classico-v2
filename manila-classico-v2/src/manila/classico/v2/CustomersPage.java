@@ -4,41 +4,45 @@
  */
 package manila.classico.v2;
 
-import java.text.SimpleDateFormat;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author theojohnsosa
  */
-public class ProfilesPage extends javax.swing.JFrame {
+public class CustomersPage extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ProfilesPage.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CustomersPage.class.getName());
     /**
      * Creates new form ReservationPage
      */
-    public ProfilesPage() {
+    public CustomersPage() {
         initComponents();
-        refreshBarberTable();
+        initCustom();
     }
     
-    public void refreshBarberTable() {
-        loadBarbersToTable(BarberManager.getBarbers());
-    }
-    
-    private void loadBarbersToTable(List<Barber> barberList) {
-        DefaultTableModel model = (DefaultTableModel) barbersTable.getModel();
-        model.setRowCount(0);
-        for (Barber b : barberList) {
-            model.addRow(new Object[] {
-                b.getName(),
-                b.getContact(),
-                b.getEmail(),
-                new java.text.SimpleDateFormat("yyyy-MM-dd").format(b.getDateJoined())
-            });
+    private void initCustom() {
+        if (customersTable.getModel().getColumnCount() != 3) {
+            customersTable.setModel(new javax.swing.table.DefaultTableModel(
+                new Object[]{"Name", "Contact", "Reference Number"}, 0
+            ));
         }
+        refreshCustomersTable();
+    }
+
+    private void loadCustomersToTable(List<Customer> list) {
+        DefaultTableModel model = (DefaultTableModel) customersTable.getModel();
+        model.setRowCount(0); // clear table first
+
+        for (Customer c : list) {
+            model.addRow(new Object[]{ c.getName(), c.getContact(), c.getReference() });
+        }
+    }
+    
+    public void refreshCustomersTable() {
+        List<Customer> customers = CustomerManager.getCustomers();
+        loadCustomersToTable(customers);
     }
     
     /**
@@ -69,10 +73,8 @@ public class ProfilesPage extends javax.swing.JFrame {
         searchTextField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        barbersTable = new javax.swing.JTable();
+        customersTable = new javax.swing.JTable();
         searchButton = new javax.swing.JButton();
-        addBarberButton = new javax.swing.JButton();
-        deleteBarberButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -179,7 +181,7 @@ public class ProfilesPage extends javax.swing.JFrame {
         servicesPage.setBackground(new java.awt.Color(253, 253, 254));
         servicesPage.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         servicesPage.setForeground(new java.awt.Color(154, 164, 177));
-        servicesPage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-customer-100-2.png"))); // NOI18N
+        servicesPage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-scissors-100-1.png"))); // NOI18N
         servicesPage.setText("Services");
         servicesPage.setBorder(null);
         servicesPage.setFocusPainted(false);
@@ -201,30 +203,30 @@ public class ProfilesPage extends javax.swing.JFrame {
         jButton4.setFocusable(false);
         jButton4.setOpaque(true);
 
-        customersButton.setBackground(new java.awt.Color(253, 253, 254));
+        customersButton.setBackground(new java.awt.Color(164, 145, 129));
         customersButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        customersButton.setForeground(new java.awt.Color(154, 164, 177));
-        customersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-people-10002.png"))); // NOI18N
+        customersButton.setForeground(new java.awt.Color(255, 255, 255));
+        customersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-people-100.png"))); // NOI18N
         customersButton.setText("Customers");
         customersButton.setBorder(null);
         customersButton.setFocusPainted(false);
         customersButton.setFocusable(false);
         customersButton.setOpaque(true);
-        customersButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                customersButtonActionPerformed(evt);
-            }
-        });
 
-        profilesPage.setBackground(new java.awt.Color(164, 145, 129));
+        profilesPage.setBackground(new java.awt.Color(253, 253, 254));
         profilesPage.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        profilesPage.setForeground(new java.awt.Color(255, 255, 255));
-        profilesPage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-customer-100.png"))); // NOI18N
+        profilesPage.setForeground(new java.awt.Color(155, 164, 177));
+        profilesPage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-customer-100-2.png"))); // NOI18N
         profilesPage.setText("Profiles");
         profilesPage.setBorder(null);
         profilesPage.setFocusPainted(false);
         profilesPage.setFocusable(false);
         profilesPage.setOpaque(true);
+        profilesPage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                profilesPageActionPerformed(evt);
+            }
+        });
 
         jButton7.setBackground(new java.awt.Color(253, 253, 254));
         jButton7.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
@@ -278,11 +280,11 @@ public class ProfilesPage extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 40)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(114, 74, 49));
-        jLabel3.setText("Profiles");
+        jLabel3.setText("Customers");
 
         jLabel4.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(154, 164, 177));
-        jLabel4.setText("Manage barber profiles and staff information");
+        jLabel4.setText("Manage customer information and history");
 
         searchTextField.setBackground(new java.awt.Color(253, 253, 254));
         searchTextField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
@@ -292,23 +294,23 @@ public class ProfilesPage extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("SF Pro Display", 1, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("List of Staff");
+        jLabel5.setText("List of Customers");
 
-        barbersTable.setBackground(new java.awt.Color(253, 253, 254));
-        barbersTable.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
-        barbersTable.setForeground(new java.awt.Color(0, 0, 0));
-        barbersTable.setModel(new javax.swing.table.DefaultTableModel(
+        customersTable.setBackground(new java.awt.Color(253, 253, 254));
+        customersTable.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        customersTable.setForeground(new java.awt.Color(0, 0, 0));
+        customersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Name", "Contact", "Email", "Date Joined"
+                "Name", "Contact", "Reference Number"
             }
         ));
-        jScrollPane1.setViewportView(barbersTable);
+        jScrollPane1.setViewportView(customersTable);
 
         searchButton.setBackground(new java.awt.Color(164, 145, 129));
         searchButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
@@ -321,36 +323,6 @@ public class ProfilesPage extends javax.swing.JFrame {
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchButtonActionPerformed(evt);
-            }
-        });
-
-        addBarberButton.setBackground(new java.awt.Color(164, 145, 129));
-        addBarberButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        addBarberButton.setForeground(new java.awt.Color(255, 255, 255));
-        addBarberButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-plus-100 7.png"))); // NOI18N
-        addBarberButton.setText("Add Barber");
-        addBarberButton.setBorder(null);
-        addBarberButton.setFocusPainted(false);
-        addBarberButton.setFocusable(false);
-        addBarberButton.setOpaque(true);
-        addBarberButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addBarberButtonActionPerformed(evt);
-            }
-        });
-
-        deleteBarberButton.setBackground(new java.awt.Color(164, 145, 129));
-        deleteBarberButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        deleteBarberButton.setForeground(new java.awt.Color(255, 255, 255));
-        deleteBarberButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-trash-18.png"))); // NOI18N
-        deleteBarberButton.setText("Delete Barber");
-        deleteBarberButton.setBorder(null);
-        deleteBarberButton.setFocusPainted(false);
-        deleteBarberButton.setFocusable(false);
-        deleteBarberButton.setOpaque(true);
-        deleteBarberButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteBarberButtonActionPerformed(evt);
             }
         });
 
@@ -368,14 +340,9 @@ public class ProfilesPage extends javax.swing.JFrame {
                         .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(addBarberButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(deleteBarberButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel4)
+                        .addComponent(jLabel3)))
                 .addGap(0, 18, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -383,14 +350,9 @@ public class ProfilesPage extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(deleteBarberButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(addBarberButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -424,40 +386,10 @@ public class ProfilesPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_signOutButtonActionPerformed
 
-    private void addBarberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBarberButtonActionPerformed
-        AddBarberPage addBarberPage = new AddBarberPage();
-        addBarberPage.setLocationRelativeTo(null);
-        addBarberPage.setResizable(false);
-        addBarberPage.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_addBarberButtonActionPerformed
-
-    private void deleteBarberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBarberButtonActionPerformed
-        String keyword = searchTextField.getText().trim();
-
-        if (!keyword.isEmpty()) {
-            List<Barber> found = BarberManager.searchBarbers(keyword);
-            if (!found.isEmpty()) {
-                for (Barber b : found) {
-                    BarberManager.removeBarber(b);
-                }
-                refreshBarberTable(); // updated
-                JOptionPane.showMessageDialog(this, found.size() + " barber(s) deleted.");
-                return;
-            } else {
-                JOptionPane.showMessageDialog(this, "No matching barber found.");
-                return;
-            }
-        }
-
-        BarberManager.removeLastBarber();
-        refreshBarberTable(); // updated
-    }//GEN-LAST:event_deleteBarberButtonActionPerformed
-
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
         String keyword = searchTextField.getText().trim();
-        List<Barber> found = BarberManager.searchBarbers(keyword);
-        loadBarbersToTable(found);
+        List<Customer> results = CustomerManager.searchCustomers(keyword);
+        loadCustomersToTable(results);
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void reservationsPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationsPageActionPerformed
@@ -476,13 +408,13 @@ public class ProfilesPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_servicesPageActionPerformed
 
-    private void customersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customersButtonActionPerformed
-        CustomersPage customersPage = new CustomersPage();
-        customersPage.setLocationRelativeTo(null);
-        customersPage.setResizable(false);
-        customersPage.setVisible(true);
+    private void profilesPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profilesPageActionPerformed
+        ProfilesPage profilesPage = new ProfilesPage();
+        profilesPage.setLocationRelativeTo(null);
+        profilesPage.setResizable(false);
+        profilesPage.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_customersButtonActionPerformed
+    }//GEN-LAST:event_profilesPageActionPerformed
     
     /**
      * @param args the command line arguments
@@ -508,16 +440,14 @@ public class ProfilesPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ProfilesPage().setVisible(true);
+                new CustomersPage().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addBarberButton;
-    private javax.swing.JTable barbersTable;
     private javax.swing.JButton customersButton;
-    private javax.swing.JButton deleteBarberButton;
+    private javax.swing.JTable customersTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton7;

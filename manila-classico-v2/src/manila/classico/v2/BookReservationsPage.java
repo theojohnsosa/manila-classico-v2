@@ -34,6 +34,16 @@ public class BookReservationsPage extends javax.swing.JFrame {
             barberComboBox.addItem(b.getName());
         }
     }
+    
+    private String generateUniqueRef() {
+        java.util.Random rnd = new java.util.Random();
+        String ref;
+        do {
+            int n = 100000 + rnd.nextInt(900000); // 6-digit number 100000-999999
+            ref = String.valueOf(n);
+        } while (CustomerManager.referenceExists(ref));
+        return ref;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -278,27 +288,38 @@ public class BookReservationsPage extends javax.swing.JFrame {
         String barber = (String) barberComboBox.getSelectedItem();
         java.util.Date chosenDate = dateDateChooser.getDate();
         String time = (String) timeComboBox.getSelectedItem();
-        
+
         if (fullName.isEmpty() || contact.isEmpty() || chosenDate == null || time == null) {
             javax.swing.JOptionPane.showMessageDialog(this, "Please complete all fields.");
             return;
         }
-        
+
         String serviceName = serviceItem;
         String pesoString = null;
         int idx = serviceItem.indexOf("–");
         if (idx > -1) {
             serviceName = serviceItem.substring(0, idx).trim();
             String right = serviceItem.substring(idx + 1).trim(); // e.g., "₱150"
-            pesoString = right; // keep as is (already with peso)
+            pesoString = right;
         }
-        
+
         java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
         String date = sdf.format(chosenDate);
-        
+
         String price = (pesoString != null) ? pesoString : "₱0";
         String totalAmount = price;
 
+        // 🔹 Generate unique reference number
+        String ref = generateUniqueRef();
+
+        // 🔹 Create and register new customer
+        Customer customer = new Customer(fullName, contact, ref);
+        CustomerManager.addCustomer(customer);
+
+        // 🔹 Inform user
+        javax.swing.JOptionPane.showMessageDialog(this, "Reservation confirmed! Reference No: " + ref);
+
+        // 🔹 Continue existing flow → PaymentDetailsPage
         PaymentDetailsPage paymentDetails = new PaymentDetailsPage(
             fullName, contact, serviceName, barber, date, time, price, totalAmount
         );

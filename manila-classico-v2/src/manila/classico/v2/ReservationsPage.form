@@ -110,7 +110,7 @@
                           <Component id="jButton2" max="32767" attributes="0"/>
                           <Component id="servicesButton" max="32767" attributes="0"/>
                           <Component id="jButton4" max="32767" attributes="0"/>
-                          <Component id="jButton5" max="32767" attributes="0"/>
+                          <Component id="customersButton" max="32767" attributes="0"/>
                           <Component id="profilesButton" alignment="0" max="32767" attributes="0"/>
                           <Component id="jButton7" max="32767" attributes="0"/>
                       </Group>
@@ -131,7 +131,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="profilesButton" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton5" min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="customersButton" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButton4" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -370,7 +370,7 @@
                 <Property name="opaque" type="boolean" value="true"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton5">
+            <Component class="javax.swing.JButton" name="customersButton">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="fe" green="fd" red="fd" type="rgb"/>
@@ -382,7 +382,7 @@
                   <Color blue="b1" green="a4" red="9a" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/images/icons8-dashboard-100 (1).png"/>
+                  <Image iconType="3" name="/images/icons8-people-10002.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Customers"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -392,6 +392,9 @@
                 <Property name="focusable" type="boolean" value="false"/>
                 <Property name="opaque" type="boolean" value="true"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="customersButtonActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="profilesButton">
               <Properties>

@@ -58,7 +58,7 @@ public class ServicesPage extends javax.swing.JFrame {
         reservationsButton = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        customersButton = new javax.swing.JButton();
         profilesPage = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -193,15 +193,20 @@ public class ServicesPage extends javax.swing.JFrame {
         jButton4.setFocusable(false);
         jButton4.setOpaque(true);
 
-        jButton5.setBackground(new java.awt.Color(253, 253, 254));
-        jButton5.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(154, 164, 177));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-dashboard-100 (1).png"))); // NOI18N
-        jButton5.setText("Customers");
-        jButton5.setBorder(null);
-        jButton5.setFocusPainted(false);
-        jButton5.setFocusable(false);
-        jButton5.setOpaque(true);
+        customersButton.setBackground(new java.awt.Color(253, 253, 254));
+        customersButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        customersButton.setForeground(new java.awt.Color(154, 164, 177));
+        customersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-people-10002.png"))); // NOI18N
+        customersButton.setText("Customers");
+        customersButton.setBorder(null);
+        customersButton.setFocusPainted(false);
+        customersButton.setFocusable(false);
+        customersButton.setOpaque(true);
+        customersButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customersButtonActionPerformed(evt);
+            }
+        });
 
         profilesPage.setBackground(new java.awt.Color(253, 253, 254));
         profilesPage.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
@@ -241,7 +246,7 @@ public class ServicesPage extends javax.swing.JFrame {
                     .addComponent(reservationsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(customersButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(profilesPage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -259,7 +264,7 @@ public class ServicesPage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(profilesPage, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(customersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -476,6 +481,14 @@ public class ServicesPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_profilesPageActionPerformed
 
+    private void customersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customersButtonActionPerformed
+        CustomersPage customersPage = new CustomersPage();
+        customersPage.setLocationRelativeTo(null);
+        customersPage.setResizable(false);
+        customersPage.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_customersButtonActionPerformed
+
     public void refreshTable() {
         loadServicesToTable(ServiceManager.getServices());
     }
@@ -511,11 +524,11 @@ public class ServicesPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addServiceButton;
+    private javax.swing.JButton customersButton;
     private javax.swing.JButton deleteServiceButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
