@@ -185,6 +185,11 @@ public class ProfilesPage extends javax.swing.JFrame {
         servicesPage.setFocusPainted(false);
         servicesPage.setFocusable(false);
         servicesPage.setOpaque(true);
+        servicesPage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                servicesPageActionPerformed(evt);
+            }
+        });
 
         jButton4.setBackground(new java.awt.Color(253, 253, 254));
         jButton4.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
@@ -457,6 +462,14 @@ public class ProfilesPage extends javax.swing.JFrame {
         reservationsPage.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_reservationsPageActionPerformed
+
+    private void servicesPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_servicesPageActionPerformed
+        ServicesPage servicesPage = new ServicesPage();
+        servicesPage.setLocationRelativeTo(null);
+        servicesPage.setResizable(false);
+        servicesPage.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_servicesPageActionPerformed
     
     /**
      * @param args the command line arguments

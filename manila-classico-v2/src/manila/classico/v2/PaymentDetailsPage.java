@@ -460,9 +460,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
 
         // Message only once
         if (added) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Payment successful! Reservation confirmed.");
-        } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "This reservation was already added. Skipping duplicate.");
+            JOptionPane.showMessageDialog(this, "Payment successful! Reservation confirmed.");
         }
 
         // Optional: prevent re-press
