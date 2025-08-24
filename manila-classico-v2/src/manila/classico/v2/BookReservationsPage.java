@@ -18,12 +18,20 @@ public class BookReservationsPage extends javax.swing.JFrame {
     public BookReservationsPage() {
         initComponents();
         loadServicesIntoComboBox(); // populate combo box dynamically
+        loadBarbersIntoComboBox();
     }
     
     private void loadServicesIntoComboBox() {
         serviceComboBox.removeAllItems(); // clear old items
         for (Service s : ServiceManager.getServices()) {
             serviceComboBox.addItem(s.getName() + " – ₱" + s.getPrice());
+        }
+    }
+    
+    public void loadBarbersIntoComboBox() {
+        barberComboBox.removeAllItems();
+        for (Barber b : BarberManager.getBarbers()) {
+            barberComboBox.addItem(b.getName());
         }
     }
 

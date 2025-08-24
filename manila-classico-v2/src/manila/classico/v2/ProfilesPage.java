@@ -4,39 +4,39 @@
  */
 package manila.classico.v2;
 
+import java.text.SimpleDateFormat;
+import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author theojohnsosa
  */
-public class ReservationsPage extends javax.swing.JFrame {
+public class ProfilesPage extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ReservationsPage.class.getName());
-
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ProfilesPage.class.getName());
     /**
      * Creates new form ReservationPage
      */
-    public ReservationsPage() {
+    public ProfilesPage() {
         initComponents();
-        // Use the shared table model directly, no manual duplication
-        reservationsTable.setModel(ReservationsData.getTableModel());
+        refreshBarberTable();
     }
     
-    private void loadReservations() {
-        DefaultTableModel model = (DefaultTableModel) reservationsTable.getModel();
-        model.setRowCount(0); // clear old rows
-
-        for (Reservation r : ReservationsData.getReservations()) {
-            model.addRow(new Object[]{
-                r.getFullName(),
-                r.getContactNumber(),
-                r.getService(),
-                r.getBarber(),
-                r.getDate(),
-                r.getTime(),
-                r.getPaymentMethod(),
-                r.getTotalAmount()
+    public void refreshBarberTable() {
+        loadBarbersToTable(BarberManager.getBarbers());
+    }
+    
+    private void loadBarbersToTable(List<Barber> barberList) {
+        DefaultTableModel model = (DefaultTableModel) barbersTable.getModel();
+        model.setRowCount(0);
+        for (Barber b : barberList) {
+            model.addRow(new Object[] {
+                b.getName(),
+                b.getContact(),
+                b.getEmail(),
+                new java.text.SimpleDateFormat("yyyy-MM-dd").format(b.getDateJoined())
             });
         }
     }
@@ -58,19 +58,21 @@ public class ReservationsPage extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         signOutButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        servicesButton = new javax.swing.JButton();
+        reservationsPage = new javax.swing.JButton();
+        servicesPage = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        profilesButton = new javax.swing.JButton();
+        profilesPage = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         searchTextField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        reservationsTable = new javax.swing.JTable();
+        barbersTable = new javax.swing.JTable();
         searchButton = new javax.swing.JButton();
+        addBarberButton = new javax.swing.JButton();
+        deleteBarberButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -159,30 +161,30 @@ public class ReservationsPage extends javax.swing.JFrame {
         jButton1.setFocusable(false);
         jButton1.setOpaque(true);
 
-        jButton2.setBackground(new java.awt.Color(164, 145, 129));
-        jButton2.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-calendar-100.png"))); // NOI18N
-        jButton2.setText("Reservations");
-        jButton2.setBorder(null);
-        jButton2.setFocusPainted(false);
-        jButton2.setFocusable(false);
-        jButton2.setOpaque(true);
-
-        servicesButton.setBackground(new java.awt.Color(253, 253, 254));
-        servicesButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        servicesButton.setForeground(new java.awt.Color(154, 164, 177));
-        servicesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-scissors-100-1.png"))); // NOI18N
-        servicesButton.setText("Services");
-        servicesButton.setBorder(null);
-        servicesButton.setFocusPainted(false);
-        servicesButton.setFocusable(false);
-        servicesButton.setOpaque(true);
-        servicesButton.addActionListener(new java.awt.event.ActionListener() {
+        reservationsPage.setBackground(new java.awt.Color(253, 253, 254));
+        reservationsPage.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        reservationsPage.setForeground(new java.awt.Color(154, 164, 177));
+        reservationsPage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-calendar-100-2.png"))); // NOI18N
+        reservationsPage.setText("Reservations");
+        reservationsPage.setBorder(null);
+        reservationsPage.setFocusPainted(false);
+        reservationsPage.setFocusable(false);
+        reservationsPage.setOpaque(true);
+        reservationsPage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                servicesButtonActionPerformed(evt);
+                reservationsPageActionPerformed(evt);
             }
         });
+
+        servicesPage.setBackground(new java.awt.Color(253, 253, 254));
+        servicesPage.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        servicesPage.setForeground(new java.awt.Color(154, 164, 177));
+        servicesPage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-customer-100-2.png"))); // NOI18N
+        servicesPage.setText("Services");
+        servicesPage.setBorder(null);
+        servicesPage.setFocusPainted(false);
+        servicesPage.setFocusable(false);
+        servicesPage.setOpaque(true);
 
         jButton4.setBackground(new java.awt.Color(253, 253, 254));
         jButton4.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
@@ -204,20 +206,15 @@ public class ReservationsPage extends javax.swing.JFrame {
         jButton5.setFocusable(false);
         jButton5.setOpaque(true);
 
-        profilesButton.setBackground(new java.awt.Color(253, 253, 254));
-        profilesButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        profilesButton.setForeground(new java.awt.Color(154, 164, 177));
-        profilesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-customer-100-2.png"))); // NOI18N
-        profilesButton.setText("Profiles");
-        profilesButton.setBorder(null);
-        profilesButton.setFocusPainted(false);
-        profilesButton.setFocusable(false);
-        profilesButton.setOpaque(true);
-        profilesButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                profilesButtonActionPerformed(evt);
-            }
-        });
+        profilesPage.setBackground(new java.awt.Color(164, 145, 129));
+        profilesPage.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        profilesPage.setForeground(new java.awt.Color(255, 255, 255));
+        profilesPage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-customer-100.png"))); // NOI18N
+        profilesPage.setText("Profiles");
+        profilesPage.setBorder(null);
+        profilesPage.setFocusPainted(false);
+        profilesPage.setFocusable(false);
+        profilesPage.setOpaque(true);
 
         jButton7.setBackground(new java.awt.Color(253, 253, 254));
         jButton7.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
@@ -239,11 +236,11 @@ public class ReservationsPage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(servicesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(reservationsPage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(servicesPage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(profilesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(profilesPage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -254,11 +251,11 @@ public class ReservationsPage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(reservationsPage, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(servicesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(servicesPage, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(profilesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(profilesPage, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -271,11 +268,11 @@ public class ReservationsPage extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 40)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(114, 74, 49));
-        jLabel3.setText("Reservations");
+        jLabel3.setText("Profiles");
 
         jLabel4.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(154, 164, 177));
-        jLabel4.setText("Manage customer appointments and bookings");
+        jLabel4.setText("Manage barber profiles and staff information");
 
         searchTextField.setBackground(new java.awt.Color(253, 253, 254));
         searchTextField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
@@ -285,23 +282,23 @@ public class ReservationsPage extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("SF Pro Display", 1, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Upcoming Reservations");
+        jLabel5.setText("List of Staff");
 
-        reservationsTable.setBackground(new java.awt.Color(253, 253, 254));
-        reservationsTable.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
-        reservationsTable.setForeground(new java.awt.Color(0, 0, 0));
-        reservationsTable.setModel(new javax.swing.table.DefaultTableModel(
+        barbersTable.setBackground(new java.awt.Color(253, 253, 254));
+        barbersTable.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        barbersTable.setForeground(new java.awt.Color(0, 0, 0));
+        barbersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Full Name", "Contact", "Service", "Barber", "Date", "Time", "Payment Method", "Total"
+                "Name", "Contact", "Email", "Date Joined"
             }
         ));
-        jScrollPane1.setViewportView(reservationsTable);
+        jScrollPane1.setViewportView(barbersTable);
 
         searchButton.setBackground(new java.awt.Color(164, 145, 129));
         searchButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
@@ -317,6 +314,36 @@ public class ReservationsPage extends javax.swing.JFrame {
             }
         });
 
+        addBarberButton.setBackground(new java.awt.Color(164, 145, 129));
+        addBarberButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        addBarberButton.setForeground(new java.awt.Color(255, 255, 255));
+        addBarberButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-plus-100 7.png"))); // NOI18N
+        addBarberButton.setText("Add Barber");
+        addBarberButton.setBorder(null);
+        addBarberButton.setFocusPainted(false);
+        addBarberButton.setFocusable(false);
+        addBarberButton.setOpaque(true);
+        addBarberButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addBarberButtonActionPerformed(evt);
+            }
+        });
+
+        deleteBarberButton.setBackground(new java.awt.Color(164, 145, 129));
+        deleteBarberButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        deleteBarberButton.setForeground(new java.awt.Color(255, 255, 255));
+        deleteBarberButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-trash-18.png"))); // NOI18N
+        deleteBarberButton.setText("Delete Barber");
+        deleteBarberButton.setBorder(null);
+        deleteBarberButton.setFocusPainted(false);
+        deleteBarberButton.setFocusable(false);
+        deleteBarberButton.setOpaque(true);
+        deleteBarberButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBarberButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -325,14 +352,20 @@ public class ReservationsPage extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
                     .addComponent(jLabel5)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(addBarberButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(deleteBarberButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 18, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -340,9 +373,14 @@ public class ReservationsPage extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(deleteBarberButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(addBarberButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -376,74 +414,84 @@ public class ReservationsPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_signOutButtonActionPerformed
 
-    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-        String query = searchTextField.getText().trim().toLowerCase();
-        DefaultTableModel model = (DefaultTableModel) reservationsTable.getModel();
-        model.setRowCount(0); // Clear old rows
+    private void addBarberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBarberButtonActionPerformed
+        AddBarberPage addBarberPage = new AddBarberPage();
+        addBarberPage.setLocationRelativeTo(null);
+        addBarberPage.setResizable(false);
+        addBarberPage.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_addBarberButtonActionPerformed
 
-        for (Reservation r : ReservationsData.getReservations()) {
-            // Check if query matches ANY field
-            if (r.getFullName().toLowerCase().contains(query) ||
-                r.getContactNumber().toLowerCase().contains(query) ||
-                r.getService().toLowerCase().contains(query) ||
-                r.getBarber().toLowerCase().contains(query) ||
-                r.getDate().toLowerCase().contains(query) ||
-                r.getTime().toLowerCase().contains(query) ||
-                r.getPaymentMethod().toLowerCase().contains(query) ||
-                r.getTotalAmount().toLowerCase().contains(query)) {
+    private void deleteBarberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBarberButtonActionPerformed
+        String keyword = searchTextField.getText().trim();
 
-                model.addRow(new Object[]{
-                    r.getFullName(),
-                    r.getContactNumber(),
-                    r.getService(),
-                    r.getBarber(),
-                    r.getDate(),
-                    r.getTime(),
-                    r.getPaymentMethod(),
-                    r.getTotalAmount()
-                });
+        if (!keyword.isEmpty()) {
+            List<Barber> found = BarberManager.searchBarbers(keyword);
+            if (!found.isEmpty()) {
+                for (Barber b : found) {
+                    BarberManager.removeBarber(b);
+                }
+                refreshBarberTable(); // updated
+                JOptionPane.showMessageDialog(this, found.size() + " barber(s) deleted.");
+                return;
+            } else {
+                JOptionPane.showMessageDialog(this, "No matching barber found.");
+                return;
             }
         }
+
+        BarberManager.removeLastBarber();
+        refreshBarberTable(); // updated
+    }//GEN-LAST:event_deleteBarberButtonActionPerformed
+
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        String keyword = searchTextField.getText().trim();
+        List<Barber> found = BarberManager.searchBarbers(keyword);
+        loadBarbersToTable(found);
     }//GEN-LAST:event_searchButtonActionPerformed
 
-    private void servicesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_servicesButtonActionPerformed
-        ServicesPage servicesPage = new ServicesPage();
-        servicesPage.setLocationRelativeTo(null);
-        servicesPage.setResizable(false);
-        servicesPage.setVisible(true);
+    private void reservationsPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationsPageActionPerformed
+        ReservationsPage reservationsPage = new ReservationsPage();
+        reservationsPage.setLocationRelativeTo(null);
+        reservationsPage.setResizable(false);
+        reservationsPage.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_servicesButtonActionPerformed
-
-    private void profilesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profilesButtonActionPerformed
-        ProfilesPage profilesPage = new ProfilesPage();
-        profilesPage.setLocationRelativeTo(null);
-        profilesPage.setResizable(false);
-        profilesPage.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_profilesButtonActionPerformed
-
+    }//GEN-LAST:event_reservationsPageActionPerformed
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info :
-                    javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
-        java.awt.EventQueue.invokeLater(() -> new ReservationsPage().setVisible(true));
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ProfilesPage().setVisible(true);
+            }
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addBarberButton;
+    private javax.swing.JTable barbersTable;
+    private javax.swing.JButton deleteBarberButton;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton7;
@@ -457,11 +505,11 @@ public class ReservationsPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton profilesButton;
-    private javax.swing.JTable reservationsTable;
+    private javax.swing.JButton profilesPage;
+    private javax.swing.JButton reservationsPage;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchTextField;
-    private javax.swing.JButton servicesButton;
+    private javax.swing.JButton servicesPage;
     private javax.swing.JButton signOutButton;
     // End of variables declaration//GEN-END:variables
 }
