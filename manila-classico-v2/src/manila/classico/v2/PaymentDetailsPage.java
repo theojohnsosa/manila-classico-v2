@@ -173,7 +173,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         customerTextField.setBackground(new java.awt.Color(253, 253, 254));
         customerTextField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         customerTextField.setForeground(new java.awt.Color(0, 0, 0));
-        customerTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(154, 164, 177)));
+        customerTextField.setBorder(null);
 
         jPanel2.setBackground(new java.awt.Color(253, 253, 254));
         jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 1, 0, 0, new java.awt.Color(154, 164, 177)));
@@ -279,7 +279,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         contactTextField.setBackground(new java.awt.Color(253, 253, 254));
         contactTextField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         contactTextField.setForeground(new java.awt.Color(0, 0, 0));
-        contactTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(154, 164, 177)));
+        contactTextField.setBorder(null);
 
         jLabel5.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(154, 164, 177));
@@ -292,7 +292,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         serviceTextField.setBackground(new java.awt.Color(253, 253, 254));
         serviceTextField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         serviceTextField.setForeground(new java.awt.Color(0, 0, 0));
-        serviceTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(154, 164, 177)));
+        serviceTextField.setBorder(null);
 
         jLabel7.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(154, 164, 177));
@@ -301,12 +301,12 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         dateTextField.setBackground(new java.awt.Color(253, 253, 254));
         dateTextField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         dateTextField.setForeground(new java.awt.Color(0, 0, 0));
-        dateTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(154, 164, 177)));
+        dateTextField.setBorder(null);
 
         barberTextField.setBackground(new java.awt.Color(253, 253, 254));
         barberTextField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         barberTextField.setForeground(new java.awt.Color(0, 0, 0));
-        barberTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(154, 164, 177)));
+        barberTextField.setBorder(null);
 
         jLabel8.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(154, 164, 177));
@@ -319,7 +319,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         timeTextField.setBackground(new java.awt.Color(253, 253, 254));
         timeTextField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         timeTextField.setForeground(new java.awt.Color(0, 0, 0));
-        timeTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(154, 164, 177)));
+        timeTextField.setBorder(null);
 
         jLabel10.setFont(new java.awt.Font("SF Pro Display", 1, 30)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
@@ -328,7 +328,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         totalAmountTextField.setBackground(new java.awt.Color(253, 253, 254));
         totalAmountTextField.setFont(new java.awt.Font("SF Pro Display", 1, 30)); // NOI18N
         totalAmountTextField.setForeground(new java.awt.Color(0, 0, 0));
-        totalAmountTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(154, 164, 177)));
+        totalAmountTextField.setBorder(null);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -418,7 +418,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(totalAmountTextField)
                     .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

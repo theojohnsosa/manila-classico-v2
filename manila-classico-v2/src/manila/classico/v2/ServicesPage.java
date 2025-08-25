@@ -119,7 +119,7 @@ public class ServicesPage extends javax.swing.JFrame {
         signOutButton.setBackground(new java.awt.Color(253, 253, 254));
         signOutButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         signOutButton.setForeground(new java.awt.Color(154, 164, 177));
-        signOutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-dashboard-100 (1).png"))); // NOI18N
+        signOutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-logout-100.png"))); // NOI18N
         signOutButton.setText("Sign Out");
         signOutButton.setBorder(null);
         signOutButton.setFocusPainted(false);
@@ -151,7 +151,7 @@ public class ServicesPage extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(253, 253, 254));
         jButton1.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         jButton1.setForeground(new java.awt.Color(154, 164, 177));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-dashboard-100 (1).png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-dashboard-100.png"))); // NOI18N
         jButton1.setText("Dashboard");
         jButton1.setBorder(null);
         jButton1.setFocusPainted(false);
@@ -186,7 +186,7 @@ public class ServicesPage extends javax.swing.JFrame {
         jButton4.setBackground(new java.awt.Color(253, 253, 254));
         jButton4.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         jButton4.setForeground(new java.awt.Color(154, 164, 177));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-dashboard-100 (1).png"))); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-dollar-100.png"))); // NOI18N
         jButton4.setText("Sales History");
         jButton4.setBorder(null);
         jButton4.setFocusPainted(false);
@@ -196,7 +196,7 @@ public class ServicesPage extends javax.swing.JFrame {
         customersButton.setBackground(new java.awt.Color(253, 253, 254));
         customersButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         customersButton.setForeground(new java.awt.Color(154, 164, 177));
-        customersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-people-10002.png"))); // NOI18N
+        customersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-people-100.png"))); // NOI18N
         customersButton.setText("Customers");
         customersButton.setBorder(null);
         customersButton.setFocusPainted(false);
@@ -211,7 +211,7 @@ public class ServicesPage extends javax.swing.JFrame {
         profilesPage.setBackground(new java.awt.Color(253, 253, 254));
         profilesPage.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         profilesPage.setForeground(new java.awt.Color(154, 164, 177));
-        profilesPage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-customer-100-2.png"))); // NOI18N
+        profilesPage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-user-100-2.png"))); // NOI18N
         profilesPage.setText("Profiles");
         profilesPage.setBorder(null);
         profilesPage.setFocusPainted(false);
@@ -226,7 +226,7 @@ public class ServicesPage extends javax.swing.JFrame {
         jButton7.setBackground(new java.awt.Color(253, 253, 254));
         jButton7.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         jButton7.setForeground(new java.awt.Color(154, 164, 177));
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-dashboard-100 (1).png"))); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100.png"))); // NOI18N
         jButton7.setText("Support");
         jButton7.setBorder(null);
         jButton7.setFocusPainted(false);
@@ -310,6 +310,7 @@ public class ServicesPage extends javax.swing.JFrame {
         searchButton.setBackground(new java.awt.Color(164, 145, 129));
         searchButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         searchButton.setForeground(new java.awt.Color(255, 255, 255));
+        searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-search-20.png"))); // NOI18N
         searchButton.setText("Search");
         searchButton.setBorder(null);
         searchButton.setFocusPainted(false);

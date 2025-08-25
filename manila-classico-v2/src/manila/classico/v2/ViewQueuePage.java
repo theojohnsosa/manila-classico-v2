@@ -117,6 +117,8 @@ public class ViewQueuePage extends javax.swing.JFrame {
         queueNumberTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         queueNumberTextField.setText("001");
         queueNumberTextField.setBorder(null);
+        queueNumberTextField.setFocusable(false);
+        queueNumberTextField.setOpaque(true);
 
         customerNameTextField.setBackground(new java.awt.Color(253, 253, 254));
         customerNameTextField.setFont(new java.awt.Font("SF Pro Display", 1, 15)); // NOI18N
