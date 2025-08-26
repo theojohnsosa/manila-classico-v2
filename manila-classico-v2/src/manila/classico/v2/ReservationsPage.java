@@ -63,7 +63,7 @@ public class ReservationsPage extends javax.swing.JFrame {
         salesHistoryButton = new javax.swing.JButton();
         customersButton = new javax.swing.JButton();
         profilesButton = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        supportButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         searchTextField = new javax.swing.JTextField();
@@ -229,15 +229,20 @@ public class ReservationsPage extends javax.swing.JFrame {
             }
         });
 
-        jButton7.setBackground(new java.awt.Color(253, 253, 254));
-        jButton7.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(154, 164, 177));
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100.png"))); // NOI18N
-        jButton7.setText("Support");
-        jButton7.setBorder(null);
-        jButton7.setFocusPainted(false);
-        jButton7.setFocusable(false);
-        jButton7.setOpaque(true);
+        supportButton.setBackground(new java.awt.Color(253, 253, 254));
+        supportButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        supportButton.setForeground(new java.awt.Color(154, 164, 177));
+        supportButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100.png"))); // NOI18N
+        supportButton.setText("Support");
+        supportButton.setBorder(null);
+        supportButton.setFocusPainted(false);
+        supportButton.setFocusable(false);
+        supportButton.setOpaque(true);
+        supportButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                supportButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -254,7 +259,7 @@ public class ReservationsPage extends javax.swing.JFrame {
                     .addComponent(salesHistoryButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(customersButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(profilesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(supportButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -274,7 +279,7 @@ public class ReservationsPage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(salesHistoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(supportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -448,6 +453,14 @@ public class ReservationsPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_salesHistoryButtonActionPerformed
 
+    private void supportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supportButtonActionPerformed
+        SupportPage supportPage = new SupportPage();
+        supportPage.setLocationRelativeTo(null);
+        supportPage.setResizable(false);
+        supportPage.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_supportButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -471,7 +484,6 @@ public class ReservationsPage extends javax.swing.JFrame {
     private javax.swing.JButton customersButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -489,5 +501,6 @@ public class ReservationsPage extends javax.swing.JFrame {
     private javax.swing.JTextField searchTextField;
     private javax.swing.JButton servicesButton;
     private javax.swing.JButton signOutButton;
+    private javax.swing.JButton supportButton;
     // End of variables declaration//GEN-END:variables
 }

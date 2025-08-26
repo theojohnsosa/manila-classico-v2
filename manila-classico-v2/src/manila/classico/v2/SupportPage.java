@@ -4,40 +4,18 @@
  */
 package manila.classico.v2;
 
-import java.util.List;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author theojohnsosa
  */
-public class ProfilesPage extends javax.swing.JFrame {
+public class SupportPage extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ProfilesPage.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(SupportPage.class.getName());
     /**
      * Creates new form ReservationPage
      */
-    public ProfilesPage() {
+    public SupportPage() {
         initComponents();
-        refreshBarberTable();
-    }
-    
-    public void refreshBarberTable() {
-        loadBarbersToTable(BarberManager.getBarbers());
-    }
-    
-    private void loadBarbersToTable(List<Barber> barberList) {
-        DefaultTableModel model = (DefaultTableModel) barbersTable.getModel();
-        model.setRowCount(0);
-        for (Barber b : barberList) {
-            model.addRow(new Object[] {
-                b.getName(),
-                b.getContact(),
-                b.getEmail(),
-                new java.text.SimpleDateFormat("yyyy-MM-dd").format(b.getDateJoined())
-            });
-        }
     }
     
     /**
@@ -62,16 +40,16 @@ public class ProfilesPage extends javax.swing.JFrame {
         salesHistoryButton = new javax.swing.JButton();
         customersButton = new javax.swing.JButton();
         profilesPage = new javax.swing.JButton();
-        supportButton = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         searchTextField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        barbersTable = new javax.swing.JTable();
         searchButton = new javax.swing.JButton();
-        addBarberButton = new javax.swing.JButton();
-        deleteBarberButton = new javax.swing.JButton();
+        sendEmailButton = new javax.swing.JButton();
+        callNowButton = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -220,30 +198,30 @@ public class ProfilesPage extends javax.swing.JFrame {
             }
         });
 
-        profilesPage.setBackground(new java.awt.Color(164, 145, 129));
+        profilesPage.setBackground(new java.awt.Color(253, 253, 254));
         profilesPage.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        profilesPage.setForeground(new java.awt.Color(255, 255, 255));
-        profilesPage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-customer-100.png"))); // NOI18N
+        profilesPage.setForeground(new java.awt.Color(154, 164, 177));
+        profilesPage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-user-100-2.png"))); // NOI18N
         profilesPage.setText("Profiles");
         profilesPage.setBorder(null);
         profilesPage.setFocusPainted(false);
         profilesPage.setFocusable(false);
         profilesPage.setOpaque(true);
-
-        supportButton.setBackground(new java.awt.Color(253, 253, 254));
-        supportButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        supportButton.setForeground(new java.awt.Color(154, 164, 177));
-        supportButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100.png"))); // NOI18N
-        supportButton.setText("Support");
-        supportButton.setBorder(null);
-        supportButton.setFocusPainted(false);
-        supportButton.setFocusable(false);
-        supportButton.setOpaque(true);
-        supportButton.addActionListener(new java.awt.event.ActionListener() {
+        profilesPage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                supportButtonActionPerformed(evt);
+                profilesPageActionPerformed(evt);
             }
         });
+
+        jButton7.setBackground(new java.awt.Color(164, 145, 129));
+        jButton7.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(255, 255, 255));
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
+        jButton7.setText("Support");
+        jButton7.setBorder(null);
+        jButton7.setFocusPainted(false);
+        jButton7.setFocusable(false);
+        jButton7.setOpaque(true);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -260,7 +238,7 @@ public class ProfilesPage extends javax.swing.JFrame {
                     .addComponent(salesHistoryButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(customersButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(profilesPage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(supportButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -280,18 +258,18 @@ public class ProfilesPage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(salesHistoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(supportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 40)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(114, 74, 49));
-        jLabel3.setText("Profiles");
+        jLabel3.setText("Support Center");
 
         jLabel4.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(154, 164, 177));
-        jLabel4.setText("Manage barber profiles and staff information");
+        jLabel4.setText("Get help and find answers to your questions");
 
         searchTextField.setBackground(new java.awt.Color(253, 253, 254));
         searchTextField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
@@ -301,23 +279,7 @@ public class ProfilesPage extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("SF Pro Display", 1, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("List of Staff");
-
-        barbersTable.setBackground(new java.awt.Color(253, 253, 254));
-        barbersTable.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
-        barbersTable.setForeground(new java.awt.Color(0, 0, 0));
-        barbersTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Name", "Contact", "Email", "Date Joined"
-            }
-        ));
-        jScrollPane1.setViewportView(barbersTable);
+        jLabel5.setText("Frequently Asked Questions");
 
         searchButton.setBackground(new java.awt.Color(164, 145, 129));
         searchButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
@@ -334,35 +296,53 @@ public class ProfilesPage extends javax.swing.JFrame {
             }
         });
 
-        addBarberButton.setBackground(new java.awt.Color(164, 145, 129));
-        addBarberButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        addBarberButton.setForeground(new java.awt.Color(255, 255, 255));
-        addBarberButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-plus-100 7.png"))); // NOI18N
-        addBarberButton.setText("Add Barber");
-        addBarberButton.setBorder(null);
-        addBarberButton.setFocusPainted(false);
-        addBarberButton.setFocusable(false);
-        addBarberButton.setOpaque(true);
-        addBarberButton.addActionListener(new java.awt.event.ActionListener() {
+        sendEmailButton.setBackground(new java.awt.Color(164, 145, 129));
+        sendEmailButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        sendEmailButton.setForeground(new java.awt.Color(255, 255, 255));
+        sendEmailButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-email-100 4.png"))); // NOI18N
+        sendEmailButton.setText("Send Email");
+        sendEmailButton.setBorder(null);
+        sendEmailButton.setFocusPainted(false);
+        sendEmailButton.setFocusable(false);
+        sendEmailButton.setOpaque(true);
+        sendEmailButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addBarberButtonActionPerformed(evt);
+                sendEmailButtonActionPerformed(evt);
             }
         });
 
-        deleteBarberButton.setBackground(new java.awt.Color(164, 145, 129));
-        deleteBarberButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        deleteBarberButton.setForeground(new java.awt.Color(255, 255, 255));
-        deleteBarberButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-trash-18.png"))); // NOI18N
-        deleteBarberButton.setText("Delete Barber");
-        deleteBarberButton.setBorder(null);
-        deleteBarberButton.setFocusPainted(false);
-        deleteBarberButton.setFocusable(false);
-        deleteBarberButton.setOpaque(true);
-        deleteBarberButton.addActionListener(new java.awt.event.ActionListener() {
+        callNowButton.setBackground(new java.awt.Color(164, 145, 129));
+        callNowButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        callNowButton.setForeground(new java.awt.Color(255, 255, 255));
+        callNowButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-trash-18.png"))); // NOI18N
+        callNowButton.setText("Call Now");
+        callNowButton.setBorder(null);
+        callNowButton.setFocusPainted(false);
+        callNowButton.setFocusable(false);
+        callNowButton.setOpaque(true);
+        callNowButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteBarberButtonActionPerformed(evt);
+                callNowButtonActionPerformed(evt);
             }
         });
+
+        jButton2.setBackground(new java.awt.Color(164, 145, 129));
+        jButton2.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
+        jButton2.setText("jButton2");
+        jButton2.setBorder(null);
+        jButton2.setFocusable(false);
+        jButton2.setOpaque(true);
+
+        jButton3.setBackground(new java.awt.Color(164, 145, 129));
+        jButton3.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
+        jButton3.setText("jButton2");
+        jButton3.setBorder(null);
+        jButton3.setFocusable(false);
+        jButton3.setOpaque(true);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -371,22 +351,26 @@ public class ProfilesPage extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel5)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel5)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel3))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                            .addComponent(sendEmailButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(callNowButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(addBarberButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(deleteBarberButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 18, Short.MAX_VALUE))
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 17, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -399,8 +383,8 @@ public class ProfilesPage extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(deleteBarberButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(addBarberButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(callNowButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(sendEmailButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -408,8 +392,10 @@ public class ProfilesPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -434,40 +420,16 @@ public class ProfilesPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_signOutButtonActionPerformed
 
-    private void addBarberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBarberButtonActionPerformed
-        AddBarberPage addBarberPage = new AddBarberPage();
-        addBarberPage.setLocationRelativeTo(null);
-        addBarberPage.setResizable(false);
-        addBarberPage.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_addBarberButtonActionPerformed
+    private void sendEmailButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendEmailButtonActionPerformed
+        
+    }//GEN-LAST:event_sendEmailButtonActionPerformed
 
-    private void deleteBarberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBarberButtonActionPerformed
-        String keyword = searchTextField.getText().trim();
-
-        if (!keyword.isEmpty()) {
-            List<Barber> found = BarberManager.searchBarbers(keyword);
-            if (!found.isEmpty()) {
-                for (Barber b : found) {
-                    BarberManager.removeBarber(b);
-                }
-                refreshBarberTable(); // updated
-                JOptionPane.showMessageDialog(this, found.size() + " barber(s) deleted.");
-                return;
-            } else {
-                JOptionPane.showMessageDialog(this, "No matching barber found.");
-                return;
-            }
-        }
-
-        BarberManager.removeLastBarber();
-        refreshBarberTable(); // updated
-    }//GEN-LAST:event_deleteBarberButtonActionPerformed
+    private void callNowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_callNowButtonActionPerformed
+        
+    }//GEN-LAST:event_callNowButtonActionPerformed
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-        String keyword = searchTextField.getText().trim();
-        List<Barber> found = BarberManager.searchBarbers(keyword);
-        loadBarbersToTable(found);
+        
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void reservationsPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationsPageActionPerformed
@@ -502,13 +464,13 @@ public class ProfilesPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_salesHistoryButtonActionPerformed
 
-    private void supportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supportButtonActionPerformed
-        SupportPage supportPage = new SupportPage();
-        supportPage.setLocationRelativeTo(null);
-        supportPage.setResizable(false);
-        supportPage.setVisible(true);
+    private void profilesPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profilesPageActionPerformed
+        ProfilesPage profilesPage = new ProfilesPage();
+        profilesPage.setLocationRelativeTo(null);
+        profilesPage.setResizable(false);
+        profilesPage.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_supportButtonActionPerformed
+    }//GEN-LAST:event_profilesPageActionPerformed
     
     /**
      * @param args the command line arguments
@@ -534,17 +496,18 @@ public class ProfilesPage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ProfilesPage().setVisible(true);
+                new SupportPage().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addBarberButton;
-    private javax.swing.JTable barbersTable;
+    private javax.swing.JButton callNowButton;
     private javax.swing.JButton customersButton;
-    private javax.swing.JButton deleteBarberButton;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -554,14 +517,13 @@ public class ProfilesPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton profilesPage;
     private javax.swing.JButton reservationsPage;
     private javax.swing.JButton salesHistoryButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchTextField;
+    private javax.swing.JButton sendEmailButton;
     private javax.swing.JButton servicesPage;
     private javax.swing.JButton signOutButton;
-    private javax.swing.JButton supportButton;
     // End of variables declaration//GEN-END:variables
 }
