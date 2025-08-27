@@ -515,7 +515,11 @@ public class SupportPage extends javax.swing.JFrame {
     }//GEN-LAST:event_signOutButtonActionPerformed
 
     private void sendEmailButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendEmailButtonActionPerformed
-        
+        SendEmailPage sendEmailPage = new SendEmailPage();
+        sendEmailPage.setLocationRelativeTo(null);
+        sendEmailPage.setResizable(false);
+        sendEmailPage.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_sendEmailButtonActionPerformed
 
     private void callNowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_callNowButtonActionPerformed
