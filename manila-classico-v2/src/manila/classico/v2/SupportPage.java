@@ -4,6 +4,8 @@
  */
 package manila.classico.v2;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author theojohnsosa
@@ -43,13 +45,17 @@ public class SupportPage extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        searchTextField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        searchButton = new javax.swing.JButton();
         sendEmailButton = new javax.swing.JButton();
         callNowButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -271,30 +277,9 @@ public class SupportPage extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(154, 164, 177));
         jLabel4.setText("Get help and find answers to your questions");
 
-        searchTextField.setBackground(new java.awt.Color(253, 253, 254));
-        searchTextField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        searchTextField.setForeground(new java.awt.Color(154, 164, 177));
-        searchTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(154, 164, 177), 1, true));
-        searchTextField.setOpaque(true);
-
         jLabel5.setFont(new java.awt.Font("SF Pro Display", 1, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Frequently Asked Questions");
-
-        searchButton.setBackground(new java.awt.Color(164, 145, 129));
-        searchButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        searchButton.setForeground(new java.awt.Color(255, 255, 255));
-        searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-search-20.png"))); // NOI18N
-        searchButton.setText("Search");
-        searchButton.setBorder(null);
-        searchButton.setFocusPainted(false);
-        searchButton.setFocusable(false);
-        searchButton.setOpaque(true);
-        searchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchButtonActionPerformed(evt);
-            }
-        });
 
         sendEmailButton.setBackground(new java.awt.Color(164, 145, 129));
         sendEmailButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
@@ -330,19 +315,113 @@ public class SupportPage extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
-        jButton2.setText("jButton2");
+        jButton2.setText("What is Manila Classico?");
         jButton2.setBorder(null);
         jButton2.setFocusable(false);
         jButton2.setOpaque(true);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(164, 145, 129));
         jButton3.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
-        jButton3.setText("jButton2");
+        jButton3.setText("Who can use this system?");
         jButton3.setBorder(null);
         jButton3.setFocusable(false);
         jButton3.setOpaque(true);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setBackground(new java.awt.Color(164, 145, 129));
+        jButton4.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
+        jButton4.setText("What technologies power the application?");
+        jButton4.setBorder(null);
+        jButton4.setFocusable(false);
+        jButton4.setOpaque(true);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setBackground(new java.awt.Color(164, 145, 129));
+        jButton5.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
+        jButton5.setText("How can the system be installed?");
+        jButton5.setBorder(null);
+        jButton5.setFocusable(false);
+        jButton5.setOpaque(true);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jButton6.setBackground(new java.awt.Color(164, 145, 129));
+        jButton6.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
+        jButton6.setText("What is the current development status?");
+        jButton6.setBorder(null);
+        jButton6.setFocusable(false);
+        jButton6.setOpaque(true);
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
+        jButton8.setBackground(new java.awt.Color(164, 145, 129));
+        jButton8.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jButton8.setForeground(new java.awt.Color(255, 255, 255));
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
+        jButton8.setText("Can developers contribute to the project?");
+        jButton8.setBorder(null);
+        jButton8.setFocusable(false);
+        jButton8.setOpaque(true);
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        jButton9.setBackground(new java.awt.Color(164, 145, 129));
+        jButton9.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jButton9.setForeground(new java.awt.Color(255, 255, 255));
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
+        jButton9.setText("What functionality does the system provide?");
+        jButton9.setBorder(null);
+        jButton9.setFocusable(false);
+        jButton9.setOpaque(true);
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        jButton10.setBackground(new java.awt.Color(164, 145, 129));
+        jButton10.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jButton10.setForeground(new java.awt.Color(255, 255, 255));
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
+        jButton10.setText("How is the database structured?");
+        jButton10.setBorder(null);
+        jButton10.setFocusable(false);
+        jButton10.setOpaque(true);
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -352,24 +431,31 @@ public class SupportPage extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel5)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel3))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
-                            .addComponent(sendEmailButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(callNowButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel5)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3))
+                        .addGap(79, 79, 79)
+                        .addComponent(sendEmailButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(callNowButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 17, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -386,15 +472,23 @@ public class SupportPage extends javax.swing.JFrame {
                         .addComponent(callNowButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(sendEmailButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(searchTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
                 .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -427,10 +521,6 @@ public class SupportPage extends javax.swing.JFrame {
     private void callNowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_callNowButtonActionPerformed
         
     }//GEN-LAST:event_callNowButtonActionPerformed
-
-    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-        
-    }//GEN-LAST:event_searchButtonActionPerformed
 
     private void reservationsPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationsPageActionPerformed
         ReservationsPage reservationsPage = new ReservationsPage();
@@ -471,6 +561,55 @@ public class SupportPage extends javax.swing.JFrame {
         profilesPage.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_profilesPageActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        JOptionPane.showMessageDialog(null,"<html>Manila Classico is a Java Swing-based desktop application designed to streamline barbershop operations<br>"
+                + "                               by providing tools for managing reservations, queues, services, customers, and sales. It combines<br>"
+                + "                               functionality with a clean, Apple-inspired user interface to create a premium experience<br>"
+                + "                               for both administrators and barbers.</html>");
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        JOptionPane.showMessageDialog(null, "<html>The system is designed for two primary roles: administrators and barbers. Administrators oversee the<br>"
+                + "                                entire operation, including reservations, services, and sales, while barbers use the platform to view<br>"
+                + "                                their assigned queues and update the progress of appointments.</html>");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        JOptionPane.showMessageDialog(null, "<html>The application is built using Java (JDK 17 or later) and Java Swing with NetBeans for the graphical<br>"
+                + "                                interface. It relies on MySQL for data management, connected through JDBC, and is styled with a macOS-inspired<br>"
+                + "                                design to emphasize minimalism and clarity.</html>");
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        JOptionPane.showMessageDialog(null, "<html>To install the system, users must set up Java JDK 17 or later, MySQL, and NetBeans or another Java IDE.<br>"
+                + "                                After cloning the repository, the provided database schema should be imported into MySQL. Once the database<br>"
+                + "                                is configured and credentials are updated in the connection file, the application can be built and run within the IDE.</html>");
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        JOptionPane.showMessageDialog(null, "<html>The system offers administrators a dashboard with key metrics such as bookings, sales, and customer statistics,<br>"
+                + "                                along with full management of reservations, services, and queues. Barbers are given a focused interface where they<br>"
+                + "                                can view scheduled appointments and update their status in real time.</html>");
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        JOptionPane.showMessageDialog(null, "<html>The database is composed of five main tables: users, services, customers, reservations, and sales.<br>"
+                + "                                These tablescollectively handle account management, service catalogues, customer records, booking<br>"
+                + "                                details, and sales transactions, forming a simple but effective schema for daily barbershop operations.</html>");
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        JOptionPane.showMessageDialog(null, "<html>Manila Classico is actively being developed. While the core features are functional, upcoming updates<br>"
+                + "                                aim to improve queue filtering, strengthen authentication, and expand service management options.<br>"
+                + "                                The project is not yet production-ready but is steadily progressing.</html>");
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        JOptionPane.showMessageDialog(null, "<html>Yes. Contributions are encouraged under the MIT license. Developers may submit pull requests, propose<br>"
+                + "                                improvements through issues, or adapt the project for their own needs. Collaboration is welcomed to help<br>"
+                + "                                expand and refine the system’s capabilities.</html>");
+    }//GEN-LAST:event_jButton8ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -505,9 +644,15 @@ public class SupportPage extends javax.swing.JFrame {
     private javax.swing.JButton callNowButton;
     private javax.swing.JButton customersButton;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -520,8 +665,6 @@ public class SupportPage extends javax.swing.JFrame {
     private javax.swing.JButton profilesPage;
     private javax.swing.JButton reservationsPage;
     private javax.swing.JButton salesHistoryButton;
-    private javax.swing.JButton searchButton;
-    private javax.swing.JTextField searchTextField;
     private javax.swing.JButton sendEmailButton;
     private javax.swing.JButton servicesPage;
     private javax.swing.JButton signOutButton;
