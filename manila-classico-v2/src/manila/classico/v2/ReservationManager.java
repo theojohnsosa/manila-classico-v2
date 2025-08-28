@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package manila.classico.v2;
 
 import java.util.ArrayList;
@@ -9,10 +5,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- *
- * @author theojohnsosa
- */
 public class ReservationManager {
     private static final List<Reservation> reservations = Collections.synchronizedList(new ArrayList<>());
 
@@ -59,7 +51,7 @@ public class ReservationManager {
         String today = java.time.LocalDate.now().toString();
         synchronized (reservations) {
             return reservations.stream()
-                .filter(r -> r.getDate().compareTo(today) >= 0) // today or future
+                .filter(r -> r.getDate().compareTo(today) >= 0)
                 .count();
         }
     }
