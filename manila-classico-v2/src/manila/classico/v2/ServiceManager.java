@@ -1,16 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package manila.classico.v2;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author theojohnsosa
- */
 public class ServiceManager {
     private static final List<Service> services = new ArrayList<>();
 
