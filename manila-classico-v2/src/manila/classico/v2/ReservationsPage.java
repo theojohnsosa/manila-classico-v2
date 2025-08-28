@@ -4,7 +4,9 @@
  */
 package manila.classico.v2;
 
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -21,24 +23,6 @@ public class ReservationsPage extends javax.swing.JFrame {
         initComponents();
         // Use the shared table model directly, no manual duplication
         reservationsTable.setModel(ReservationsData.getTableModel());
-    }
-    
-    private void loadReservations() {
-        DefaultTableModel model = (DefaultTableModel) reservationsTable.getModel();
-        model.setRowCount(0); // clear old rows
-
-        for (Reservation r : ReservationsData.getReservations()) {
-            model.addRow(new Object[]{
-                r.getFullName(),
-                r.getContactNumber(),
-                r.getService(),
-                r.getBarber(),
-                r.getDate(),
-                r.getTime(),
-                r.getPaymentMethod(),
-                r.getTotalAmount()
-            });
-        }
     }
     
     /**
@@ -398,31 +382,15 @@ public class ReservationsPage extends javax.swing.JFrame {
     }//GEN-LAST:event_signOutButtonActionPerformed
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-        String query = searchTextField.getText().trim().toLowerCase();
+        String query = searchTextField.getText().trim();
         DefaultTableModel model = (DefaultTableModel) reservationsTable.getModel();
-        model.setRowCount(0);
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<>(model);
+        reservationsTable.setRowSorter(sorter);
 
-        for (Reservation r : ReservationsData.getReservations()) {
-            if (r.getFullName().toLowerCase().contains(query) ||
-                r.getContactNumber().toLowerCase().contains(query) ||
-                r.getService().toLowerCase().contains(query) ||
-                r.getBarber().toLowerCase().contains(query) ||
-                r.getDate().toLowerCase().contains(query) ||
-                r.getTime().toLowerCase().contains(query) ||
-                r.getPaymentMethod().toLowerCase().contains(query) ||
-                r.getTotalAmount().toLowerCase().contains(query)) {
-
-                model.addRow(new Object[]{
-                    r.getFullName(),
-                    r.getContactNumber(),
-                    r.getService(),
-                    r.getBarber(),
-                    r.getDate(),
-                    r.getTime(),
-                    r.getPaymentMethod(),
-                    r.getTotalAmount()
-                });
-            }
+        if (query.isEmpty()) {
+            sorter.setRowFilter(null); // clear filter
+        } else {
+            sorter.setRowFilter(RowFilter.regexFilter("(?i)" + query)); // case-insensitive
         }
     }//GEN-LAST:event_searchButtonActionPerformed
 
