@@ -4,6 +4,12 @@
  */
 package manila.classico.v2;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
+import java.util.Locale;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author theojohnsosa
@@ -18,6 +24,7 @@ public class DashboardPage extends javax.swing.JFrame {
     public DashboardPage() {
         initComponents();
         updateDashboardStats();
+        loadLiveQueueTable();
     }
     
     private void updateDashboardStats() {
@@ -59,7 +66,26 @@ public class DashboardPage extends javax.swing.JFrame {
             .sum();
         totalSalesTextField.setText("₱" + totalSales);
     }
+    
+    private void loadLiveQueueTable() {
+        DefaultTableModel model = (DefaultTableModel) liveQueueTable.getModel();
+        model.setRowCount(0); // clear old rows
 
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd h:mm a", Locale.ENGLISH);
+
+        ReservationsData.getReservations().stream()
+            .sorted(Comparator.comparing(r -> 
+                LocalDateTime.parse(r.getDate() + " " + r.getTime(), formatter)))
+            .forEach(r -> model.addRow(new Object[] {
+                r.getFullName(),
+                r.getService(),
+                r.getBarber(),
+                r.getDate(),
+                r.getTime(),
+                r.getPaymentMethod(),
+                r.getTotalAmount()
+            }));
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -91,7 +117,7 @@ public class DashboardPage extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        reservationsTable = new javax.swing.JTable();
+        liveQueueTable = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         totalBookingsTextField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -373,10 +399,10 @@ public class DashboardPage extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Live Queue");
 
-        reservationsTable.setBackground(new java.awt.Color(253, 253, 254));
-        reservationsTable.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
-        reservationsTable.setForeground(new java.awt.Color(0, 0, 0));
-        reservationsTable.setModel(new javax.swing.table.DefaultTableModel(
+        liveQueueTable.setBackground(new java.awt.Color(253, 253, 254));
+        liveQueueTable.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        liveQueueTable.setForeground(new java.awt.Color(0, 0, 0));
+        liveQueueTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -387,7 +413,7 @@ public class DashboardPage extends javax.swing.JFrame {
                 "Full Name", "Contact", "Service", "Barber", "Date", "Time", "Payment Method", "Total"
             }
         ));
-        jScrollPane1.setViewportView(reservationsTable);
+        jScrollPane1.setViewportView(liveQueueTable);
 
         jPanel5.setBackground(new java.awt.Color(254, 243, 225));
         jPanel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
@@ -713,9 +739,9 @@ public class DashboardPage extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
+    private javax.swing.JTable liveQueueTable;
     private javax.swing.JButton profilesButton;
     private javax.swing.JButton reservationsButton;
-    private javax.swing.JTable reservationsTable;
     private javax.swing.JButton salesHistoryButton;
     private javax.swing.JTextField scheduledReservationTextField;
     private javax.swing.JButton servicesButton;
