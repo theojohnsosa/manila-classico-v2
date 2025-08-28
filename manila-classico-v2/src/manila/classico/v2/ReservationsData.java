@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Other/File.java to edit this template
- */
 package manila.classico.v2;
 
 import java.text.ParseException;
@@ -14,11 +10,6 @@ import java.util.Locale;
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
 
-
-/**
- *
- * @author theojohnsosa
- */
 public class ReservationsData {
 
     private static final String[] COLS = {
@@ -42,7 +33,7 @@ public class ReservationsData {
                                                       String paymentMethod, String totalAmount) {
         String key = keyOf(fullName, contact, service, barber, date, time);
         if (RES_KEYS.contains(key)) {
-            return false; // already added
+            return false;
         }
 
         Reservation r = new Reservation(fullName, contact, service, barber, date, time, paymentMethod, totalAmount);
@@ -57,7 +48,6 @@ public class ReservationsData {
 
     public static synchronized boolean removeFirstReservation() {
         if (RES_LIST.isEmpty()) return false;
-        // remove first (already sorted)
         Reservation removed = RES_LIST.remove(0);
         RES_KEYS.remove(keyOf(
             removed.getFullName(), removed.getContactNumber(), removed.getService(),
