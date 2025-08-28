@@ -186,6 +186,7 @@
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
+            <Property name="focusable" type="boolean" value="false"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
           <Events>
@@ -210,6 +211,7 @@
                 </LineBorder>
               </Border>
             </Property>
+            <Property name="focusable" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
@@ -241,6 +243,7 @@
                 </LineBorder>
               </Border>
             </Property>
+            <Property name="focusable" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
@@ -292,6 +295,7 @@
                     </LineBorder>
                   </Border>
                 </Property>
+                <Property name="focusable" type="boolean" value="false"/>
               </Properties>
             </Component>
           </SubComponents>
