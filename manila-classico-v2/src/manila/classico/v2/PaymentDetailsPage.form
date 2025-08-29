@@ -386,7 +386,6 @@
                     </LineBorder>
                   </Border>
                 </Property>
-                <Property name="focusable" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel13">
@@ -429,7 +428,6 @@
                     </LineBorder>
                   </Border>
                 </Property>
-                <Property name="focusable" type="boolean" value="false"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="payNowButton">

@@ -290,7 +290,6 @@ public class CustomersPage extends javax.swing.JFrame {
         searchTextField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         searchTextField.setForeground(new java.awt.Color(154, 164, 177));
         searchTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(154, 164, 177), 1, true));
-        searchTextField.setFocusable(false);
         searchTextField.setOpaque(true);
 
         jLabel5.setFont(new java.awt.Font("SF Pro Display", 1, 20)); // NOI18N

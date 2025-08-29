@@ -268,7 +268,6 @@
                 </LineBorder>
               </Border>
             </Property>
-            <Property name="focusable" type="boolean" value="false"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
@@ -298,7 +297,6 @@
                 </LineBorder>
               </Border>
             </Property>
-            <Property name="focusable" type="boolean" value="false"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
