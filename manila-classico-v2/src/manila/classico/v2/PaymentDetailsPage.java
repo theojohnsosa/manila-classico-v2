@@ -462,10 +462,10 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         String t     = timeTextField.getText().trim();
         String total = totalAmountTextField.getText().trim();
 
-        boolean added = ReservationsData.addReservation(full, cont, serv, bar, d, t, paymentMethod, total);
+        boolean successfulReservation = ReservationsData.addReservation(full, cont, serv, bar, d, t, paymentMethod, total);
         
-        if (added) {
-            JOptionPane.showMessageDialog(this, "Payment successful! Reservation confirmed.");
+        if (!successfulReservation) {
+            JOptionPane.showMessageDialog(null, "Payment successful! Reservation confirmed.");
         }
 
         payNowButton.setEnabled(false);
