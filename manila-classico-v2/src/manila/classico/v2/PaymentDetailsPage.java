@@ -184,7 +184,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         cashToggleButton.setForeground(new java.awt.Color(255, 255, 255));
         cashToggleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-money-20.png"))); // NOI18N
         cashToggleButton.setText("Cash Payment");
-        cashToggleButton.setBorder(null);
+        cashToggleButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         cashToggleButton.setFocusPainted(false);
         cashToggleButton.setFocusable(false);
         cashToggleButton.setOpaque(true);
@@ -194,7 +194,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         gcashToggleButton.setForeground(new java.awt.Color(255, 255, 255));
         gcashToggleButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-mobile-phone-20.png"))); // NOI18N
         gcashToggleButton.setText("GCash");
-        gcashToggleButton.setBorder(null);
+        gcashToggleButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         gcashToggleButton.setFocusPainted(false);
         gcashToggleButton.setFocusable(false);
         gcashToggleButton.setOpaque(true);
@@ -225,7 +225,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         payNowButton.setFont(new java.awt.Font("SF Pro Display", 1, 15)); // NOI18N
         payNowButton.setForeground(new java.awt.Color(255, 255, 255));
         payNowButton.setText("Pay Now");
-        payNowButton.setBorder(null);
+        payNowButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         payNowButton.setFocusable(false);
         payNowButton.setOpaque(true);
         payNowButton.addActionListener(new java.awt.event.ActionListener() {

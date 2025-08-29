@@ -1,5 +1,6 @@
 package manila.classico.v2;
 
+import java.awt.Color;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
@@ -71,7 +72,7 @@ public class AddBarberPage extends javax.swing.JFrame {
         addNewBarberButton.setForeground(new java.awt.Color(255, 255, 255));
         addNewBarberButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-plus-100 7.png"))); // NOI18N
         addNewBarberButton.setText("Add New Barber");
-        addNewBarberButton.setBorder(null);
+        addNewBarberButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addNewBarberButton.setFocusable(false);
         addNewBarberButton.setOpaque(true);
         addNewBarberButton.addActionListener(new java.awt.event.ActionListener() {
@@ -231,7 +232,7 @@ public class AddBarberPage extends javax.swing.JFrame {
         profilesPage.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_addNewBarberButtonActionPerformed
-
+    
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

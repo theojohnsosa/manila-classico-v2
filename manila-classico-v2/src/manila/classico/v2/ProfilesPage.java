@@ -213,7 +213,7 @@ public class ProfilesPage extends javax.swing.JFrame {
         profilesPage.setForeground(new java.awt.Color(255, 255, 255));
         profilesPage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-customer-100.png"))); // NOI18N
         profilesPage.setText("Profiles");
-        profilesPage.setBorder(null);
+        profilesPage.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         profilesPage.setFocusPainted(false);
         profilesPage.setFocusable(false);
         profilesPage.setOpaque(true);
@@ -312,7 +312,7 @@ public class ProfilesPage extends javax.swing.JFrame {
         searchButton.setForeground(new java.awt.Color(255, 255, 255));
         searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-search-20.png"))); // NOI18N
         searchButton.setText("Search");
-        searchButton.setBorder(null);
+        searchButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         searchButton.setFocusPainted(false);
         searchButton.setFocusable(false);
         searchButton.setOpaque(true);
@@ -327,7 +327,7 @@ public class ProfilesPage extends javax.swing.JFrame {
         addBarberButton.setForeground(new java.awt.Color(255, 255, 255));
         addBarberButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-plus-100 7.png"))); // NOI18N
         addBarberButton.setText("Add Barber");
-        addBarberButton.setBorder(null);
+        addBarberButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addBarberButton.setFocusPainted(false);
         addBarberButton.setFocusable(false);
         addBarberButton.setOpaque(true);
@@ -342,7 +342,7 @@ public class ProfilesPage extends javax.swing.JFrame {
         deleteBarberButton.setForeground(new java.awt.Color(255, 255, 255));
         deleteBarberButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-trash-18.png"))); // NOI18N
         deleteBarberButton.setText("Delete Barber");
-        deleteBarberButton.setBorder(null);
+        deleteBarberButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         deleteBarberButton.setFocusPainted(false);
         deleteBarberButton.setFocusable(false);
         deleteBarberButton.setOpaque(true);

@@ -80,7 +80,7 @@ public class AddServicePage extends javax.swing.JFrame {
         addNewServiceButton.setForeground(new java.awt.Color(255, 255, 255));
         addNewServiceButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-plus-100 7.png"))); // NOI18N
         addNewServiceButton.setText("Add New Service");
-        addNewServiceButton.setBorder(null);
+        addNewServiceButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addNewServiceButton.setFocusable(false);
         addNewServiceButton.setOpaque(true);
         addNewServiceButton.addActionListener(new java.awt.event.ActionListener() {

@@ -170,7 +170,7 @@ public class SalesHistoryPage extends javax.swing.JFrame {
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-dollar-100-2.png"))); // NOI18N
         jButton4.setText("Sales History");
-        jButton4.setBorder(null);
+        jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton4.setFocusPainted(false);
         jButton4.setFocusable(false);
         jButton4.setOpaque(true);
@@ -299,7 +299,7 @@ public class SalesHistoryPage extends javax.swing.JFrame {
         searchButton.setForeground(new java.awt.Color(255, 255, 255));
         searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-search-20.png"))); // NOI18N
         searchButton.setText("Search");
-        searchButton.setBorder(null);
+        searchButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         searchButton.setFocusPainted(false);
         searchButton.setFocusable(false);
         searchButton.setOpaque(true);

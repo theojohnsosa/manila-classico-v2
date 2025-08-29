@@ -39,7 +39,7 @@ public class LandingPage extends javax.swing.JFrame {
         continueAsCustomerButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         continueAsCustomerButton.setForeground(new java.awt.Color(255, 255, 255));
         continueAsCustomerButton.setText("<html><div style=\"text-align: center;\">Continue as Customer</div></html>");
-        continueAsCustomerButton.setBorder(null);
+        continueAsCustomerButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         continueAsCustomerButton.setFocusPainted(false);
         continueAsCustomerButton.setFocusable(false);
         continueAsCustomerButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -105,7 +105,7 @@ public class LandingPage extends javax.swing.JFrame {
         stafLoginButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         stafLoginButton.setForeground(new java.awt.Color(255, 255, 255));
         stafLoginButton.setText("<html><div style=\"text-align: center;\">Staff Login</div></html>");
-        stafLoginButton.setBorder(null);
+        stafLoginButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         stafLoginButton.setFocusPainted(false);
         stafLoginButton.setFocusable(false);
         stafLoginButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

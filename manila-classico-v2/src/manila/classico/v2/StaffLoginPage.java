@@ -96,7 +96,7 @@ public class StaffLoginPage extends javax.swing.JFrame {
         loginToDashboardButton.setFont(new java.awt.Font("SF Pro Display", 1, 15)); // NOI18N
         loginToDashboardButton.setForeground(new java.awt.Color(255, 255, 255));
         loginToDashboardButton.setText("Login to Dashboard");
-        loginToDashboardButton.setBorder(null);
+        loginToDashboardButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         loginToDashboardButton.setFocusPainted(false);
         loginToDashboardButton.setFocusable(false);
         loginToDashboardButton.setOpaque(true);

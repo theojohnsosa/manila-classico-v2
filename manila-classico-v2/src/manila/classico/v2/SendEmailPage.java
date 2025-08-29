@@ -104,7 +104,7 @@ public class SendEmailPage extends javax.swing.JFrame {
         submitEmailButton.setForeground(new java.awt.Color(255, 255, 255));
         submitEmailButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-send-100 1.png"))); // NOI18N
         submitEmailButton.setText("Submit Email");
-        submitEmailButton.setBorder(null);
+        submitEmailButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         submitEmailButton.setFocusable(false);
         submitEmailButton.setOpaque(true);
         submitEmailButton.addActionListener(new java.awt.event.ActionListener() {

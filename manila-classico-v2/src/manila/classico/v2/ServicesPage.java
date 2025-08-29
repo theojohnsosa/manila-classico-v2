@@ -166,7 +166,7 @@ public class ServicesPage extends javax.swing.JFrame {
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-scissors-100.png"))); // NOI18N
         jButton3.setText("Services");
-        jButton3.setBorder(null);
+        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton3.setFocusPainted(false);
         jButton3.setFocusable(false);
         jButton3.setOpaque(true);
@@ -310,7 +310,7 @@ public class ServicesPage extends javax.swing.JFrame {
         searchButton.setForeground(new java.awt.Color(255, 255, 255));
         searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-search-20.png"))); // NOI18N
         searchButton.setText("Search");
-        searchButton.setBorder(null);
+        searchButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         searchButton.setFocusPainted(false);
         searchButton.setFocusable(false);
         searchButton.setOpaque(true);
@@ -325,7 +325,7 @@ public class ServicesPage extends javax.swing.JFrame {
         addServiceButton.setForeground(new java.awt.Color(255, 255, 255));
         addServiceButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-plus-100 7.png"))); // NOI18N
         addServiceButton.setText("Add Service");
-        addServiceButton.setBorder(null);
+        addServiceButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addServiceButton.setFocusPainted(false);
         addServiceButton.setFocusable(false);
         addServiceButton.setOpaque(true);
@@ -340,7 +340,7 @@ public class ServicesPage extends javax.swing.JFrame {
         deleteServiceButton.setForeground(new java.awt.Color(255, 255, 255));
         deleteServiceButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-trash-18.png"))); // NOI18N
         deleteServiceButton.setText("Delete Service");
-        deleteServiceButton.setBorder(null);
+        deleteServiceButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         deleteServiceButton.setFocusPainted(false);
         deleteServiceButton.setFocusable(false);
         deleteServiceButton.setOpaque(true);

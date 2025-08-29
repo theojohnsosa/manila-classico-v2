@@ -40,7 +40,7 @@ public class UserSelectPage extends javax.swing.JFrame {
         viewQueueStatusButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         viewQueueStatusButton.setForeground(new java.awt.Color(255, 255, 255));
         viewQueueStatusButton.setText("<html><div style=\"text-align: center;\">View Queue Status</div></html>");
-        viewQueueStatusButton.setBorder(null);
+        viewQueueStatusButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         viewQueueStatusButton.setFocusPainted(false);
         viewQueueStatusButton.setFocusable(false);
         viewQueueStatusButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -103,7 +103,7 @@ public class UserSelectPage extends javax.swing.JFrame {
         makeReservationButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         makeReservationButton.setForeground(new java.awt.Color(255, 255, 255));
         makeReservationButton.setText("<html><div style=\"text-align: center;\">Make Reservation</div></html>");
-        makeReservationButton.setBorder(null);
+        makeReservationButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         makeReservationButton.setFocusPainted(false);
         makeReservationButton.setFocusable(false);
         makeReservationButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

@@ -201,7 +201,7 @@ public class CustomersPage extends javax.swing.JFrame {
         customersButton.setForeground(new java.awt.Color(255, 255, 255));
         customersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-people-100-2.png"))); // NOI18N
         customersButton.setText("Customers");
-        customersButton.setBorder(null);
+        customersButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         customersButton.setFocusPainted(false);
         customersButton.setFocusable(false);
         customersButton.setOpaque(true);
@@ -315,7 +315,7 @@ public class CustomersPage extends javax.swing.JFrame {
         searchButton.setForeground(new java.awt.Color(255, 255, 255));
         searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-search-20.png"))); // NOI18N
         searchButton.setText("Search");
-        searchButton.setBorder(null);
+        searchButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         searchButton.setFocusPainted(false);
         searchButton.setFocusable(false);
         searchButton.setOpaque(true);

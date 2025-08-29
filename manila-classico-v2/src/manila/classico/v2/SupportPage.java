@@ -207,7 +207,7 @@ public class SupportPage extends javax.swing.JFrame {
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
         jButton7.setText("Support");
-        jButton7.setBorder(null);
+        jButton7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton7.setFocusPainted(false);
         jButton7.setFocusable(false);
         jButton7.setOpaque(true);
@@ -269,7 +269,7 @@ public class SupportPage extends javax.swing.JFrame {
         sendEmailButton.setForeground(new java.awt.Color(255, 255, 255));
         sendEmailButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-email-100 4.png"))); // NOI18N
         sendEmailButton.setText("Send Email");
-        sendEmailButton.setBorder(null);
+        sendEmailButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         sendEmailButton.setFocusPainted(false);
         sendEmailButton.setFocusable(false);
         sendEmailButton.setOpaque(true);
@@ -284,7 +284,7 @@ public class SupportPage extends javax.swing.JFrame {
         callNowButton.setForeground(new java.awt.Color(255, 255, 255));
         callNowButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-trash-18.png"))); // NOI18N
         callNowButton.setText("Call Now");
-        callNowButton.setBorder(null);
+        callNowButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         callNowButton.setFocusPainted(false);
         callNowButton.setFocusable(false);
         callNowButton.setOpaque(true);
@@ -299,7 +299,7 @@ public class SupportPage extends javax.swing.JFrame {
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
         jButton2.setText("What is Manila Classico?");
-        jButton2.setBorder(null);
+        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.setFocusable(false);
         jButton2.setOpaque(true);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -313,7 +313,7 @@ public class SupportPage extends javax.swing.JFrame {
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
         jButton3.setText("Who can use this system?");
-        jButton3.setBorder(null);
+        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton3.setFocusable(false);
         jButton3.setOpaque(true);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -327,7 +327,7 @@ public class SupportPage extends javax.swing.JFrame {
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
         jButton4.setText("What technologies power the application?");
-        jButton4.setBorder(null);
+        jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton4.setFocusable(false);
         jButton4.setOpaque(true);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -341,7 +341,7 @@ public class SupportPage extends javax.swing.JFrame {
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
         jButton5.setText("How can the system be installed?");
-        jButton5.setBorder(null);
+        jButton5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton5.setFocusable(false);
         jButton5.setOpaque(true);
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -355,7 +355,7 @@ public class SupportPage extends javax.swing.JFrame {
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
         jButton6.setText("What is the current development status?");
-        jButton6.setBorder(null);
+        jButton6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton6.setFocusable(false);
         jButton6.setOpaque(true);
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -369,7 +369,7 @@ public class SupportPage extends javax.swing.JFrame {
         jButton8.setForeground(new java.awt.Color(255, 255, 255));
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
         jButton8.setText("Can developers contribute to the project?");
-        jButton8.setBorder(null);
+        jButton8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton8.setFocusable(false);
         jButton8.setOpaque(true);
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -383,7 +383,7 @@ public class SupportPage extends javax.swing.JFrame {
         jButton9.setForeground(new java.awt.Color(255, 255, 255));
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
         jButton9.setText("What functionality does the system provide?");
-        jButton9.setBorder(null);
+        jButton9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton9.setFocusable(false);
         jButton9.setOpaque(true);
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -397,7 +397,7 @@ public class SupportPage extends javax.swing.JFrame {
         jButton10.setForeground(new java.awt.Color(255, 255, 255));
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
         jButton10.setText("How is the database structured?");
-        jButton10.setBorder(null);
+        jButton10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton10.setFocusable(false);
         jButton10.setOpaque(true);
         jButton10.addActionListener(new java.awt.event.ActionListener() {

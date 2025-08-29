@@ -145,7 +145,7 @@ public class BookReservationsPage extends javax.swing.JFrame {
         bookNowButton.setFont(new java.awt.Font("SF Pro Display", 1, 15)); // NOI18N
         bookNowButton.setForeground(new java.awt.Color(255, 255, 255));
         bookNowButton.setText("Book Now");
-        bookNowButton.setBorder(null);
+        bookNowButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         bookNowButton.setFocusPainted(false);
         bookNowButton.setFocusable(false);
         bookNowButton.setOpaque(true);
