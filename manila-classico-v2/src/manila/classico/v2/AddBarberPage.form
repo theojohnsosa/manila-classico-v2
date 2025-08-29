@@ -223,7 +223,6 @@
                 </LineBorder>
               </Border>
             </Property>
-            <Property name="focusable" type="boolean" value="false"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
@@ -256,7 +255,6 @@
                 </LineBorder>
               </Border>
             </Property>
-            <Property name="focusable" type="boolean" value="false"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
@@ -289,7 +287,6 @@
                 </LineBorder>
               </Border>
             </Property>
-            <Property name="focusable" type="boolean" value="false"/>
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
@@ -309,7 +306,6 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="fe" green="fd" red="fd" type="rgb"/>
             </Property>
-            <Property name="focusable" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">

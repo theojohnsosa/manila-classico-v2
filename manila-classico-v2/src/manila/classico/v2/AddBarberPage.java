@@ -83,7 +83,6 @@ public class AddBarberPage extends javax.swing.JFrame {
         barberNameTextField.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
         barberNameTextField.setForeground(new java.awt.Color(0, 0, 0));
         barberNameTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(154, 164, 177), 1, true));
-        barberNameTextField.setFocusable(false);
         barberNameTextField.setOpaque(true);
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
@@ -94,7 +93,6 @@ public class AddBarberPage extends javax.swing.JFrame {
         barberContactTextField.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
         barberContactTextField.setForeground(new java.awt.Color(0, 0, 0));
         barberContactTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(154, 164, 177), 1, true));
-        barberContactTextField.setFocusable(false);
         barberContactTextField.setOpaque(true);
 
         jLabel4.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
@@ -105,7 +103,6 @@ public class AddBarberPage extends javax.swing.JFrame {
         barberEmailTextField.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
         barberEmailTextField.setForeground(new java.awt.Color(0, 0, 0));
         barberEmailTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(154, 164, 177), 1, true));
-        barberEmailTextField.setFocusable(false);
         barberEmailTextField.setOpaque(true);
 
         jLabel5.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
@@ -113,7 +110,6 @@ public class AddBarberPage extends javax.swing.JFrame {
         jLabel5.setText("Email");
 
         dateJoinedDateChooser.setBackground(new java.awt.Color(253, 253, 254));
-        dateJoinedDateChooser.setFocusable(false);
 
         jLabel6.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));

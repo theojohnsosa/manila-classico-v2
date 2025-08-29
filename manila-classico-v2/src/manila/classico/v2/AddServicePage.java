@@ -58,7 +58,6 @@ public class AddServicePage extends javax.swing.JFrame {
         serviceNameTextField.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
         serviceNameTextField.setForeground(new java.awt.Color(0, 0, 0));
         serviceNameTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
-        serviceNameTextField.setFocusable(false);
         serviceNameTextField.setOpaque(true);
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
@@ -73,7 +72,6 @@ public class AddServicePage extends javax.swing.JFrame {
         servicePriceTextField.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
         servicePriceTextField.setForeground(new java.awt.Color(0, 0, 0));
         servicePriceTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
-        servicePriceTextField.setFocusable(false);
         servicePriceTextField.setOpaque(true);
 
         addNewServiceButton.setBackground(new java.awt.Color(164, 145, 129));
