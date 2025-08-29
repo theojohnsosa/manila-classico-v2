@@ -266,7 +266,7 @@ public class ReservationsPage extends javax.swing.JFrame {
         jLabel4.setText("Manage customer appointments and bookings");
 
         searchTextField.setBackground(new java.awt.Color(253, 253, 254));
-        searchTextField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        searchTextField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
         searchTextField.setForeground(new java.awt.Color(154, 164, 177));
         searchTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(154, 164, 177), 1, true));
         searchTextField.setOpaque(true);

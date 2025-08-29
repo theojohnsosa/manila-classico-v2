@@ -502,7 +502,7 @@
               <Color blue="fe" green="fd" red="fd" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="SF Pro Display" size="13" style="1"/>
+              <Font name="SF Pro Display" size="16" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="b1" green="a4" red="9a" type="rgb"/>

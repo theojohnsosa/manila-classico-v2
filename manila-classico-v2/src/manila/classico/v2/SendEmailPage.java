@@ -114,7 +114,7 @@ public class SendEmailPage extends javax.swing.JFrame {
         });
 
         emailTextField.setBackground(new java.awt.Color(253, 253, 254));
-        emailTextField.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
+        emailTextField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
         emailTextField.setForeground(new java.awt.Color(0, 0, 0));
         emailTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(154, 164, 177), 1, true));
 
@@ -123,7 +123,7 @@ public class SendEmailPage extends javax.swing.JFrame {
         jLabel3.setText("Email");
 
         subjectTextField.setBackground(new java.awt.Color(253, 253, 254));
-        subjectTextField.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
+        subjectTextField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
         subjectTextField.setForeground(new java.awt.Color(0, 0, 0));
         subjectTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(154, 164, 177), 1, true));
 
@@ -137,7 +137,7 @@ public class SendEmailPage extends javax.swing.JFrame {
 
         messageTextArea.setBackground(new java.awt.Color(253, 253, 254));
         messageTextArea.setColumns(20);
-        messageTextArea.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        messageTextArea.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
         messageTextArea.setForeground(new java.awt.Color(0, 0, 0));
         messageTextArea.setRows(5);
         messageTextArea.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(155, 164, 177)));

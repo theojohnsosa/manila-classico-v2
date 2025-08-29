@@ -91,10 +91,14 @@ public class BookReservationsPage extends javax.swing.JFrame {
         jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
 
         fullNameTextField.setBackground(new java.awt.Color(253, 253, 254));
+        fullNameTextField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
+        fullNameTextField.setForeground(new java.awt.Color(0, 0, 0));
         fullNameTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
         fullNameTextField.setOpaque(true);
 
         contactNumberTextField.setBackground(new java.awt.Color(253, 253, 254));
+        contactNumberTextField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
+        contactNumberTextField.setForeground(new java.awt.Color(0, 0, 0));
         contactNumberTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
         contactNumberTextField.setOpaque(true);
 
@@ -107,6 +111,8 @@ public class BookReservationsPage extends javax.swing.JFrame {
         jLabel2.setText("Contact Number");
 
         serviceComboBox.setBackground(new java.awt.Color(253, 253, 254));
+        serviceComboBox.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
+        serviceComboBox.setForeground(new java.awt.Color(0, 0, 0));
         serviceComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Haircut – ₱150", "Haircut & Shampoo – ₱300", "Haircut and Shave – ₱300 ", "Haircut Delux – ₱380", "Classico Signature – ₱400", "Beard Trim – ₱200" }));
         serviceComboBox.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
         serviceComboBox.setOpaque(true);
@@ -116,6 +122,8 @@ public class BookReservationsPage extends javax.swing.JFrame {
         jLabel3.setText("Service");
 
         barberComboBox.setBackground(new java.awt.Color(253, 253, 254));
+        barberComboBox.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
+        barberComboBox.setForeground(new java.awt.Color(0, 0, 0));
         barberComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carlos Mendoza", "Roberto Silva", "Raffy Tulfo" }));
         barberComboBox.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
         barberComboBox.setOpaque(true);
@@ -132,7 +140,8 @@ public class BookReservationsPage extends javax.swing.JFrame {
         jLabel5.setText("Date");
 
         timeComboBox.setBackground(new java.awt.Color(253, 253, 254));
-        timeComboBox.setForeground(new java.awt.Color(155, 164, 177));
+        timeComboBox.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
+        timeComboBox.setForeground(new java.awt.Color(0, 0, 0));
         timeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "9:00 AM", "9:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "1:00 PM", "1:30 PM", "2:00 PM", "2:30 PM", "3:00 PM", "3:30 PM", "4:00 PM", "4:30 PM" }));
         timeComboBox.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
         timeComboBox.setOpaque(true);

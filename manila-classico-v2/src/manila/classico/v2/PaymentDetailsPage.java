@@ -204,7 +204,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         jLabel12.setText("Payment Details");
 
         jTextField2.setBackground(new java.awt.Color(253, 253, 254));
-        jTextField2.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        jTextField2.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(0, 0, 0));
         jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(154, 164, 177)));
 
@@ -217,7 +217,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         jLabel14.setText("Your Payment Amount");
 
         paymentAmountTextField.setBackground(new java.awt.Color(253, 253, 254));
-        paymentAmountTextField.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        paymentAmountTextField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
         paymentAmountTextField.setForeground(new java.awt.Color(0, 0, 0));
         paymentAmountTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(154, 164, 177)));
 

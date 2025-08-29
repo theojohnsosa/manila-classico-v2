@@ -107,7 +107,8 @@ public class StaffLoginPage extends javax.swing.JFrame {
         });
 
         adminCodePasswordField.setBackground(new java.awt.Color(253, 253, 254));
-        adminCodePasswordField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        adminCodePasswordField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
+        adminCodePasswordField.setForeground(new java.awt.Color(0, 0, 0));
         adminCodePasswordField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
         adminCodePasswordField.setOpaque(true);
 
@@ -116,7 +117,8 @@ public class StaffLoginPage extends javax.swing.JFrame {
         jLabel6.setText("Admin Code");
 
         adminIdTextField.setBackground(new java.awt.Color(253, 253, 254));
-        adminIdTextField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        adminIdTextField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
+        adminIdTextField.setForeground(new java.awt.Color(0, 0, 0));
         adminIdTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
         adminIdTextField.setOpaque(true);
 
