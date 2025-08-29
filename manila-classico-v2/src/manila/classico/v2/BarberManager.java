@@ -12,10 +12,21 @@ public class BarberManager {
         barbers.add(new Barber("Raffy Tulfo", "09345678901", "raffy@example.com", new java.util.Date()));
     }
 
-    public static List<Barber> getBarbers() { return barbers; }
-    public static void addBarber(Barber b) { barbers.add(b); }
-    public static void removeBarber(Barber b) { barbers.remove(b); }
-    public static void removeLastBarber() { if (!barbers.isEmpty()) barbers.remove(barbers.size() - 1); }
+    public static List<Barber> getBarbers() { 
+        return barbers; 
+    }
+    
+    public static void addBarber(Barber b) { 
+        barbers.add(b); 
+    }
+    
+    public static void removeBarber(Barber b) { 
+        barbers.remove(b); 
+    }
+    
+    public static void removeLastBarber() { 
+        if (!barbers.isEmpty()) barbers.remove(barbers.size() - 1); 
+    }
 
     public static List<Barber> searchBarbers(String keyword) {
         List<Barber> result = new ArrayList<>();

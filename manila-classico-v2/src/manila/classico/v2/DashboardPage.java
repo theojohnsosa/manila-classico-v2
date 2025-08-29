@@ -4,11 +4,12 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.Locale;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 public class DashboardPage extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DashboardPage.class.getName());
+    private static final Logger logger = Logger.getLogger(DashboardPage.class.getName());
 
     public DashboardPage() {
         initComponents();
@@ -28,7 +29,7 @@ public class DashboardPage extends javax.swing.JFrame {
                 try {
                     java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd h:mm a");
                     java.util.Date reservationDate = sdf.parse(r.getDate() + " " + r.getTime());
-                    return reservationDate.after(new java.util.Date()); // future only
+                    return reservationDate.after(new java.util.Date());
                 } catch (Exception e) {
                     return false;
                 }
@@ -41,7 +42,7 @@ public class DashboardPage extends javax.swing.JFrame {
                 try {
                     String amount = r.getTotalAmount()
                         .replace("₱", "")
-                        .replace("Php", "")
+                        .replace("PHP", "")
                         .replace(",", "")
                         .trim();
                     return Double.parseDouble(amount);
@@ -667,9 +668,6 @@ public class DashboardPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_reservationsButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info :

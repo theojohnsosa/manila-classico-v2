@@ -1,10 +1,11 @@
 package manila.classico.v2;
 
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class AddBarberPage extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AddBarberPage.class.getName());
+    private static final Logger logger = Logger.getLogger(AddBarberPage.class.getName());
     
     private BookReservationsPage bookPage;
 
@@ -212,18 +213,17 @@ public class AddBarberPage extends javax.swing.JFrame {
         java.util.Date dateJoined = dateJoinedDateChooser.getDate();
 
         if (name.isEmpty() || contact.isEmpty() || email.isEmpty() || dateJoined == null) {
-            JOptionPane.showMessageDialog(this, "Please complete all fields.");
+            JOptionPane.showMessageDialog(null, "Please complete all fields.");
             return;
         }
 
-        Barber newBarber = new Barber(name, contact, email, dateJoined);
-        BarberManager.addBarber(newBarber);
+        BarberManager.addBarber(new Barber(name, contact, email, dateJoined));
 
         if (bookPage != null) {
             bookPage.loadBarbersIntoComboBox();
         }
 
-        JOptionPane.showMessageDialog(this, "New barber added successfully.");
+        JOptionPane.showMessageDialog(null, "New barber added successfully.");
         
         ProfilesPage profilesPage = new ProfilesPage();
         profilesPage.setLocationRelativeTo(null);
@@ -233,10 +233,6 @@ public class AddBarberPage extends javax.swing.JFrame {
     }//GEN-LAST:event_addNewBarberButtonActionPerformed
 
     public static void main(String args[]) {
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -247,7 +243,6 @@ public class AddBarberPage extends javax.swing.JFrame {
         } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

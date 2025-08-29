@@ -6,8 +6,6 @@ import javax.swing.table.TableRowSorter;
 
 public class SalesHistoryPage extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(SalesHistoryPage.class.getName());
-    
     private TableRowSorter<DefaultTableModel> sorter;
    
     public SalesHistoryPage() {
@@ -428,24 +426,6 @@ public class SalesHistoryPage extends javax.swing.JFrame {
     }//GEN-LAST:event_dashboardButtonActionPerformed
 
     public static void main(String args[]) {
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new SalesHistoryPage().setVisible(true);

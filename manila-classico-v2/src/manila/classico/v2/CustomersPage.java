@@ -4,8 +4,6 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 public class CustomersPage extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CustomersPage.class.getName());
 
     public CustomersPage() {
         initComponents();
@@ -439,29 +437,8 @@ public class CustomersPage extends javax.swing.JFrame {
         dashboardPage.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_dashboardButtonActionPerformed
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
+    public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new CustomersPage().setVisible(true);

@@ -1,12 +1,13 @@
 package manila.classico.v2;
 
+import java.util.logging.Logger;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
 public class ReservationsPage extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ReservationsPage.class.getName());
+    private static final Logger logger = Logger.getLogger(ReservationsPage.class.getName());
 
     public ReservationsPage() {
         initComponents();

@@ -1,5 +1,6 @@
 package manila.classico.v2;
 
+import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
@@ -7,14 +8,11 @@ import javax.swing.event.DocumentListener;
 
 public class PaymentDetailsPage extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PaymentDetailsPage.class.getName());
+    private static final Logger logger = Logger.getLogger(PaymentDetailsPage.class.getName());
     
     private boolean payNowProcessed = false;
     
-    public PaymentDetailsPage(String fullName, String contact, String service,
-                              String barber, String date, String time,
-                              String price, String totalAmount) {
-        
+    public PaymentDetailsPage(String fullName, String contact, String service, String barber, String date, String time, String price, String totalAmount) {
         initComponents();
 
         customerTextField.setText(fullName);
@@ -47,15 +45,31 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         };
 
         paymentAmountTextField.getDocument().addDocumentListener(new DocumentListener() {
-            public void insertUpdate(DocumentEvent e) { validate.run(); }
-            public void removeUpdate(DocumentEvent e) { validate.run(); }
-            public void changedUpdate(DocumentEvent e) { validate.run(); }
+            public void insertUpdate(DocumentEvent e) { 
+                validate.run(); 
+            }
+            
+            public void removeUpdate(DocumentEvent e) { 
+                validate.run(); 
+            }
+            
+            public void changedUpdate(DocumentEvent e) { 
+                validate.run(); 
+            }
         });
 
         contactTextField.getDocument().addDocumentListener(new DocumentListener() {
-            public void insertUpdate(DocumentEvent e) { validate.run(); }
-            public void removeUpdate(DocumentEvent e) { validate.run(); }
-            public void changedUpdate(DocumentEvent e) { validate.run(); }
+            public void insertUpdate(DocumentEvent e) { 
+                validate.run(); 
+            }
+            
+            public void removeUpdate(DocumentEvent e) { 
+                validate.run(); 
+            }
+            
+            public void changedUpdate(DocumentEvent e) { 
+                validate.run(); 
+            }
         });
 
         cashToggleButton.addActionListener(e -> validate.run());

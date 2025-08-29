@@ -1,8 +1,10 @@
 package manila.classico.v2;
 
+import java.util.logging.Logger;
+
 public class UserSelectPage extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(UserSelectPage.class.getName());
+    private static final Logger logger = Logger.getLogger(UserSelectPage.class.getName());
 
     public UserSelectPage() {
         initComponents();

@@ -5,8 +5,6 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class ServicesPage extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ServicesPage.class.getName());
 
     private DefaultTableModel tableModel;
 
@@ -440,7 +438,7 @@ public class ServicesPage extends javax.swing.JFrame {
                     ServiceManager.removeService(s);
                 }
                 loadServicesToTable(ServiceManager.getServices());
-                JOptionPane.showMessageDialog(this, foundServices.size() + " service(s) deleted.");
+                JOptionPane.showMessageDialog(null, foundServices.size() + " service(s) deleted.");
                 return;
             } else {
                 JOptionPane.showMessageDialog(this, "No matching service found.");
@@ -459,7 +457,7 @@ public class ServicesPage extends javax.swing.JFrame {
     } else {
         java.util.List<Service> foundServices = ServiceManager.searchServices(keyword);
         if (foundServices.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "No services found.");
+            JOptionPane.showMessageDialog(null, "No services found.");
         }
         loadServicesToTable(foundServices);
     }
@@ -518,24 +516,6 @@ public class ServicesPage extends javax.swing.JFrame {
     }
 
     public static void main(String args[]) {
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ServicesPage().setVisible(true);

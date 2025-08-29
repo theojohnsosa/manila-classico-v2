@@ -1,8 +1,11 @@
 package manila.classico.v2;
 
+import java.util.Random;
+import java.util.logging.Logger;
+
 public class BookReservationsPage extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(BookReservationsPage.class.getName());
+    private static final Logger logger = Logger.getLogger(BookReservationsPage.class.getName());
 
     public BookReservationsPage() {
         initComponents();
@@ -25,11 +28,10 @@ public class BookReservationsPage extends javax.swing.JFrame {
     }
     
     private String generateUniqueRef() {
-        java.util.Random rnd = new java.util.Random();
+        Random rnd = new Random();
         String ref;
         do {
-            int n = 100000 + rnd.nextInt(900000);
-            ref = String.valueOf(n);
+            ref = String.valueOf(100000 + rnd.nextInt(900000));
         } while (CustomerManager.referenceExists(ref));
         return ref;
     }
@@ -285,10 +287,10 @@ public class BookReservationsPage extends javax.swing.JFrame {
 
         String serviceName = serviceItem;
         String pesoString = null;
-        int idx = serviceItem.indexOf("–");
-        if (idx > -1) {
-            serviceName = serviceItem.substring(0, idx).trim();
-            String right = serviceItem.substring(idx + 1).trim();
+        int index = serviceItem.indexOf("–");
+        if (index > -1) {
+            serviceName = serviceItem.substring(0, index).trim();
+            String right = serviceItem.substring(index + 1).trim();
             pesoString = right;
         }
 
@@ -305,9 +307,7 @@ public class BookReservationsPage extends javax.swing.JFrame {
 
         javax.swing.JOptionPane.showMessageDialog(this, "Reservation confirmed! Reference No: " + ref);
 
-        PaymentDetailsPage paymentDetails = new PaymentDetailsPage(
-            fullName, contact, serviceName, barber, date, time, price, totalAmount
-        );
+        PaymentDetailsPage paymentDetails = new PaymentDetailsPage(fullName, contact, serviceName, barber, date, time, price, totalAmount);
         paymentDetails.setLocationRelativeTo(null);
         paymentDetails.setResizable(false);
         paymentDetails.setVisible(true);

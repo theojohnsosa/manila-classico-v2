@@ -10,9 +10,7 @@ public class Reservation {
     private String paymentMethod;
     private String totalAmount;
 
-    public Reservation(String fullName, String contactNumber, String service,
-                       String barber, String date, String time,
-                       String paymentMethod, String totalAmount) {
+    public Reservation(String fullName, String contactNumber, String service, String barber, String date, String time, String paymentMethod, String totalAmount) {
         this.fullName = fullName;
         this.contactNumber = contactNumber;
         this.service = service;
@@ -23,12 +21,35 @@ public class Reservation {
         this.totalAmount = totalAmount;
     }
 
-    public String getFullName() { return fullName; }
-    public String getContactNumber() { return contactNumber; }
-    public String getService() { return service; }
-    public String getBarber() { return barber; }
-    public String getDate() { return date; }
-    public String getTime() { return time; }
-    public String getPaymentMethod() { return paymentMethod; }
-    public String getTotalAmount() { return totalAmount; }
+    public String getFullName() { 
+        return fullName; 
+    }
+    
+    public String getContactNumber() { 
+        return contactNumber; 
+    }
+    
+    public String getService() { 
+        return service; 
+    }
+    
+    public String getBarber() { 
+        return barber; 
+    }
+    
+    public String getDate() { 
+        return date; 
+    }
+    
+    public String getTime() {
+        return time; 
+    }
+    
+    public String getPaymentMethod() { 
+        return paymentMethod; 
+    }
+    
+    public String getTotalAmount() {
+        return totalAmount; 
+    }
 }

@@ -5,8 +5,6 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class ProfilesPage extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ProfilesPage.class.getName());
 
     public ProfilesPage() {
         initComponents();
@@ -441,11 +439,11 @@ public class ProfilesPage extends javax.swing.JFrame {
                 for (Barber b : found) {
                     BarberManager.removeBarber(b);
                 }
-                refreshBarberTable(); // updated
-                JOptionPane.showMessageDialog(this, found.size() + " barber(s) deleted.");
+                refreshBarberTable();
+                JOptionPane.showMessageDialog(null, found.size() + " barber(s) deleted.");
                 return;
             } else {
-                JOptionPane.showMessageDialog(this, "No matching barber found.");
+                JOptionPane.showMessageDialog(null, "No matching barber found.");
                 return;
             }
         }
@@ -509,24 +507,6 @@ public class ProfilesPage extends javax.swing.JFrame {
     }//GEN-LAST:event_dashboardButtonActionPerformed
 
     public static void main(String args[]) {
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ProfilesPage().setVisible(true);

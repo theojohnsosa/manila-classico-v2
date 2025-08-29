@@ -9,11 +9,12 @@ import jakarta.mail.Transport;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 import java.util.Properties;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class SendEmailPage extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(SendEmailPage.class.getName());
+    private static final Logger logger = Logger.getLogger(SendEmailPage.class.getName());
 
     public SendEmailPage() {
         initComponents();
@@ -44,9 +45,9 @@ public class SendEmailPage extends javax.swing.JFrame {
             message.setText(content);
 
             Transport.send(message);
-            JOptionPane.showMessageDialog(this, "Email sent successfully!");
+            JOptionPane.showMessageDialog(null, "Email sent successfully!");
         } catch (MessagingException e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -238,7 +239,7 @@ public class SendEmailPage extends javax.swing.JFrame {
             supportPage.setVisible(true);
             this.dispose();
         } else {
-            JOptionPane.showMessageDialog(this, "Please fill all fields before sending.");
+            JOptionPane.showMessageDialog(null, "Please fill all fields before sending.");
             emailTextField.setText("");
             subjectTextField.setText("");
             messageTextArea.setText("");

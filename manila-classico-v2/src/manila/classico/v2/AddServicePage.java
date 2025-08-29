@@ -1,10 +1,11 @@
 package manila.classico.v2;
 
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class AddServicePage extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AddServicePage.class.getName());
+    private static final Logger logger = Logger.getLogger(AddServicePage.class.getName());
     
     public AddServicePage() {
         initComponents();
@@ -166,15 +167,14 @@ public class AddServicePage extends javax.swing.JFrame {
         String priceText = servicePriceTextField.getText().trim();
 
         if (name.isEmpty() || priceText.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please fill all fields.");
+            JOptionPane.showMessageDialog(null, "Please fill all fields.");
             return;
         }
 
         try {
             double price = Double.parseDouble(priceText);
-            Service newService = new Service(name, price);
-            ServiceManager.addService(newService);
-            JOptionPane.showMessageDialog(this, "Service added successfully.");
+            ServiceManager.addService(new Service(name, price));
+            JOptionPane.showMessageDialog(null, "Service added successfully.");
             
             ServicesPage servicesPage = new ServicesPage();
             servicesPage.setLocationRelativeTo(null);
@@ -183,7 +183,7 @@ public class AddServicePage extends javax.swing.JFrame {
             this.dispose();
             
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Invalid price input.");
+            JOptionPane.showMessageDialog(null, "Invalid price input.");
         }
     }//GEN-LAST:event_addNewServiceButtonActionPerformed
 

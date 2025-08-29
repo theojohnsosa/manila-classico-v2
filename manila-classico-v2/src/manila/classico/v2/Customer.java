@@ -11,7 +11,15 @@ public class Customer {
         this.reference = reference;
     }
 
-    public String getName() { return name; }
-    public String getContact() { return contact; }
-    public String getReference() { return reference; }
+    public String getName() { 
+        return name; 
+    }
+    
+    public String getContact() { 
+        return contact; 
+    }
+    
+    public String getReference() { 
+        return reference; 
+    }
 }

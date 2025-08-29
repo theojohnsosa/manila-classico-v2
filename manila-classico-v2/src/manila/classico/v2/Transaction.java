@@ -10,9 +10,7 @@ public class Transaction {
     private final String paymentMethod;
     private final String paymentAmount;
 
-    public Transaction(String customerName, String contact, String service, 
-                       String barber, String date, String time, 
-                       String paymentMethod, String paymentAmount) {
+    public Transaction(String customerName, String contact, String service, String barber, String date, String time, String paymentMethod, String paymentAmount) {
         this.customerName = customerName;
         this.contact = contact;
         this.service = service;
@@ -23,12 +21,35 @@ public class Transaction {
         this.paymentAmount = paymentAmount;
     }
 
-    public String getCustomerName() { return customerName; }
-    public String getContact() { return contact; }
-    public String getService() { return service; }
-    public String getBarber() { return barber; }
-    public String getDate() { return date; }
-    public String getTime() { return time; }
-    public String getPaymentMethod() { return paymentMethod; }
-    public String getPaymentAmount() { return paymentAmount; }
+    public String getCustomerName() { 
+        return customerName; 
+    }
+    
+    public String getContact() { 
+        return contact; 
+    }
+    
+    public String getService() { 
+        return service; 
+    }
+    
+    public String getBarber() { 
+        return barber; 
+    }
+    
+    public String getDate() { 
+        return date; 
+    }
+    
+    public String getTime() { 
+        return time; 
+    }
+    
+    public String getPaymentMethod() { 
+        return paymentMethod; 
+    }
+    
+    public String getPaymentAmount() { 
+        return paymentAmount; 
+    }
 }

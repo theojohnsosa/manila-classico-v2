@@ -1,10 +1,11 @@
 package manila.classico.v2;
 
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class StaffLoginPage extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(StaffLoginPage.class.getName());
+    private static final Logger logger = Logger.getLogger(StaffLoginPage.class.getName());
 
     public StaffLoginPage() {
         initComponents();

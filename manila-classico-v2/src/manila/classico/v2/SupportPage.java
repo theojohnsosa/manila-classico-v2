@@ -3,8 +3,6 @@ package manila.classico.v2;
 import javax.swing.JOptionPane;
 
 public class SupportPage extends javax.swing.JFrame {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(SupportPage.class.getName());
 
     public SupportPage() {
         initComponents();
@@ -602,24 +600,6 @@ public class SupportPage extends javax.swing.JFrame {
     
 
     public static void main(String args[]) {
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new SupportPage().setVisible(true);
