@@ -64,6 +64,7 @@ public class DashboardPage extends javax.swing.JFrame {
                 LocalDateTime.parse(r.getDate() + " " + r.getTime(), formatter)))
             .forEach(r -> model.addRow(new Object[] {
                 r.getFullName(),
+                r.getContactNumber(),
                 r.getService(),
                 r.getBarber(),
                 r.getDate(),
