@@ -718,6 +718,7 @@ public class SupportPage extends javax.swing.JFrame {
         dashboardPage.setLocationRelativeTo(null);
         dashboardPage.setResizable(false);
         dashboardPage.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_dashboardButtonActionPerformed
     
 
