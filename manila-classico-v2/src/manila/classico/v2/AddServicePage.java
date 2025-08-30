@@ -19,6 +19,26 @@ public class AddServicePage extends javax.swing.JFrame {
                addNewServiceButton.setBackground(new java.awt.Color(164, 145, 129));
            } 
         });
+        
+        serviceNameTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               serviceNameTextField.setBackground(new java.awt.Color(239, 239, 239));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               serviceNameTextField.setBackground(new java.awt.Color(253, 253, 254));
+           } 
+        });
+        
+        servicePriceTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               servicePriceTextField.setBackground(new java.awt.Color(239, 239, 239));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               servicePriceTextField.setBackground(new java.awt.Color(253, 253, 254));
+           } 
+        });
     }
     
     @SuppressWarnings("unchecked")
