@@ -9,6 +9,16 @@ public class StaffLoginPage extends javax.swing.JFrame {
 
     public StaffLoginPage() {
         initComponents();
+        
+        loginToDashboardButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               loginToDashboardButton.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               loginToDashboardButton.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
     }
     
     @SuppressWarnings("unchecked")
