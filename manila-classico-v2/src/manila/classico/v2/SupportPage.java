@@ -236,6 +236,11 @@ public class SupportPage extends javax.swing.JFrame {
         dashboardButton.setFocusPainted(false);
         dashboardButton.setFocusable(false);
         dashboardButton.setOpaque(true);
+        dashboardButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dashboardButtonActionPerformed(evt);
+            }
+        });
 
         reservationsPage.setBackground(new java.awt.Color(253, 253, 254));
         reservationsPage.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
@@ -707,6 +712,13 @@ public class SupportPage extends javax.swing.JFrame {
                 + "                                improvements through issues, or adapt the project for their own needs. Collaboration is welcomed to help<br>"
                 + "                                expand and refine the system’s capabilities.</html>");
     }//GEN-LAST:event_faq8ActionPerformed
+
+    private void dashboardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboardButtonActionPerformed
+        DashboardPage dashboardPage = new DashboardPage();
+        dashboardPage.setLocationRelativeTo(null);
+        dashboardPage.setResizable(false);
+        dashboardPage.setVisible(true);
+    }//GEN-LAST:event_dashboardButtonActionPerformed
     
 
     public static void main(String args[]) {
