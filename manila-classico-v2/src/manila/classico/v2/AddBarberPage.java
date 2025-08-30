@@ -21,6 +21,46 @@ public class AddBarberPage extends javax.swing.JFrame {
                addNewBarberButton.setBackground(new java.awt.Color(164, 145, 129));
            } 
         });
+        
+        barberNameTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               barberNameTextField.setBackground(new java.awt.Color(239, 239, 239));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               barberNameTextField.setBackground(new java.awt.Color(253, 253, 254));
+           } 
+        });
+        
+        barberContactTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               barberContactTextField.setBackground(new java.awt.Color(239, 239, 239));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               barberContactTextField.setBackground(new java.awt.Color(253, 253, 254));
+           } 
+        });
+        
+        barberEmailTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               barberEmailTextField.setBackground(new java.awt.Color(239, 239, 239));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               barberEmailTextField.setBackground(new java.awt.Color(253, 253, 254));
+           } 
+        });
+        
+        dateJoinedDateChooser.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               dateJoinedDateChooser.setBackground(new java.awt.Color(239, 239, 239));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               dateJoinedDateChooser.setBackground(new java.awt.Color(253, 253, 254));
+           } 
+        });
     }
     
     public AddBarberPage(BookReservationsPage bookPage) {
