@@ -123,8 +123,8 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="dashboardButton" alignment="0" max="32767" attributes="0"/>
-                          <Component id="reservationsPage" max="32767" attributes="0"/>
-                          <Component id="servicesPage" max="32767" attributes="0"/>
+                          <Component id="reservationsButton" max="32767" attributes="0"/>
+                          <Component id="servicesButton" max="32767" attributes="0"/>
                           <Component id="salesHistoryButton" max="32767" attributes="0"/>
                           <Component id="customersButton" max="32767" attributes="0"/>
                           <Component id="profilesButton" alignment="0" max="32767" attributes="0"/>
@@ -141,9 +141,9 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="dashboardButton" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="reservationsPage" min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="reservationsButton" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="servicesPage" min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="servicesButton" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="profilesButton" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -317,7 +317,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dashboardButtonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="reservationsPage">
+            <Component class="javax.swing.JButton" name="reservationsButton">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="fe" green="fd" red="fd" type="rgb"/>
@@ -340,10 +340,10 @@
                 <Property name="opaque" type="boolean" value="true"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reservationsPageActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reservationsButtonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="servicesPage">
+            <Component class="javax.swing.JButton" name="servicesButton">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="fe" green="fd" red="fd" type="rgb"/>
@@ -366,7 +366,7 @@
                 <Property name="opaque" type="boolean" value="true"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="servicesPageActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="servicesButtonActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="salesHistoryButton">
