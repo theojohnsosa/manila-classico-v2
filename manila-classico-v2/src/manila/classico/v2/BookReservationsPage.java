@@ -11,6 +11,16 @@ public class BookReservationsPage extends javax.swing.JFrame {
         initComponents();
         loadServicesIntoComboBox();
         loadBarbersIntoComboBox();
+        
+        bookNowButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               bookNowButton.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               bookNowButton.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
     }
     
     private void loadServicesIntoComboBox() {
