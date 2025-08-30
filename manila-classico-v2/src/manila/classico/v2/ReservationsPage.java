@@ -2,6 +2,7 @@ package manila.classico.v2;
 
 import java.util.logging.Logger;
 import javax.swing.RowFilter;
+import javax.swing.border.BevelBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -40,6 +41,104 @@ public class ReservationsPage extends javax.swing.JFrame {
            
            public void mouseExited(java.awt.event.MouseEvent evt) {
                searchTextField.setBackground(new java.awt.Color(253, 253, 254));
+           } 
+        });
+        
+        dashboardButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               dashboardButton.setBackground(new java.awt.Color(114, 74, 49));
+               dashboardButton.setForeground(new java.awt.Color(255, 255, 255));
+               dashboardButton.setBorder(new BevelBorder(BevelBorder.RAISED));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               dashboardButton.setBackground(new java.awt.Color(253, 253, 254));
+               dashboardButton.setForeground(new java.awt.Color(154, 164, 177));
+               dashboardButton.setBorder(null);
+           } 
+        });
+        
+        servicesButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               servicesButton.setBackground(new java.awt.Color(114, 74, 49));
+               servicesButton.setForeground(new java.awt.Color(255, 255, 255));
+               servicesButton.setBorder(new BevelBorder(BevelBorder.RAISED));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               servicesButton.setBackground(new java.awt.Color(253, 253, 254));
+               servicesButton.setForeground(new java.awt.Color(154, 164, 177));
+               servicesButton.setBorder(null);
+           } 
+        });
+        
+        profilesButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               profilesButton.setBackground(new java.awt.Color(114, 74, 49));
+               profilesButton.setForeground(new java.awt.Color(255, 255, 255));
+               profilesButton.setBorder(new BevelBorder(BevelBorder.RAISED));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               profilesButton.setBackground(new java.awt.Color(253, 253, 254));
+               profilesButton.setForeground(new java.awt.Color(154, 164, 177));
+               profilesButton.setBorder(null);
+           } 
+        });
+        
+        customersButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               customersButton.setBackground(new java.awt.Color(114, 74, 49));
+               customersButton.setForeground(new java.awt.Color(255, 255, 255));
+               customersButton.setBorder(new BevelBorder(BevelBorder.RAISED));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               customersButton.setBackground(new java.awt.Color(253, 253, 254));
+               customersButton.setForeground(new java.awt.Color(154, 164, 177));
+               customersButton.setBorder(null);
+           } 
+        });
+        
+        salesHistoryButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               salesHistoryButton.setBackground(new java.awt.Color(114, 74, 49));
+               salesHistoryButton.setForeground(new java.awt.Color(255, 255, 255));
+               salesHistoryButton.setBorder(new BevelBorder(BevelBorder.RAISED));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               salesHistoryButton.setBackground(new java.awt.Color(253, 253, 254));
+               salesHistoryButton.setForeground(new java.awt.Color(154, 164, 177));
+               salesHistoryButton.setBorder(null);
+           } 
+        });
+        
+        supportButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               supportButton.setBackground(new java.awt.Color(114, 74, 49));
+               supportButton.setForeground(new java.awt.Color(255, 255, 255));
+               supportButton.setBorder(new BevelBorder(BevelBorder.RAISED));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               supportButton.setBackground(new java.awt.Color(253, 253, 254));
+               supportButton.setForeground(new java.awt.Color(154, 164, 177));
+               supportButton.setBorder(null);
+           } 
+        });
+        
+        signOutButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               signOutButton.setBackground(new java.awt.Color(114, 74, 49));
+               signOutButton.setForeground(new java.awt.Color(255, 255, 255));
+               signOutButton.setBorder(new BevelBorder(BevelBorder.RAISED));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               signOutButton.setBackground(new java.awt.Color(253, 253, 254));
+               signOutButton.setForeground(new java.awt.Color(154, 164, 177));
+               signOutButton.setBorder(null);
            } 
         });
     }
