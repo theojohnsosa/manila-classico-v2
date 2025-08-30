@@ -9,6 +9,46 @@ public class ProfilesPage extends javax.swing.JFrame {
     public ProfilesPage() {
         initComponents();
         refreshBarberTable();
+        
+        addBarberButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               addBarberButton.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               addBarberButton.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
+        
+        deleteBarberButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               deleteBarberButton.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               deleteBarberButton.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
+        
+        searchButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               searchButton.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               searchButton.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
+        
+        profilesButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               profilesButton.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               profilesButton.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
     }
     
     public void refreshBarberTable() {
@@ -44,7 +84,7 @@ public class ProfilesPage extends javax.swing.JFrame {
         servicesPage = new javax.swing.JButton();
         salesHistoryButton = new javax.swing.JButton();
         customersButton = new javax.swing.JButton();
-        profilesPage = new javax.swing.JButton();
+        profilesButton = new javax.swing.JButton();
         supportButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -208,15 +248,15 @@ public class ProfilesPage extends javax.swing.JFrame {
             }
         });
 
-        profilesPage.setBackground(new java.awt.Color(164, 145, 129));
-        profilesPage.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        profilesPage.setForeground(new java.awt.Color(255, 255, 255));
-        profilesPage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-customer-100.png"))); // NOI18N
-        profilesPage.setText("Profiles");
-        profilesPage.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        profilesPage.setFocusPainted(false);
-        profilesPage.setFocusable(false);
-        profilesPage.setOpaque(true);
+        profilesButton.setBackground(new java.awt.Color(164, 145, 129));
+        profilesButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        profilesButton.setForeground(new java.awt.Color(255, 255, 255));
+        profilesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-customer-100.png"))); // NOI18N
+        profilesButton.setText("Profiles");
+        profilesButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        profilesButton.setFocusPainted(false);
+        profilesButton.setFocusable(false);
+        profilesButton.setOpaque(true);
 
         supportButton.setBackground(new java.awt.Color(253, 253, 254));
         supportButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
@@ -247,7 +287,7 @@ public class ProfilesPage extends javax.swing.JFrame {
                     .addComponent(servicesPage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(salesHistoryButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(customersButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(profilesPage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(profilesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(supportButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -262,7 +302,7 @@ public class ProfilesPage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(servicesPage, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(profilesPage, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(profilesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(customersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -530,7 +570,7 @@ public class ProfilesPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton profilesPage;
+    private javax.swing.JButton profilesButton;
     private javax.swing.JButton reservationsPage;
     private javax.swing.JButton salesHistoryButton;
     private javax.swing.JButton searchButton;
