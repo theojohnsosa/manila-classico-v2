@@ -193,7 +193,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="dashboardButton" alignment="0" max="32767" attributes="0"/>
                           <Component id="reservationsButton" max="32767" attributes="0"/>
                           <Component id="servicesButton" max="32767" attributes="0"/>
                           <Component id="salesHistoryButton" max="32767" attributes="0"/>
@@ -210,7 +210,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="dashboardButton" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="reservationsButton" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -362,7 +362,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="dashboardButton">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="81" green="91" red="a4" type="rgb"/>
