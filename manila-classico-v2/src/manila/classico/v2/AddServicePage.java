@@ -9,6 +9,16 @@ public class AddServicePage extends javax.swing.JFrame {
     
     public AddServicePage() {
         initComponents();
+        
+        addNewServiceButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               addNewServiceButton.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               addNewServiceButton.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
     }
     
     @SuppressWarnings("unchecked")

@@ -1,6 +1,5 @@
 package manila.classico.v2;
 
-import java.awt.Color;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
@@ -12,6 +11,16 @@ public class AddBarberPage extends javax.swing.JFrame {
 
     public AddBarberPage() {
         initComponents();
+        
+        addNewBarberButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               addNewBarberButton.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               addNewBarberButton.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
     }
     
     public AddBarberPage(BookReservationsPage bookPage) {
