@@ -21,6 +21,26 @@ public class BookReservationsPage extends javax.swing.JFrame {
                bookNowButton.setBackground(new java.awt.Color(164, 145, 129));
            } 
         });
+        
+        fullNameTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               fullNameTextField.setBackground(new java.awt.Color(239, 239, 239));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               fullNameTextField.setBackground(new java.awt.Color(253, 253, 254));
+           } 
+        });
+        
+        contactNumberTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               contactNumberTextField.setBackground(new java.awt.Color(239, 239, 239));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               contactNumberTextField.setBackground(new java.awt.Color(253, 253, 254));
+           } 
+        });
     }
     
     private void loadServicesIntoComboBox() {

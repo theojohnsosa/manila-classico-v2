@@ -28,6 +28,36 @@ public class SendEmailPage extends javax.swing.JFrame {
                submitEmailButton.setBackground(new java.awt.Color(164, 145, 129));
            } 
         });
+        
+        emailTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               emailTextField.setBackground(new java.awt.Color(239, 239, 239));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               emailTextField.setBackground(new java.awt.Color(253, 253, 254));
+           } 
+        });
+        
+        subjectTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               subjectTextField.setBackground(new java.awt.Color(239, 239, 239));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               subjectTextField.setBackground(new java.awt.Color(253, 253, 254));
+           } 
+        });
+        
+        messageTextArea.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               messageTextArea.setBackground(new java.awt.Color(239, 239, 239));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               messageTextArea.setBackground(new java.awt.Color(253, 253, 254));
+           } 
+        });
     }
     
     private final String senderEmail = "theojohnsosa@gmail.com";

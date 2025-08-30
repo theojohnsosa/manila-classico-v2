@@ -124,6 +124,26 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
                payNowButton.setBackground(new java.awt.Color(164, 145, 129));
            } 
         });
+        
+        phoneNumberTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               phoneNumberTextField.setBackground(new java.awt.Color(239, 239, 239));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               phoneNumberTextField.setBackground(new java.awt.Color(253, 253, 254));
+           } 
+        });
+        
+        paymentAmountTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               paymentAmountTextField.setBackground(new java.awt.Color(239, 239, 239));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               paymentAmountTextField.setBackground(new java.awt.Color(253, 253, 254));
+           } 
+        });
     }
 
     @SuppressWarnings("unchecked")
@@ -142,7 +162,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         cashToggleButton = new javax.swing.JToggleButton();
         gcashToggleButton = new javax.swing.JToggleButton();
         jLabel12 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        phoneNumberTextField = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         paymentAmountTextField = new javax.swing.JTextField();
@@ -233,10 +253,10 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Payment Details");
 
-        jTextField2.setBackground(new java.awt.Color(253, 253, 254));
-        jTextField2.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(154, 164, 177)));
+        phoneNumberTextField.setBackground(new java.awt.Color(253, 253, 254));
+        phoneNumberTextField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
+        phoneNumberTextField.setForeground(new java.awt.Color(0, 0, 0));
+        phoneNumberTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(154, 164, 177)));
 
         jLabel13.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
@@ -276,7 +296,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
                     .addComponent(jLabel11)
                     .addComponent(cashToggleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(gcashToggleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField2)
+                    .addComponent(phoneNumberTextField)
                     .addComponent(paymentAmountTextField)
                     .addComponent(jLabel14)
                     .addComponent(payNowButton, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -296,7 +316,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(phoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -556,9 +576,9 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JButton payNowButton;
     private javax.swing.JTextField paymentAmountTextField;
+    private javax.swing.JTextField phoneNumberTextField;
     private javax.swing.JTextField serviceTextField;
     private javax.swing.JTextField timeTextField;
     private javax.swing.JTextField totalAmountTextField;

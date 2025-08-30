@@ -49,6 +49,16 @@ public class ProfilesPage extends javax.swing.JFrame {
                profilesButton.setBackground(new java.awt.Color(164, 145, 129));
            } 
         });
+        
+        searchTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               searchTextField.setBackground(new java.awt.Color(239, 239, 239));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               searchTextField.setBackground(new java.awt.Color(253, 253, 254));
+           } 
+        });
     }
     
     public void refreshBarberTable() {

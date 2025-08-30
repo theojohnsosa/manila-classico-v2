@@ -19,6 +19,46 @@ public class StaffLoginPage extends javax.swing.JFrame {
                loginToDashboardButton.setBackground(new java.awt.Color(164, 145, 129));
            } 
         });
+        
+        adminIdTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               adminIdTextField.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               adminIdTextField.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
+        
+        adminCodePasswordField.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               adminCodePasswordField.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               adminCodePasswordField.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
+        
+        adminIdTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               adminIdTextField.setBackground(new java.awt.Color(239, 239, 239));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               adminIdTextField.setBackground(new java.awt.Color(253, 253, 254));
+           } 
+        });
+        
+        adminCodePasswordField.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               adminCodePasswordField.setBackground(new java.awt.Color(239, 239, 239));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               adminCodePasswordField.setBackground(new java.awt.Color(253, 253, 254));
+           } 
+        });
     }
     
     @SuppressWarnings("unchecked")

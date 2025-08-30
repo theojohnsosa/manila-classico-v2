@@ -111,16 +111,16 @@ public class DashboardPage extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         liveQueueTable = new javax.swing.JTable();
-        jPanel5 = new javax.swing.JPanel();
+        totalBookingsPanel = new javax.swing.JPanel();
         totalBookingsTextField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
+        totalSalesPanel = new javax.swing.JPanel();
         totalSalesTextField = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jPanel12 = new javax.swing.JPanel();
+        scheduledReservationPanel = new javax.swing.JPanel();
         scheduledReservationTextField = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jPanel13 = new javax.swing.JPanel();
+        totalCustomersPanel = new javax.swing.JPanel();
         totalCustomersTextField = new javax.swing.JTextField();
         totalCustomerTextField = new javax.swing.JLabel();
 
@@ -408,9 +408,9 @@ public class DashboardPage extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(liveQueueTable);
 
-        jPanel5.setBackground(new java.awt.Color(254, 243, 225));
-        jPanel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
-        jPanel5.setForeground(new java.awt.Color(254, 243, 225));
+        totalBookingsPanel.setBackground(new java.awt.Color(254, 243, 225));
+        totalBookingsPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
+        totalBookingsPanel.setForeground(new java.awt.Color(254, 243, 225));
 
         totalBookingsTextField.setBackground(new java.awt.Color(254, 243, 225));
         totalBookingsTextField.setFont(new java.awt.Font("SF Pro Display", 1, 70)); // NOI18N
@@ -426,20 +426,20 @@ public class DashboardPage extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("<html><div style=\"text-align: center;\">Total Bookings</div></html>");
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        javax.swing.GroupLayout totalBookingsPanelLayout = new javax.swing.GroupLayout(totalBookingsPanel);
+        totalBookingsPanel.setLayout(totalBookingsPanelLayout);
+        totalBookingsPanelLayout.setHorizontalGroup(
+            totalBookingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(totalBookingsPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(totalBookingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(totalBookingsTextField)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        totalBookingsPanelLayout.setVerticalGroup(
+            totalBookingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(totalBookingsPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(totalBookingsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -447,9 +447,9 @@ public class DashboardPage extends javax.swing.JFrame {
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
-        jPanel7.setBackground(new java.awt.Color(254, 243, 225));
-        jPanel7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
-        jPanel7.setForeground(new java.awt.Color(254, 243, 225));
+        totalSalesPanel.setBackground(new java.awt.Color(254, 243, 225));
+        totalSalesPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
+        totalSalesPanel.setForeground(new java.awt.Color(254, 243, 225));
 
         totalSalesTextField.setBackground(new java.awt.Color(254, 243, 225));
         totalSalesTextField.setFont(new java.awt.Font("SF Pro Display", 1, 25)); // NOI18N
@@ -465,20 +465,20 @@ public class DashboardPage extends javax.swing.JFrame {
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("<html><div style=\"text-align: center;\">Total Sales</div></html>");
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+        javax.swing.GroupLayout totalSalesPanelLayout = new javax.swing.GroupLayout(totalSalesPanel);
+        totalSalesPanel.setLayout(totalSalesPanelLayout);
+        totalSalesPanelLayout.setHorizontalGroup(
+            totalSalesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(totalSalesPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(totalSalesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(totalSalesTextField)
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
+        totalSalesPanelLayout.setVerticalGroup(
+            totalSalesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(totalSalesPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(totalSalesTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -486,9 +486,9 @@ public class DashboardPage extends javax.swing.JFrame {
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
-        jPanel12.setBackground(new java.awt.Color(254, 243, 225));
-        jPanel12.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
-        jPanel12.setForeground(new java.awt.Color(254, 243, 225));
+        scheduledReservationPanel.setBackground(new java.awt.Color(254, 243, 225));
+        scheduledReservationPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
+        scheduledReservationPanel.setForeground(new java.awt.Color(254, 243, 225));
 
         scheduledReservationTextField.setBackground(new java.awt.Color(254, 243, 225));
         scheduledReservationTextField.setFont(new java.awt.Font("SF Pro Display", 1, 70)); // NOI18N
@@ -504,20 +504,20 @@ public class DashboardPage extends javax.swing.JFrame {
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("<html><div style=\"text-align: center;\">Scheduled Reservation</div></html>");
 
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
+        javax.swing.GroupLayout scheduledReservationPanelLayout = new javax.swing.GroupLayout(scheduledReservationPanel);
+        scheduledReservationPanel.setLayout(scheduledReservationPanelLayout);
+        scheduledReservationPanelLayout.setHorizontalGroup(
+            scheduledReservationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(scheduledReservationPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(scheduledReservationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(scheduledReservationTextField)
                     .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
+        scheduledReservationPanelLayout.setVerticalGroup(
+            scheduledReservationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(scheduledReservationPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(scheduledReservationTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -525,9 +525,9 @@ public class DashboardPage extends javax.swing.JFrame {
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
-        jPanel13.setBackground(new java.awt.Color(254, 243, 225));
-        jPanel13.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
-        jPanel13.setForeground(new java.awt.Color(254, 243, 225));
+        totalCustomersPanel.setBackground(new java.awt.Color(254, 243, 225));
+        totalCustomersPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
+        totalCustomersPanel.setForeground(new java.awt.Color(254, 243, 225));
 
         totalCustomersTextField.setBackground(new java.awt.Color(254, 243, 225));
         totalCustomersTextField.setFont(new java.awt.Font("SF Pro Display", 1, 70)); // NOI18N
@@ -543,20 +543,20 @@ public class DashboardPage extends javax.swing.JFrame {
         totalCustomerTextField.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         totalCustomerTextField.setText("<html><div style=\"text-align: center;\">Total Customers</div></html>");
 
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
+        javax.swing.GroupLayout totalCustomersPanelLayout = new javax.swing.GroupLayout(totalCustomersPanel);
+        totalCustomersPanel.setLayout(totalCustomersPanelLayout);
+        totalCustomersPanelLayout.setHorizontalGroup(
+            totalCustomersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(totalCustomersPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(totalCustomersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(totalCustomersTextField)
                     .addComponent(totalCustomerTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
+        totalCustomersPanelLayout.setVerticalGroup(
+            totalCustomersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(totalCustomersPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(totalCustomersTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -577,13 +577,13 @@ public class DashboardPage extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(totalBookingsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(totalSalesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(scheduledReservationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(totalCustomersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 18, Short.MAX_VALUE))
         );
@@ -597,10 +597,10 @@ public class DashboardPage extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(totalBookingsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(totalSalesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(scheduledReservationPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(totalCustomersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -707,27 +707,27 @@ public class DashboardPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTable liveQueueTable;
     private javax.swing.JButton profilesButton;
     private javax.swing.JButton reservationsButton;
     private javax.swing.JButton salesHistoryButton;
+    private javax.swing.JPanel scheduledReservationPanel;
     private javax.swing.JTextField scheduledReservationTextField;
     private javax.swing.JButton servicesButton;
     private javax.swing.JButton signOutButton;
     private javax.swing.JButton supportButton;
+    private javax.swing.JPanel totalBookingsPanel;
     private javax.swing.JTextField totalBookingsTextField;
     private javax.swing.JLabel totalCustomerTextField;
+    private javax.swing.JPanel totalCustomersPanel;
     private javax.swing.JTextField totalCustomersTextField;
+    private javax.swing.JPanel totalSalesPanel;
     private javax.swing.JTextField totalSalesTextField;
     // End of variables declaration//GEN-END:variables
 }
