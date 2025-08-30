@@ -18,6 +18,16 @@ public class SendEmailPage extends javax.swing.JFrame {
 
     public SendEmailPage() {
         initComponents();
+        
+        submitEmailButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               submitEmailButton.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               submitEmailButton.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
     }
     
     private final String senderEmail = "theojohnsosa@gmail.com";

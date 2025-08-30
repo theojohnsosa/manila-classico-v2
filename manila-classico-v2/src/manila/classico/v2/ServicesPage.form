@@ -124,7 +124,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="dashboardButton" alignment="0" max="32767" attributes="0"/>
                           <Component id="reservationsButton" max="32767" attributes="0"/>
-                          <Component id="jButton3" max="32767" attributes="0"/>
+                          <Component id="servicesButton" max="32767" attributes="0"/>
                           <Component id="salesHistoryPage" max="32767" attributes="0"/>
                           <Component id="customersButton" max="32767" attributes="0"/>
                           <Component id="profilesPage" alignment="0" max="32767" attributes="0"/>
@@ -143,7 +143,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="reservationsButton" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton3" min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="servicesButton" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="profilesPage" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -343,7 +343,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reservationsButtonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton3">
+            <Component class="javax.swing.JButton" name="servicesButton">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="81" green="91" red="a4" type="rgb"/>
