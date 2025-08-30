@@ -8,6 +8,26 @@ public class UserSelectPage extends javax.swing.JFrame {
 
     public UserSelectPage() {
         initComponents();
+        
+        viewQueueStatusButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               viewQueueStatusButton.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               viewQueueStatusButton.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
+        
+        makeReservationButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               makeReservationButton.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               makeReservationButton.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
     }
 
     @SuppressWarnings("unchecked")
