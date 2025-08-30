@@ -6,6 +6,116 @@ public class SupportPage extends javax.swing.JFrame {
 
     public SupportPage() {
         initComponents();
+        
+        supportButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               supportButton.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               supportButton.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
+        
+        sendEmailButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               sendEmailButton.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               sendEmailButton.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
+        
+        callNowButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               callNowButton.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               callNowButton.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
+        
+        faq1.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               faq1.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               faq1.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
+        
+        faq2.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               faq2.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               faq2.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
+        
+        faq3.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               faq3.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               faq3.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
+        
+        faq4.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               faq4.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               faq4.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
+        
+        faq5.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               faq5.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               faq5.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
+        
+        faq6.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               faq6.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               faq6.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
+        
+        faq7.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               faq7.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               faq7.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
+        
+        faq8.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               faq8.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               faq8.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
     }
 
     @SuppressWarnings("unchecked")
@@ -25,20 +135,20 @@ public class SupportPage extends javax.swing.JFrame {
         salesHistoryButton = new javax.swing.JButton();
         customersButton = new javax.swing.JButton();
         profilesPage = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        supportButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         sendEmailButton = new javax.swing.JButton();
         callNowButton = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        faq1 = new javax.swing.JButton();
+        faq2 = new javax.swing.JButton();
+        faq3 = new javax.swing.JButton();
+        faq4 = new javax.swing.JButton();
+        faq7 = new javax.swing.JButton();
+        faq8 = new javax.swing.JButton();
+        faq5 = new javax.swing.JButton();
+        faq6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -202,15 +312,15 @@ public class SupportPage extends javax.swing.JFrame {
             }
         });
 
-        jButton7.setBackground(new java.awt.Color(164, 145, 129));
-        jButton7.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
-        jButton7.setText("Support");
-        jButton7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton7.setFocusPainted(false);
-        jButton7.setFocusable(false);
-        jButton7.setOpaque(true);
+        supportButton.setBackground(new java.awt.Color(164, 145, 129));
+        supportButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        supportButton.setForeground(new java.awt.Color(255, 255, 255));
+        supportButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
+        supportButton.setText("Support");
+        supportButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        supportButton.setFocusPainted(false);
+        supportButton.setFocusable(false);
+        supportButton.setOpaque(true);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -227,7 +337,7 @@ public class SupportPage extends javax.swing.JFrame {
                     .addComponent(salesHistoryButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(customersButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(profilesPage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(supportButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -247,7 +357,7 @@ public class SupportPage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(salesHistoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(supportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -294,115 +404,115 @@ public class SupportPage extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(164, 145, 129));
-        jButton2.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
-        jButton2.setText("What is Manila Classico?");
-        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton2.setFocusable(false);
-        jButton2.setOpaque(true);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        faq1.setBackground(new java.awt.Color(164, 145, 129));
+        faq1.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        faq1.setForeground(new java.awt.Color(255, 255, 255));
+        faq1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
+        faq1.setText("What is Manila Classico?");
+        faq1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        faq1.setFocusable(false);
+        faq1.setOpaque(true);
+        faq1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                faq1ActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(164, 145, 129));
-        jButton3.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
-        jButton3.setText("Who can use this system?");
-        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton3.setFocusable(false);
-        jButton3.setOpaque(true);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        faq2.setBackground(new java.awt.Color(164, 145, 129));
+        faq2.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        faq2.setForeground(new java.awt.Color(255, 255, 255));
+        faq2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
+        faq2.setText("Who can use this system?");
+        faq2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        faq2.setFocusable(false);
+        faq2.setOpaque(true);
+        faq2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                faq2ActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(164, 145, 129));
-        jButton4.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
-        jButton4.setText("What technologies power the application?");
-        jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton4.setFocusable(false);
-        jButton4.setOpaque(true);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        faq3.setBackground(new java.awt.Color(164, 145, 129));
+        faq3.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        faq3.setForeground(new java.awt.Color(255, 255, 255));
+        faq3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
+        faq3.setText("What technologies power the application?");
+        faq3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        faq3.setFocusable(false);
+        faq3.setOpaque(true);
+        faq3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                faq3ActionPerformed(evt);
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(164, 145, 129));
-        jButton5.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
-        jButton5.setText("How can the system be installed?");
-        jButton5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton5.setFocusable(false);
-        jButton5.setOpaque(true);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        faq4.setBackground(new java.awt.Color(164, 145, 129));
+        faq4.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        faq4.setForeground(new java.awt.Color(255, 255, 255));
+        faq4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
+        faq4.setText("How can the system be installed?");
+        faq4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        faq4.setFocusable(false);
+        faq4.setOpaque(true);
+        faq4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                faq4ActionPerformed(evt);
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(164, 145, 129));
-        jButton6.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
-        jButton6.setText("What is the current development status?");
-        jButton6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton6.setFocusable(false);
-        jButton6.setOpaque(true);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        faq7.setBackground(new java.awt.Color(164, 145, 129));
+        faq7.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        faq7.setForeground(new java.awt.Color(255, 255, 255));
+        faq7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
+        faq7.setText("What is the current development status?");
+        faq7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        faq7.setFocusable(false);
+        faq7.setOpaque(true);
+        faq7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                faq7ActionPerformed(evt);
             }
         });
 
-        jButton8.setBackground(new java.awt.Color(164, 145, 129));
-        jButton8.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
-        jButton8.setText("Can developers contribute to the project?");
-        jButton8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton8.setFocusable(false);
-        jButton8.setOpaque(true);
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        faq8.setBackground(new java.awt.Color(164, 145, 129));
+        faq8.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        faq8.setForeground(new java.awt.Color(255, 255, 255));
+        faq8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
+        faq8.setText("Can developers contribute to the project?");
+        faq8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        faq8.setFocusable(false);
+        faq8.setOpaque(true);
+        faq8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                faq8ActionPerformed(evt);
             }
         });
 
-        jButton9.setBackground(new java.awt.Color(164, 145, 129));
-        jButton9.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
-        jButton9.setText("What functionality does the system provide?");
-        jButton9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton9.setFocusable(false);
-        jButton9.setOpaque(true);
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        faq5.setBackground(new java.awt.Color(164, 145, 129));
+        faq5.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        faq5.setForeground(new java.awt.Color(255, 255, 255));
+        faq5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
+        faq5.setText("What functionality does the system provide?");
+        faq5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        faq5.setFocusable(false);
+        faq5.setOpaque(true);
+        faq5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                faq5ActionPerformed(evt);
             }
         });
 
-        jButton10.setBackground(new java.awt.Color(164, 145, 129));
-        jButton10.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jButton10.setForeground(new java.awt.Color(255, 255, 255));
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
-        jButton10.setText("How is the database structured?");
-        jButton10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton10.setFocusable(false);
-        jButton10.setOpaque(true);
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        faq6.setBackground(new java.awt.Color(164, 145, 129));
+        faq6.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        faq6.setForeground(new java.awt.Color(255, 255, 255));
+        faq6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-question-mark-100-2.png"))); // NOI18N
+        faq6.setText("How is the database structured?");
+        faq6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        faq6.setFocusable(false);
+        faq6.setOpaque(true);
+        faq6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                faq6ActionPerformed(evt);
             }
         });
 
@@ -424,21 +534,21 @@ public class SupportPage extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(callNowButton, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(faq1, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(faq2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(faq3, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(faq4, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(faq7, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(faq8, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(faq5, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(faq6, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 17, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -458,20 +568,20 @@ public class SupportPage extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(faq1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(faq2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(faq3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(faq4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(faq5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(faq6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(faq7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(faq8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -549,54 +659,54 @@ public class SupportPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_profilesPageActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void faq1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_faq1ActionPerformed
         JOptionPane.showMessageDialog(null,"<html>Manila Classico is a Java Swing-based desktop application designed to streamline barbershop operations<br>"
                 + "                               by providing tools for managing reservations, queues, services, customers, and sales. It combines<br>"
                 + "                               functionality with a clean, Apple-inspired user interface to create a premium experience<br>"
                 + "                               for both administrators and barbers.</html>");
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_faq1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void faq2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_faq2ActionPerformed
         JOptionPane.showMessageDialog(null, "<html>The system is designed for two primary roles: administrators and barbers. Administrators oversee the<br>"
                 + "                                entire operation, including reservations, services, and sales, while barbers use the platform to view<br>"
                 + "                                their assigned queues and update the progress of appointments.</html>");
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_faq2ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void faq3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_faq3ActionPerformed
         JOptionPane.showMessageDialog(null, "<html>The application is built using Java (JDK 17 or later) and Java Swing with NetBeans for the graphical<br>"
                 + "                                interface. It relies on MySQL for data management, connected through JDBC, and is styled with a macOS-inspired<br>"
                 + "                                design to emphasize minimalism and clarity.</html>");
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_faq3ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void faq4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_faq4ActionPerformed
         JOptionPane.showMessageDialog(null, "<html>To install the system, users must set up Java JDK 17 or later, MySQL, and NetBeans or another Java IDE.<br>"
                 + "                                After cloning the repository, the provided database schema should be imported into MySQL. Once the database<br>"
                 + "                                is configured and credentials are updated in the connection file, the application can be built and run within the IDE.</html>");
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_faq4ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void faq5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_faq5ActionPerformed
         JOptionPane.showMessageDialog(null, "<html>The system offers administrators a dashboard with key metrics such as bookings, sales, and customer statistics,<br>"
                 + "                                along with full management of reservations, services, and queues. Barbers are given a focused interface where they<br>"
                 + "                                can view scheduled appointments and update their status in real time.</html>");
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_faq5ActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void faq6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_faq6ActionPerformed
         JOptionPane.showMessageDialog(null, "<html>The database is composed of five main tables: users, services, customers, reservations, and sales.<br>"
                 + "                                These tablescollectively handle account management, service catalogues, customer records, booking<br>"
                 + "                                details, and sales transactions, forming a simple but effective schema for daily barbershop operations.</html>");
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_faq6ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void faq7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_faq7ActionPerformed
         JOptionPane.showMessageDialog(null, "<html>Manila Classico is actively being developed. While the core features are functional, upcoming updates<br>"
                 + "                                aim to improve queue filtering, strengthen authentication, and expand service management options.<br>"
                 + "                                The project is not yet production-ready but is steadily progressing.</html>");
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_faq7ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void faq8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_faq8ActionPerformed
         JOptionPane.showMessageDialog(null, "<html>Yes. Contributions are encouraged under the MIT license. Developers may submit pull requests, propose<br>"
                 + "                                improvements through issues, or adapt the project for their own needs. Collaboration is welcomed to help<br>"
                 + "                                expand and refine the system’s capabilities.</html>");
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_faq8ActionPerformed
     
 
     public static void main(String args[]) {
@@ -611,15 +721,14 @@ public class SupportPage extends javax.swing.JFrame {
     private javax.swing.JButton callNowButton;
     private javax.swing.JButton customersButton;
     private javax.swing.JButton dashboardButton;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton faq1;
+    private javax.swing.JButton faq2;
+    private javax.swing.JButton faq3;
+    private javax.swing.JButton faq4;
+    private javax.swing.JButton faq5;
+    private javax.swing.JButton faq6;
+    private javax.swing.JButton faq7;
+    private javax.swing.JButton faq8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -635,5 +744,6 @@ public class SupportPage extends javax.swing.JFrame {
     private javax.swing.JButton sendEmailButton;
     private javax.swing.JButton servicesPage;
     private javax.swing.JButton signOutButton;
+    private javax.swing.JButton supportButton;
     // End of variables declaration//GEN-END:variables
 }
