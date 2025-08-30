@@ -180,7 +180,7 @@ public class SendEmailPage extends javax.swing.JFrame {
         messageTextArea.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
         messageTextArea.setForeground(new java.awt.Color(0, 0, 0));
         messageTextArea.setRows(5);
-        messageTextArea.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(155, 164, 177)));
+        messageTextArea.setBorder(null);
         jScrollPane1.setViewportView(messageTextArea);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
