@@ -8,6 +8,26 @@ public class LandingPage extends javax.swing.JFrame {
 
     public LandingPage() {
         initComponents();
+        
+        continueAsCustomerButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               continueAsCustomerButton.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               continueAsCustomerButton.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
+        
+        staffLoginButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               staffLoginButton.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               staffLoginButton.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
     }
 
     @SuppressWarnings("unchecked")
@@ -21,7 +41,7 @@ public class LandingPage extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        stafLoginButton = new javax.swing.JButton();
+        staffLoginButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -41,7 +61,6 @@ public class LandingPage extends javax.swing.JFrame {
         continueAsCustomerButton.setText("<html><div style=\"text-align: center;\">Continue as Customer</div></html>");
         continueAsCustomerButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         continueAsCustomerButton.setFocusPainted(false);
-        continueAsCustomerButton.setFocusable(false);
         continueAsCustomerButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         continueAsCustomerButton.setOpaque(true);
         continueAsCustomerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -101,18 +120,17 @@ public class LandingPage extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(253, 253, 254));
         jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
 
-        stafLoginButton.setBackground(new java.awt.Color(164, 145, 129));
-        stafLoginButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        stafLoginButton.setForeground(new java.awt.Color(255, 255, 255));
-        stafLoginButton.setText("<html><div style=\"text-align: center;\">Staff Login</div></html>");
-        stafLoginButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        stafLoginButton.setFocusPainted(false);
-        stafLoginButton.setFocusable(false);
-        stafLoginButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        stafLoginButton.setOpaque(true);
-        stafLoginButton.addActionListener(new java.awt.event.ActionListener() {
+        staffLoginButton.setBackground(new java.awt.Color(164, 145, 129));
+        staffLoginButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        staffLoginButton.setForeground(new java.awt.Color(255, 255, 255));
+        staffLoginButton.setText("<html><div style=\"text-align: center;\">Staff Login</div></html>");
+        staffLoginButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        staffLoginButton.setFocusPainted(false);
+        staffLoginButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        staffLoginButton.setOpaque(true);
+        staffLoginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                stafLoginButtonActionPerformed(evt);
+                staffLoginButtonActionPerformed(evt);
             }
         });
 
@@ -134,7 +152,7 @@ public class LandingPage extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(stafLoginButton)
+                .addComponent(staffLoginButton)
                 .addGap(19, 19, 19))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(53, Short.MAX_VALUE)
@@ -159,7 +177,7 @@ public class LandingPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(stafLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(staffLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
@@ -228,13 +246,13 @@ public class LandingPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_continueAsCustomerButtonActionPerformed
 
-    private void stafLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stafLoginButtonActionPerformed
+    private void staffLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_staffLoginButtonActionPerformed
         StaffLoginPage staffLoginPage = new StaffLoginPage();
         staffLoginPage.setLocationRelativeTo(null);
         staffLoginPage.setResizable(false);
         staffLoginPage.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_stafLoginButtonActionPerformed
+    }//GEN-LAST:event_staffLoginButtonActionPerformed
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -269,6 +287,6 @@ public class LandingPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JButton stafLoginButton;
+    private javax.swing.JButton staffLoginButton;
     // End of variables declaration//GEN-END:variables
 }
