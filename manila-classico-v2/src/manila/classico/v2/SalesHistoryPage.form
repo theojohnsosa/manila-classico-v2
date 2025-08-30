@@ -111,7 +111,7 @@
                           <Component id="servicesButton" max="32767" attributes="0"/>
                           <Component id="salesHistoryButton" max="32767" attributes="0"/>
                           <Component id="customersButton" max="32767" attributes="0"/>
-                          <Component id="profilesPage" alignment="0" max="32767" attributes="0"/>
+                          <Component id="profilesButton" alignment="0" max="32767" attributes="0"/>
                           <Component id="supportButton" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -129,7 +129,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="servicesButton" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="profilesPage" min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="profilesButton" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="customersButton" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -404,7 +404,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="customersButtonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="profilesPage">
+            <Component class="javax.swing.JButton" name="profilesButton">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="fe" green="fd" red="fd" type="rgb"/>
@@ -427,7 +427,7 @@
                 <Property name="opaque" type="boolean" value="true"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="profilesPageActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="profilesButtonActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="supportButton">
