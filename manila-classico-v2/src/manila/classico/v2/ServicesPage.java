@@ -2,6 +2,7 @@ package manila.classico.v2;
 
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.border.BevelBorder;
 import javax.swing.table.DefaultTableModel;
 
 public class ServicesPage extends javax.swing.JFrame {
@@ -62,6 +63,104 @@ public class ServicesPage extends javax.swing.JFrame {
                searchTextField.setBackground(new java.awt.Color(253, 253, 254));
            } 
         });
+        
+        dashboardButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               dashboardButton.setBackground(new java.awt.Color(114, 74, 49));
+               dashboardButton.setForeground(new java.awt.Color(255, 255, 255));
+               dashboardButton.setBorder(new BevelBorder(BevelBorder.RAISED));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               dashboardButton.setBackground(new java.awt.Color(253, 253, 254));
+               dashboardButton.setForeground(new java.awt.Color(154, 164, 177));
+               dashboardButton.setBorder(null);
+           } 
+        });
+        
+        reservationsButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               reservationsButton.setBackground(new java.awt.Color(114, 74, 49));
+               reservationsButton.setForeground(new java.awt.Color(255, 255, 255));
+               reservationsButton.setBorder(new BevelBorder(BevelBorder.RAISED));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               reservationsButton.setBackground(new java.awt.Color(253, 253, 254));
+               reservationsButton.setForeground(new java.awt.Color(154, 164, 177));
+               reservationsButton.setBorder(null);
+           } 
+        });
+        
+        profilesButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               profilesButton.setBackground(new java.awt.Color(114, 74, 49));
+               profilesButton.setForeground(new java.awt.Color(255, 255, 255));
+               profilesButton.setBorder(new BevelBorder(BevelBorder.RAISED));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               profilesButton.setBackground(new java.awt.Color(253, 253, 254));
+               profilesButton.setForeground(new java.awt.Color(154, 164, 177));
+               profilesButton.setBorder(null);
+           } 
+        });
+        
+        customersButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               customersButton.setBackground(new java.awt.Color(114, 74, 49));
+               customersButton.setForeground(new java.awt.Color(255, 255, 255));
+               customersButton.setBorder(new BevelBorder(BevelBorder.RAISED));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               customersButton.setBackground(new java.awt.Color(253, 253, 254));
+               customersButton.setForeground(new java.awt.Color(154, 164, 177));
+               customersButton.setBorder(null);
+           } 
+        });
+        
+        salesHistoryButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               salesHistoryButton.setBackground(new java.awt.Color(114, 74, 49));
+               salesHistoryButton.setForeground(new java.awt.Color(255, 255, 255));
+               salesHistoryButton.setBorder(new BevelBorder(BevelBorder.RAISED));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               salesHistoryButton.setBackground(new java.awt.Color(253, 253, 254));
+               salesHistoryButton.setForeground(new java.awt.Color(154, 164, 177));
+               salesHistoryButton.setBorder(null);
+           } 
+        });
+        
+        supportButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               supportButton.setBackground(new java.awt.Color(114, 74, 49));
+               supportButton.setForeground(new java.awt.Color(255, 255, 255));
+               supportButton.setBorder(new BevelBorder(BevelBorder.RAISED));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               supportButton.setBackground(new java.awt.Color(253, 253, 254));
+               supportButton.setForeground(new java.awt.Color(154, 164, 177));
+               supportButton.setBorder(null);
+           } 
+        });
+        
+        signOutButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               signOutButton.setBackground(new java.awt.Color(114, 74, 49));
+               signOutButton.setForeground(new java.awt.Color(255, 255, 255));
+               signOutButton.setBorder(new BevelBorder(BevelBorder.RAISED));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               signOutButton.setBackground(new java.awt.Color(253, 253, 254));
+               signOutButton.setForeground(new java.awt.Color(154, 164, 177));
+               signOutButton.setBorder(null);
+           } 
+        });
     }
     
     private void setupTable() {
@@ -90,9 +189,9 @@ public class ServicesPage extends javax.swing.JFrame {
         dashboardButton = new javax.swing.JButton();
         reservationsButton = new javax.swing.JButton();
         servicesButton = new javax.swing.JButton();
-        salesHistoryPage = new javax.swing.JButton();
+        salesHistoryButton = new javax.swing.JButton();
         customersButton = new javax.swing.JButton();
-        profilesPage = new javax.swing.JButton();
+        profilesButton = new javax.swing.JButton();
         supportButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -221,18 +320,18 @@ public class ServicesPage extends javax.swing.JFrame {
         servicesButton.setFocusable(false);
         servicesButton.setOpaque(true);
 
-        salesHistoryPage.setBackground(new java.awt.Color(253, 253, 254));
-        salesHistoryPage.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        salesHistoryPage.setForeground(new java.awt.Color(154, 164, 177));
-        salesHistoryPage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-dollar-100.png"))); // NOI18N
-        salesHistoryPage.setText("Sales History");
-        salesHistoryPage.setBorder(null);
-        salesHistoryPage.setFocusPainted(false);
-        salesHistoryPage.setFocusable(false);
-        salesHistoryPage.setOpaque(true);
-        salesHistoryPage.addActionListener(new java.awt.event.ActionListener() {
+        salesHistoryButton.setBackground(new java.awt.Color(253, 253, 254));
+        salesHistoryButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        salesHistoryButton.setForeground(new java.awt.Color(154, 164, 177));
+        salesHistoryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-dollar-100.png"))); // NOI18N
+        salesHistoryButton.setText("Sales History");
+        salesHistoryButton.setBorder(null);
+        salesHistoryButton.setFocusPainted(false);
+        salesHistoryButton.setFocusable(false);
+        salesHistoryButton.setOpaque(true);
+        salesHistoryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salesHistoryPageActionPerformed(evt);
+                salesHistoryButtonActionPerformed(evt);
             }
         });
 
@@ -251,18 +350,18 @@ public class ServicesPage extends javax.swing.JFrame {
             }
         });
 
-        profilesPage.setBackground(new java.awt.Color(253, 253, 254));
-        profilesPage.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        profilesPage.setForeground(new java.awt.Color(154, 164, 177));
-        profilesPage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-user-100-2.png"))); // NOI18N
-        profilesPage.setText("Profiles");
-        profilesPage.setBorder(null);
-        profilesPage.setFocusPainted(false);
-        profilesPage.setFocusable(false);
-        profilesPage.setOpaque(true);
-        profilesPage.addActionListener(new java.awt.event.ActionListener() {
+        profilesButton.setBackground(new java.awt.Color(253, 253, 254));
+        profilesButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        profilesButton.setForeground(new java.awt.Color(154, 164, 177));
+        profilesButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-user-100-2.png"))); // NOI18N
+        profilesButton.setText("Profiles");
+        profilesButton.setBorder(null);
+        profilesButton.setFocusPainted(false);
+        profilesButton.setFocusable(false);
+        profilesButton.setOpaque(true);
+        profilesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                profilesPageActionPerformed(evt);
+                profilesButtonActionPerformed(evt);
             }
         });
 
@@ -293,9 +392,9 @@ public class ServicesPage extends javax.swing.JFrame {
                     .addComponent(dashboardButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(reservationsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(servicesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(salesHistoryPage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(salesHistoryButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(customersButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(profilesPage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(profilesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(supportButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -310,11 +409,11 @@ public class ServicesPage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(servicesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(profilesPage, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(profilesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(customersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(salesHistoryPage, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(salesHistoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(supportButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -521,13 +620,13 @@ public class ServicesPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_reservationsButtonActionPerformed
 
-    private void profilesPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profilesPageActionPerformed
+    private void profilesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profilesButtonActionPerformed
         ProfilesPage profilesPage = new ProfilesPage();
         profilesPage.setLocationRelativeTo(null);
         profilesPage.setResizable(false);
         profilesPage.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_profilesPageActionPerformed
+    }//GEN-LAST:event_profilesButtonActionPerformed
 
     private void customersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customersButtonActionPerformed
         CustomersPage customersPage = new CustomersPage();
@@ -537,13 +636,13 @@ public class ServicesPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_customersButtonActionPerformed
 
-    private void salesHistoryPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salesHistoryPageActionPerformed
+    private void salesHistoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salesHistoryButtonActionPerformed
         SalesHistoryPage salesHistoryPage = new SalesHistoryPage();
         salesHistoryPage.setLocationRelativeTo(null);
         salesHistoryPage.setResizable(false);
         salesHistoryPage.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_salesHistoryPageActionPerformed
+    }//GEN-LAST:event_salesHistoryButtonActionPerformed
 
     private void supportButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supportButtonActionPerformed
         SupportPage supportPage = new SupportPage();
@@ -588,9 +687,9 @@ public class ServicesPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton profilesPage;
+    private javax.swing.JButton profilesButton;
     private javax.swing.JButton reservationsButton;
-    private javax.swing.JButton salesHistoryPage;
+    private javax.swing.JButton salesHistoryButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchTextField;
     private javax.swing.JButton servicesButton;
