@@ -94,6 +94,36 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
 
             this.dispose();
         });
+        
+        cashToggleButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               cashToggleButton.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               cashToggleButton.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
+        
+        gcashToggleButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               gcashToggleButton.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               gcashToggleButton.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
+        
+        payNowButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               payNowButton.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               payNowButton.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
     }
 
     @SuppressWarnings("unchecked")
