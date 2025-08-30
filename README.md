@@ -91,5 +91,3 @@ manila-classico-v2/
 
 This project is developed for **academic purposes**.
 You may use or adapt it for learning and educational projects.
-
-```
