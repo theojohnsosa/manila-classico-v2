@@ -8,6 +8,26 @@ public class CustomersPage extends javax.swing.JFrame {
     public CustomersPage() {
         initComponents();
         initCustom();
+        
+        searchButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               searchButton.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               searchButton.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
+        
+        customersButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               customersButton.setBackground(new java.awt.Color(114, 74, 49));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               customersButton.setBackground(new java.awt.Color(164, 145, 129));
+           } 
+        });
     }
     
     private void initCustom() {
