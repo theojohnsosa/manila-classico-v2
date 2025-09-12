@@ -1,11 +1,8 @@
 package manila.classico.v2;
 
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class AddServicePage extends javax.swing.JFrame {
-    
-    private static final Logger logger = Logger.getLogger(AddServicePage.class.getName());
     
     public AddServicePage() {
         initComponents();
@@ -193,17 +190,17 @@ public class AddServicePage extends javax.swing.JFrame {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void addNewServiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewServiceButtonActionPerformed
-        String name = serviceNameTextField.getText().trim();
+        String serviceName = serviceNameTextField.getText().trim();
         String priceText = servicePriceTextField.getText().trim();
 
-        if (name.isEmpty() || priceText.isEmpty()) {
+        if (serviceName.isEmpty() || priceText.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please fill all fields.");
             return;
         }
 
         try {
-            double price = Double.parseDouble(priceText);
-            ServiceManager.addService(new Service(name, price));
+            double servicePrice = Double.parseDouble(priceText);
+            ServiceManager.addService(new Service(serviceName, servicePrice));
             JOptionPane.showMessageDialog(null, "Service added successfully.");
             
             ServicesPage servicesPage = new ServicesPage();
@@ -218,10 +215,6 @@ public class AddServicePage extends javax.swing.JFrame {
     }//GEN-LAST:event_addNewServiceButtonActionPerformed
 
     public static void main(String args[]) {
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -230,9 +223,8 @@ public class AddServicePage extends javax.swing.JFrame {
                 }
             }
         } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
+//            logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
