@@ -1,47 +1,47 @@
 package manila.classico.v2;
 
 public class Barber {
-    private String name;
-    private String contact;
-    private String email;
+    private String barberName;
+    private String barberContact;
+    private String barberEmail;
     private java.util.Date dateJoined;
 
-    public Barber(String name, 
-                  String contact, 
-                  String email, 
+    public Barber(String barberName, 
+                  String barberContact, 
+                  String barberEmail, 
                   java.util.Date dateJoined) {
-        this.name = name;
-        this.contact = contact;
-        this.email = email;
+        this.barberName = barberName;
+        this.barberContact = barberContact;
+        this.barberEmail = barberEmail;
         this.dateJoined = dateJoined;
     }
 
     public String getName() { 
-        return name; 
+        return barberName; 
     }
     
     public String getContact() { 
-        return contact; 
+        return barberContact; 
     }
     
     public String getEmail() { 
-        return email; 
+        return barberEmail; 
     }
     
     public java.util.Date getDateJoined() { 
         return dateJoined; 
     }
 
-    public void setName(String name) { 
-        this.name = name; 
+    public void setName(String barberName) { 
+        this.barberName = barberName; 
     }
     
-    public void setContact(String contact) { 
-        this.contact = contact; 
+    public void setContact(String barberContact) { 
+        this.barberContact = barberContact; 
     }
     
-    public void setEmail(String email) { 
-        this.email = email; 
+    public void setEmail(String barberEmail) { 
+        this.barberEmail = barberEmail; 
     }
     
     public void setDateJoined(java.util.Date dateJoined) { 
