@@ -1,11 +1,8 @@
 package manila.classico.v2;
 
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class AddBarberPage extends javax.swing.JFrame {
-    
-    private static final Logger logger = Logger.getLogger(AddBarberPage.class.getName());
     
     private BookReservationsPage bookPage;
 
@@ -257,17 +254,17 @@ public class AddBarberPage extends javax.swing.JFrame {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void addNewBarberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewBarberButtonActionPerformed
-        String name = barberNameTextField.getText().trim();
-        String contact = barberContactTextField.getText().trim();
-        String email = barberEmailTextField.getText().trim();
+        String barberName = barberNameTextField.getText().trim();
+        String barberContact = barberContactTextField.getText().trim();
+        String barberEmail = barberEmailTextField.getText().trim();
         java.util.Date dateJoined = dateJoinedDateChooser.getDate();
 
-        if (name.isEmpty() || contact.isEmpty() || email.isEmpty() || dateJoined == null) {
-            JOptionPane.showMessageDialog(null, "Please complete all fields.");
+        if (barberName.isEmpty() || barberContact.isEmpty() || barberEmail.isEmpty() || dateJoined == null) {
+            JOptionPane.showMessageDialog(null, "Please fill up all fields.");
             return;
         }
 
-        BarberManager.addBarber(new Barber(name, contact, email, dateJoined));
+        BarberManager.addBarber(new Barber(barberName, barberContact, barberEmail, dateJoined));
 
         if (bookPage != null) {
             bookPage.loadBarbersIntoComboBox();
@@ -291,7 +288,7 @@ public class AddBarberPage extends javax.swing.JFrame {
                 }
             }
         } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
+//            logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         
         java.awt.EventQueue.invokeLater(new Runnable() {
