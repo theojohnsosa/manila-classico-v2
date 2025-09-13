@@ -9,12 +9,9 @@ import jakarta.mail.Transport;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 import java.util.Properties;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class SendEmailPage extends javax.swing.JFrame {
-    
-    private static final Logger logger = Logger.getLogger(SendEmailPage.class.getName());
 
     public SendEmailPage() {
         initComponents();
@@ -287,10 +284,6 @@ public class SendEmailPage extends javax.swing.JFrame {
     }//GEN-LAST:event_submitEmailButtonActionPerformed
 
     public static void main(String args[]) {
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -299,13 +292,12 @@ public class SendEmailPage extends javax.swing.JFrame {
                 }
             }
         } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
+//            logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SendEmailPage().setVisible(true);
+                new AddServicePage().setVisible(true);
             }
         });
     }
