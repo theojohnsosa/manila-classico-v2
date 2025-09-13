@@ -170,8 +170,8 @@ public class ServicesPage extends javax.swing.JFrame {
 
     private void loadServicesToTable(java.util.List<Service> services) {
         tableModel.setRowCount(0);
-        for (Service s : services) {
-            tableModel.addRow(new Object[]{s.getName(), s.getPrice()});
+        for (Service service : services) {
+            tableModel.addRow(new Object[]{service.getName(), service.getPrice()});
         }
     }
     
@@ -583,8 +583,8 @@ public class ServicesPage extends javax.swing.JFrame {
         if (!keyword.isEmpty()) {
             List<Service> foundServices = ServiceManager.searchServices(keyword);
             if (!foundServices.isEmpty()) {
-                for (Service s : foundServices) {
-                    ServiceManager.removeService(s);
+                for (Service service : foundServices) {
+                    ServiceManager.removeService(service);
                 }
                 loadServicesToTable(ServiceManager.getServices());
                 JOptionPane.showMessageDialog(null, foundServices.size() + " service(s) deleted.");
