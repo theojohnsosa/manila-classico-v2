@@ -1,14 +1,11 @@
 package manila.classico.v2;
 
-import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 public class PaymentDetailsPage extends javax.swing.JFrame {
-    
-    private static final Logger logger = Logger.getLogger(PaymentDetailsPage.class.getName());
     
     private boolean payNowProcessed = false;
     
@@ -25,21 +22,21 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
 
         payNowButton.setEnabled(false);
 
-        ButtonGroup group = new ButtonGroup();
-        group.add(cashToggleButton);
-        group.add(gcashToggleButton);
+        ButtonGroup buttonGroup = new ButtonGroup();
+        buttonGroup.add(cashToggleButton);
+        buttonGroup.add(gcashToggleButton);
 
         cashToggleButton.setSelected(false);
         gcashToggleButton.setSelected(false);
 
         Runnable validate = () -> {
-            String amountInput = paymentAmountTextField.getText().trim();
-            String total = totalAmountTextField.getText().replace("₱", "").trim();
+            String paymentAmountInput = paymentAmountTextField.getText().trim();
+            String totalAmountInput = totalAmountTextField.getText().replace("₱", "").trim();
             String contactInput = contactTextField.getText().trim();
 
             boolean methodSelected = cashToggleButton.isSelected() || gcashToggleButton.isSelected();
             boolean hasContact = !contactInput.isEmpty();
-            boolean correctAmount = !amountInput.isEmpty() && amountInput.equals(total);
+            boolean correctAmount = !paymentAmountInput.isEmpty() && paymentAmountInput.equals(totalAmountInput);
 
             payNowButton.setEnabled(methodSelected && hasContact && correctAmount);
         };
@@ -77,15 +74,15 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
 
         payNowButton.addActionListener(e -> {
             String paymentMethod = cashToggleButton.isSelected() ? "Cash" : "GCash";
-            String full = customerTextField.getText().trim();
-            String cont = contactTextField.getText().trim();
-            String serv = serviceTextField.getText().trim();
-            String bar = barberTextField.getText().trim();
-            String d = dateTextField.getText().trim();
-            String t = timeTextField.getText().trim();
-            String total = totalAmountTextField.getText().trim();
+            String customerFullName = customerTextField.getText().trim();
+            String customerContact = contactTextField.getText().trim();
+            String chosenService = serviceTextField.getText().trim();
+            String chosenBarber = barberTextField.getText().trim();
+            String chosenDate = dateTextField.getText().trim();
+            String chosenTime = timeTextField.getText().trim();
+            String totalPaymentAmount = totalAmountTextField.getText().trim();
 
-            ReservationsData.addReservation(full, cont, serv, bar, d, t, paymentMethod, total);
+            ReservationsData.addReservation(customerFullName, customerContact, chosenService, chosenBarber, chosenDate, chosenTime, paymentMethod, totalPaymentAmount);
 
             UserSelectPage userSelectPage = new UserSelectPage();
             userSelectPage.setLocationRelativeTo(null);
@@ -505,15 +502,15 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         payNowProcessed = true;
 
         String paymentMethod = cashToggleButton.isSelected() ? "Cash" : "GCash";
-        String full  = customerTextField.getText().trim();
-        String cont  = contactTextField.getText().trim();
-        String serv  = serviceTextField.getText().trim();
-        String bar   = barberTextField.getText().trim();
-        String d     = dateTextField.getText().trim();
-        String t     = timeTextField.getText().trim();
-        String total = totalAmountTextField.getText().trim();
+        String customerFullName = customerTextField.getText().trim();
+        String customerContact = contactTextField.getText().trim();
+        String chosenService = serviceTextField.getText().trim();
+        String chosenBarber = barberTextField.getText().trim();
+        String chosenDate = dateTextField.getText().trim();
+        String chosenTime = timeTextField.getText().trim();
+        String totalPaymentAmount = totalAmountTextField.getText().trim();
 
-        boolean successfulReservation = ReservationsData.addReservation(full, cont, serv, bar, d, t, paymentMethod, total);
+        boolean successfulReservation = ReservationsData.addReservation(customerFullName, customerContact, chosenService, chosenBarber, chosenDate, chosenTime, paymentMethod, totalPaymentAmount);
         
         if (!successfulReservation) {
             JOptionPane.showMessageDialog(null, "Payment successful! Reservation confirmed.");
@@ -529,10 +526,6 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
     }//GEN-LAST:event_payNowButtonActionPerformed
 
     public static void main(String args[]) {
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -541,13 +534,12 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
                 }
             }
         } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
+//            logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-//                new PaymentDetailsPage().setVisible(true);
+                new AddServicePage().setVisible(true);
             }
         });
     }
