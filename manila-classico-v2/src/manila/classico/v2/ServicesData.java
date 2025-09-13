@@ -6,12 +6,12 @@ import java.util.List;
 public class ServicesData {
     private static final List<Service> SERVICES = new ArrayList<>();
 
-    public static boolean addService(String name, double price) {
-        return SERVICES.add(new Service(name, price));
+    public static boolean addService(String serviceName, double servicePrice) {
+        return SERVICES.add(new Service(serviceName, servicePrice));
     }
 
     public static boolean removeService(String name) {
-        return SERVICES.removeIf(s -> s.getName().equalsIgnoreCase(name));
+        return SERVICES.removeIf(service -> service.getName().equalsIgnoreCase(name));
     }
 
     public static boolean removeLastService() {
@@ -28,9 +28,9 @@ public class ServicesData {
 
     public static List<Service> searchServices(String query) {
         List<Service> results = new ArrayList<>();
-        for (Service s : SERVICES) {
-            if (s.getName().toLowerCase().contains(query.toLowerCase())) {
-                results.add(s);
+        for (Service service : SERVICES) {
+            if (service.getName().toLowerCase().contains(query.toLowerCase())) {
+                results.add(service);
             }
         }
         return results;
