@@ -152,8 +152,8 @@ public class CustomersPage extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) customersTable.getModel();
         model.setRowCount(0);
 
-        for (Customer c : list) {
-            model.addRow(new Object[]{ c.getName(), c.getContact(), c.getReference() });
+        for (Customer customer : list) {
+            model.addRow(new Object[]{ customer.getName(), customer.getContact(), customer.getReference() });
         }
     }
     
