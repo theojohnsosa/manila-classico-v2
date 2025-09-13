@@ -4,13 +4,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.Locale;
-import java.util.logging.Logger;
 import javax.swing.border.BevelBorder;
 import javax.swing.table.DefaultTableModel;
 
 public class DashboardPage extends javax.swing.JFrame {
-    
-    private static final Logger logger = Logger.getLogger(DashboardPage.class.getName());
 
     public DashboardPage() {
         initComponents();
@@ -134,10 +131,10 @@ public class DashboardPage extends javax.swing.JFrame {
         totalBookingsTextField.setText(String.valueOf(totalBookings));
 
         long scheduledCount = ReservationsData.getReservations().stream()
-            .filter(r -> {
+            .filter(reservation -> {
                 try {
-                    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd h:mm a");
-                    java.util.Date reservationDate = sdf.parse(r.getDate() + " " + r.getTime());
+                    java.text.SimpleDateFormat simpleDateFormat = new java.text.SimpleDateFormat("yyyy-MM-dd h:mm a");
+                    java.util.Date reservationDate = simpleDateFormat.parse(reservation.getDate() + " " + reservation.getTime());
                     return reservationDate.after(new java.util.Date());
                 } catch (Exception e) {
                     return false;
@@ -147,9 +144,9 @@ public class DashboardPage extends javax.swing.JFrame {
         scheduledReservationTextField.setText(String.valueOf(scheduledCount));
 
         double totalSales = ReservationsData.getReservations().stream()
-            .mapToDouble(r -> {
+            .mapToDouble(reservation -> {
                 try {
-                    String amount = r.getTotalAmount()
+                    String amount = reservation.getTotalAmount()
                         .replace("₱", "")
                         .replace("PHP", "")
                         .replace(",", "")
@@ -170,17 +167,17 @@ public class DashboardPage extends javax.swing.JFrame {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd h:mm a", Locale.ENGLISH);
 
         ReservationsData.getReservations().stream()
-            .sorted(Comparator.comparing(r -> 
-                LocalDateTime.parse(r.getDate() + " " + r.getTime(), formatter)))
-            .forEach(r -> model.addRow(new Object[] {
-                r.getFullName(),
-                r.getContactNumber(),
-                r.getService(),
-                r.getBarber(),
-                r.getDate(),
-                r.getTime(),
-                r.getPaymentMethod(),
-                r.getTotalAmount()
+            .sorted(Comparator.comparing(reservation -> 
+                LocalDateTime.parse(reservation.getDate() + " " + reservation.getTime(), formatter)))
+            .forEach(reservation -> model.addRow(new Object[] {
+                reservation.getFullName(),
+                reservation.getContactNumber(),
+                reservation.getService(),
+                reservation.getBarber(),
+                reservation.getDate(),
+                reservation.getTime(),
+                reservation.getPaymentMethod(),
+                reservation.getTotalAmount()
             }));
     }
     
@@ -779,18 +776,21 @@ public class DashboardPage extends javax.swing.JFrame {
 
     public static void main(String args[]) {
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info :
-                    javax.swing.UIManager.getInstalledLookAndFeels()) {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
+//            logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
 
-        java.awt.EventQueue.invokeLater(() -> new DashboardPage().setVisible(true));
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new AddServicePage().setVisible(true);
+            }
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
