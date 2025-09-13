@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
 public class ReservationManager {
     private static final List<Reservation> reservations = Collections.synchronizedList(new ArrayList<>());
 
-    public static void addReservation(Reservation r) {
-        reservations.add(r);
+    public static void addReservation(Reservation reservation) {
+        reservations.add(reservation);
     }
 
     public static List<Reservation> getReservations() {
@@ -25,10 +25,10 @@ public class ReservationManager {
         String lower = keyword.toLowerCase();
         synchronized (reservations) {
             return reservations.stream()
-                .filter(r -> r.getFullName().toLowerCase().contains(lower)
-                          || r.getContactNumber().toLowerCase().contains(lower)
-                          || r.getService().toLowerCase().contains(lower)
-                          || r.getBarber().toLowerCase().contains(lower))
+                .filter(reservation -> reservation.getFullName().toLowerCase().contains(lower)
+                          || reservation.getContactNumber().toLowerCase().contains(lower)
+                          || reservation.getService().toLowerCase().contains(lower)
+                          || reservation.getBarber().toLowerCase().contains(lower))
                 .collect(Collectors.toList());
         }
     }
@@ -36,9 +36,9 @@ public class ReservationManager {
     public static double getTotalSales() {
         synchronized (reservations) {
             return reservations.stream()
-                .mapToDouble(r -> {
+                .mapToDouble(reservation -> {
                     try {
-                        return Double.parseDouble(r.getTotalAmount());
+                        return Double.parseDouble(reservation.getTotalAmount());
                     } catch (NumberFormatException e) {
                         return 0;
                     }
@@ -51,7 +51,7 @@ public class ReservationManager {
         String today = java.time.LocalDate.now().toString();
         synchronized (reservations) {
             return reservations.stream()
-                .filter(r -> r.getDate().compareTo(today) >= 0)
+                .filter(reservation -> reservation.getDate().compareTo(today) >= 0)
                 .count();
         }
     }
