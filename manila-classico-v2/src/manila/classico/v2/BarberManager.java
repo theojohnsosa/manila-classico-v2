@@ -28,7 +28,7 @@ public class BarberManager {
         if (!barbers.isEmpty()) barbers.remove(barbers.size() - 1); 
     }
 
-    public static List<Barber> searchBarber(String keyword) {
+    public static List<Barber> searchBarbers(String keyword) {
         List<Barber> result = new ArrayList<>();
         for (Barber barber : barbers) {
             if (barber.getName().toLowerCase().contains(keyword.toLowerCase())) {

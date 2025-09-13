@@ -167,12 +167,12 @@ public class ProfilesPage extends javax.swing.JFrame {
     private void loadBarbersToTable(List<Barber> barberList) {
         DefaultTableModel model = (DefaultTableModel) barbersTable.getModel();
         model.setRowCount(0);
-        for (Barber b : barberList) {
+        for (Barber barber : barberList) {
             model.addRow(new Object[] {
-                b.getName(),
-                b.getContact(),
-                b.getEmail(),
-                new java.text.SimpleDateFormat("yyyy-MM-dd").format(b.getDateJoined())
+                barber.getName(),
+                barber.getContact(),
+                barber.getEmail(),
+                new java.text.SimpleDateFormat("yyyy-MM-dd").format(barber.getDateJoined())
             });
         }
     }
@@ -585,8 +585,8 @@ public class ProfilesPage extends javax.swing.JFrame {
         if (!keyword.isEmpty()) {
             List<Barber> found = BarberManager.searchBarbers(keyword);
             if (!found.isEmpty()) {
-                for (Barber b : found) {
-                    BarberManager.removeBarber(b);
+                for (Barber barber : found) {
+                    BarberManager.removeBarber(barber);
                 }
                 refreshBarberTable();
                 JOptionPane.showMessageDialog(null, found.size() + " barber(s) deleted.");
