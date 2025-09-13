@@ -517,12 +517,6 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         }
 
         payNowButton.setEnabled(false);
-
-        UserSelectPage userSelectPage = new UserSelectPage();
-        userSelectPage.setLocationRelativeTo(null);
-        userSelectPage.setResizable(false);
-        userSelectPage.setVisible(true);
-        this.dispose();
     }//GEN-LAST:event_payNowButtonActionPerformed
 
     public static void main(String args[]) {
