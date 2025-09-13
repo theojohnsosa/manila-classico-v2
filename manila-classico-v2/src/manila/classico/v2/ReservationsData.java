@@ -81,26 +81,26 @@ public class ReservationsData {
 
     private static void rebuildTableModel() {
         TABLE_MODEL.setRowCount(0);
-        for (Reservation r : RES_LIST) {
+        for (Reservation reservation : RES_LIST) {
             TABLE_MODEL.addRow(new Object[]{
-                r.getFullName(),
-                r.getContactNumber(),
-                r.getService(),
-                r.getBarber(),
-                r.getDate(),
-                r.getTime(),
-                r.getPaymentMethod(),
-                r.getTotalAmount()
+                reservation.getFullName(),
+                reservation.getContactNumber(),
+                reservation.getService(),
+                reservation.getBarber(),
+                reservation.getDate(),
+                reservation.getTime(),
+                reservation.getPaymentMethod(),
+                reservation.getTotalAmount()
             });
         }
     }
 
     private static void sortByDateTime() {
-        final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd h:mm a", Locale.ENGLISH);
+        final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd h:mm a", Locale.ENGLISH);
         RES_LIST.sort((a, b) -> {
             try {
-                Date dateA = sdf.parse(a.getDate() + " " + a.getTime());
-                Date dateB = sdf.parse(b.getDate() + " " + b.getTime());
+                Date dateA = simpleDateFormat.parse(a.getDate() + " " + a.getTime());
+                Date dateB = simpleDateFormat.parse(b.getDate() + " " + b.getTime());
                 return dateA.compareTo(dateB);
             } catch (ParseException e) {
                 return 0;
