@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
 public class CustomerManager {
     private static final List<Customer> customers = Collections.synchronizedList(new ArrayList<>());
 
-    public static void addCustomer(Customer c) {
-        customers.add(c);
+    public static void addCustomer(Customer customer) {
+        customers.add(customer);
     }
 
     public static List<Customer> getCustomers() {
@@ -18,11 +18,11 @@ public class CustomerManager {
         }
     }
 
-    public static boolean referenceExists(String ref) {
-        if (ref == null) return false;
+    public static boolean referenceExists(String reference) {
+        if (reference == null) return false;
         synchronized (customers) {
-            for (Customer c : customers) {
-                if (ref.equals(c.getReference())) return true;
+            for (Customer customer : customers) {
+                if (reference.equals(customer.getReference())) return true;
             }
         }
         return false;
@@ -35,9 +35,9 @@ public class CustomerManager {
         String lower = keyword.toLowerCase();
         synchronized (customers) {
             return customers.stream()
-                .filter(c -> c.getName().toLowerCase().contains(lower)
-                          || c.getContact().toLowerCase().contains(lower)
-                          || c.getReference().toLowerCase().contains(lower))
+                .filter(customer -> customer.getName().toLowerCase().contains(lower)
+                          || customer.getContact().toLowerCase().contains(lower)
+                          || customer.getReference().toLowerCase().contains(lower))
                 .collect(Collectors.toList());
         }
     }
