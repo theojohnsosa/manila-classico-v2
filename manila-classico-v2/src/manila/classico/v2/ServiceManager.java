@@ -35,9 +35,9 @@ public class ServiceManager {
 
     public static List<Service> searchServices(String keyword) {
         List<Service> result = new ArrayList<>();
-        for (Service s : services) {
-            if (s.getName().toLowerCase().contains(keyword.toLowerCase())) {
-                result.add(s);
+        for (Service service : services) {
+            if (service.getName().toLowerCase().contains(keyword.toLowerCase())) {
+                result.add(service);
             }
         }
         return result;
