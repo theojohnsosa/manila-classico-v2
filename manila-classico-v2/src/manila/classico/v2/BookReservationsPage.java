@@ -45,25 +45,25 @@ public class BookReservationsPage extends javax.swing.JFrame {
     
     private void loadServicesIntoComboBox() {
         serviceComboBox.removeAllItems(); 
-        for (Service s : ServiceManager.getServices()) {
-            serviceComboBox.addItem(s.getName() + " – ₱" + s.getPrice());
+        for (Service service : ServiceManager.getServices()) {
+            serviceComboBox.addItem(service.getName() + " – ₱" + service.getPrice());
         }
     }
     
     public void loadBarbersIntoComboBox() {
         barberComboBox.removeAllItems();
-        for (Barber b : BarberManager.getBarbers()) {
-            barberComboBox.addItem(b.getName());
+        for (Barber barber : BarberManager.getBarbers()) {
+            barberComboBox.addItem(barber.getName());
         }
     }
     
-    private String generateUniqueRef() {
-        Random rnd = new Random();
-        String ref;
+    private String generateUniqueReferenceNumber() {
+        Random random = new Random();
+        String reference;
         do {
-            ref = String.valueOf(100000 + rnd.nextInt(900000));
-        } while (CustomerManager.referenceExists(ref));
-        return ref;
+            reference = String.valueOf(100000 + random.nextInt(900000));
+        } while (CustomerManager.referenceExists(reference));
+        return reference;
     }
 
     @SuppressWarnings("unchecked")
@@ -313,23 +313,23 @@ public class BookReservationsPage extends javax.swing.JFrame {
 
     private void bookNowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookNowButtonActionPerformed
         String fullName = fullNameTextField.getText().trim();
-        String contact = contactNumberTextField.getText().trim();
-        String serviceItem = (String) serviceComboBox.getSelectedItem();
+        String contactNumber = contactNumberTextField.getText().trim();
+        String service = (String) serviceComboBox.getSelectedItem();
         String barber = (String) barberComboBox.getSelectedItem();
         java.util.Date chosenDate = dateDateChooser.getDate();
         String time = (String) timeComboBox.getSelectedItem();
 
-        if (fullName.isEmpty() || contact.isEmpty() || chosenDate == null || time == null) {
+        if (fullName.isEmpty() || contactNumber.isEmpty() || chosenDate == null || time == null) {
             javax.swing.JOptionPane.showMessageDialog(this, "Please complete all fields.");
             return;
         }
 
-        String serviceName = serviceItem;
+        String serviceName = service;
         String pesoString = null;
-        int index = serviceItem.indexOf("–");
+        int index = service.indexOf("–");
         if (index > -1) {
-            serviceName = serviceItem.substring(0, index).trim();
-            String right = serviceItem.substring(index + 1).trim();
+            serviceName = service.substring(0, index).trim();
+            String right = service.substring(index + 1).trim();
             pesoString = right;
         }
 
@@ -339,14 +339,14 @@ public class BookReservationsPage extends javax.swing.JFrame {
         String price = (pesoString != null) ? pesoString : "₱0";
         String totalAmount = price;
 
-        String ref = generateUniqueRef();
+        String reference = generateUniqueReferenceNumber();
 
-        Customer customer = new Customer(fullName, contact, ref);
+        Customer customer = new Customer(fullName, contactNumber, reference);
         CustomerManager.addCustomer(customer);
 
-        javax.swing.JOptionPane.showMessageDialog(this, "Reservation confirmed! Reference No: " + ref);
+        javax.swing.JOptionPane.showMessageDialog(this, "Reservation confirmed! Reference No: " + reference);
 
-        PaymentDetailsPage paymentDetails = new PaymentDetailsPage(fullName, contact, serviceName, barber, date, time, price, totalAmount);
+        PaymentDetailsPage paymentDetails = new PaymentDetailsPage(fullName, contactNumber, serviceName, barber, date, time, price, totalAmount);
         paymentDetails.setLocationRelativeTo(null);
         paymentDetails.setResizable(false);
         paymentDetails.setVisible(true);
