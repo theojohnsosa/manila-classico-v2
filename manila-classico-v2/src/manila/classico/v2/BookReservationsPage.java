@@ -339,13 +339,6 @@ public class BookReservationsPage extends javax.swing.JFrame {
         String price = (pesoString != null) ? pesoString : "₱0";
         String totalAmount = price;
 
-        String reference = generateUniqueReferenceNumber();
-
-        Customer customer = new Customer(fullName, contactNumber, reference);
-        CustomerManager.addCustomer(customer);
-
-        javax.swing.JOptionPane.showMessageDialog(this, "Reservation confirmed! Reference No: " + reference);
-
         PaymentDetailsPage paymentDetails = new PaymentDetailsPage(fullName, contactNumber, serviceName, barber, date, time, price, totalAmount);
         paymentDetails.setLocationRelativeTo(null);
         paymentDetails.setResizable(false);
