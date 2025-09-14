@@ -122,13 +122,11 @@ public class BookReservationsPage extends javax.swing.JFrame {
 
         fullNameTextField.setBackground(new java.awt.Color(253, 253, 254));
         fullNameTextField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
-        fullNameTextField.setForeground(new java.awt.Color(0, 0, 0));
         fullNameTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
         fullNameTextField.setOpaque(true);
 
         contactNumberTextField.setBackground(new java.awt.Color(253, 253, 254));
         contactNumberTextField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
-        contactNumberTextField.setForeground(new java.awt.Color(0, 0, 0));
         contactNumberTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
         contactNumberTextField.setOpaque(true);
 
