@@ -1,5 +1,6 @@
 package manila.classico.v2;
 
+import java.util.Random;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
@@ -141,6 +142,15 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
                paymentAmountTextField.setBackground(new java.awt.Color(253, 253, 254));
            } 
         });
+    }
+    
+    private String generateUniqueReferenceNumber() {
+        Random random = new Random();
+        String reference;
+        do {
+            reference = String.valueOf(100000 + random.nextInt(900000));
+        } while (CustomerManager.referenceExists(reference));
+        return reference;
     }
 
     @SuppressWarnings("unchecked")
@@ -509,11 +519,18 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         String chosenDate = dateTextField.getText().trim();
         String chosenTime = timeTextField.getText().trim();
         String totalPaymentAmount = totalAmountTextField.getText().trim();
+        String reference = generateUniqueReferenceNumber();
+        String fullName = customerTextField.getText().trim();
+        String contactNumber = contactTextField.getText().trim();
+
 
         boolean successfulReservation = ReservationsData.addReservation(customerFullName, customerContact, chosenService, chosenBarber, chosenDate, chosenTime, paymentMethod, totalPaymentAmount);
         
         if (!successfulReservation) {
-            JOptionPane.showMessageDialog(null, "Payment successful! Reservation confirmed.");
+            Customer customer = new Customer(fullName, contactNumber, reference);
+            CustomerManager.addCustomer(customer);
+            
+            JOptionPane.showMessageDialog(null, "Payment successful! Reservation confirmed. Reference Number: " + reference);
         }
 
         payNowButton.setEnabled(false);
