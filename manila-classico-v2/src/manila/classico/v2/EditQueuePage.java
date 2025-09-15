@@ -33,7 +33,7 @@ public class EditQueuePage extends javax.swing.JFrame {
         
         addQueueButton.addMouseListener(new java.awt.event.MouseAdapter() {
            public void mouseEntered(java.awt.event.MouseEvent evt) {
-               addQueueButton.setBackground(new java.awt.Color(239, 239, 239));
+               addQueueButton.setBackground(new java.awt.Color(114, 74, 49));
            }
            
            public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -43,7 +43,7 @@ public class EditQueuePage extends javax.swing.JFrame {
         
         editQueueEntryButton.addMouseListener(new java.awt.event.MouseAdapter() {
            public void mouseEntered(java.awt.event.MouseEvent evt) {
-               editQueueEntryButton.setBackground(new java.awt.Color(239, 239, 239));
+               editQueueEntryButton.setBackground(new java.awt.Color(114, 74, 49));
            }
            
            public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -53,7 +53,7 @@ public class EditQueuePage extends javax.swing.JFrame {
         
         removeFromQueueButton.addMouseListener(new java.awt.event.MouseAdapter() {
            public void mouseEntered(java.awt.event.MouseEvent evt) {
-               removeFromQueueButton.setBackground(new java.awt.Color(239, 239, 239));
+               removeFromQueueButton.setBackground(new java.awt.Color(114, 74, 49));
            }
            
            public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -127,6 +127,7 @@ public class EditQueuePage extends javax.swing.JFrame {
         addQueueButton.setText("Add Queue");
         addQueueButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         addQueueButton.setFocusPainted(false);
+        addQueueButton.setFocusable(false);
         addQueueButton.setOpaque(true);
         addQueueButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,6 +141,7 @@ public class EditQueuePage extends javax.swing.JFrame {
         editQueueEntryButton.setText("Edit Queue Entry");
         editQueueEntryButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         editQueueEntryButton.setFocusPainted(false);
+        editQueueEntryButton.setFocusable(false);
         editQueueEntryButton.setOpaque(true);
         editQueueEntryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,6 +155,7 @@ public class EditQueuePage extends javax.swing.JFrame {
         removeFromQueueButton.setText("Remove from Queue");
         removeFromQueueButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         removeFromQueueButton.setFocusPainted(false);
+        removeFromQueueButton.setFocusable(false);
         removeFromQueueButton.setOpaque(true);
 
         searchTextField.setBackground(new java.awt.Color(253, 253, 254));
