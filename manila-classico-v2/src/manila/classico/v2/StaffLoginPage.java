@@ -82,7 +82,6 @@ public class StaffLoginPage extends javax.swing.JFrame {
 
         backButton.setBackground(new java.awt.Color(253, 253, 254));
         backButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        backButton.setForeground(new java.awt.Color(0, 0, 0));
         backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-left-arrow-20.png"))); // NOI18N
         backButton.setText("Back");
         backButton.setBorder(null);
@@ -132,7 +131,6 @@ public class StaffLoginPage extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-lock-60.png"))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 30)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("<html><div style=\"text-align: center;\">Staff Login</div></html>");
 
         jLabel4.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
@@ -155,22 +153,28 @@ public class StaffLoginPage extends javax.swing.JFrame {
 
         adminCodePasswordField.setBackground(new java.awt.Color(253, 253, 254));
         adminCodePasswordField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
-        adminCodePasswordField.setForeground(new java.awt.Color(0, 0, 0));
         adminCodePasswordField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
         adminCodePasswordField.setOpaque(true);
+        adminCodePasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                adminCodePasswordFieldKeyTyped(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Admin Code");
 
         adminIdTextField.setBackground(new java.awt.Color(253, 253, 254));
         adminIdTextField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
-        adminIdTextField.setForeground(new java.awt.Color(0, 0, 0));
         adminIdTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
         adminIdTextField.setOpaque(true);
+        adminIdTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                adminIdTextFieldKeyTyped(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Admin ID");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -255,12 +259,22 @@ public class StaffLoginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void loginToDashboardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginToDashboardButtonActionPerformed
-        String adminId = "admin";
-        String adminCode = "1234";
-        
-        String adminIdInput = adminIdTextField.getText();
-        String adminCodeInput = new String(adminCodePasswordField.getPassword());
-        
+    String adminId = "admin";
+    String adminCode = "1234";
+
+    String adminIdInput = adminIdTextField.getText();
+    String adminCodeInput = new String(adminCodePasswordField.getPassword());
+
+        if (adminIdInput.length() < 4) {
+            JOptionPane.showMessageDialog(
+                this,
+                "Admin ID should have at least 4 characters.",
+                "Invalid Admin ID",
+                JOptionPane.WARNING_MESSAGE
+            );
+            return;
+        }
+
         if (adminIdInput.equals(adminId) && adminCodeInput.equals(adminCode)) {
             DashboardPage dashboardPage = new DashboardPage();
             dashboardPage.setLocationRelativeTo(null);
@@ -268,9 +282,44 @@ public class StaffLoginPage extends javax.swing.JFrame {
             dashboardPage.setVisible(true);
             this.dispose();
         } else {
-            JOptionPane.showMessageDialog(null, "Invalid Credentials.", "Incorrect Credentials", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(
+                null,
+                "Invalid Credentials.",
+                "Incorrect Credentials",
+                JOptionPane.INFORMATION_MESSAGE
+            );
         }
     }//GEN-LAST:event_loginToDashboardButtonActionPerformed
+
+    private void adminCodePasswordFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_adminCodePasswordFieldKeyTyped
+    char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            evt.consume();
+            return;
+        }
+
+        String currentText = new String(adminCodePasswordField.getPassword());
+
+        if (currentText.length() >= 10) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_adminCodePasswordFieldKeyTyped
+
+    private void adminIdTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_adminIdTextFieldKeyTyped
+    char c = evt.getKeyChar();
+
+        if (!Character.isLetterOrDigit(c)) {
+            evt.consume();
+            return;
+        }
+
+        String currentText = adminIdTextField.getText();
+
+        if (currentText.length() >= 10) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_adminIdTextFieldKeyTyped
 
     public static void main(String args[]) {
         try {
