@@ -453,6 +453,11 @@ public class ReservationsPage extends javax.swing.JFrame {
         editQueueButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-edit-18.png"))); // NOI18N
         editQueueButton.setText("Edit Queue");
         editQueueButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        editQueueButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editQueueButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -579,6 +584,14 @@ public class ReservationsPage extends javax.swing.JFrame {
         dashboardPage.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_dashboardButtonActionPerformed
+
+    private void editQueueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editQueueButtonActionPerformed
+        EditQueuePage editQueuePage = new EditQueuePage();
+        editQueuePage.setLocationRelativeTo(null);
+        editQueuePage.setResizable(false);
+        editQueuePage.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_editQueueButtonActionPerformed
 
     public static void main(String args[]) {
         try {
