@@ -138,6 +138,20 @@ public class ReservationsPage extends javax.swing.JFrame {
                signOutButton.setBorder(null);
            } 
         });
+        
+        editQueueButton.addMouseListener(new java.awt.event.MouseAdapter() {
+           public void mouseEntered(java.awt.event.MouseEvent evt) {
+               editQueueButton.setBackground(new java.awt.Color(114, 74, 49));
+               editQueueButton.setForeground(new java.awt.Color(255, 255, 255));
+               editQueueButton.setBorder(new BevelBorder(BevelBorder.RAISED));
+           }
+           
+           public void mouseExited(java.awt.event.MouseEvent evt) {
+               editQueueButton.setBackground(new java.awt.Color(253, 253, 254));
+               editQueueButton.setForeground(new java.awt.Color(154, 164, 177));
+               editQueueButton.setBorder(null);
+           } 
+        });
     }
 
     @SuppressWarnings("unchecked")
@@ -165,6 +179,7 @@ public class ReservationsPage extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         reservationsTable = new javax.swing.JTable();
         searchButton = new javax.swing.JButton();
+        editQueueButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -432,6 +447,13 @@ public class ReservationsPage extends javax.swing.JFrame {
             }
         });
 
+        editQueueButton.setBackground(new java.awt.Color(164, 145, 129));
+        editQueueButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        editQueueButton.setForeground(new java.awt.Color(255, 255, 255));
+        editQueueButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-edit-18.png"))); // NOI18N
+        editQueueButton.setText("Edit Queue");
+        editQueueButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -440,14 +462,17 @@ public class ReservationsPage extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
                     .addComponent(jLabel5)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(editQueueButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(0, 18, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -455,9 +480,12 @@ public class ReservationsPage extends javax.swing.JFrame {
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4))
+                    .addComponent(editQueueButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -574,6 +602,7 @@ public class ReservationsPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton customersButton;
     private javax.swing.JButton dashboardButton;
+    private javax.swing.JButton editQueueButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
