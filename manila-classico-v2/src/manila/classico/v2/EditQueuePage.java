@@ -37,7 +37,7 @@ public class EditQueuePage extends javax.swing.JFrame {
            }
            
            public void mouseExited(java.awt.event.MouseEvent evt) {
-               addQueueButton.setBackground(new java.awt.Color(253, 253, 254));
+               addQueueButton.setBackground(new java.awt.Color(164, 145, 129));
            } 
         });
         
@@ -47,7 +47,7 @@ public class EditQueuePage extends javax.swing.JFrame {
            }
            
            public void mouseExited(java.awt.event.MouseEvent evt) {
-               editQueueEntryButton.setBackground(new java.awt.Color(253, 253, 254));
+               editQueueEntryButton.setBackground(new java.awt.Color(164, 145, 129));
            } 
         });
         
@@ -57,7 +57,7 @@ public class EditQueuePage extends javax.swing.JFrame {
            }
            
            public void mouseExited(java.awt.event.MouseEvent evt) {
-               removeFromQueueButton.setBackground(new java.awt.Color(253, 253, 254));
+               removeFromQueueButton.setBackground(new java.awt.Color(164, 145, 129));
            } 
         });
     }
