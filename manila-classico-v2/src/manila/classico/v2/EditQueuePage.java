@@ -126,12 +126,22 @@ public class EditQueuePage extends javax.swing.JFrame {
         addQueueButton.setForeground(new java.awt.Color(255, 255, 255));
         addQueueButton.setText("Add Queue");
         addQueueButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        addQueueButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addQueueButtonActionPerformed(evt);
+            }
+        });
 
         editQueueEntryButton.setBackground(new java.awt.Color(164, 145, 129));
         editQueueEntryButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         editQueueEntryButton.setForeground(new java.awt.Color(255, 255, 255));
         editQueueEntryButton.setText("Edit Queue Entry");
         editQueueEntryButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        editQueueEntryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editQueueEntryButtonActionPerformed(evt);
+            }
+        });
 
         removeFromQueueButton.setBackground(new java.awt.Color(164, 145, 129));
         removeFromQueueButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
@@ -241,6 +251,22 @@ public class EditQueuePage extends javax.swing.JFrame {
             sorter.setRowFilter(RowFilter.regexFilter("(?i)" + query));
         }
     }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void addQueueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addQueueButtonActionPerformed
+        AddQueuePage addQueuePage = new AddQueuePage();
+        addQueuePage.setLocationRelativeTo(null);
+        addQueuePage.setResizable(false);
+        addQueuePage.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_addQueueButtonActionPerformed
+
+    private void editQueueEntryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editQueueEntryButtonActionPerformed
+        EditQueueEntryPage editQueueEntryPage = new EditQueueEntryPage();
+        editQueueEntryPage.setLocationRelativeTo(null);
+        editQueueEntryPage.setResizable(false);
+        editQueueEntryPage.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_editQueueEntryButtonActionPerformed
     
     public static void main(String args[]) {
         try {
