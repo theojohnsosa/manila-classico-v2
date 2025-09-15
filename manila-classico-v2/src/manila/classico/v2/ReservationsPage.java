@@ -453,6 +453,8 @@ public class ReservationsPage extends javax.swing.JFrame {
         editQueueButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-edit-18.png"))); // NOI18N
         editQueueButton.setText("Edit Queue");
         editQueueButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        editQueueButton.setFocusPainted(false);
+        editQueueButton.setOpaque(true);
         editQueueButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editQueueButtonActionPerformed(evt);
