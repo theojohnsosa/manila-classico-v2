@@ -535,6 +535,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         boolean successfulReservation = ReservationsData.addReservation(customerFullName, customerContact, chosenService, chosenBarber, chosenDate, chosenTime, paymentMethod, totalPaymentAmount);
         
         if (!successfulReservation) {
+            queueDisplayUpdate();
             Customer customer = new Customer(fullName, contactNumber, reference);
             CustomerManager.addCustomer(customer);
             
@@ -583,6 +584,12 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_paymentAmountTextFieldKeyTyped
 
+    public static void queueDisplayUpdate() {
+        if (queuePage != null ) {
+            queuePage.refreshQueueDisplay();
+
+        }
+    }
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -602,6 +609,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         });
     }
 
+    private static ViewQueuePage queuePage;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JTextField barberTextField;

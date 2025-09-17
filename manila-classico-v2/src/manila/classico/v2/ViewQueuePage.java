@@ -1,6 +1,9 @@
 package manila.classico.v2;
 
 import java.util.List;
+import java.time.LocalDate;
+import java.util.stream.Collectors;
+import javax.swing.Timer;
 
 public class ViewQueuePage extends javax.swing.JFrame {
 
@@ -8,12 +11,20 @@ public class ViewQueuePage extends javax.swing.JFrame {
     public ViewQueuePage() {
         initComponents();
         refreshQueueDisplay();
+        startAutoRefresh();
     }
 
-    private void refreshQueueDisplay() {
+    public void refreshQueueDisplay() {
         List<Reservation> list = ReservationsData.getReservations();
-
-        if (list == null || list.isEmpty()) {
+        
+        LocalDate dateToday = LocalDate.now();
+        String dateTodayString = dateToday.toString();
+        
+        List <Reservation> reservationsToday = list.stream()
+                .filter(reservation -> reservation.getDate().equals(dateTodayString))
+                .collect(Collectors.toList());
+        
+        if (reservationsToday == null || reservationsToday.isEmpty()) {
             queueNumberTextField.setText("—");
             customerNameTextField.setText("No reservations");
             nextQueueTextField.setText("—");
@@ -21,18 +32,31 @@ public class ViewQueuePage extends javax.swing.JFrame {
             return;
         }
 
-        Reservation current = list.get(0);
+        Reservation current = reservationsToday.get(0);
         queueNumberTextField.setText(String.format("%03d", 1));
         customerNameTextField.setText(current.getFullName());
 
-        if (list.size() > 1) {
-            Reservation next = list.get(1);
+        if (reservationsToday.size() > 1) {
+            Reservation next = reservationsToday.get(1);
             nextQueueTextField.setText(String.format("%03d", 2));
             nextCustomerTextField.setText(next.getFullName());
         } else {
             nextQueueTextField.setText("—");
             nextCustomerTextField.setText("—");
         }
+    }
+    
+     private void startAutoRefresh() {
+        autoRefreshTimer = new Timer(1000, e -> refreshQueueDisplay());
+        autoRefreshTimer.start();
+    }
+     
+     @Override
+    public void dispose() {
+        if (autoRefreshTimer != null) {
+            autoRefreshTimer.stop();
+        }
+        super.dispose();
     }
 
     @SuppressWarnings("unchecked")
@@ -216,7 +240,7 @@ public class ViewQueuePage extends javax.swing.JFrame {
             }
         });
     }
-
+        private Timer autoRefreshTimer;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JTextField customerNameTextField;
