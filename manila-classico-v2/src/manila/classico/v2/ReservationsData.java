@@ -10,6 +10,7 @@ import java.util.Locale;
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
 
+
 public class ReservationsData {
 
     private static final String[] COLS = {
@@ -22,6 +23,11 @@ public class ReservationsData {
         "Payment Method",
         "Total"
     };
+    //For Receipt Frame
+    public static synchronized Reservation getLatestReservation() {
+    if (RES_LIST.isEmpty()) return null;
+    return RES_LIST.get(RES_LIST.size() - 1);
+}
 
     private static final DefaultTableModel TABLE_MODEL = new DefaultTableModel(COLS, 0) {
         @Override 
@@ -106,5 +112,7 @@ public class ReservationsData {
                 return 0;
             }
         });
+        
+        
     }
 }

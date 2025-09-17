@@ -49,13 +49,13 @@ public class AddBarberPage extends javax.swing.JFrame {
            } 
         });
         
-        dateJoinedDateChooser.addMouseListener(new java.awt.event.MouseAdapter() {
+        jDateChooser1.addMouseListener(new java.awt.event.MouseAdapter() {
            public void mouseEntered(java.awt.event.MouseEvent evt) {
-               dateJoinedDateChooser.setBackground(new java.awt.Color(239, 239, 239));
+               jDateChooser1.setBackground(new java.awt.Color(239, 239, 239));
            }
            
            public void mouseExited(java.awt.event.MouseEvent evt) {
-               dateJoinedDateChooser.setBackground(new java.awt.Color(253, 253, 254));
+               jDateChooser1.setBackground(new java.awt.Color(253, 253, 254));
            } 
         });
     }
@@ -80,8 +80,8 @@ public class AddBarberPage extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         barberEmailTextField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        dateJoinedDateChooser = new com.toedter.calendar.JDateChooser();
         jLabel6 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,7 +89,6 @@ public class AddBarberPage extends javax.swing.JFrame {
 
         backButton.setBackground(new java.awt.Color(253, 253, 254));
         backButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        backButton.setForeground(new java.awt.Color(0, 0, 0));
         backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-left-arrow-20.png"))); // NOI18N
         backButton.setText("Back to Profiles");
         backButton.setBorder(null);
@@ -103,7 +102,6 @@ public class AddBarberPage extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("SF Pro Display", 1, 40)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("<html><div style=\"text-align: center;\">Add Barber</div></html>");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -129,38 +127,29 @@ public class AddBarberPage extends javax.swing.JFrame {
 
         barberNameTextField.setBackground(new java.awt.Color(253, 253, 254));
         barberNameTextField.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
-        barberNameTextField.setForeground(new java.awt.Color(0, 0, 0));
         barberNameTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(154, 164, 177), 1, true));
         barberNameTextField.setOpaque(true);
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Name");
 
         barberContactTextField.setBackground(new java.awt.Color(253, 253, 254));
         barberContactTextField.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
-        barberContactTextField.setForeground(new java.awt.Color(0, 0, 0));
         barberContactTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(154, 164, 177), 1, true));
         barberContactTextField.setOpaque(true);
 
         jLabel4.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Contact Number");
 
         barberEmailTextField.setBackground(new java.awt.Color(253, 253, 254));
         barberEmailTextField.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
-        barberEmailTextField.setForeground(new java.awt.Color(0, 0, 0));
         barberEmailTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(154, 164, 177), 1, true));
         barberEmailTextField.setOpaque(true);
 
         jLabel5.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Email");
 
-        dateJoinedDateChooser.setBackground(new java.awt.Color(253, 253, 254));
-
         jLabel6.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Date Joined");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -183,8 +172,8 @@ public class AddBarberPage extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(411, 411, 411))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(addNewBarberButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(addNewBarberButton, javax.swing.GroupLayout.PREFERRED_SIZE, 818, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -193,12 +182,11 @@ public class AddBarberPage extends javax.swing.JFrame {
                                         .addComponent(barberEmailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel5))
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel6)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel4)
-                                        .addComponent(barberContactTextField)
-                                        .addComponent(dateJoinedDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(jLabel4)
+                                    .addComponent(barberContactTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(109, 109, 109))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -224,8 +212,8 @@ public class AddBarberPage extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(dateJoinedDateChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(barberEmailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(barberEmailTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(addNewBarberButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(154, 154, 154))
@@ -257,7 +245,7 @@ public class AddBarberPage extends javax.swing.JFrame {
         String barberName = barberNameTextField.getText().trim();
         String barberContact = barberContactTextField.getText().trim();
         String barberEmail = barberEmailTextField.getText().trim();
-        java.util.Date dateJoined = dateJoinedDateChooser.getDate();
+        java.util.Date dateJoined = jDateChooser1.getDate();
 
         if (barberName.isEmpty() || barberContact.isEmpty() || barberEmail.isEmpty() || dateJoined == null) {
             JOptionPane.showMessageDialog(null, "Please fill up all fields.");
@@ -304,7 +292,7 @@ public class AddBarberPage extends javax.swing.JFrame {
     private javax.swing.JTextField barberContactTextField;
     private javax.swing.JTextField barberEmailTextField;
     private javax.swing.JTextField barberNameTextField;
-    private com.toedter.calendar.JDateChooser dateJoinedDateChooser;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
