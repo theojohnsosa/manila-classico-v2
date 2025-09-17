@@ -32,7 +32,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
 
         Runnable validate = () -> {
             String paymentAmountInput = paymentAmountTextField.getText().trim();
-            String totalAmountInput = totalAmountTextField.getText().replace("₱", "").trim();
+            String totalAmountInput = totalAmountTextField.getText().replace("₱", "").replace(".0", "").trim();
             String contactInput = contactTextField.getText().trim();
 
             boolean methodSelected = cashToggleButton.isSelected() || gcashToggleButton.isSelected();
