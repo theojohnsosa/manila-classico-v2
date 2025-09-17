@@ -9,6 +9,10 @@ public class Main {
         landingPage.setResizable(false);
         landingPage.setVisible(true);
         
+        ViewQueuePage viewQueuePage = new ViewQueuePage();
+        viewQueuePage.setLocationRelativeTo(null);
+        viewQueuePage.setVisible(true);
+        
     }
     
 }
