@@ -9,8 +9,9 @@ public class Reservation {
     private String time;
     private String paymentMethod;
     private String totalAmount;
+    private String paymentRendered;
 
-    public Reservation(String fullName, String contactNumber, String service, String barber, String date, String time, String paymentMethod, String totalAmount) {
+    public Reservation(String fullName, String contactNumber, String service, String barber, String date, String time, String paymentMethod, String totalAmount, String paymentRendered) {
         this.fullName = fullName;
         this.contactNumber = contactNumber;
         this.service = service;
@@ -19,6 +20,7 @@ public class Reservation {
         this.time = time;
         this.paymentMethod = paymentMethod;
         this.totalAmount = totalAmount;
+        this.paymentRendered = paymentRendered;
     }
 
     public String getFullName() { 
@@ -51,5 +53,8 @@ public class Reservation {
     
     public String getTotalAmount() {
         return totalAmount; 
+    }
+    public String getPaymentRendered() {
+        return paymentRendered; 
     }
 }
