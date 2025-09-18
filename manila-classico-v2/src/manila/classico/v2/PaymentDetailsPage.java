@@ -84,8 +84,9 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
             String chosenDate = dateTextField.getText().trim();
             String chosenTime = timeTextField.getText().trim();
             String totalPaymentAmount = totalAmountTextField.getText().trim();
+            String paymentRendered = paymentAmountTextField.getText().trim();
 
-            ReservationsData.addReservation(customerFullName, customerContact, chosenService, chosenBarber, chosenDate, chosenTime, paymentMethod, totalPaymentAmount);
+            ReservationsData.addReservation(customerFullName, customerContact, chosenService, chosenBarber, chosenDate, chosenTime, paymentMethod, totalPaymentAmount, paymentRendered);
 
             ReceiptPage receiptPage = new ReceiptPage();
             receiptPage.setDefaultCloseOperation(ReceiptPage.DISPOSE_ON_CLOSE);
@@ -545,9 +546,10 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         String reference = generateUniqueReferenceNumber();
         String fullName = customerTextField.getText().trim();
         String contactNumber = contactTextField.getText().trim();
+        String paymentRendered = paymentAmountTextField.getText().trim();
 
 
-        boolean successfulReservation = ReservationsData.addReservation(customerFullName, customerContact, chosenService, chosenBarber, chosenDate, chosenTime, paymentMethod, totalPaymentAmount);
+        boolean successfulReservation = ReservationsData.addReservation(customerFullName, customerContact, chosenService, chosenBarber, chosenDate, chosenTime, paymentMethod, totalPaymentAmount,paymentRendered);
         
         if (!successfulReservation) {
             queueDisplayUpdate();

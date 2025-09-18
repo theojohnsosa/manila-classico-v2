@@ -4,19 +4,20 @@
  */
 package manila.classico.v2;
 import java.util.Random;
+import java.text.DecimalFormat;
 /**
  *
  * @author user
  */
 public class ReceiptPage extends javax.swing.JFrame {
-
     /**
      * Creates new form ReceiptPage
      */
     public ReceiptPage() {
         Reservation reservations = ReservationsData.getLatestReservation();
         initComponents();
-            Random randomNum = new Random();
+        
+        Random randomNum = new Random();
         int receiptNum = randomNum.nextInt(1000000000)+ 1;
         receiptTextField.setText("" + receiptNum);
         
@@ -28,8 +29,12 @@ public class ReceiptPage extends javax.swing.JFrame {
             String barber = reservations.getBarber();
             String paymentMethod = reservations.getPaymentMethod();
             String total = reservations.getTotalAmount();
+            String paymentRendered = reservations.getPaymentRendered();
+            double renderedPayment = Double.parseDouble(paymentRendered);
+            DecimalFormat df = new DecimalFormat("#,##0.0");
+            df.setPositivePrefix("₱");
+            String formattedAmount = df.format(renderedPayment);
             
-
             dateTextField.setText(date);
             cashierTextField.setText("admin");
             customerTextField.setText(name);
@@ -37,7 +42,7 @@ public class ReceiptPage extends javax.swing.JFrame {
             
             totalAmountTextField.setText(total);
             paymentMethodTextField.setText(paymentMethod);
-            amountRenderedTextField.setText("");
+            amountRenderedTextField.setText(formattedAmount);
             barberTextField.setText(barber);
             
 }

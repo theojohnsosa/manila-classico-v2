@@ -47,14 +47,14 @@ public class ReservationsData {
         return String.join("|", norm(fullName), norm(contact), norm(service), norm(barber), norm(date), norm(time));
     }
 
-    public static synchronized boolean addReservation(String fullName, String contact, String service, String barber, String date, String time, String paymentMethod, String totalAmount) {
+    public static synchronized boolean addReservation(String fullName, String contact, String service, String barber, String date, String time, String paymentMethod, String totalAmount, String paymentRendered) {
         String key = keyOf(fullName, contact, service, barber, date, time);
         
         if (RES_KEYS.contains(key)) {
             return false;
         }
 
-        Reservation r = new Reservation(fullName, contact, service, barber, date, time, paymentMethod, totalAmount);
+        Reservation r = new Reservation(fullName, contact, service, barber, date, time, paymentMethod, totalAmount, paymentRendered);
         RES_LIST.add(r);
         RES_KEYS.add(key);
 
