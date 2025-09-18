@@ -1,5 +1,7 @@
 package manila.classico.v2;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.Random;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
@@ -85,12 +87,25 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
 
             ReservationsData.addReservation(customerFullName, customerContact, chosenService, chosenBarber, chosenDate, chosenTime, paymentMethod, totalPaymentAmount);
 
+            ReceiptPage receiptPage = new ReceiptPage();
+            receiptPage.setDefaultCloseOperation(ReceiptPage.DISPOSE_ON_CLOSE);
+            receiptPage.setResizable(false);
+            receiptPage.setVisible(true);
+
+            this.dispose();
+            
+            receiptPage.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
             UserSelectPage userSelectPage = new UserSelectPage();
+            userSelectPage.setDefaultCloseOperation(UserSelectPage.DISPOSE_ON_CLOSE);
             userSelectPage.setLocationRelativeTo(null);
             userSelectPage.setResizable(false);
             userSelectPage.setVisible(true);
-
-            this.dispose();
+            
+            receiptPage.dispose();
+    }
+});
+            
         });
         
         cashToggleButton.addMouseListener(new java.awt.event.MouseAdapter() {

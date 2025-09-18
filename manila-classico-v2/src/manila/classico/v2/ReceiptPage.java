@@ -38,7 +38,6 @@ public class ReceiptPage extends javax.swing.JFrame {
             totalAmountTextField.setText(total);
             paymentMethodTextField.setText(paymentMethod);
             amountRenderedTextField.setText("");
-            queueNoTextField.setText("");
             barberTextField.setText(barber);
             
 }
@@ -70,7 +69,6 @@ public class ReceiptPage extends javax.swing.JFrame {
         totalAmount = new javax.swing.JLabel();
         paymentMethod = new javax.swing.JLabel();
         amountRendered = new javax.swing.JLabel();
-        queueNo = new javax.swing.JLabel();
         Barber = new javax.swing.JLabel();
         lineThree = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -83,7 +81,6 @@ public class ReceiptPage extends javax.swing.JFrame {
         totalAmountTextField = new javax.swing.JTextField();
         paymentMethodTextField = new javax.swing.JTextField();
         amountRenderedTextField = new javax.swing.JTextField();
-        queueNoTextField = new javax.swing.JTextField();
         barberTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -144,24 +141,20 @@ public class ReceiptPage extends javax.swing.JFrame {
         amountRendered.setText("Amount Rendered: ");
         jPanel1.add(amountRendered, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 305, -1, -1));
 
-        queueNo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        queueNo.setText("Queue No: ");
-        jPanel1.add(queueNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
-
         Barber.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         Barber.setText("Barber: ");
-        jPanel1.add(Barber, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 355, -1, -1));
+        jPanel1.add(Barber, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
 
         lineThree.setText("--------------------------------------------------------------------------");
-        jPanel1.add(lineThree, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 375, 350, -1));
+        jPanel1.add(lineThree, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 350, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("FOR CHOOSING MANILA CLASSICO!");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, 250, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 300, -1));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setText("THANK YOU");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, -1, -1));
 
         receiptTextField.setEditable(false);
         receiptTextField.setBackground(new java.awt.Color(255, 255, 255));
@@ -220,19 +213,12 @@ public class ReceiptPage extends javax.swing.JFrame {
         amountRenderedTextField.setBorder(null);
         jPanel1.add(amountRenderedTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 305, 100, -1));
 
-        queueNoTextField.setEditable(false);
-        queueNoTextField.setBackground(new java.awt.Color(255, 255, 255));
-        queueNoTextField.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        queueNoTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        queueNoTextField.setBorder(null);
-        jPanel1.add(queueNoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 100, -1));
-
         barberTextField.setEditable(false);
         barberTextField.setBackground(new java.awt.Color(255, 255, 255));
         barberTextField.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         barberTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         barberTextField.setBorder(null);
-        jPanel1.add(barberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 355, 100, -1));
+        jPanel1.add(barberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 100, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -306,8 +292,6 @@ public class ReceiptPage extends javax.swing.JFrame {
     private javax.swing.JLabel lineTwo;
     private javax.swing.JLabel paymentMethod;
     private javax.swing.JTextField paymentMethodTextField;
-    private javax.swing.JLabel queueNo;
-    private javax.swing.JTextField queueNoTextField;
     private javax.swing.JLabel receiptNo;
     private javax.swing.JTextField receiptTextField;
     private javax.swing.JTextField serviceTextField;
