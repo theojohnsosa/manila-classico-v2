@@ -89,6 +89,7 @@ public class AddBarberPage extends javax.swing.JFrame {
 
         backButton.setBackground(new java.awt.Color(253, 253, 254));
         backButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        backButton.setForeground(new java.awt.Color(0, 0, 0));
         backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-left-arrow-20.png"))); // NOI18N
         backButton.setText("Back to Profiles");
         backButton.setBorder(null);
@@ -102,12 +103,13 @@ public class AddBarberPage extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("SF Pro Display", 1, 40)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("<html><div style=\"text-align: center;\">Add Barber</div></html>");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel2.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(155, 164, 177));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("<html><div style=\"text-align: center;\">Fill in service info</div></html>");
 
@@ -131,6 +133,7 @@ public class AddBarberPage extends javax.swing.JFrame {
         barberNameTextField.setOpaque(true);
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Name");
 
         barberContactTextField.setBackground(new java.awt.Color(253, 253, 254));
@@ -139,6 +142,7 @@ public class AddBarberPage extends javax.swing.JFrame {
         barberContactTextField.setOpaque(true);
 
         jLabel4.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Contact Number");
 
         barberEmailTextField.setBackground(new java.awt.Color(253, 253, 254));
@@ -147,9 +151,11 @@ public class AddBarberPage extends javax.swing.JFrame {
         barberEmailTextField.setOpaque(true);
 
         jLabel5.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Email");
 
         jLabel6.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Date Joined");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
