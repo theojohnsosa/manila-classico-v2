@@ -274,6 +274,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
 
         phoneNumberTextField.setBackground(new java.awt.Color(253, 253, 254));
         phoneNumberTextField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
+        phoneNumberTextField.setForeground(new java.awt.Color(0, 0, 0));
         phoneNumberTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(154, 164, 177)));
         phoneNumberTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -291,6 +292,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
 
         paymentAmountTextField.setBackground(new java.awt.Color(253, 253, 254));
         paymentAmountTextField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
+        paymentAmountTextField.setForeground(new java.awt.Color(0, 0, 0));
         paymentAmountTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(154, 164, 177)));
         paymentAmountTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
