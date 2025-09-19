@@ -84,7 +84,7 @@ public class ViewQueuePage extends javax.swing.JFrame {
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel8.setFont(new java.awt.Font("SF Pro Display", 0, 15)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(155, 164, 177));
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("<html><div style=\"text-align: center;\">Current barbershop queue information</div></html>");
 
         backButton.setBackground(new java.awt.Color(253, 253, 254));
@@ -103,7 +103,7 @@ public class ViewQueuePage extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("SF Pro Display", 0, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(155, 164, 177));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("<html><div style=\"text-align: center;\">Currently Being Served</div></html>");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -119,20 +119,20 @@ public class ViewQueuePage extends javax.swing.JFrame {
 
         customerNameTextField.setBackground(new java.awt.Color(253, 253, 254));
         customerNameTextField.setFont(new java.awt.Font("SF Pro Display", 1, 15)); // NOI18N
+        customerNameTextField.setForeground(new java.awt.Color(0, 0, 0));
         customerNameTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         customerNameTextField.setBorder(null);
         customerNameTextField.setFocusable(false);
 
         nextQueueTextField.setBackground(new java.awt.Color(253, 253, 254));
         nextQueueTextField.setFont(new java.awt.Font("SF Pro Display", 1, 40)); // NOI18N
-        nextQueueTextField.setForeground(new java.awt.Color(0, 0, 0));
         nextQueueTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         nextQueueTextField.setText("002");
         nextQueueTextField.setBorder(null);
         nextQueueTextField.setFocusable(false);
 
         jLabel2.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(155, 164, 177));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Next in Line:");
 
         nextCustomerTextField.setBackground(new java.awt.Color(253, 253, 254));
