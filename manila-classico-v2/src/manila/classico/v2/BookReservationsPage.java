@@ -94,15 +94,17 @@ public class BookReservationsPage extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(253, 253, 254));
 
         jLabel7.setFont(new java.awt.Font("SF Pro Display", 1, 30)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("<html><div style=\"text-align: center;\">Book Reservation</div></html>");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel8.setFont(new java.awt.Font("SF Pro Display", 0, 15)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(155, 164, 177));
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("<html><div style=\"text-align: center;\">Fill in your details to schedule your appointment</div></html>");
 
         backButton.setBackground(new java.awt.Color(253, 253, 254));
         backButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        backButton.setForeground(new java.awt.Color(0, 0, 0));
         backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-left-arrow-20.png"))); // NOI18N
         backButton.setText("Back");
         backButton.setBorder(null);
@@ -139,9 +141,11 @@ public class BookReservationsPage extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Full Name");
 
         jLabel2.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Contact Number");
 
         serviceComboBox.setBackground(new java.awt.Color(253, 253, 254));
@@ -151,30 +155,36 @@ public class BookReservationsPage extends javax.swing.JFrame {
         serviceComboBox.setOpaque(true);
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Service");
 
         barberComboBox.setBackground(new java.awt.Color(253, 253, 254));
         barberComboBox.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
+        barberComboBox.setForeground(new java.awt.Color(0, 0, 0));
         barberComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carlos Mendoza", "Roberto Silva", "Raffy Tulfo" }));
         barberComboBox.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
         barberComboBox.setOpaque(true);
 
         jLabel4.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Barber");
 
         dateDateChooser.setBackground(new java.awt.Color(253, 253, 254));
         dateDateChooser.setForeground(new java.awt.Color(155, 164, 177));
 
         jLabel5.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Date");
 
         timeComboBox.setBackground(new java.awt.Color(253, 253, 254));
         timeComboBox.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
+        timeComboBox.setForeground(new java.awt.Color(0, 0, 0));
         timeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "9:00 AM", "9:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "1:00 PM", "1:30 PM", "2:00 PM", "2:30 PM", "3:00 PM", "3:30 PM", "4:00 PM", "4:30 PM" }));
         timeComboBox.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
         timeComboBox.setOpaque(true);
 
         jLabel6.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Time");
 
         bookNowButton.setBackground(new java.awt.Color(164, 145, 129));
