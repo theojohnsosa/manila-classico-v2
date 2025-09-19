@@ -62,8 +62,6 @@ public class ReceiptPage extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         lineOne = new javax.swing.JLabel();
         receiptNo = new javax.swing.JLabel();
         Date = new javax.swing.JLabel();
@@ -77,7 +75,6 @@ public class ReceiptPage extends javax.swing.JFrame {
         Barber = new javax.swing.JLabel();
         lineThree = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         receiptTextField = new javax.swing.JTextField();
         dateTextField = new javax.swing.JTextField();
         cashierTextField = new javax.swing.JTextField();
@@ -87,153 +84,173 @@ public class ReceiptPage extends javax.swing.JFrame {
         paymentMethodTextField = new javax.swing.JTextField();
         amountRenderedTextField = new javax.swing.JTextField();
         barberTextField = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("SF Pro Display", 1, 30)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(114, 74, 49));
         jLabel1.setText("Manila Classico");
         jLabel1.setToolTipText("");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 6, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setText("1234 Metro Manila, Pasay City, Philippines");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel4.setText("0977 834 9967");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, -1, -1));
-
-        lineOne.setText("--------------------------------------------------------------------------");
+        lineOne.setText("––––––––––––––––––––––––––––––––––––––––––––––––––");
         jPanel1.add(lineOne, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 350, -1));
 
-        receiptNo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        receiptNo.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
+        receiptNo.setForeground(new java.awt.Color(0, 0, 0));
         receiptNo.setText("Receipt No:");
         jPanel1.add(receiptNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, 20));
 
-        Date.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Date.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
+        Date.setForeground(new java.awt.Color(0, 0, 0));
         Date.setText("Date:");
         jPanel1.add(Date, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
-        cashierName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cashierName.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
+        cashierName.setForeground(new java.awt.Color(0, 0, 0));
         cashierName.setText("Cashier:");
         jPanel1.add(cashierName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, 20));
 
-        customerName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        customerName.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
+        customerName.setForeground(new java.awt.Color(0, 0, 0));
         customerName.setText("Customer:");
         customerName.setVerifyInputWhenFocusTarget(false);
         jPanel1.add(customerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
-        Services.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Services.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
+        Services.setForeground(new java.awt.Color(0, 0, 0));
         Services.setText("Services:");
         jPanel1.add(Services, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
-        lineTwo.setText("--------------------------------------------------------------------------");
+        lineTwo.setText("––––––––––––––––––––––––––––––––––––––––––––––––––");
         jPanel1.add(lineTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 350, -1));
 
-        totalAmount.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        totalAmount.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
+        totalAmount.setForeground(new java.awt.Color(0, 0, 0));
         totalAmount.setText("Total Amount: ");
         jPanel1.add(totalAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 255, -1, -1));
 
-        paymentMethod.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        paymentMethod.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
+        paymentMethod.setForeground(new java.awt.Color(0, 0, 0));
         paymentMethod.setText("Payment Method:");
         jPanel1.add(paymentMethod, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
 
-        amountRendered.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        amountRendered.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
+        amountRendered.setForeground(new java.awt.Color(0, 0, 0));
         amountRendered.setText("Amount Rendered: ");
         jPanel1.add(amountRendered, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 305, -1, -1));
 
-        Barber.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        Barber.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
+        Barber.setForeground(new java.awt.Color(0, 0, 0));
         Barber.setText("Barber: ");
         jPanel1.add(Barber, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
 
-        lineThree.setText("--------------------------------------------------------------------------");
+        lineThree.setText("––––––––––––––––––––––––––––––––––––––––––––––––––");
         jPanel1.add(lineThree, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 350, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setText("FOR CHOOSING MANILA CLASSICO!");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 300, -1));
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setText("THANK YOU");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, -1, -1));
+        jLabel3.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("<html><div style=\"text-align: center;\">THANK YOU FOR<br>CHOOSING MANILA CLASSICO</div></html>");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 300, -1));
 
         receiptTextField.setEditable(false);
         receiptTextField.setBackground(new java.awt.Color(255, 255, 255));
-        receiptTextField.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        receiptTextField.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        receiptTextField.setForeground(new java.awt.Color(0, 0, 0));
         receiptTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         receiptTextField.setBorder(null);
-        jPanel1.add(receiptTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 100, -1));
+        jPanel1.add(receiptTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 100, -1));
 
         dateTextField.setEditable(false);
         dateTextField.setBackground(new java.awt.Color(255, 255, 255));
-        dateTextField.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        dateTextField.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        dateTextField.setForeground(new java.awt.Color(0, 0, 0));
         dateTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         dateTextField.setBorder(null);
-        jPanel1.add(dateTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 100, -1));
+        jPanel1.add(dateTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, 100, -1));
 
         cashierTextField.setEditable(false);
         cashierTextField.setBackground(new java.awt.Color(255, 255, 255));
-        cashierTextField.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        cashierTextField.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        cashierTextField.setForeground(new java.awt.Color(0, 0, 0));
         cashierTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         cashierTextField.setBorder(null);
-        jPanel1.add(cashierTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 100, -1));
+        jPanel1.add(cashierTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 100, -1));
 
         customerTextField.setEditable(false);
         customerTextField.setBackground(new java.awt.Color(255, 255, 255));
-        customerTextField.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        customerTextField.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        customerTextField.setForeground(new java.awt.Color(0, 0, 0));
         customerTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         customerTextField.setAutoscrolls(false);
         customerTextField.setBorder(null);
-        jPanel1.add(customerTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 100, -1));
+        jPanel1.add(customerTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 100, -1));
 
         serviceTextField.setEditable(false);
         serviceTextField.setBackground(new java.awt.Color(255, 255, 255));
-        serviceTextField.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        serviceTextField.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        serviceTextField.setForeground(new java.awt.Color(0, 0, 0));
         serviceTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         serviceTextField.setBorder(null);
-        jPanel1.add(serviceTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 160, -1));
+        jPanel1.add(serviceTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 160, -1));
 
         totalAmountTextField.setEditable(false);
         totalAmountTextField.setBackground(new java.awt.Color(255, 255, 255));
-        totalAmountTextField.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        totalAmountTextField.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        totalAmountTextField.setForeground(new java.awt.Color(0, 0, 0));
         totalAmountTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         totalAmountTextField.setBorder(null);
-        jPanel1.add(totalAmountTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 255, 100, -1));
+        jPanel1.add(totalAmountTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 100, -1));
 
         paymentMethodTextField.setEditable(false);
         paymentMethodTextField.setBackground(new java.awt.Color(255, 255, 255));
-        paymentMethodTextField.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        paymentMethodTextField.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        paymentMethodTextField.setForeground(new java.awt.Color(0, 0, 0));
         paymentMethodTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         paymentMethodTextField.setBorder(null);
-        jPanel1.add(paymentMethodTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 100, -1));
+        jPanel1.add(paymentMethodTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 100, -1));
 
         amountRenderedTextField.setEditable(false);
         amountRenderedTextField.setBackground(new java.awt.Color(255, 255, 255));
-        amountRenderedTextField.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        amountRenderedTextField.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        amountRenderedTextField.setForeground(new java.awt.Color(0, 0, 0));
         amountRenderedTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         amountRenderedTextField.setBorder(null);
-        jPanel1.add(amountRenderedTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 305, 100, -1));
+        jPanel1.add(amountRenderedTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, 100, -1));
 
         barberTextField.setEditable(false);
         barberTextField.setBackground(new java.awt.Color(255, 255, 255));
-        barberTextField.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        barberTextField.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        barberTextField.setForeground(new java.awt.Color(0, 0, 0));
         barberTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         barberTextField.setBorder(null);
-        jPanel1.add(barberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 100, -1));
+        jPanel1.add(barberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, 100, -1));
+
+        jLabel6.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("1234 Metro Manila, Pasay City, Philippines");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("0977 834 9967");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
         );
 
         pack();
@@ -289,8 +306,7 @@ public class ReceiptPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lineOne;
     private javax.swing.JLabel lineThree;
