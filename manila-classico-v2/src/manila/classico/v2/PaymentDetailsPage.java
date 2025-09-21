@@ -3,7 +3,6 @@ package manila.classico.v2;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Random;
-import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -25,16 +24,15 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
 
         payNowButton.setEnabled(false);
 
-        ButtonGroup buttonGroup = new ButtonGroup();
-        buttonGroup.add(cashToggleButton);
-        buttonGroup.add(gcashToggleButton);
-
         cashToggleButton.setSelected(false);
         gcashToggleButton.setSelected(false);
 
         Runnable validate = () -> {
             String paymentAmountInput = paymentAmountTextField.getText().trim();
-            String totalAmountInput = totalAmountTextField.getText().replace("₱", "").replace(".0", "").trim();
+            String totalAmountInput = totalAmountTextField.getText()
+                    .replace("₱", "")
+                    .replace(".0", "")
+                    .trim();
             String contactInput = contactTextField.getText().trim();
 
             boolean methodSelected = cashToggleButton.isSelected() || gcashToggleButton.isSelected();
@@ -45,35 +43,31 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         };
 
         paymentAmountTextField.getDocument().addDocumentListener(new DocumentListener() {
-            public void insertUpdate(DocumentEvent e) { 
-                validate.run(); 
-            }
-            
-            public void removeUpdate(DocumentEvent e) { 
-                validate.run(); 
-            }
-            
-            public void changedUpdate(DocumentEvent e) { 
-                validate.run(); 
-            }
+            public void insertUpdate(DocumentEvent e) { validate.run(); }
+            public void removeUpdate(DocumentEvent e) { validate.run(); }
+            public void changedUpdate(DocumentEvent e) { validate.run(); }
         });
 
         contactTextField.getDocument().addDocumentListener(new DocumentListener() {
-            public void insertUpdate(DocumentEvent e) { 
-                validate.run(); 
-            }
-            
-            public void removeUpdate(DocumentEvent e) { 
-                validate.run(); 
-            }
-            
-            public void changedUpdate(DocumentEvent e) { 
-                validate.run(); 
-            }
+            public void insertUpdate(DocumentEvent e) { validate.run(); }
+            public void removeUpdate(DocumentEvent e) { validate.run(); }
+            public void changedUpdate(DocumentEvent e) { validate.run(); }
         });
 
-        cashToggleButton.addActionListener(e -> validate.run());
-        gcashToggleButton.addActionListener(e -> validate.run());
+        // Manual toggle exclusivity
+        cashToggleButton.addActionListener(e -> {
+            if (cashToggleButton.isSelected()) {
+                gcashToggleButton.setSelected(false);
+            }
+            validate.run();
+        });
+
+        gcashToggleButton.addActionListener(e -> {
+            if (gcashToggleButton.isSelected()) {
+                cashToggleButton.setSelected(false);
+            }
+            validate.run();
+        });
 
         payNowButton.addActionListener(e -> {
             String paymentMethod = cashToggleButton.isSelected() ? "Cash" : "GCash";
@@ -86,7 +80,17 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
             String totalPaymentAmount = totalAmountTextField.getText().trim();
             String paymentRendered = paymentAmountTextField.getText().trim();
 
-            ReservationsData.addReservation(customerFullName, customerContact, chosenService, chosenBarber, chosenDate, chosenTime, paymentMethod, totalPaymentAmount, paymentRendered);
+            ReservationsData.addReservation(
+                    customerFullName,
+                    customerContact,
+                    chosenService,
+                    chosenBarber,
+                    chosenDate,
+                    chosenTime,
+                    paymentMethod,
+                    totalPaymentAmount,
+                    paymentRendered
+            );
 
             ReceiptPage receiptPage = new ReceiptPage();
             receiptPage.setDefaultCloseOperation(ReceiptPage.DISPOSE_ON_CLOSE);
@@ -94,19 +98,18 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
             receiptPage.setVisible(true);
 
             this.dispose();
-            
+
             receiptPage.addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-            UserSelectPage userSelectPage = new UserSelectPage();
-            userSelectPage.setDefaultCloseOperation(UserSelectPage.DISPOSE_ON_CLOSE);
-            userSelectPage.setLocationRelativeTo(null);
-            userSelectPage.setResizable(false);
-            userSelectPage.setVisible(true);
-            
-            receiptPage.dispose();
-    }
-});
-            
+                public void windowClosing(WindowEvent e) {
+                    UserSelectPage userSelectPage = new UserSelectPage();
+                    userSelectPage.setDefaultCloseOperation(UserSelectPage.DISPOSE_ON_CLOSE);
+                    userSelectPage.setLocationRelativeTo(null);
+                    userSelectPage.setResizable(false);
+                    userSelectPage.setVisible(true);
+
+                    receiptPage.dispose();
+                }
+            });
         });
         
         cashToggleButton.addMouseListener(new java.awt.event.MouseAdapter() {
