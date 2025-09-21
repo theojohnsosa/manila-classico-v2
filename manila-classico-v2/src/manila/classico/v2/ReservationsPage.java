@@ -148,8 +148,7 @@ public class ReservationsPage extends javax.swing.JFrame {
            
            public void mouseExited(java.awt.event.MouseEvent evt) {
                editQueueButton.setBackground(new java.awt.Color(253, 253, 254));
-               editQueueButton.setForeground(new java.awt.Color(154, 164, 177));
-               editQueueButton.setBorder(null);
+               editQueueButton.setBackground(new java.awt.Color(164, 145, 129));
            } 
         });
     }
