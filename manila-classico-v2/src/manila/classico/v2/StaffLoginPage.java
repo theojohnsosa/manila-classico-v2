@@ -288,6 +288,9 @@ public class StaffLoginPage extends javax.swing.JFrame {
                 "Incorrect Credentials",
                 JOptionPane.INFORMATION_MESSAGE
             );
+            
+            adminIdTextField.setText("");
+            adminCodePasswordField.setText("");
         }
     }//GEN-LAST:event_loginToDashboardButtonActionPerformed
 
