@@ -88,7 +88,6 @@ public class EditQueuePage extends javax.swing.JFrame {
 
         backButton.setBackground(new java.awt.Color(253, 253, 254));
         backButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        backButton.setForeground(new java.awt.Color(0, 0, 0));
         backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-left-arrow-20.png"))); // NOI18N
         backButton.setText("Back to Reservations");
         backButton.setBorder(null);
@@ -103,7 +102,6 @@ public class EditQueuePage extends javax.swing.JFrame {
 
         reservationsTable.setBackground(new java.awt.Color(253, 253, 254));
         reservationsTable.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
-        reservationsTable.setForeground(new java.awt.Color(0, 0, 0));
         reservationsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -118,7 +116,6 @@ public class EditQueuePage extends javax.swing.JFrame {
         jScrollPane1.setViewportView(reservationsTable);
 
         jLabel5.setFont(new java.awt.Font("SF Pro Display", 1, 20)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Upcoming Reservations");
 
         addQueueButton.setBackground(new java.awt.Color(164, 145, 129));
@@ -203,12 +200,12 @@ public class EditQueuePage extends javax.swing.JFrame {
                                 .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(208, 234, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(76, Short.MAX_VALUE)
+                .addContainerGap(74, Short.MAX_VALUE)
                 .addComponent(backButton)
                 .addGap(44, 44, 44)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)

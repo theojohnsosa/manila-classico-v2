@@ -366,29 +366,51 @@ public class BookReservationsPage extends javax.swing.JFrame {
     }//GEN-LAST:event_fullNameTextFieldKeyTyped
 
     private void contactNumberTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contactNumberTextFieldKeyTyped
-    char c = evt.getKeyChar();
+       char c = evt.getKeyChar();
 
-        if (!Character.isDigit(c)) {
-            evt.consume();
-            return;
-        }
+    if (!Character.isDigit(c)) {
+        evt.consume();
+        return;
+    }
 
-        String currentText = contactNumberTextField.getText();
+    String currentText = contactNumberTextField.getText();
 
-        if (currentText.length() >= 11) {
-            evt.consume();
-            return;
-        }
+    if (currentText.length() >= 11) {
+        evt.consume();
+        return;
+    }
 
+    String newText = currentText + c;
 
-        if (currentText.length() == 3) {
-            String prefix = currentText + c; 
-            int prefixNum = Integer.parseInt(prefix);
+    if (newText.length() == 4) {
+        String prefix = newText;
 
-        if (prefixNum < 895 || prefixNum > 999) {
+        String[] validPrefixes = {
+            "0895", "0896", "0897", "0898", "0905", "0906", "0907", "0908", "0909",
+            "0910", "0911", "0912", "0913", "0914", "0915", "0916", "0917",
+            "0920", "0921", "0926", "0927", "0928", "0929",
+            "0930", "0935", "0936", "0937", "0938", "0939",
+            "0945", "0946", "0947", "0948", "0949",
+            "0950", "0952", "0953", "0954", "0955", "0956",
+            "0962", "0963", "0965", "0966", "0967", "0968", "0969", "0970",
+            "0975", "0976", "0977", "0978", "0979",
+            "0980", "0982", "0989",
+            "0994", "0995", "0996", "0997", "0998", "0999"
+        };
+
+        boolean isValidPrefix = false;
+
+           for (String validPrefixe : validPrefixes) {
+               if (prefix.equals(validPrefixe)) {
+                   isValidPrefix = true;
+                   break;
+               }
+           }
+
+        if (!isValidPrefix) {
             javax.swing.JOptionPane.showMessageDialog(
                 this,
-                "Invalid phone number. Must start from 0895 to 0999."
+                "Invalid Contact Number. "
             );
             contactNumberTextField.setText("");
             evt.consume();
