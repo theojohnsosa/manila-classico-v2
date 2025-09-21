@@ -54,7 +54,6 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
             public void changedUpdate(DocumentEvent e) { validate.run(); }
         });
 
-        // Manual toggle exclusivity
         cashToggleButton.addActionListener(e -> {
             if (cashToggleButton.isSelected()) {
                 gcashToggleButton.setSelected(false);
