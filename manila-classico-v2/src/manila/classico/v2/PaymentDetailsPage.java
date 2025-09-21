@@ -271,11 +271,6 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         phoneNumberTextField.setBackground(new java.awt.Color(253, 253, 254));
         phoneNumberTextField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
         phoneNumberTextField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(154, 164, 177)));
-        phoneNumberTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                phoneNumberTextFieldActionPerformed(evt);
-            }
-        });
         phoneNumberTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 phoneNumberTextFieldKeyTyped(evt);
@@ -613,10 +608,6 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
             evt.consume(); 
         }
     }//GEN-LAST:event_paymentAmountTextFieldKeyTyped
-
-    private void phoneNumberTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneNumberTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_phoneNumberTextFieldActionPerformed
 
     public static void queueDisplayUpdate() {
         if (queuePage != null ) {
