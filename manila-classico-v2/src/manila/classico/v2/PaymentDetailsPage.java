@@ -242,6 +242,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         customerTextField.setBackground(new java.awt.Color(253, 253, 254));
         customerTextField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         customerTextField.setForeground(new java.awt.Color(0, 0, 0));
+        customerTextField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         customerTextField.setBorder(null);
         customerTextField.setFocusable(false);
 
@@ -363,6 +364,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         contactTextField.setBackground(new java.awt.Color(253, 253, 254));
         contactTextField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         contactTextField.setForeground(new java.awt.Color(0, 0, 0));
+        contactTextField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         contactTextField.setBorder(null);
         contactTextField.setFocusable(false);
 
@@ -377,6 +379,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         serviceTextField.setBackground(new java.awt.Color(253, 253, 254));
         serviceTextField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         serviceTextField.setForeground(new java.awt.Color(0, 0, 0));
+        serviceTextField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         serviceTextField.setBorder(null);
         serviceTextField.setFocusable(false);
 
@@ -387,12 +390,14 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         dateTextField.setBackground(new java.awt.Color(253, 253, 254));
         dateTextField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         dateTextField.setForeground(new java.awt.Color(0, 0, 0));
+        dateTextField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         dateTextField.setBorder(null);
         dateTextField.setFocusable(false);
 
         barberTextField.setBackground(new java.awt.Color(253, 253, 254));
         barberTextField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         barberTextField.setForeground(new java.awt.Color(0, 0, 0));
+        barberTextField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         barberTextField.setBorder(null);
         barberTextField.setFocusable(false);
 
@@ -407,6 +412,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         timeTextField.setBackground(new java.awt.Color(253, 253, 254));
         timeTextField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         timeTextField.setForeground(new java.awt.Color(0, 0, 0));
+        timeTextField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         timeTextField.setBorder(null);
         timeTextField.setFocusable(false);
 
@@ -417,6 +423,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         totalAmountTextField.setBackground(new java.awt.Color(253, 253, 254));
         totalAmountTextField.setFont(new java.awt.Font("SF Pro Display", 1, 30)); // NOI18N
         totalAmountTextField.setForeground(new java.awt.Color(0, 0, 0));
+        totalAmountTextField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         totalAmountTextField.setBorder(null);
         totalAmountTextField.setFocusable(false);
 
