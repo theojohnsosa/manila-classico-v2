@@ -10,6 +10,7 @@ public class EditQueuePage extends javax.swing.JFrame {
 
     public EditQueuePage() {
         initComponents();
+        reservationsTable.setModel(ReservationsData.getTableModel());
         
         searchButton.addMouseListener(new java.awt.event.MouseAdapter() {
            public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -154,6 +155,11 @@ public class EditQueuePage extends javax.swing.JFrame {
         removeFromQueueButton.setFocusPainted(false);
         removeFromQueueButton.setFocusable(false);
         removeFromQueueButton.setOpaque(true);
+        removeFromQueueButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeFromQueueButtonActionPerformed(evt);
+            }
+        });
 
         searchTextField.setBackground(new java.awt.Color(253, 253, 254));
         searchTextField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
@@ -259,10 +265,10 @@ public class EditQueuePage extends javax.swing.JFrame {
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void addQueueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addQueueButtonActionPerformed
-        AddQueuePage addQueuePage = new AddQueuePage();
-        addQueuePage.setLocationRelativeTo(null);
-        addQueuePage.setResizable(false);
-        addQueuePage.setVisible(true);
+        BookReservationsPage bookReservationsPage = new BookReservationsPage(true);
+        bookReservationsPage.setLocationRelativeTo(null);
+        bookReservationsPage.setResizable(false);
+        bookReservationsPage.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_addQueueButtonActionPerformed
 
@@ -273,6 +279,10 @@ public class EditQueuePage extends javax.swing.JFrame {
         editQueueEntryPage.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_editQueueEntryButtonActionPerformed
+
+    private void removeFromQueueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeFromQueueButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_removeFromQueueButtonActionPerformed
     
     public static void main(String args[]) {
         try {

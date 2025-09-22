@@ -11,7 +11,7 @@ public class SalesHistoryPage extends javax.swing.JFrame {
    
     public SalesHistoryPage() {
         initComponents();
-        transactionsTable.setModel(ReservationsData.getTableModel());
+        transactionsTable.setModel(ReservationsData.getSalesTableModel());
 
         DefaultTableModel model = (DefaultTableModel) transactionsTable.getModel();
         sorter = new TableRowSorter<>(model);

@@ -11,7 +11,8 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
     
     private boolean payNowProcessed = false;
     
-    public PaymentDetailsPage(String fullName, String contact, String service, String barber, String date, String time, String price, String totalAmount) {
+    public PaymentDetailsPage(String fullName, String contact, String service, String barber, String date, String time, String price, String totalAmount, boolean isFromEditQueue) {
+        this.fromEditQueue = isFromEditQueue;
         initComponents();
 
         customerTextField.setText(fullName);
@@ -100,11 +101,17 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
 
             receiptPage.addWindowListener(new WindowAdapter() {
                 public void windowClosing(WindowEvent e) {
-                    UserSelectPage userSelectPage = new UserSelectPage();
-                    userSelectPage.setDefaultCloseOperation(UserSelectPage.DISPOSE_ON_CLOSE);
-                    userSelectPage.setLocationRelativeTo(null);
-                    userSelectPage.setResizable(false);
-                    userSelectPage.setVisible(true);
+                    if(fromEditQueue){
+                        EditQueuePage editQueuePage = new EditQueuePage();
+                        editQueuePage.setLocationRelativeTo(null);
+                        editQueuePage.setResizable(false);
+                        editQueuePage.setVisible(true);
+                    } else {
+                        UserSelectPage userSelectPage = new UserSelectPage();
+                        userSelectPage.setLocationRelativeTo(null);
+                        userSelectPage.setResizable(false);
+                        userSelectPage.setVisible(true);
+                    }
 
                     receiptPage.dispose();
                 }
@@ -634,6 +641,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         });
     }
 
+    private boolean fromEditQueue;
     private static ViewQueuePage queuePage;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
