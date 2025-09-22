@@ -1,5 +1,6 @@
 package manila.classico.v2;
 
+import java.util.List;
 import java.util.Random;
 import java.util.logging.Logger;
 
@@ -7,6 +8,12 @@ public class EditQueueEntryPage extends javax.swing.JFrame {
     
     private static final Logger logger = Logger.getLogger(EditQueueEntryPage.class.getName());
 
+    public EditQueueEntryPage(int reservationIndex) {
+    this();
+    this.editingIndex = reservationIndex;
+    loadReservationData(reservationIndex);
+}
+    
     public EditQueueEntryPage() {
         initComponents();
         loadServicesIntoComboBox();
@@ -65,6 +72,37 @@ public class EditQueueEntryPage extends javax.swing.JFrame {
         } while (CustomerManager.referenceExists(reference));
         return reference;
     }
+    
+    private void loadReservationData(int index) {
+    List<Reservation> reservations = ReservationsData.getReservations();
+    if (index >= 0 && index < reservations.size()) {
+        Reservation reservation = reservations.get(index);
+        
+        fullNameTextField.setText(reservation.getFullName());
+        contactNumberTextField.setText(reservation.getContactNumber());
+        
+        String serviceWithPrice = reservation.getService();
+        for (int i = 0; i < serviceComboBox.getItemCount(); i++) {
+            String item = serviceComboBox.getItemAt(i);
+            if (item.startsWith(serviceWithPrice)) {
+                serviceComboBox.setSelectedIndex(i);
+                break;
+            }
+        }
+        
+        barberComboBox.setSelectedItem(reservation.getBarber());
+        
+        try {
+            java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
+            java.util.Date date = sdf.parse(reservation.getDate());
+            dateDateChooser.setDate(date);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        timeComboBox.setSelectedItem(reservation.getTime());
+    }
+}
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -311,38 +349,61 @@ public class EditQueueEntryPage extends javax.swing.JFrame {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void addToQueueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToQueueButtonActionPerformed
-        String fullName = fullNameTextField.getText().trim();
-        String contactNumber = contactNumberTextField.getText().trim();
-        String service = (String) serviceComboBox.getSelectedItem();
-        String barber = (String) barberComboBox.getSelectedItem();
-        java.util.Date chosenDate = dateDateChooser.getDate();
-        String time = (String) timeComboBox.getSelectedItem();
+       String fullName = fullNameTextField.getText().trim();
+    String contactNumber = contactNumberTextField.getText().trim();
+    String service = (String) serviceComboBox.getSelectedItem();
+    String barber = (String) barberComboBox.getSelectedItem();
+    java.util.Date chosenDate = dateDateChooser.getDate();
+    String time = (String) timeComboBox.getSelectedItem();
 
-        if (fullName.isEmpty() || contactNumber.isEmpty() || chosenDate == null || time == null) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Please complete all fields.");
-            return;
+    if (fullName.isEmpty() || contactNumber.isEmpty() || chosenDate == null || time == null) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Please complete all fields.");
+        return;
+    }
+
+    String serviceName = service;
+    String pesoString = null;
+    int index = service.indexOf("–");
+    if (index > -1) {
+        serviceName = service.substring(0, index).trim();
+        String right = service.substring(index + 1).trim();
+        pesoString = right;
+    }
+
+    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
+    String date = sdf.format(chosenDate);
+
+    String price = (pesoString != null) ? pesoString : "₱0";
+    String totalAmount = price;
+
+    if (editingIndex >= 0) {
+        List<Reservation> reservations = ReservationsData.getReservations();
+        if (editingIndex < reservations.size()) {
+            Reservation oldReservation = reservations.get(editingIndex);
+            
+            ReservationsData.removeReservation(oldReservation);
+            
+            boolean success = ReservationsData.addReservation(fullName, contactNumber, serviceName, barber, date, time, 
+                oldReservation.getPaymentMethod(), totalAmount, oldReservation.getPaymentRendered());
+            
+            if (success) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Reservation updated successfully!");
+                EditQueuePage editQueuePage = new EditQueuePage();
+                editQueuePage.setLocationRelativeTo(null);
+                editQueuePage.setResizable(false);
+                editQueuePage.setVisible(true);
+                this.dispose();
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "Failed to update reservation. It may already exist.");
+            }
         }
-
-        String serviceName = service;
-        String pesoString = null;
-        int index = service.indexOf("–");
-        if (index > -1) {
-            serviceName = service.substring(0, index).trim();
-            String right = service.substring(index + 1).trim();
-            pesoString = right;
-        }
-
-        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
-        String date = sdf.format(chosenDate);
-
-        String price = (pesoString != null) ? pesoString : "₱0";
-        String totalAmount = price;
-
-        PaymentDetailsPage paymentDetails = new PaymentDetailsPage(fullName, contactNumber, serviceName, barber, date, time, price, totalAmount,true);
+    } else {
+        PaymentDetailsPage paymentDetails = new PaymentDetailsPage(fullName, contactNumber, serviceName, barber, date, time, price, totalAmount, true);
         paymentDetails.setLocationRelativeTo(null);
         paymentDetails.setResizable(false);
         paymentDetails.setVisible(true);
         this.dispose();
+    }
     }//GEN-LAST:event_addToQueueButtonActionPerformed
 
     public static void main(String args[]) {
@@ -365,6 +426,7 @@ public class EditQueueEntryPage extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> new EditQueueEntryPage().setVisible(true));
     }
 
+    private int editingIndex = -1;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addToQueueButton;
     private javax.swing.JButton backButton;

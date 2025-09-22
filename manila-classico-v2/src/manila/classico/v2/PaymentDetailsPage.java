@@ -518,11 +518,19 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        UserSelectPage userSelectPage = new UserSelectPage();
-        userSelectPage.setLocationRelativeTo(null);
-        userSelectPage.setResizable(false);
-        userSelectPage.setVisible(true);
-        this.dispose();
+        if(fromEditQueue){
+            EditQueuePage editQueuePage = new EditQueuePage();
+            editQueuePage.setLocationRelativeTo(null);
+            editQueuePage.setResizable(false);
+            editQueuePage.setVisible(true);
+            this.dispose();
+        } else {
+            UserSelectPage userSelectPage = new UserSelectPage();
+            userSelectPage.setLocationRelativeTo(null);
+            userSelectPage.setResizable(false);
+            userSelectPage.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void payNowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payNowButtonActionPerformed
