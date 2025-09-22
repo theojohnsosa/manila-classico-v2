@@ -338,7 +338,7 @@ public class EditQueueEntryPage extends javax.swing.JFrame {
         String price = (pesoString != null) ? pesoString : "₱0";
         String totalAmount = price;
 
-        PaymentDetailsPage paymentDetails = new PaymentDetailsPage(fullName, contactNumber, serviceName, barber, date, time, price, totalAmount);
+        PaymentDetailsPage paymentDetails = new PaymentDetailsPage(fullName, contactNumber, serviceName, barber, date, time, price, totalAmount,true);
         paymentDetails.setLocationRelativeTo(null);
         paymentDetails.setResizable(false);
         paymentDetails.setVisible(true);
