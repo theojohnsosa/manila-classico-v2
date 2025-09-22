@@ -57,8 +57,8 @@ public class ReservationsData {
         return s==null ? "" : s.trim().toLowerCase(Locale.ENGLISH); 
     }
     
-    private static String keyOf(String fullName,String contact,String service,String barber,String date,String time) {
-        return String.join("|", norm(fullName), norm(contact), norm(service), norm(barber), norm(date), norm(time));
+    private static String keyOf(String fullName,String contact,String service,String barber,String date,String time, String paymentRendered, String totalAmount) {
+        return String.join("|", norm(fullName), norm(contact), norm(service), norm(barber), norm(date), norm(time), norm(paymentRendered), norm(totalAmount));
     }
     
     public static boolean isValidFutureDateTime(String date, String time) {
@@ -86,7 +86,7 @@ public class ReservationsData {
     
     public static synchronized boolean addReservation(String fullName, String contact, String service, String barber, String date, String time, String paymentMethod, String totalAmount, String paymentRendered) {
         
-        String key = keyOf(fullName, contact, service, barber, date, time);
+        String key = keyOf(fullName, contact, service, barber, date, time,totalAmount ,paymentRendered );
         
         if (RES_KEYS.contains(key)) {
             return false;
@@ -110,7 +110,9 @@ public class ReservationsData {
             removed.getService(),
             removed.getBarber(), 
             removed.getDate(), 
-            removed.getTime()
+            removed.getTime(),
+            removed.getPaymentRendered(),
+            removed.getTotalAmount()
         ));
         rebuildTableModel();
         rebuildSalesTableModel();
@@ -170,7 +172,7 @@ public class ReservationsData {
                 reservation.getBarber(),
                 reservation.getDate(),
                 reservation.getTime(),
-                reservation.getPaymentMethod(),
+                reservation.getPaymentRendered(),
                 reservation.getTotalAmount()
             });
         }
@@ -182,7 +184,11 @@ public class ReservationsData {
             reservation.getService(),
             reservation.getBarber(),
             reservation.getDate(),
-            reservation.getTime()
+            reservation.getTime(),
+            reservation.getTotalAmount(),
+            reservation.getPaymentRendered()
+            
+            
         );
         
         if (RES_LIST.remove(reservation)) {
