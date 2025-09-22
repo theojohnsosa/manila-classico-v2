@@ -273,11 +273,16 @@ public class EditQueuePage extends javax.swing.JFrame {
     }//GEN-LAST:event_addQueueButtonActionPerformed
 
     private void editQueueEntryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editQueueEntryButtonActionPerformed
-        EditQueueEntryPage editQueueEntryPage = new EditQueueEntryPage();
+          int selectedRow = reservationsTable.getSelectedRow();
+    if (selectedRow >= 0) {
+        EditQueueEntryPage editQueueEntryPage = new EditQueueEntryPage(selectedRow);
         editQueueEntryPage.setLocationRelativeTo(null);
         editQueueEntryPage.setResizable(false);
         editQueueEntryPage.setVisible(true);
         this.dispose();
+    } else {
+        javax.swing.JOptionPane.showMessageDialog(this, "Please select a reservation to edit.");
+    }
     }//GEN-LAST:event_editQueueEntryButtonActionPerformed
 
     private void removeFromQueueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeFromQueueButtonActionPerformed

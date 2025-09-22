@@ -175,6 +175,24 @@ public class ReservationsData {
             });
         }
     }
+     public static synchronized boolean removeReservation(Reservation reservation) {
+        String key = keyOf(
+            reservation.getFullName(),
+            reservation.getContactNumber(),
+            reservation.getService(),
+            reservation.getBarber(),
+            reservation.getDate(),
+            reservation.getTime()
+        );
+        
+        if (RES_LIST.remove(reservation)) {
+            RES_KEYS.remove(key);
+            rebuildTableModel();
+            rebuildSalesTableModel();
+            return true;
+        }
+        return false;
+    }
     
     private static void sortByDateTime() {
         final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd h:mm a", Locale.ENGLISH);
