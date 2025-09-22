@@ -34,7 +34,7 @@ public class ReceiptPage extends javax.swing.JFrame {
             DecimalFormat df = new DecimalFormat("###0.0");
             df.setPositivePrefix("₱");
             String formattedAmount = df.format(renderedPayment);
-            
+             
             dateTextField.setText(date);
             cashierTextField.setText("admin");
             customerTextField.setText(name);
