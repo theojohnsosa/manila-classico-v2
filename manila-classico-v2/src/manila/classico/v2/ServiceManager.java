@@ -32,6 +32,10 @@ public class ServiceManager {
             services.remove(services.size() - 1);
         }
     }
+    
+    public static boolean removeService(String serviceName) {
+    return services.removeIf(service -> service.getName().equalsIgnoreCase(serviceName));
+}
 
     public static List<Service> searchServices(String keyword) {
         List<Service> result = new ArrayList<>();

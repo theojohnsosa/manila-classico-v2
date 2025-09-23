@@ -578,25 +578,23 @@ public class ServicesPage extends javax.swing.JFrame {
     }//GEN-LAST:event_addServiceButtonActionPerformed
 
     private void deleteServiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteServiceButtonActionPerformed
-        String keyword = searchTextField.getText().trim();
-
-        if (!keyword.isEmpty()) {
-            List<Service> foundServices = ServiceManager.searchServices(keyword);
-            if (!foundServices.isEmpty()) {
-                for (Service service : foundServices) {
-                    ServiceManager.removeService(service);
-                }
-                loadServicesToTable(ServiceManager.getServices());
-                JOptionPane.showMessageDialog(null, foundServices.size() + " service(s) deleted.");
-                return;
+    
+    int selectedRow = servicesTable.getSelectedRow();
+    
+    if (selectedRow >= 0) {
+        String serviceName = (String) servicesTable.getValueAt(selectedRow, 0);
+        boolean success = ServiceManager.removeService(serviceName);  
+            if (success) {
+                loadServicesToTable(ServiceManager.getServices());  
+                JOptionPane.showMessageDialog(this, "Service deleted successfully!");
             } else {
-                JOptionPane.showMessageDialog(this, "No matching service found.");
-                return;
+                JOptionPane.showMessageDialog(this, "Failed to delete service.");
             }
-        }
-
-        ServiceManager.removeLastService();
-        loadServicesToTable(ServiceManager.getServices());
+    } else {
+     javax.swing.JOptionPane.showMessageDialog(this, "No services to delete.");
+    }
+    
+    
     }//GEN-LAST:event_deleteServiceButtonActionPerformed
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
