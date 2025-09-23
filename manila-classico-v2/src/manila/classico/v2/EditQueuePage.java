@@ -148,6 +148,11 @@ public class EditQueuePage extends javax.swing.JFrame {
         removeFromQueueButton.setFocusPainted(false);
         removeFromQueueButton.setFocusable(false);
         removeFromQueueButton.setOpaque(true);
+        removeFromQueueButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeFromQueueButtonActionPerformed(evt);
+            }
+        });
 
         searchTextField.setBackground(new java.awt.Color(253, 253, 254));
         searchTextField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
@@ -272,6 +277,15 @@ public class EditQueuePage extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "Please select a reservation to edit.");
         }
     }//GEN-LAST:event_editQueueEntryButtonActionPerformed
+
+    private void removeFromQueueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeFromQueueButtonActionPerformed
+       int selectedRow = reservationsTable.getRowCount();
+       if (selectedRow >= 0) {
+            ReservationsData.removeFirstReservation();
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "No reservations to delete.");
+        }
+    }//GEN-LAST:event_removeFromQueueButtonActionPerformed
     
     public static void main(String args[]) {
         try {

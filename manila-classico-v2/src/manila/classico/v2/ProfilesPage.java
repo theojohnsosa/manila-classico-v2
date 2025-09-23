@@ -580,24 +580,20 @@ public class ProfilesPage extends javax.swing.JFrame {
     }//GEN-LAST:event_addBarberButtonActionPerformed
 
     private void deleteBarberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBarberButtonActionPerformed
-        String keyword = searchTextField.getText().trim();
-
-        if (!keyword.isEmpty()) {
-            List<Barber> found = BarberManager.searchBarbers(keyword);
-            if (!found.isEmpty()) {
-                for (Barber barber : found) {
-                    BarberManager.removeBarber(barber);
-                }
-                refreshBarberTable();
-                JOptionPane.showMessageDialog(null, found.size() + " barber(s) deleted.");
-                return;
+    int selectedRow = barbersTable.getSelectedRow();
+    
+    if (selectedRow >= 0) {
+        String barberName = (String) barbersTable.getValueAt(selectedRow, 0);
+        boolean success = BarberManager.removeBarber(barberName);  
+            if (success) {
+                refreshBarberTable();  
+                JOptionPane.showMessageDialog(this, "Barber deleted successfully!");
             } else {
-                JOptionPane.showMessageDialog(null, "No matching barber found.");
-                return;
+                JOptionPane.showMessageDialog(this, "Failed to delete barber.");
             }
-        }
-
-        BarberManager.removeLastBarber();
+    } else {
+        javax.swing.JOptionPane.showMessageDialog(this, "No barber selected to be delete.");
+    }
         refreshBarberTable();
     }//GEN-LAST:event_deleteBarberButtonActionPerformed
 
