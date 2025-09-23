@@ -5,8 +5,6 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
 public class EditQueuePage extends javax.swing.JFrame {
-    
-    private BookReservationsPage bookPage;
 
     public EditQueuePage() {
         initComponents();
@@ -61,11 +59,6 @@ public class EditQueuePage extends javax.swing.JFrame {
                removeFromQueueButton.setBackground(new java.awt.Color(164, 145, 129));
            } 
         });
-    }
-    
-    public EditQueuePage(BookReservationsPage bookPage) {
-        initComponents();
-        this.bookPage = bookPage;
     }
     
     @SuppressWarnings("unchecked")
@@ -268,7 +261,7 @@ public class EditQueuePage extends javax.swing.JFrame {
     }//GEN-LAST:event_addQueueButtonActionPerformed
 
     private void editQueueEntryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editQueueEntryButtonActionPerformed
-          int selectedRow = reservationsTable.getSelectedRow();
+        int selectedRow = reservationsTable.getSelectedRow();
         if (selectedRow >= 0) {
             EditQueueEntryPage editQueueEntryPage = new EditQueueEntryPage(selectedRow);
             editQueueEntryPage.setLocationRelativeTo(null);
