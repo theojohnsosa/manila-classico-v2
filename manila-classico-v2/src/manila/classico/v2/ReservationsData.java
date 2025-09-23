@@ -32,9 +32,27 @@ public class ReservationsData {
     private static final DateTimeFormatter DATETIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd h:mm a", Locale.ENGLISH);
     
     public static synchronized Reservation getLatestReservation() {
-        if (RES_LIST.isEmpty()) return null;
-        return RES_LIST.get(RES_LIST.size() - 1);
+    if (RES_LIST.isEmpty()) return null;
+
+    final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd h:mm a", Locale.ENGLISH);
+    Reservation latest = RES_LIST.get(0);
+
+    try {
+        Date latestDate = simpleDateFormat.parse(latest.getDate() + " " + latest.getTime());
+
+        for (Reservation r : RES_LIST) {
+            Date currentDate = simpleDateFormat.parse(r.getDate() + " " + r.getTime());
+            if (currentDate.after(latestDate)) {
+                latest = r;
+                latestDate = currentDate;
+            }
+        }
+    } catch (ParseException e) {
+        e.printStackTrace();
     }
+
+    return latest;
+}
     
     private static final DefaultTableModel TABLE_MODEL = new DefaultTableModel(COLS, 0) {
         @Override 
@@ -52,6 +70,8 @@ public class ReservationsData {
     
     private static final List<Reservation> RES_LIST = new ArrayList<>();
     private static final Set<String> RES_KEYS = new HashSet<>();
+    
+    private static Reservation lastAddedReservation = null;
     
     private static String norm(String s) {
         return s==null ? "" : s.trim().toLowerCase(Locale.ENGLISH); 
@@ -86,7 +106,7 @@ public class ReservationsData {
     
     public static synchronized boolean addReservation(String fullName, String contact, String service, String barber, String date, String time, String paymentMethod, String totalAmount, String paymentRendered) {
         
-        String key = keyOf(fullName, contact, service, barber, date, time,totalAmount ,paymentRendered );
+        String key = keyOf(fullName, contact, service, barber, date, time, paymentRendered, totalAmount);
         
         if (RES_KEYS.contains(key)) {
             return false;
@@ -95,11 +115,16 @@ public class ReservationsData {
         Reservation r = new Reservation(fullName, contact, service, barber, date, time, paymentMethod, totalAmount, paymentRendered);
         RES_LIST.add(r);
         RES_KEYS.add(key);
+        lastAddedReservation = r;
         sortByDateTime();
         rebuildTableModel();
         rebuildSalesTableModel();
         return true;
     }
+    
+    public static synchronized Reservation getLastAddedReservation() {
+    return lastAddedReservation;
+}
     
     public static synchronized boolean removeFirstReservation() {
         if (RES_LIST.isEmpty()) return false;
@@ -200,18 +225,19 @@ public class ReservationsData {
         return false;
     }
     
-    private static void sortByDateTime() {
-        final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd h:mm a", Locale.ENGLISH);
-        RES_LIST.sort((a, b) -> {
-            try {
-                Date dateA = simpleDateFormat.parse(a.getDate() + " " + a.getTime());
-                Date dateB = simpleDateFormat.parse(b.getDate() + " " + b.getTime());
-                return dateA.compareTo(dateB);
-            } catch (ParseException e) {
-                return 0;
-            }
-        });
-    }
+   private static void sortByDateTime() {
+    final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd h:mm a", Locale.ENGLISH);
+    RES_LIST.sort((a, b) -> {
+        try {
+            Date dateA = simpleDateFormat.parse(a.getDate() + " " + a.getTime());
+            Date dateB = simpleDateFormat.parse(b.getDate() + " " + b.getTime());
+            // Para descending order, baliktarin ang compareTo
+            return dateB.compareTo(dateA);
+        } catch (ParseException e) {
+            return 0;
+        }
+    });
+}
     
     
 }
