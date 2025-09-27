@@ -197,7 +197,7 @@ public class ReservationsData {
                 reservation.getBarber(),
                 reservation.getDate(),
                 reservation.getTime(),
-                reservation.getPaymentRendered(),
+                reservation.getPaymentMethod(),
                 reservation.getTotalAmount()
             });
         }
