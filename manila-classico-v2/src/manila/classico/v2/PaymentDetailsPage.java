@@ -545,23 +545,28 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         String chosenDate = dateTextField.getText().trim();
         String chosenTime = timeTextField.getText().trim();
         String totalPaymentAmount = totalAmountTextField.getText().trim();
-        String reference = generateUniqueReferenceNumber();
-        String fullName = customerTextField.getText().trim();
-        String contactNumber = contactTextField.getText().trim();
         String paymentRendered = paymentAmountTextField.getText().trim();
+        String reference = generateUniqueReferenceNumber();
 
+        ReservationsData.addReservation(
+            customerFullName,
+            customerContact,
+            chosenService,
+            chosenBarber,
+            chosenDate,
+            chosenTime,
+            paymentMethod,
+            totalPaymentAmount,
+            paymentRendered
+        );
 
-        boolean successfulReservation = ReservationsData.addReservation(customerFullName, customerContact, chosenService, chosenBarber, chosenDate, chosenTime, paymentMethod, totalPaymentAmount,paymentRendered);
-        
-        if (!successfulReservation) {
-            queueDisplayUpdate();
-            Customer customer = new Customer(fullName, contactNumber, reference);
-            CustomerManager.addCustomer(customer);
-            
-            JOptionPane.showMessageDialog(null, "Payment successful! Reservation confirmed. Reference Number: " + reference);
-        }
+        queueDisplayUpdate();
+        Customer customer = new Customer(customerFullName, customerContact, reference);
+        CustomerManager.addCustomer(customer);
 
+        JOptionPane.showMessageDialog(null, "Payment successful! Reservation confirmed. Reference Number: " + reference);
         payNowButton.setEnabled(false);
+
     }//GEN-LAST:event_payNowButtonActionPerformed
 
     private void phoneNumberTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNumberTextFieldKeyTyped

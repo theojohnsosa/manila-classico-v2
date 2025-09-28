@@ -106,6 +106,8 @@ public class ReservationsData {
     
     public static synchronized boolean addReservation(String fullName, String contact, String service, String barber, String date, String time, String paymentMethod, String totalAmount, String paymentRendered) {
         
+     
+        
         String key = keyOf(fullName, contact, service, barber, date, time, paymentRendered, totalAmount);
         
         if (RES_KEYS.contains(key)) {
@@ -225,6 +227,17 @@ public class ReservationsData {
         return false;
     }
     
+    public static synchronized boolean isSlotTaken(String barber, String date, String time) {
+        for (Reservation existing : RES_LIST) {
+            if (existing.getBarber().equalsIgnoreCase(barber) &&
+                existing.getDate().equals(date) &&
+                existing.getTime().equalsIgnoreCase(time)) {
+                return true;
+            }
+        }
+        return false; 
+    }
+     
    private static void sortByDateTime() {
     final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd h:mm a", Locale.ENGLISH);
     RES_LIST.sort((a, b) -> {

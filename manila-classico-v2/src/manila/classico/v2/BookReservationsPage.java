@@ -2,6 +2,7 @@ package manila.classico.v2;
 
 import java.util.Random;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class BookReservationsPage extends javax.swing.JFrame {
     
@@ -350,6 +351,11 @@ public class BookReservationsPage extends javax.swing.JFrame {
         java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
         String date = sdf.format(chosenDate);
 
+        if (ReservationsData.isSlotTaken(barber, date, time)) {
+        JOptionPane.showMessageDialog(this, "This time slot is already booked!");
+        return; 
+        }
+        
         String price = (pesoString != null) ? pesoString : "₱0";
         String totalAmount = price;
 
