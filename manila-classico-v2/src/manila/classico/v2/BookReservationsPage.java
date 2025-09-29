@@ -8,9 +8,10 @@ public class BookReservationsPage extends javax.swing.JFrame {
     
     private static final Logger logger = Logger.getLogger(BookReservationsPage.class.getName());
 
-    public BookReservationsPage(){
-    this(false);
+    public BookReservationsPage() {
+        this(false);
     }
+    
     public BookReservationsPage(boolean isFromEditQueue) {
         this.fromEditQueue = isFromEditQueue;
         
@@ -63,14 +64,14 @@ public class BookReservationsPage extends javax.swing.JFrame {
         }
     }
     
-    private String generateUniqueReferenceNumber() {
-        Random random = new Random();
-        String reference;
-        do {
-            reference = String.valueOf(100000 + random.nextInt(900000));
-        } while (CustomerManager.referenceExists(reference));
-        return reference;
-    }
+//    private String generateUniqueReferenceNumber() {
+//        Random random = new Random();
+//        String reference;
+//        do {
+//            reference = String.valueOf(100000 + random.nextInt(900000));
+//        } while (CustomerManager.referenceExists(reference));
+//        return reference;
+//    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -100,14 +101,17 @@ public class BookReservationsPage extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(253, 253, 254));
 
         jLabel7.setFont(new java.awt.Font("SF Pro Display", 1, 30)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("<html><div style=\"text-align: center;\">Book Reservation</div></html>");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel8.setFont(new java.awt.Font("SF Pro Display", 0, 15)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(155, 164, 177));
         jLabel8.setText("<html><div style=\"text-align: center;\">Fill in your details to schedule your appointment</div></html>");
 
         backButton.setBackground(new java.awt.Color(253, 253, 254));
         backButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        backButton.setForeground(new java.awt.Color(0, 0, 0));
         backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-left-arrow-20.png"))); // NOI18N
         backButton.setText("Back");
         backButton.setBorder(null);
@@ -137,11 +141,6 @@ public class BookReservationsPage extends javax.swing.JFrame {
         contactNumberTextField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
         contactNumberTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
         contactNumberTextField.setOpaque(true);
-        contactNumberTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contactNumberTextFieldActionPerformed(evt);
-            }
-        });
         contactNumberTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 contactNumberTextFieldKeyTyped(evt);
@@ -149,9 +148,11 @@ public class BookReservationsPage extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Full Name");
 
         jLabel2.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Contact Number");
 
         serviceComboBox.setBackground(new java.awt.Color(253, 253, 254));
@@ -161,6 +162,7 @@ public class BookReservationsPage extends javax.swing.JFrame {
         serviceComboBox.setOpaque(true);
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Service");
 
         barberComboBox.setBackground(new java.awt.Color(253, 253, 254));
@@ -170,12 +172,14 @@ public class BookReservationsPage extends javax.swing.JFrame {
         barberComboBox.setOpaque(true);
 
         jLabel4.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Barber");
 
         dateDateChooser.setBackground(new java.awt.Color(253, 253, 254));
         dateDateChooser.setForeground(new java.awt.Color(155, 164, 177));
 
         jLabel5.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Date");
 
         timeComboBox.setBackground(new java.awt.Color(253, 253, 254));
@@ -185,6 +189,7 @@ public class BookReservationsPage extends javax.swing.JFrame {
         timeComboBox.setOpaque(true);
 
         jLabel6.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Time");
 
         bookNowButton.setBackground(new java.awt.Color(164, 145, 129));
@@ -352,33 +357,33 @@ public class BookReservationsPage extends javax.swing.JFrame {
         String date = sdf.format(chosenDate);
 
         if (ReservationsData.isSlotTaken(barber, date, time)) {
-        JOptionPane.showMessageDialog(this, "This time slot is already booked!");
-        return; 
+            JOptionPane.showMessageDialog(this, "This time slot is already booked!");
+            return; 
         }
         
         String price = (pesoString != null) ? pesoString : "₱0";
         String totalAmount = price;
 
-        if (fromEditQueue){
-        PaymentDetailsPage paymentDetails = new PaymentDetailsPage(fullName, contactNumber, serviceName, barber, date, time, price, totalAmount,true);
-        paymentDetails.setLocationRelativeTo(null);
-        paymentDetails.setResizable(false);
-        paymentDetails.setVisible(true);
-        this.dispose();
+        if (fromEditQueue) {
+            PaymentDetailsPage paymentDetails = new PaymentDetailsPage(fullName, contactNumber, serviceName, barber, date, time, price, totalAmount, true);
+            paymentDetails.setLocationRelativeTo(null);
+            paymentDetails.setResizable(false);
+            paymentDetails.setVisible(true);
+            this.dispose();
         } else {
-        PaymentDetailsPage paymentDetails = new PaymentDetailsPage(fullName, contactNumber, serviceName, barber, date, time, price, totalAmount,false);
-        paymentDetails.setLocationRelativeTo(null);
-        paymentDetails.setResizable(false);
-        paymentDetails.setVisible(true);
-        this.dispose();
+            PaymentDetailsPage paymentDetails = new PaymentDetailsPage(fullName, contactNumber, serviceName, barber, date, time, price, totalAmount, false);
+            paymentDetails.setLocationRelativeTo(null);
+            paymentDetails.setResizable(false);
+            paymentDetails.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_bookNowButtonActionPerformed
 
     private void fullNameTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fullNameTextFieldKeyTyped
-    char c = evt.getKeyChar();
-   
+        char c = evt.getKeyChar();
+
         if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
-            evt.consume(); // reject input
+            evt.consume();
         }
 
         if (fullNameTextField.getText().length() >= 30) {
@@ -387,61 +392,57 @@ public class BookReservationsPage extends javax.swing.JFrame {
     }//GEN-LAST:event_fullNameTextFieldKeyTyped
 
     private void contactNumberTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contactNumberTextFieldKeyTyped
-       char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
 
-    if (!Character.isDigit(c)) {
-        evt.consume();
-        return;
-    }
-
-    String currentText = contactNumberTextField.getText();
-
-    if (currentText.length() >= 11) {
-        evt.consume();
-        return;
-    }
-
-    String newText = currentText + c;
-
-    if (newText.length() == 4) {
-        String prefix = newText;
-
-        String[] validPrefixes = {
-            "0895", "0896", "0897", "0898", "0905", "0906", "0907", "0908", "0909",
-            "0910", "0911", "0912", "0913", "0914", "0915", "0916", "0917",
-            "0920", "0921", "0926", "0927", "0928", "0929",
-            "0930", "0935", "0936", "0937", "0938", "0939",
-            "0945", "0946", "0947", "0948", "0949",
-            "0950", "0952", "0953", "0954", "0955", "0956",
-            "0962", "0963", "0965", "0966", "0967", "0968", "0969", "0970",
-            "0975", "0976", "0977", "0978", "0979",
-            "0980", "0982", "0989",
-            "0994", "0995", "0996", "0997", "0998", "0999"
-        };
-
-        boolean isValidPrefix = false;
-
-           for (String validPrefixe : validPrefixes) {
-               if (prefix.equals(validPrefixe)) {
-                   isValidPrefix = true;
-                   break;
-               }
-           }
-
-        if (!isValidPrefix) {
-            javax.swing.JOptionPane.showMessageDialog(
-                this,
-                "Invalid Contact Number. "
-            );
-            contactNumberTextField.setText("");
+        if (!Character.isDigit(c)) {
             evt.consume();
+            return;
         }
-    }
-    }//GEN-LAST:event_contactNumberTextFieldKeyTyped
 
-    private void contactNumberTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactNumberTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_contactNumberTextFieldActionPerformed
+        String currentText = contactNumberTextField.getText();
+
+        if (currentText.length() >= 11) {
+            evt.consume();
+            return;
+        }
+
+        String newText = currentText + c;
+
+        if (newText.length() == 4) {
+            String prefix = newText;
+
+            String[] validPrefixes = {
+                "0895", "0896", "0897", "0898", "0905", "0906", "0907", "0908", "0909",
+                "0910", "0911", "0912", "0913", "0914", "0915", "0916", "0917",
+                "0920", "0921", "0926", "0927", "0928", "0929",
+                "0930", "0935", "0936", "0937", "0938", "0939",
+                "0945", "0946", "0947", "0948", "0949",
+                "0950", "0952", "0953", "0954", "0955", "0956",
+                "0962", "0963", "0965", "0966", "0967", "0968", "0969", "0970",
+                "0975", "0976", "0977", "0978", "0979",
+                "0980", "0982", "0989",
+                "0994", "0995", "0996", "0997", "0998", "0999"
+            };
+
+            boolean isValidPrefix = false;
+
+               for (String validPrefixe : validPrefixes) {
+                   if (prefix.equals(validPrefixe)) {
+                       isValidPrefix = true;
+                       break;
+                   }
+               }
+
+            if (!isValidPrefix) {
+                javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "Invalid Contact Number. "
+                );
+                contactNumberTextField.setText("");
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_contactNumberTextFieldKeyTyped
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
