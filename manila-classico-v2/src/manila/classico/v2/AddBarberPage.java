@@ -58,8 +58,6 @@ public class AddBarberPage extends javax.swing.JFrame {
                jDateChooser1.setBackground(new java.awt.Color(253, 253, 254));
            } 
         });
-        
-        // alt comment
     }
     
     public AddBarberPage(BookReservationsPage bookPage) {
