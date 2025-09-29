@@ -57,14 +57,14 @@ public class AddQueuePage extends javax.swing.JFrame {
         }
     }
     
-    private String generateUniqueReferenceNumber() {
-        Random random = new Random();
-        String reference;
-        do {
-            reference = String.valueOf(100000 + random.nextInt(900000));
-        } while (CustomerManager.referenceExists(reference));
-        return reference;
-    }
+//    private String generateUniqueReferenceNumber() {
+//        Random random = new Random();
+//        String reference;
+//        do {
+//            reference = String.valueOf(100000 + random.nextInt(900000));
+//        } while (CustomerManager.referenceExists(reference));
+//        return reference;
+//    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -140,7 +140,6 @@ public class AddQueuePage extends javax.swing.JFrame {
 
         serviceComboBox.setBackground(new java.awt.Color(253, 253, 254));
         serviceComboBox.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
-        serviceComboBox.setForeground(new java.awt.Color(0, 0, 0));
         serviceComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Haircut – ₱150", "Haircut & Shampoo – ₱300", "Haircut and Shave – ₱300 ", "Haircut Delux – ₱380", "Classico Signature – ₱400", "Beard Trim – ₱200" }));
         serviceComboBox.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
         serviceComboBox.setOpaque(true);
@@ -151,7 +150,6 @@ public class AddQueuePage extends javax.swing.JFrame {
 
         barberComboBox.setBackground(new java.awt.Color(253, 253, 254));
         barberComboBox.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
-        barberComboBox.setForeground(new java.awt.Color(0, 0, 0));
         barberComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Carlos Mendoza", "Roberto Silva", "Raffy Tulfo" }));
         barberComboBox.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
         barberComboBox.setOpaque(true);
@@ -169,7 +167,6 @@ public class AddQueuePage extends javax.swing.JFrame {
 
         timeComboBox.setBackground(new java.awt.Color(253, 253, 254));
         timeComboBox.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
-        timeComboBox.setForeground(new java.awt.Color(0, 0, 0));
         timeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "9:00 AM", "9:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "1:00 PM", "1:30 PM", "2:00 PM", "2:30 PM", "3:00 PM", "3:30 PM", "4:00 PM", "4:30 PM" }));
         timeComboBox.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
         timeComboBox.setOpaque(true);
@@ -332,8 +329,8 @@ public class AddQueuePage extends javax.swing.JFrame {
             pesoString = right;
         }
 
-        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
-        String date = sdf.format(chosenDate);
+        java.text.SimpleDateFormat simpleDateFormat = new java.text.SimpleDateFormat("yyyy-MM-dd");
+        String date = simpleDateFormat.format(chosenDate);
 
         String price = (pesoString != null) ? pesoString : "₱0";
         String totalAmount = price;
