@@ -6,10 +6,7 @@ public class Barber {
     private String barberEmail;
     private java.util.Date dateJoined;
 
-    public Barber(String barberName, 
-                  String barberContact, 
-                  String barberEmail, 
-                  java.util.Date dateJoined) {
+    public Barber(String barberName, String barberContact, String barberEmail, java.util.Date dateJoined) {
         this.barberName = barberName;
         this.barberContact = barberContact;
         this.barberEmail = barberEmail;
