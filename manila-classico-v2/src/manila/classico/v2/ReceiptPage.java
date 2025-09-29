@@ -20,28 +20,43 @@ public class ReceiptPage extends javax.swing.JFrame {
             String date = reservations.getDate();
             String name = reservations.getFullName();
             String service = reservations.getService();
-            
             String barber = reservations.getBarber();
             String paymentMethod = reservations.getPaymentMethod();
             String total = reservations.getTotalAmount();
             String paymentRendered = reservations.getPaymentRendered();
-            double renderedPayment = Double.parseDouble(paymentRendered);
+
+            double totalVal = Double.parseDouble(total.replace("₱", "").trim());
+            double renderedPayment = Double.parseDouble(paymentRendered.replace("₱", "").trim());
+
             DecimalFormat df = new DecimalFormat("###0.0");
             df.setPositivePrefix("₱");
             String formattedAmount = df.format(renderedPayment);
-             
+
             dateTextField.setText(date);
             cashierTextField.setText("admin");
             customerTextField.setText(name);
             serviceTextField.setText(service);
-            
-            totalAmountTextField.setText(total);
+
+            DecimalFormat totalFormat = new DecimalFormat("###0.0");
+            totalFormat.setPositivePrefix("₱");
+            totalAmountTextField1.setText(totalFormat.format(totalVal));
+
+            double change = 0;
+            if ("Cash".equalsIgnoreCase(paymentMethod)) {
+                if (renderedPayment > totalVal) {
+                    change = renderedPayment - totalVal;
+                }
+            }
+
+            DecimalFormat changeFormat = new DecimalFormat("###0.0");
+            changeFormat.setPositivePrefix("₱");
+            changeTextField.setText(changeFormat.format(change));
+
             paymentMethodTextField.setText(paymentMethod);
             amountRenderedTextField.setText(formattedAmount);
             barberTextField.setText(barber);
-            
-}
-        
+        }
+
         
     }
     
@@ -71,12 +86,14 @@ public class ReceiptPage extends javax.swing.JFrame {
         cashierTextField = new javax.swing.JTextField();
         customerTextField = new javax.swing.JTextField();
         serviceTextField = new javax.swing.JTextField();
-        totalAmountTextField = new javax.swing.JTextField();
+        changeTextField = new javax.swing.JTextField();
         paymentMethodTextField = new javax.swing.JTextField();
         amountRenderedTextField = new javax.swing.JTextField();
         barberTextField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        totalAmount1 = new javax.swing.JLabel();
+        totalAmountTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,28 +134,28 @@ public class ReceiptPage extends javax.swing.JFrame {
         jPanel1.add(lineTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 350, -1));
 
         totalAmount.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
-        totalAmount.setText("Total Amount: ");
-        jPanel1.add(totalAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 255, -1, -1));
+        totalAmount.setText("Change:");
+        jPanel1.add(totalAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
 
         paymentMethod.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
         paymentMethod.setText("Payment Method:");
-        jPanel1.add(paymentMethod, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
+        jPanel1.add(paymentMethod, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
 
         amountRendered.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
         amountRendered.setText("Amount Rendered: ");
-        jPanel1.add(amountRendered, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 305, -1, -1));
+        jPanel1.add(amountRendered, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
 
         Barber.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
         Barber.setText("Barber: ");
-        jPanel1.add(Barber, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
+        jPanel1.add(Barber, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
 
         lineThree.setText("––––––––––––––––––––––––––––––––––––––––––––––––––");
-        jPanel1.add(lineThree, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 350, -1));
+        jPanel1.add(lineThree, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 350, -1));
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 0, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("<html><div style=\"text-align: center;\">THANK YOU FOR<br>CHOOSING MANILA CLASSICO</div></html>");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 300, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 300, -1));
 
         receiptTextField.setEditable(false);
         receiptTextField.setBackground(new java.awt.Color(255, 255, 255));
@@ -181,13 +198,13 @@ public class ReceiptPage extends javax.swing.JFrame {
         serviceTextField.setFocusable(false);
         jPanel1.add(serviceTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 240, -1));
 
-        totalAmountTextField.setEditable(false);
-        totalAmountTextField.setBackground(new java.awt.Color(255, 255, 255));
-        totalAmountTextField.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
-        totalAmountTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        totalAmountTextField.setBorder(null);
-        totalAmountTextField.setFocusable(false);
-        jPanel1.add(totalAmountTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 255, 100, -1));
+        changeTextField.setEditable(false);
+        changeTextField.setBackground(new java.awt.Color(255, 255, 255));
+        changeTextField.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        changeTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        changeTextField.setBorder(null);
+        changeTextField.setFocusable(false);
+        jPanel1.add(changeTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 100, -1));
 
         paymentMethodTextField.setEditable(false);
         paymentMethodTextField.setBackground(new java.awt.Color(255, 255, 255));
@@ -195,7 +212,7 @@ public class ReceiptPage extends javax.swing.JFrame {
         paymentMethodTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         paymentMethodTextField.setBorder(null);
         paymentMethodTextField.setFocusable(false);
-        jPanel1.add(paymentMethodTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 100, -1));
+        jPanel1.add(paymentMethodTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, 100, -1));
 
         amountRenderedTextField.setEditable(false);
         amountRenderedTextField.setBackground(new java.awt.Color(255, 255, 255));
@@ -203,7 +220,7 @@ public class ReceiptPage extends javax.swing.JFrame {
         amountRenderedTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         amountRenderedTextField.setBorder(null);
         amountRenderedTextField.setFocusable(false);
-        jPanel1.add(amountRenderedTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 305, 100, -1));
+        jPanel1.add(amountRenderedTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 100, -1));
 
         barberTextField.setEditable(false);
         barberTextField.setBackground(new java.awt.Color(255, 255, 255));
@@ -211,7 +228,7 @@ public class ReceiptPage extends javax.swing.JFrame {
         barberTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         barberTextField.setBorder(null);
         barberTextField.setFocusable(false);
-        jPanel1.add(barberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, 100, -1));
+        jPanel1.add(barberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, 100, -1));
 
         jLabel6.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         jLabel6.setText("1234 Metro Manila, Pasay City, Philippines");
@@ -221,6 +238,18 @@ public class ReceiptPage extends javax.swing.JFrame {
         jLabel2.setText("0977 834 9967");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));
 
+        totalAmount1.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
+        totalAmount1.setText("Total Amount: ");
+        jPanel1.add(totalAmount1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
+
+        totalAmountTextField1.setEditable(false);
+        totalAmountTextField1.setBackground(new java.awt.Color(255, 255, 255));
+        totalAmountTextField1.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        totalAmountTextField1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        totalAmountTextField1.setBorder(null);
+        totalAmountTextField1.setFocusable(false);
+        jPanel1.add(totalAmountTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 100, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -229,7 +258,7 @@ public class ReceiptPage extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
         );
 
         pack();
@@ -279,6 +308,7 @@ public class ReceiptPage extends javax.swing.JFrame {
     private javax.swing.JTextField barberTextField;
     private javax.swing.JLabel cashierName;
     private javax.swing.JTextField cashierTextField;
+    private javax.swing.JTextField changeTextField;
     private javax.swing.JLabel customerName;
     private javax.swing.JTextField customerTextField;
     private javax.swing.JTextField dateTextField;
@@ -296,6 +326,7 @@ public class ReceiptPage extends javax.swing.JFrame {
     private javax.swing.JTextField receiptTextField;
     private javax.swing.JTextField serviceTextField;
     private javax.swing.JLabel totalAmount;
-    private javax.swing.JTextField totalAmountTextField;
+    private javax.swing.JLabel totalAmount1;
+    private javax.swing.JTextField totalAmountTextField1;
     // End of variables declaration//GEN-END:variables
 }

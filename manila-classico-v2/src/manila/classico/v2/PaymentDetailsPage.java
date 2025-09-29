@@ -38,7 +38,20 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
 
             boolean methodSelected = cashToggleButton.isSelected() || gcashToggleButton.isSelected();
             boolean hasContact = !contactInput.isEmpty();
-            boolean correctAmount = !paymentAmountInput.isEmpty() && paymentAmountInput.equals(totalAmountInput);
+            boolean correctAmount = false;
+            if (!paymentAmountInput.isEmpty()) {
+                try {
+                    double entered = Double.parseDouble(paymentAmountInput);
+                    double total = Double.parseDouble(totalAmountInput);
+                    if (cashToggleButton.isSelected()) {
+                        correctAmount = entered >= total; // allow overpayment
+                    } else if (gcashToggleButton.isSelected()) {
+                        correctAmount = entered == total; // GCash must match exactly
+                    }
+                } catch (NumberFormatException ex) {
+                    correctAmount = false;
+                }
+            }
 
             payNowButton.setEnabled(methodSelected && hasContact && correctAmount);
         };
