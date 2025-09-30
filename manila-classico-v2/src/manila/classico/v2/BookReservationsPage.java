@@ -315,7 +315,7 @@ public class BookReservationsPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        if(fromEditQueue){
+        if (fromEditQueue) {
             EditQueuePage editQueuePage = new EditQueuePage();
             editQueuePage.setLocationRelativeTo(null);
             editQueuePage.setResizable(false);
