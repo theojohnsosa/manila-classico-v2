@@ -154,6 +154,11 @@ public class SendEmailPage extends javax.swing.JFrame {
         emailTextField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
         emailTextField.setForeground(new java.awt.Color(0, 0, 0));
         emailTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(154, 164, 177), 1, true));
+        emailTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                emailTextFieldKeyTyped(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -163,6 +168,11 @@ public class SendEmailPage extends javax.swing.JFrame {
         subjectTextField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
         subjectTextField.setForeground(new java.awt.Color(0, 0, 0));
         subjectTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(154, 164, 177), 1, true));
+        subjectTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                subjectTextFieldKeyTyped(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -282,6 +292,26 @@ public class SendEmailPage extends javax.swing.JFrame {
             messageTextArea.setText("");
         }
     }//GEN-LAST:event_submitEmailButtonActionPerformed
+
+    private void emailTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailTextFieldKeyTyped
+        if (emailTextField.getText().length() >= 30) {
+            evt.consume(); 
+            javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Email cannot exceed 30 characters."
+            );
+        }
+    }//GEN-LAST:event_emailTextFieldKeyTyped
+
+    private void subjectTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_subjectTextFieldKeyTyped
+        if (subjectTextField.getText().length() >= 30) {
+            evt.consume(); 
+            javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Subject cannot exceed 30 characters."
+            );
+        }
+    }//GEN-LAST:event_subjectTextFieldKeyTyped
 
     public static void main(String args[]) {
         try {
