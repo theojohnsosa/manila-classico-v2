@@ -232,6 +232,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
 
         backButton.setBackground(new java.awt.Color(253, 253, 254));
         backButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        backButton.setForeground(new java.awt.Color(0, 0, 0));
         backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-left-arrow-20.png"))); // NOI18N
         backButton.setText("Back to Booking");
         backButton.setBorder(null);
@@ -245,19 +246,24 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("SF Pro Display", 1, 30)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Payment Details");
 
         jLabel2.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Complete your reservation payment");
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 20)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Reservation Summary");
 
         jLabel4.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Customer:");
 
         customerTextField.setBackground(new java.awt.Color(253, 253, 254));
         customerTextField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        customerTextField.setForeground(new java.awt.Color(0, 0, 0));
         customerTextField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         customerTextField.setBorder(null);
         customerTextField.setFocusable(false);
@@ -266,6 +272,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 1, 0, 0, new java.awt.Color(154, 164, 177)));
 
         jLabel11.setFont(new java.awt.Font("SF Pro Display", 1, 20)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Payment Details");
 
         cashToggleButton.setBackground(new java.awt.Color(164, 145, 129));
@@ -298,9 +305,11 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         });
 
         jLabel13.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Phone Number");
 
         jLabel14.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Your Payment Amount");
 
         paymentAmountTextField.setBackground(new java.awt.Color(253, 253, 254));
@@ -326,6 +335,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         });
 
         jLabel15.setFont(new java.awt.Font("SF Pro Display", 1, 20)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Payment Method");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -373,54 +383,66 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
 
         contactTextField.setBackground(new java.awt.Color(253, 253, 254));
         contactTextField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        contactTextField.setForeground(new java.awt.Color(0, 0, 0));
         contactTextField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         contactTextField.setBorder(null);
         contactTextField.setFocusable(false);
 
         jLabel5.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Contact:");
 
         jLabel6.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Service:");
 
         serviceTextField.setBackground(new java.awt.Color(253, 253, 254));
         serviceTextField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        serviceTextField.setForeground(new java.awt.Color(0, 0, 0));
         serviceTextField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         serviceTextField.setBorder(null);
         serviceTextField.setFocusable(false);
 
         jLabel7.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Date:");
 
         dateTextField.setBackground(new java.awt.Color(253, 253, 254));
         dateTextField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        dateTextField.setForeground(new java.awt.Color(0, 0, 0));
         dateTextField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         dateTextField.setBorder(null);
         dateTextField.setFocusable(false);
 
         barberTextField.setBackground(new java.awt.Color(253, 253, 254));
         barberTextField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        barberTextField.setForeground(new java.awt.Color(0, 0, 0));
         barberTextField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         barberTextField.setBorder(null);
         barberTextField.setFocusable(false);
 
         jLabel8.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Barber:");
 
         jLabel9.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Time");
 
         timeTextField.setBackground(new java.awt.Color(253, 253, 254));
         timeTextField.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        timeTextField.setForeground(new java.awt.Color(0, 0, 0));
         timeTextField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         timeTextField.setBorder(null);
         timeTextField.setFocusable(false);
 
         jLabel10.setFont(new java.awt.Font("SF Pro Display", 1, 30)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Total Amount:");
 
         totalAmountTextField.setBackground(new java.awt.Color(253, 253, 254));
         totalAmountTextField.setFont(new java.awt.Font("SF Pro Display", 1, 30)); // NOI18N
+        totalAmountTextField.setForeground(new java.awt.Color(0, 0, 0));
         totalAmountTextField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
         totalAmountTextField.setBorder(null);
         totalAmountTextField.setFocusable(false);
