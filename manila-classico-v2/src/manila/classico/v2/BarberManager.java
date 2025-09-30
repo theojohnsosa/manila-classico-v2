@@ -19,6 +19,7 @@ public class BarberManager {
     public static boolean removeBarber(String barberName) {
         return barbers.removeIf(barber -> barber.getName().equalsIgnoreCase(barberName));
     }
+    
     public static void addBarber(Barber barber) { 
         barbers.add(barber); 
     }
