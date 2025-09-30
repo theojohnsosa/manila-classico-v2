@@ -442,7 +442,6 @@ public class ProfilesPage extends javax.swing.JFrame {
 
         barbersTable.setBackground(new java.awt.Color(253, 253, 254));
         barbersTable.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
-        barbersTable.setForeground(new java.awt.Color(0, 0, 0));
         barbersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
