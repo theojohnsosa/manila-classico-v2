@@ -16,16 +16,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class ReservationsData {
     
-    private static final String[] COLS = {
-        "Full Name",
-        "Contact",
-        "Service",
-        "Barber",
-        "Date",
-        "Time",
-        "Payment Method",
-        "Total"
-    };
+    private static final String[] COLS = {"Full Name", "Contact", "Service", "Barber", "Date", "Time", "Payment Method", "Total"};
     
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("h:mm a", Locale.ENGLISH);
@@ -35,24 +26,24 @@ public class ReservationsData {
     if (RES_LIST.isEmpty()) return null;
 
     final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd h:mm a", Locale.ENGLISH);
-    Reservation latest = RES_LIST.get(0);
+        Reservation latest = RES_LIST.get(0);
 
-    try {
-        Date latestDate = simpleDateFormat.parse(latest.getDate() + " " + latest.getTime());
+        try {
+            Date latestDate = simpleDateFormat.parse(latest.getDate() + " " + latest.getTime());
 
-        for (Reservation r : RES_LIST) {
-            Date currentDate = simpleDateFormat.parse(r.getDate() + " " + r.getTime());
-            if (currentDate.after(latestDate)) {
-                latest = r;
-                latestDate = currentDate;
+            for (Reservation r : RES_LIST) {
+                Date currentDate = simpleDateFormat.parse(r.getDate() + " " + r.getTime());
+                if (currentDate.after(latestDate)) {
+                    latest = r;
+                    latestDate = currentDate;
+                }
             }
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
-    } catch (ParseException e) {
-        e.printStackTrace();
-    }
 
-    return latest;
-}
+        return latest;
+    }
     
     private static final DefaultTableModel TABLE_MODEL = new DefaultTableModel(COLS, 0) {
         @Override 
@@ -105,9 +96,7 @@ public class ReservationsData {
     }
     
     public static synchronized boolean addReservation(String fullName, String contact, String service, String barber, String date, String time, String paymentMethod, String totalAmount, String paymentRendered) {
-        
-     
-        
+
         String key = keyOf(fullName, contact, service, barber, date, time, paymentRendered, totalAmount);
         
         if (RES_KEYS.contains(key)) {
@@ -125,8 +114,8 @@ public class ReservationsData {
     }
     
     public static synchronized Reservation getLastAddedReservation() {
-    return lastAddedReservation;
-}
+        return lastAddedReservation;
+    }
     
     public static synchronized boolean removeFirstReservation() {
         if (RES_LIST.isEmpty()) return false;
@@ -169,6 +158,7 @@ public class ReservationsData {
         }
         return futureReservations;
     }
+    
     private static void rebuildTableModel() {
         TABLE_MODEL.setRowCount(0);
         
@@ -204,7 +194,8 @@ public class ReservationsData {
             });
         }
     }
-     public static synchronized boolean removeReservation(Reservation reservation) {
+    
+    public static synchronized boolean removeReservation(Reservation reservation) {
         String key = keyOf(
             reservation.getFullName(),
             reservation.getContactNumber(),
@@ -213,9 +204,7 @@ public class ReservationsData {
             reservation.getDate(),
             reservation.getTime(),
             reservation.getTotalAmount(),
-            reservation.getPaymentRendered()
-            
-            
+            reservation.getPaymentRendered()  
         );
         
         if (RES_LIST.remove(reservation)) {
@@ -238,20 +227,18 @@ public class ReservationsData {
         return false; 
     }
      
-   private static void sortByDateTime() {
-    final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd h:mm a", Locale.ENGLISH);
-    RES_LIST.sort((a, b) -> {
-        try {
-            Date dateA = simpleDateFormat.parse(a.getDate() + " " + a.getTime());
-            Date dateB = simpleDateFormat.parse(b.getDate() + " " + b.getTime());
-            // Para descending order, baliktarin ang compareTo
-            return dateB.compareTo(dateA);
-        } catch (ParseException e) {
-            return 0;
-        }
-    });
-}
-    
-    
+    private static void sortByDateTime() {
+        final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd h:mm a", Locale.ENGLISH);
+        RES_LIST.sort((a, b) -> {
+            try {
+                Date dateA = simpleDateFormat.parse(a.getDate() + " " + a.getTime());
+                Date dateB = simpleDateFormat.parse(b.getDate() + " " + b.getTime());
+                // Para descending order, baliktarin ang compareTo
+                return dateB.compareTo(dateA);
+            } catch (ParseException e) {
+                return 0;
+            }
+        });
+    }
 }
 
