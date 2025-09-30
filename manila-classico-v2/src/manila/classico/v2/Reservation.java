@@ -54,6 +54,7 @@ public class Reservation {
     public String getTotalAmount() {
         return totalAmount; 
     }
+    
     public String getPaymentRendered() {
         return paymentRendered; 
     }
