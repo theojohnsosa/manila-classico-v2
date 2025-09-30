@@ -131,9 +131,9 @@ public class AddBarberPage extends javax.swing.JFrame {
         barberNameTextField.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
         barberNameTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(154, 164, 177), 1, true));
         barberNameTextField.setOpaque(true);
-        barberNameTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                barberNameTextFieldActionPerformed(evt);
+        barberNameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                barberNameTextFieldKeyTyped(evt);
             }
         });
 
@@ -145,9 +145,9 @@ public class AddBarberPage extends javax.swing.JFrame {
         barberContactTextField.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
         barberContactTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(154, 164, 177), 1, true));
         barberContactTextField.setOpaque(true);
-        barberContactTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                barberContactTextFieldActionPerformed(evt);
+        barberContactTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                barberContactTextFieldKeyTyped(evt);
             }
         });
 
@@ -282,14 +282,88 @@ public class AddBarberPage extends javax.swing.JFrame {
         profilesPage.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_addNewBarberButtonActionPerformed
+                                           
+    private void barberNameTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_barberNameTextFieldKeyTyped
+        char c = evt.getKeyChar();
 
-    private void barberNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_barberNameTextFieldActionPerformed
-        
-    }//GEN-LAST:event_barberNameTextFieldActionPerformed
+        if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
+            evt.consume();
+            javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Invalid character. Only letters and spaces are allowed."
+            );
+            return;
+        }
 
-    private void barberContactTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_barberContactTextFieldActionPerformed
-        
-    }//GEN-LAST:event_barberContactTextFieldActionPerformed
+        if (barberNameTextField.getText().length() >= 30) {
+            evt.consume(); 
+            javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Barber name cannot exceed 30 characters."
+            );
+        }
+    }//GEN-LAST:event_barberNameTextFieldKeyTyped
+
+    private void barberContactTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_barberContactTextFieldKeyTyped
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            evt.consume();
+            javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Invalid input. Only numbers are allowed."
+            );
+            return;
+        }
+
+        String currentText = barberContactTextField.getText();
+
+        if (currentText.length() >= 11) {
+            evt.consume();
+            javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Contact number cannot exceed 11 digits."
+            );
+            return;
+        }
+
+        String newText = currentText + c;
+
+        if (newText.length() == 4) {
+            String prefix = newText;
+
+            String[] validPrefixes = {
+                "0895", "0896", "0897", "0898", "0905", "0906", "0907", "0908", "0909",
+                "0910", "0911", "0912", "0913", "0914", "0915", "0916", "0917",
+                "0920", "0921", "0926", "0927", "0928", "0929",
+                "0930", "0935", "0936", "0937", "0938", "0939",
+                "0945", "0946", "0947", "0948", "0949",
+                "0950", "0952", "0953", "0954", "0955", "0956",
+                "0962", "0963", "0965", "0966", "0967", "0968", "0969", "0970",
+                "0975", "0976", "0977", "0978", "0979",
+                "0980", "0982", "0989",
+                "0994", "0995", "0996", "0997", "0998", "0999"
+            };
+
+            boolean isValidPrefix = false;
+
+            for (String validPrefix : validPrefixes) {
+                if (prefix.equals(validPrefix)) {
+                    isValidPrefix = true;
+                    break;
+                }
+            }
+
+            if (!isValidPrefix) {
+                javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "Invalid Contact Number Prefix."
+                );
+                barberContactTextField.setText("");
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_barberContactTextFieldKeyTyped
     
     public static void main(String args[]) {
         try {

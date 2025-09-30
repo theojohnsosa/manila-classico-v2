@@ -383,10 +383,19 @@ public class BookReservationsPage extends javax.swing.JFrame {
 
         if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
             evt.consume();
+            javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Invalid character. Only letters and spaces are allowed."
+            );
+            return;
         }
 
         if (fullNameTextField.getText().length() >= 30) {
             evt.consume(); 
+            javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Barber name cannot exceed 30 characters."
+            );
         }
     }//GEN-LAST:event_fullNameTextFieldKeyTyped
 
@@ -395,6 +404,10 @@ public class BookReservationsPage extends javax.swing.JFrame {
 
         if (!Character.isDigit(c)) {
             evt.consume();
+            javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Invalid input. Only numbers are allowed."
+            );
             return;
         }
 
@@ -402,6 +415,10 @@ public class BookReservationsPage extends javax.swing.JFrame {
 
         if (currentText.length() >= 11) {
             evt.consume();
+            javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Contact number cannot exceed 11 digits."
+            );
             return;
         }
 
@@ -425,17 +442,17 @@ public class BookReservationsPage extends javax.swing.JFrame {
 
             boolean isValidPrefix = false;
 
-               for (String validPrefixe : validPrefixes) {
-                   if (prefix.equals(validPrefixe)) {
-                       isValidPrefix = true;
-                       break;
-                   }
-               }
+            for (String validPrefix : validPrefixes) {
+                if (prefix.equals(validPrefix)) {
+                    isValidPrefix = true;
+                    break;
+                }
+            }
 
             if (!isValidPrefix) {
                 javax.swing.JOptionPane.showMessageDialog(
                     this,
-                    "Invalid Contact Number. "
+                    "Invalid Contact Number Prefix."
                 );
                 contactNumberTextField.setText("");
                 evt.consume();

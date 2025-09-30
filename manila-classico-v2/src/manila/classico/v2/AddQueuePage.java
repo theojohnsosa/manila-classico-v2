@@ -1,6 +1,5 @@
 package manila.classico.v2;
 
-import java.util.Random;
 import java.util.logging.Logger;
 
 public class AddQueuePage extends javax.swing.JFrame {
@@ -124,11 +123,21 @@ public class AddQueuePage extends javax.swing.JFrame {
         fullNameTextField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
         fullNameTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
         fullNameTextField.setOpaque(true);
+        fullNameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fullNameTextFieldKeyTyped(evt);
+            }
+        });
 
         contactNumberTextField.setBackground(new java.awt.Color(253, 253, 254));
         contactNumberTextField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
         contactNumberTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
         contactNumberTextField.setOpaque(true);
+        contactNumberTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                contactNumberTextFieldKeyTyped(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -341,6 +350,88 @@ public class AddQueuePage extends javax.swing.JFrame {
         paymentDetails.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_addToQueueButtonActionPerformed
+
+    private void fullNameTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fullNameTextFieldKeyTyped
+        char c = evt.getKeyChar();
+
+        if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
+            evt.consume();
+            javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Invalid character. Only letters and spaces are allowed."
+            );
+            return;
+        }
+
+        if (fullNameTextField.getText().length() >= 30) {
+            evt.consume(); 
+            javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Barber name cannot exceed 30 characters."
+            );
+        }
+    }//GEN-LAST:event_fullNameTextFieldKeyTyped
+
+    private void contactNumberTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contactNumberTextFieldKeyTyped
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            evt.consume();
+            javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Invalid input. Only numbers are allowed."
+            );
+            return;
+        }
+
+        String currentText = contactNumberTextField.getText();
+
+        if (currentText.length() >= 11) {
+            evt.consume();
+            javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Contact number cannot exceed 11 digits."
+            );
+            return;
+        }
+
+        String newText = currentText + c;
+
+        if (newText.length() == 4) {
+            String prefix = newText;
+
+            String[] validPrefixes = {
+                "0895", "0896", "0897", "0898", "0905", "0906", "0907", "0908", "0909",
+                "0910", "0911", "0912", "0913", "0914", "0915", "0916", "0917",
+                "0920", "0921", "0926", "0927", "0928", "0929",
+                "0930", "0935", "0936", "0937", "0938", "0939",
+                "0945", "0946", "0947", "0948", "0949",
+                "0950", "0952", "0953", "0954", "0955", "0956",
+                "0962", "0963", "0965", "0966", "0967", "0968", "0969", "0970",
+                "0975", "0976", "0977", "0978", "0979",
+                "0980", "0982", "0989",
+                "0994", "0995", "0996", "0997", "0998", "0999"
+            };
+
+            boolean isValidPrefix = false;
+
+            for (String validPrefix : validPrefixes) {
+                if (prefix.equals(validPrefix)) {
+                    isValidPrefix = true;
+                    break;
+                }
+            }
+
+            if (!isValidPrefix) {
+                javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "Invalid Contact Number Prefix."
+                );
+                contactNumberTextField.setText("");
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_contactNumberTextFieldKeyTyped
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
