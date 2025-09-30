@@ -227,7 +227,6 @@ public class DashboardPage extends javax.swing.JFrame {
 
         jTextField2.setBackground(new java.awt.Color(254, 243, 225));
         jTextField2.setFont(new java.awt.Font("SF Pro Display", 1, 70)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(0, 0, 0));
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField2.setText("0");
         jTextField2.setBorder(null);
@@ -235,7 +234,6 @@ public class DashboardPage extends javax.swing.JFrame {
         jTextField2.setOpaque(true);
 
         jLabel7.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("<html><div style=\"text-align: center;\">Total Bookings</div></html>");
 
@@ -491,7 +489,6 @@ public class DashboardPage extends javax.swing.JFrame {
 
         liveQueueTable.setBackground(new java.awt.Color(253, 253, 254));
         liveQueueTable.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
-        liveQueueTable.setForeground(new java.awt.Color(0, 0, 0));
         liveQueueTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
