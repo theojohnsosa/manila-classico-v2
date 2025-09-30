@@ -12,7 +12,8 @@ public class DashboardPage extends javax.swing.JFrame {
     public DashboardPage() {
         initComponents();
         updateDashboardStats();
-        loadLiveQueueTable();
+    //    loadLiveQueueTable();
+        liveQueueTable.setModel(ReservationsData.getTableModel());
         
         dashboardButton.addMouseListener(new java.awt.event.MouseAdapter() {
            public void mouseEntered(java.awt.event.MouseEvent evt) {
