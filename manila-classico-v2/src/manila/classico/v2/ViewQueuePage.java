@@ -51,7 +51,7 @@ public class ViewQueuePage extends javax.swing.JFrame {
         autoRefreshTimer.start();
     }
      
-     @Override
+    @Override
     public void dispose() {
         if (autoRefreshTimer != null) {
             autoRefreshTimer.stop();
