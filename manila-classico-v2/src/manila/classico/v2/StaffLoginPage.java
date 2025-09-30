@@ -308,7 +308,7 @@ public class StaffLoginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_adminCodePasswordFieldKeyTyped
 
     private void adminIdTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_adminIdTextFieldKeyTyped
-    char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
 
         if (!Character.isLetterOrDigit(c)) {
             evt.consume();
