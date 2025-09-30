@@ -605,62 +605,76 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
     }//GEN-LAST:event_payNowButtonActionPerformed
 
     private void phoneNumberTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNumberTextFieldKeyTyped
-    char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
 
-    if (!Character.isDigit(c)) {
-        evt.consume();
-        return;
-    }
-
-    String currentText = phoneNumberTextField.getText();
-
-    if (currentText.length() >= 11) {
-        evt.consume();
-        return;
-    }
-
-    String newText = currentText + c;
-
-    if (newText.length() == 4) {
-        String prefix = newText;
-
-        String[] validPrefixes = {
-            "0895", "0896", "0897", "0898", "0905", "0906", "0907", "0908", "0909",
-            "0910", "0911", "0912", "0913", "0914", "0915", "0916", "0917",
-            "0920", "0921", "0926", "0927", "0928", "0929",
-            "0930", "0935", "0936", "0937", "0938", "0939",
-            "0945", "0946", "0947", "0948", "0949",
-            "0950", "0952", "0953", "0954", "0955", "0956",
-            "0962", "0963", "0965", "0966", "0967", "0968", "0969", "0970",
-            "0975", "0976", "0977", "0978", "0979",
-            "0980", "0982", "0989",
-            "0994", "0995", "0996", "0997", "0998", "0999"
-        };
-
-        boolean isValidPrefix = false;
-        for (String validPrefixe : validPrefixes) {
-            if (prefix.equals(validPrefixe)) {
-                isValidPrefix = true;
-                break;
-            }
-        }
-
-        if (!isValidPrefix) {
+        if (!Character.isDigit(c)) {
+            evt.consume();
             javax.swing.JOptionPane.showMessageDialog(
                 this,
-                "Invalid Phone Number."
+                "Invalid input. Only numbers are allowed."
             );
-            phoneNumberTextField.setText("");
-            evt.consume();
+            return;
         }
-    }
+
+        String currentText = phoneNumberTextField.getText();
+
+        if (currentText.length() >= 11) {
+            evt.consume();
+            javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Contact number cannot exceed 11 digits."
+            );
+            return;
+        }
+
+        String newText = currentText + c;
+
+        if (newText.length() == 4) {
+            String prefix = newText;
+
+            String[] validPrefixes = {
+                "0895", "0896", "0897", "0898", "0905", "0906", "0907", "0908", "0909",
+                "0910", "0911", "0912", "0913", "0914", "0915", "0916", "0917",
+                "0920", "0921", "0926", "0927", "0928", "0929",
+                "0930", "0935", "0936", "0937", "0938", "0939",
+                "0945", "0946", "0947", "0948", "0949",
+                "0950", "0952", "0953", "0954", "0955", "0956",
+                "0962", "0963", "0965", "0966", "0967", "0968", "0969", "0970",
+                "0975", "0976", "0977", "0978", "0979",
+                "0980", "0982", "0989",
+                "0994", "0995", "0996", "0997", "0998", "0999"
+            };
+
+            boolean isValidPrefix = false;
+
+            for (String validPrefix : validPrefixes) {
+                if (prefix.equals(validPrefix)) {
+                    isValidPrefix = true;
+                    break;
+                }
+            }
+
+            if (!isValidPrefix) {
+                javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "Invalid Contact Number Prefix."
+                );
+                phoneNumberTextField.setText("");
+                evt.consume();
+            }
+        }
     }//GEN-LAST:event_phoneNumberTextFieldKeyTyped
 
     private void paymentAmountTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_paymentAmountTextFieldKeyTyped
-    char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
 
         if (!Character.isDigit(c)) {
-            evt.consume(); 
+            evt.consume();
+            javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Invalid input. Payment can only contain numbers."
+            );
+            return;
         }
     }//GEN-LAST:event_paymentAmountTextFieldKeyTyped
 
