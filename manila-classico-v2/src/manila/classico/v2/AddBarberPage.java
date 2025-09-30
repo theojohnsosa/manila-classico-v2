@@ -282,7 +282,7 @@ public class AddBarberPage extends javax.swing.JFrame {
         profilesPage.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_addNewBarberButtonActionPerformed
-                                           
+    
     private void barberNameTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_barberNameTextFieldKeyTyped
         char c = evt.getKeyChar();
 
