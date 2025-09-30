@@ -87,6 +87,11 @@ public class AddServicePage extends javax.swing.JFrame {
         serviceNameTextField.setForeground(new java.awt.Color(0, 0, 0));
         serviceNameTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
         serviceNameTextField.setOpaque(true);
+        serviceNameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                serviceNameTextFieldKeyTyped(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -101,6 +106,11 @@ public class AddServicePage extends javax.swing.JFrame {
         servicePriceTextField.setForeground(new java.awt.Color(0, 0, 0));
         servicePriceTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
         servicePriceTextField.setOpaque(true);
+        servicePriceTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                servicePriceTextFieldKeyTyped(evt);
+            }
+        });
 
         addNewServiceButton.setBackground(new java.awt.Color(164, 145, 129));
         addNewServiceButton.setFont(new java.awt.Font("SF Pro Display", 1, 15)); // NOI18N
@@ -213,6 +223,48 @@ public class AddServicePage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Invalid price input.");
         }
     }//GEN-LAST:event_addNewServiceButtonActionPerformed
+
+    private void serviceNameTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_serviceNameTextFieldKeyTyped
+        char c = evt.getKeyChar();
+
+        if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
+            evt.consume();
+            javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Invalid input. Service name can only contain letters and spaces."
+            );
+            return;
+        }
+
+        if (serviceNameTextField.getText().length() >= 30) {
+            evt.consume(); 
+            javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Service name cannot exceed 30 characters."
+            );
+        }
+    }//GEN-LAST:event_serviceNameTextFieldKeyTyped
+
+    private void servicePriceTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_servicePriceTextFieldKeyTyped
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            evt.consume();
+            javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Invalid input. Price can only contain numbers."
+            );
+            return;
+        }
+
+        if (servicePriceTextField.getText().length() >= 4) {
+            evt.consume();
+            javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Service price cannot exceed 4 digits."
+            );
+        }
+    }//GEN-LAST:event_servicePriceTextFieldKeyTyped
 
     public static void main(String args[]) {
         try {
