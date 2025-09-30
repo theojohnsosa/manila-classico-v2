@@ -82,6 +82,7 @@ public class StaffLoginPage extends javax.swing.JFrame {
 
         backButton.setBackground(new java.awt.Color(253, 253, 254));
         backButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        backButton.setForeground(new java.awt.Color(0, 0, 0));
         backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-left-arrow-20.png"))); // NOI18N
         backButton.setText("Back");
         backButton.setBorder(null);
@@ -131,6 +132,7 @@ public class StaffLoginPage extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-lock-60.png"))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 30)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("<html><div style=\"text-align: center;\">Staff Login</div></html>");
 
         jLabel4.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
@@ -162,6 +164,7 @@ public class StaffLoginPage extends javax.swing.JFrame {
         });
 
         jLabel6.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Admin Code");
 
         adminIdTextField.setBackground(new java.awt.Color(253, 253, 254));
@@ -175,6 +178,7 @@ public class StaffLoginPage extends javax.swing.JFrame {
         });
 
         jLabel7.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Admin ID");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -259,11 +263,11 @@ public class StaffLoginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void loginToDashboardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginToDashboardButtonActionPerformed
-    String adminId = "admin";
-    String adminCode = "1234";
+        String adminId = "admin";
+        String adminCode = "1234";
 
-    String adminIdInput = adminIdTextField.getText();
-    String adminCodeInput = new String(adminCodePasswordField.getPassword());
+        String adminIdInput = adminIdTextField.getText();
+        String adminCodeInput = new String(adminCodePasswordField.getPassword());
 
         if (adminIdInput.length() < 4) {
             JOptionPane.showMessageDialog(
@@ -282,13 +286,7 @@ public class StaffLoginPage extends javax.swing.JFrame {
             dashboardPage.setVisible(true);
             this.dispose();
         } else {
-            JOptionPane.showMessageDialog(
-                null,
-                "Invalid Credentials.",
-                "Incorrect Credentials",
-                JOptionPane.INFORMATION_MESSAGE
-            );
-            
+            JOptionPane.showMessageDialog(null, "Invalid Credentials.", "Incorrect Credentials", JOptionPane.INFORMATION_MESSAGE);
             adminIdTextField.setText("");
             adminCodePasswordField.setText("");
         }
