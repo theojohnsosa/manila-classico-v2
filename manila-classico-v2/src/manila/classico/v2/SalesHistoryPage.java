@@ -409,7 +409,6 @@ public class SalesHistoryPage extends javax.swing.JFrame {
 
         transactionsTable.setBackground(new java.awt.Color(253, 253, 254));
         transactionsTable.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
-        transactionsTable.setForeground(new java.awt.Color(0, 0, 0));
         transactionsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
