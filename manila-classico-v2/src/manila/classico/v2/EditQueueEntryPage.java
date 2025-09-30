@@ -64,45 +64,45 @@ public class EditQueueEntryPage extends javax.swing.JFrame {
         }
     }
     
-    private String generateUniqueReferenceNumber() {
-        Random random = new Random();
-        String reference;
-        do {
-            reference = String.valueOf(100000 + random.nextInt(900000));
-        } while (CustomerManager.referenceExists(reference));
-        return reference;
-    }
+//    private String generateUniqueReferenceNumber() {
+//        Random random = new Random();
+//        String reference;
+//        do {
+//            reference = String.valueOf(100000 + random.nextInt(900000));
+//        } while (CustomerManager.referenceExists(reference));
+//        return reference;
+//    }
     
     private void loadReservationData(int index) {
-    List<Reservation> reservations = ReservationsData.getReservations();
-    if (index >= 0 && index < reservations.size()) {
-        Reservation reservation = reservations.get(index);
-        
-        fullNameTextField.setText(reservation.getFullName());
-        contactNumberTextField.setText(reservation.getContactNumber());
-        
-        String serviceWithPrice = reservation.getService();
-        for (int i = 0; i < serviceComboBox.getItemCount(); i++) {
-            String item = serviceComboBox.getItemAt(i);
-            if (item.startsWith(serviceWithPrice)) {
-                serviceComboBox.setSelectedIndex(i);
-                break;
+        List<Reservation> reservations = ReservationsData.getReservations();
+        if (index >= 0 && index < reservations.size()) {
+            Reservation reservation = reservations.get(index);
+
+            fullNameTextField.setText(reservation.getFullName());
+            contactNumberTextField.setText(reservation.getContactNumber());
+
+            String serviceWithPrice = reservation.getService();
+            for (int i = 0; i < serviceComboBox.getItemCount(); i++) {
+                String item = serviceComboBox.getItemAt(i);
+                if (item.startsWith(serviceWithPrice)) {
+                    serviceComboBox.setSelectedIndex(i);
+                    break;
+                }
             }
+
+            barberComboBox.setSelectedItem(reservation.getBarber());
+
+            try {
+                java.text.SimpleDateFormat simpleDateFormat = new java.text.SimpleDateFormat("yyyy-MM-dd");
+                java.util.Date date = simpleDateFormat.parse(reservation.getDate());
+                dateDateChooser.setDate(date);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            timeComboBox.setSelectedItem(reservation.getTime());
         }
-        
-        barberComboBox.setSelectedItem(reservation.getBarber());
-        
-        try {
-            java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
-            java.util.Date date = sdf.parse(reservation.getDate());
-            dateDateChooser.setDate(date);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-        timeComboBox.setSelectedItem(reservation.getTime());
     }
-}
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -162,11 +162,21 @@ public class EditQueueEntryPage extends javax.swing.JFrame {
         fullNameTextField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
         fullNameTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
         fullNameTextField.setOpaque(true);
+        fullNameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fullNameTextFieldKeyTyped(evt);
+            }
+        });
 
         contactNumberTextField.setBackground(new java.awt.Color(253, 253, 254));
         contactNumberTextField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
         contactNumberTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
         contactNumberTextField.setOpaque(true);
+        contactNumberTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                contactNumberTextFieldKeyTyped(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -347,61 +357,143 @@ public class EditQueueEntryPage extends javax.swing.JFrame {
 
     private void addToQueueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToQueueButtonActionPerformed
        String fullName = fullNameTextField.getText().trim();
-    String contactNumber = contactNumberTextField.getText().trim();
-    String service = (String) serviceComboBox.getSelectedItem();
-    String barber = (String) barberComboBox.getSelectedItem();
-    java.util.Date chosenDate = dateDateChooser.getDate();
-    String time = (String) timeComboBox.getSelectedItem();
+        String contactNumber = contactNumberTextField.getText().trim();
+        String service = (String) serviceComboBox.getSelectedItem();
+        String barber = (String) barberComboBox.getSelectedItem();
+        java.util.Date chosenDate = dateDateChooser.getDate();
+        String time = (String) timeComboBox.getSelectedItem();
 
-    if (fullName.isEmpty() || contactNumber.isEmpty() || chosenDate == null || time == null) {
-        javax.swing.JOptionPane.showMessageDialog(this, "Please complete all fields.");
-        return;
-    }
+        if (fullName.isEmpty() || contactNumber.isEmpty() || chosenDate == null || time == null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Please complete all fields.");
+            return;
+        }
 
-    String serviceName = service;
-    String pesoString = null;
-    int index = service.indexOf("–");
-    if (index > -1) {
-        serviceName = service.substring(0, index).trim();
-        String right = service.substring(index + 1).trim();
-        pesoString = right;
-    }
+        String serviceName = service;
+        String pesoString = null;
+        int index = service.indexOf("–");
+        if (index > -1) {
+            serviceName = service.substring(0, index).trim();
+            String right = service.substring(index + 1).trim();
+            pesoString = right;
+        }
 
-    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
-    String date = sdf.format(chosenDate);
+        java.text.SimpleDateFormat simpleDateFormat = new java.text.SimpleDateFormat("yyyy-MM-dd");
+        String date = simpleDateFormat.format(chosenDate);
 
-    String price = (pesoString != null) ? pesoString : "₱0";
-    String totalAmount = price;
+        String price = (pesoString != null) ? pesoString : "₱0";
+        String totalAmount = price;
 
-    if (editingIndex >= 0) {
-        List<Reservation> reservations = ReservationsData.getReservations();
-        if (editingIndex < reservations.size()) {
-            Reservation oldReservation = reservations.get(editingIndex);
-            
-            ReservationsData.removeReservation(oldReservation);
-            
-            boolean success = ReservationsData.addReservation(fullName, contactNumber, serviceName, barber, date, time, 
-                oldReservation.getPaymentMethod(), totalAmount, oldReservation.getPaymentRendered());
-            
-            if (success) {
-                javax.swing.JOptionPane.showMessageDialog(this, "Reservation updated successfully!");
-                EditQueuePage editQueuePage = new EditQueuePage();
-                editQueuePage.setLocationRelativeTo(null);
-                editQueuePage.setResizable(false);
-                editQueuePage.setVisible(true);
-                this.dispose();
-            } else {
-                javax.swing.JOptionPane.showMessageDialog(this, "Failed to update reservation. It may already exist.");
+        if (editingIndex >= 0) {
+            List<Reservation> reservations = ReservationsData.getReservations();
+            if (editingIndex < reservations.size()) {
+                Reservation oldReservation = reservations.get(editingIndex);
+
+                ReservationsData.removeReservation(oldReservation);
+
+                boolean success = ReservationsData.addReservation(fullName, contactNumber, serviceName, barber, date, time, 
+                    oldReservation.getPaymentMethod(), totalAmount, oldReservation.getPaymentRendered());
+
+                if (success) {
+                    javax.swing.JOptionPane.showMessageDialog(this, "Reservation updated successfully!");
+                    EditQueuePage editQueuePage = new EditQueuePage();
+                    editQueuePage.setLocationRelativeTo(null);
+                    editQueuePage.setResizable(false);
+                    editQueuePage.setVisible(true);
+                    this.dispose();
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(this, "Failed to update reservation. It may already exist.");
+                }
+            }
+        } else {
+            PaymentDetailsPage paymentDetails = new PaymentDetailsPage(fullName, contactNumber, serviceName, barber, date, time, price, totalAmount, true);
+            paymentDetails.setLocationRelativeTo(null);
+            paymentDetails.setResizable(false);
+            paymentDetails.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_addToQueueButtonActionPerformed
+
+    private void fullNameTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fullNameTextFieldKeyTyped
+        char c = evt.getKeyChar();
+
+        if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
+            evt.consume();
+            javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Invalid character. Only letters and spaces are allowed."
+            );
+            return;
+        }
+
+        if (fullNameTextField.getText().length() >= 30) {
+            evt.consume(); 
+            javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Barber name cannot exceed 30 characters."
+            );
+        }
+    }//GEN-LAST:event_fullNameTextFieldKeyTyped
+
+    private void contactNumberTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contactNumberTextFieldKeyTyped
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            evt.consume();
+            javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Invalid input. Only numbers are allowed."
+            );
+            return;
+        }
+
+        String currentText = contactNumberTextField.getText();
+
+        if (currentText.length() >= 11) {
+            evt.consume();
+            javax.swing.JOptionPane.showMessageDialog(
+                this,
+                "Contact number cannot exceed 11 digits."
+            );
+            return;
+        }
+
+        String newText = currentText + c;
+
+        if (newText.length() == 4) {
+            String prefix = newText;
+
+            String[] validPrefixes = {
+                "0895", "0896", "0897", "0898", "0905", "0906", "0907", "0908", "0909",
+                "0910", "0911", "0912", "0913", "0914", "0915", "0916", "0917",
+                "0920", "0921", "0926", "0927", "0928", "0929",
+                "0930", "0935", "0936", "0937", "0938", "0939",
+                "0945", "0946", "0947", "0948", "0949",
+                "0950", "0952", "0953", "0954", "0955", "0956",
+                "0962", "0963", "0965", "0966", "0967", "0968", "0969", "0970",
+                "0975", "0976", "0977", "0978", "0979",
+                "0980", "0982", "0989",
+                "0994", "0995", "0996", "0997", "0998", "0999"
+            };
+
+            boolean isValidPrefix = false;
+
+            for (String validPrefix : validPrefixes) {
+                if (prefix.equals(validPrefix)) {
+                    isValidPrefix = true;
+                    break;
+                }
+            }
+
+            if (!isValidPrefix) {
+                javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "Invalid Contact Number Prefix."
+                );
+                contactNumberTextField.setText("");
+                evt.consume();
             }
         }
-    } else {
-        PaymentDetailsPage paymentDetails = new PaymentDetailsPage(fullName, contactNumber, serviceName, barber, date, time, price, totalAmount, true);
-        paymentDetails.setLocationRelativeTo(null);
-        paymentDetails.setResizable(false);
-        paymentDetails.setVisible(true);
-        this.dispose();
-    }
-    }//GEN-LAST:event_addToQueueButtonActionPerformed
+    }//GEN-LAST:event_contactNumberTextFieldKeyTyped
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
