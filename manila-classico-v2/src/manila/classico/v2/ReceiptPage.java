@@ -110,23 +110,28 @@ public class ReceiptPage extends javax.swing.JFrame {
         jPanel1.add(lineOne, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 350, -1));
 
         receiptNo.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
+        receiptNo.setForeground(new java.awt.Color(0, 0, 0));
         receiptNo.setText("Receipt No:");
         jPanel1.add(receiptNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, 20));
 
         Date.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
+        Date.setForeground(new java.awt.Color(0, 0, 0));
         Date.setText("Date:");
         jPanel1.add(Date, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
         cashierName.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
+        cashierName.setForeground(new java.awt.Color(0, 0, 0));
         cashierName.setText("Cashier:");
         jPanel1.add(cashierName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, 20));
 
         customerName.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
+        customerName.setForeground(new java.awt.Color(0, 0, 0));
         customerName.setText("Customer:");
         customerName.setVerifyInputWhenFocusTarget(false);
         jPanel1.add(customerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
         Services.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
+        Services.setForeground(new java.awt.Color(0, 0, 0));
         Services.setText("Services:");
         jPanel1.add(Services, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
@@ -134,18 +139,22 @@ public class ReceiptPage extends javax.swing.JFrame {
         jPanel1.add(lineTwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 350, -1));
 
         totalAmount.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
+        totalAmount.setForeground(new java.awt.Color(0, 0, 0));
         totalAmount.setText("Change:");
         jPanel1.add(totalAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
 
         paymentMethod.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
+        paymentMethod.setForeground(new java.awt.Color(0, 0, 0));
         paymentMethod.setText("Payment Method:");
         jPanel1.add(paymentMethod, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
 
         amountRendered.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
+        amountRendered.setForeground(new java.awt.Color(0, 0, 0));
         amountRendered.setText("Amount Rendered: ");
         jPanel1.add(amountRendered, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
 
         Barber.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
+        Barber.setForeground(new java.awt.Color(0, 0, 0));
         Barber.setText("Barber: ");
         jPanel1.add(Barber, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
 
@@ -160,6 +169,7 @@ public class ReceiptPage extends javax.swing.JFrame {
         receiptTextField.setEditable(false);
         receiptTextField.setBackground(new java.awt.Color(255, 255, 255));
         receiptTextField.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        receiptTextField.setForeground(new java.awt.Color(0, 0, 0));
         receiptTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         receiptTextField.setBorder(null);
         receiptTextField.setFocusable(false);
@@ -168,6 +178,7 @@ public class ReceiptPage extends javax.swing.JFrame {
         dateTextField.setEditable(false);
         dateTextField.setBackground(new java.awt.Color(255, 255, 255));
         dateTextField.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        dateTextField.setForeground(new java.awt.Color(0, 0, 0));
         dateTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         dateTextField.setBorder(null);
         dateTextField.setFocusable(false);
@@ -176,6 +187,7 @@ public class ReceiptPage extends javax.swing.JFrame {
         cashierTextField.setEditable(false);
         cashierTextField.setBackground(new java.awt.Color(255, 255, 255));
         cashierTextField.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        cashierTextField.setForeground(new java.awt.Color(0, 0, 0));
         cashierTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         cashierTextField.setBorder(null);
         cashierTextField.setFocusable(false);
@@ -184,6 +196,7 @@ public class ReceiptPage extends javax.swing.JFrame {
         customerTextField.setEditable(false);
         customerTextField.setBackground(new java.awt.Color(255, 255, 255));
         customerTextField.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        customerTextField.setForeground(new java.awt.Color(0, 0, 0));
         customerTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         customerTextField.setAutoscrolls(false);
         customerTextField.setBorder(null);
@@ -193,6 +206,7 @@ public class ReceiptPage extends javax.swing.JFrame {
         serviceTextField.setEditable(false);
         serviceTextField.setBackground(new java.awt.Color(255, 255, 255));
         serviceTextField.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        serviceTextField.setForeground(new java.awt.Color(0, 0, 0));
         serviceTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         serviceTextField.setBorder(null);
         serviceTextField.setFocusable(false);
@@ -201,6 +215,7 @@ public class ReceiptPage extends javax.swing.JFrame {
         changeTextField.setEditable(false);
         changeTextField.setBackground(new java.awt.Color(255, 255, 255));
         changeTextField.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        changeTextField.setForeground(new java.awt.Color(0, 0, 0));
         changeTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         changeTextField.setBorder(null);
         changeTextField.setFocusable(false);
@@ -209,6 +224,7 @@ public class ReceiptPage extends javax.swing.JFrame {
         paymentMethodTextField.setEditable(false);
         paymentMethodTextField.setBackground(new java.awt.Color(255, 255, 255));
         paymentMethodTextField.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        paymentMethodTextField.setForeground(new java.awt.Color(0, 0, 0));
         paymentMethodTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         paymentMethodTextField.setBorder(null);
         paymentMethodTextField.setFocusable(false);
@@ -217,6 +233,7 @@ public class ReceiptPage extends javax.swing.JFrame {
         amountRenderedTextField.setEditable(false);
         amountRenderedTextField.setBackground(new java.awt.Color(255, 255, 255));
         amountRenderedTextField.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        amountRenderedTextField.setForeground(new java.awt.Color(0, 0, 0));
         amountRenderedTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         amountRenderedTextField.setBorder(null);
         amountRenderedTextField.setFocusable(false);
@@ -225,26 +242,31 @@ public class ReceiptPage extends javax.swing.JFrame {
         barberTextField.setEditable(false);
         barberTextField.setBackground(new java.awt.Color(255, 255, 255));
         barberTextField.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        barberTextField.setForeground(new java.awt.Color(0, 0, 0));
         barberTextField.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         barberTextField.setBorder(null);
         barberTextField.setFocusable(false);
         jPanel1.add(barberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, 100, -1));
 
         jLabel6.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("1234 Metro Manila, Pasay City, Philippines");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("0977 834 9967");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));
 
         totalAmount1.setFont(new java.awt.Font("SF Pro Display", 1, 14)); // NOI18N
+        totalAmount1.setForeground(new java.awt.Color(0, 0, 0));
         totalAmount1.setText("Total Amount: ");
         jPanel1.add(totalAmount1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
 
         totalAmountTextField1.setEditable(false);
         totalAmountTextField1.setBackground(new java.awt.Color(255, 255, 255));
         totalAmountTextField1.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
+        totalAmountTextField1.setForeground(new java.awt.Color(0, 0, 0));
         totalAmountTextField1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         totalAmountTextField1.setBorder(null);
         totalAmountTextField1.setFocusable(false);
