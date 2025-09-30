@@ -720,7 +720,8 @@ public class SupportPage extends javax.swing.JFrame {
     }//GEN-LAST:event_sendEmailButtonActionPerformed
 
     private void callNowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_callNowButtonActionPerformed
-        
+    JOptionPane.showMessageDialog(null, "09123529557","Contact Number", JOptionPane.INFORMATION_MESSAGE);
+    
     }//GEN-LAST:event_callNowButtonActionPerformed
 
     private void reservationsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationsButtonActionPerformed

@@ -131,6 +131,11 @@ public class AddBarberPage extends javax.swing.JFrame {
         barberNameTextField.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
         barberNameTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(154, 164, 177), 1, true));
         barberNameTextField.setOpaque(true);
+        barberNameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                barberNameTextFieldActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -140,6 +145,11 @@ public class AddBarberPage extends javax.swing.JFrame {
         barberContactTextField.setFont(new java.awt.Font("SF Pro Display", 1, 18)); // NOI18N
         barberContactTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(154, 164, 177), 1, true));
         barberContactTextField.setOpaque(true);
+        barberContactTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                barberContactTextFieldActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -272,6 +282,14 @@ public class AddBarberPage extends javax.swing.JFrame {
         profilesPage.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_addNewBarberButtonActionPerformed
+
+    private void barberNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_barberNameTextFieldActionPerformed
+        
+    }//GEN-LAST:event_barberNameTextFieldActionPerformed
+
+    private void barberContactTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_barberContactTextFieldActionPerformed
+        
+    }//GEN-LAST:event_barberContactTextFieldActionPerformed
     
     public static void main(String args[]) {
         try {

@@ -1,6 +1,5 @@
 package manila.classico.v2;
 
-import java.util.Random;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
@@ -353,8 +352,8 @@ public class BookReservationsPage extends javax.swing.JFrame {
             pesoString = right;
         }
 
-        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
-        String date = sdf.format(chosenDate);
+        java.text.SimpleDateFormat simpleDateFormat = new java.text.SimpleDateFormat("yyyy-MM-dd");
+        String date = simpleDateFormat.format(chosenDate);
 
         if (ReservationsData.isSlotTaken(barber, date, time)) {
             JOptionPane.showMessageDialog(this, "This time slot is already booked!");
