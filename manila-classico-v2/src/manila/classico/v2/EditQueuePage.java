@@ -82,6 +82,7 @@ public class EditQueuePage extends javax.swing.JFrame {
 
         backButton.setBackground(new java.awt.Color(253, 253, 254));
         backButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
+        backButton.setForeground(new java.awt.Color(0, 0, 0));
         backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-left-arrow-20.png"))); // NOI18N
         backButton.setText("Back to Reservations");
         backButton.setBorder(null);
@@ -110,6 +111,7 @@ public class EditQueuePage extends javax.swing.JFrame {
         jScrollPane1.setViewportView(reservationsTable);
 
         jLabel5.setFont(new java.awt.Font("SF Pro Display", 1, 20)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Upcoming Reservations");
 
         addQueueButton.setBackground(new java.awt.Color(164, 145, 129));
