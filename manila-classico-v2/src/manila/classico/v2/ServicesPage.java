@@ -1,6 +1,5 @@
 package manila.classico.v2;
 
-import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.border.BevelBorder;
 import javax.swing.table.DefaultTableModel;
@@ -440,7 +439,6 @@ public class ServicesPage extends javax.swing.JFrame {
 
         servicesTable.setBackground(new java.awt.Color(253, 253, 254));
         servicesTable.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
-        servicesTable.setForeground(new java.awt.Color(0, 0, 0));
         servicesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -578,36 +576,33 @@ public class ServicesPage extends javax.swing.JFrame {
     }//GEN-LAST:event_addServiceButtonActionPerformed
 
     private void deleteServiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteServiceButtonActionPerformed
-    
-    int selectedRow = servicesTable.getSelectedRow();
-    
-    if (selectedRow >= 0) {
-        String serviceName = (String) servicesTable.getValueAt(selectedRow, 0);
-        boolean success = ServiceManager.removeService(serviceName);  
+        int selectedRow = servicesTable.getSelectedRow();
+
+        if (selectedRow >= 0) {
+            String serviceName = (String) servicesTable.getValueAt(selectedRow, 0);
+            boolean success = ServiceManager.removeService(serviceName);  
             if (success) {
                 loadServicesToTable(ServiceManager.getServices());  
                 JOptionPane.showMessageDialog(this, "Service deleted successfully!");
             } else {
                 JOptionPane.showMessageDialog(this, "Failed to delete service.");
             }
-    } else {
-     javax.swing.JOptionPane.showMessageDialog(this, "No services to delete.");
-    }
-    
-    
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "No services to delete.");
+        }
     }//GEN-LAST:event_deleteServiceButtonActionPerformed
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
         String keyword = searchTextField.getText().trim();
-    if (keyword.isEmpty()) {
-        loadServicesToTable(ServiceManager.getServices());
-    } else {
-        java.util.List<Service> foundServices = ServiceManager.searchServices(keyword);
-        if (foundServices.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "No services found.");
+        if (keyword.isEmpty()) {
+            loadServicesToTable(ServiceManager.getServices());
+        } else {
+            java.util.List<Service> foundServices = ServiceManager.searchServices(keyword);
+            if (foundServices.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No services found.");
+            }
+            loadServicesToTable(foundServices);
         }
-        loadServicesToTable(foundServices);
-    }
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void reservationsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservationsButtonActionPerformed
