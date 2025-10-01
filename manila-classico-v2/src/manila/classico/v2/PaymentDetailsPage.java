@@ -606,6 +606,10 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
 
     private void phoneNumberTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNumberTextFieldKeyTyped
         char c = evt.getKeyChar();
+        
+        if (c == java.awt.event.KeyEvent.VK_BACK_SPACE || c == java.awt.event.KeyEvent.VK_DELETE) {
+            return;
+        }
 
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -667,6 +671,10 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
 
     private void paymentAmountTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_paymentAmountTextFieldKeyTyped
         char c = evt.getKeyChar();
+        
+        if (c == java.awt.event.KeyEvent.VK_BACK_SPACE || c == java.awt.event.KeyEvent.VK_DELETE) {
+            return;
+        }
 
         if (!Character.isDigit(c)) {
             evt.consume();
