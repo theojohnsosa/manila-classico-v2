@@ -286,6 +286,10 @@ public class AddBarberPage extends javax.swing.JFrame {
     private void barberNameTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_barberNameTextFieldKeyTyped
         char c = evt.getKeyChar();
 
+        if (c == java.awt.event.KeyEvent.VK_BACK_SPACE || c == java.awt.event.KeyEvent.VK_DELETE) {
+            return;
+        }
+
         if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
             evt.consume();
             javax.swing.JOptionPane.showMessageDialog(
@@ -306,6 +310,10 @@ public class AddBarberPage extends javax.swing.JFrame {
 
     private void barberContactTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_barberContactTextFieldKeyTyped
         char c = evt.getKeyChar();
+
+        if (c == java.awt.event.KeyEvent.VK_BACK_SPACE || c == java.awt.event.KeyEvent.VK_DELETE) {
+            return;
+        }
 
         if (!Character.isDigit(c)) {
             evt.consume();
