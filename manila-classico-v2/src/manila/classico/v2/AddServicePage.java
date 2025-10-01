@@ -226,6 +226,10 @@ public class AddServicePage extends javax.swing.JFrame {
 
     private void serviceNameTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_serviceNameTextFieldKeyTyped
         char c = evt.getKeyChar();
+        
+        if (c == java.awt.event.KeyEvent.VK_BACK_SPACE || c == java.awt.event.KeyEvent.VK_DELETE) {
+            return;
+        }
 
         if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
             evt.consume();
@@ -247,6 +251,10 @@ public class AddServicePage extends javax.swing.JFrame {
 
     private void servicePriceTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_servicePriceTextFieldKeyTyped
         char c = evt.getKeyChar();
+        
+        if (c == java.awt.event.KeyEvent.VK_BACK_SPACE || c == java.awt.event.KeyEvent.VK_DELETE) {
+            return;
+        }
 
         if (!Character.isDigit(c)) {
             evt.consume();
