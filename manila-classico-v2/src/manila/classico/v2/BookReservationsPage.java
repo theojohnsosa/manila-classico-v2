@@ -380,6 +380,10 @@ public class BookReservationsPage extends javax.swing.JFrame {
 
     private void fullNameTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fullNameTextFieldKeyTyped
         char c = evt.getKeyChar();
+        
+        if (c == java.awt.event.KeyEvent.VK_BACK_SPACE || c == java.awt.event.KeyEvent.VK_DELETE) {
+            return;
+        }
 
         if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
             evt.consume();
@@ -401,6 +405,10 @@ public class BookReservationsPage extends javax.swing.JFrame {
 
     private void contactNumberTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contactNumberTextFieldKeyTyped
         char c = evt.getKeyChar();
+        
+        if (c == java.awt.event.KeyEvent.VK_BACK_SPACE || c == java.awt.event.KeyEvent.VK_DELETE) {
+            return;
+        }
 
         if (!Character.isDigit(c)) {
             evt.consume();
