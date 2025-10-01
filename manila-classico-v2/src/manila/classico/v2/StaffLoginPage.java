@@ -293,7 +293,11 @@ public class StaffLoginPage extends javax.swing.JFrame {
     }//GEN-LAST:event_loginToDashboardButtonActionPerformed
 
     private void adminCodePasswordFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_adminCodePasswordFieldKeyTyped
-    char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
+        
+        if (c == java.awt.event.KeyEvent.VK_BACK_SPACE || c == java.awt.event.KeyEvent.VK_DELETE) {
+            return;
+        }
 
         if (!Character.isDigit(c)) {
             evt.consume();
@@ -309,6 +313,10 @@ public class StaffLoginPage extends javax.swing.JFrame {
 
     private void adminIdTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_adminIdTextFieldKeyTyped
         char c = evt.getKeyChar();
+        
+        if (c == java.awt.event.KeyEvent.VK_BACK_SPACE || c == java.awt.event.KeyEvent.VK_DELETE) {
+            return;
+        }
 
         if (!Character.isLetterOrDigit(c)) {
             evt.consume();
