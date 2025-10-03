@@ -1,23 +1,22 @@
 package manila.classico.v2;
 
 import java.util.List;
-import java.util.Random;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class EditQueueEntryPage extends javax.swing.JFrame {
     
     private static final Logger logger = Logger.getLogger(EditQueueEntryPage.class.getName());
 
     public EditQueueEntryPage(int reservationIndex) {
-    this();
-    this.editingIndex = reservationIndex;
-    loadReservationData(reservationIndex);
-}
+        this();
+        this.editingIndex = reservationIndex;
+        loadReservationData(reservationIndex);
+    }
     
     public EditQueueEntryPage() {
         initComponents();
         loadServicesIntoComboBox();
-        loadBarbersIntoComboBox();
         
         addToQueueButton.addMouseListener(new java.awt.event.MouseAdapter() {
            public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -63,16 +62,7 @@ public class EditQueueEntryPage extends javax.swing.JFrame {
             barberComboBox.addItem(barber.getName());
         }
     }
-    
-//    private String generateUniqueReferenceNumber() {
-//        Random random = new Random();
-//        String reference;
-//        do {
-//            reference = String.valueOf(100000 + random.nextInt(900000));
-//        } while (CustomerManager.referenceExists(reference));
-//        return reference;
-//    }
-    
+       
     private void loadReservationData(int index) {
         List<Reservation> reservations = ReservationsData.getReservations();
         if (index >= 0 && index < reservations.size()) {
@@ -355,8 +345,39 @@ public class EditQueueEntryPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
+    private void updateReservation(String fullName, String contactNumber, String serviceName, String barber, String date, String time, String price) {
+        List<Reservation> reservations = ReservationsData.getReservations();
+        if (editingIndex >= reservations.size()) return;
+
+        Reservation oldReservation = reservations.get(editingIndex);
+        ReservationsData.removeReservation(oldReservation);
+
+        boolean success = ReservationsData.addReservation(fullName, contactNumber, serviceName, barber, date, time, oldReservation.getPaymentMethod(), price, oldReservation.getPaymentRendered());
+
+        if (success) {
+            JOptionPane.showMessageDialog(this, "Reservation updated successfully!");
+            showEditQueuePage();
+        }
+    }
+
+    private void createNewReservation(String fullName, String contactNumber, String serviceName, String barber, String date, String time, String price) {
+        PaymentDetailsPage paymentDetails = new PaymentDetailsPage(fullName, contactNumber, serviceName, barber, date, time, price, price, true);
+        paymentDetails.setLocationRelativeTo(null);
+        paymentDetails.setResizable(false);
+        paymentDetails.setVisible(true);
+        this.dispose();
+    }
+
+    private void showEditQueuePage() {
+        EditQueuePage editQueuePage = new EditQueuePage();
+        editQueuePage.setLocationRelativeTo(null);
+        editQueuePage.setResizable(false);
+        editQueuePage.setVisible(true);
+        this.dispose();
+    }
+    
     private void addToQueueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToQueueButtonActionPerformed
-       String fullName = fullNameTextField.getText().trim();
+        String fullName = fullNameTextField.getText().trim();
         String contactNumber = contactNumberTextField.getText().trim();
         String service = (String) serviceComboBox.getSelectedItem();
         String barber = (String) barberComboBox.getSelectedItem();
@@ -364,52 +385,24 @@ public class EditQueueEntryPage extends javax.swing.JFrame {
         String time = (String) timeComboBox.getSelectedItem();
 
         if (fullName.isEmpty() || contactNumber.isEmpty() || chosenDate == null || time == null) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Please complete all fields.");
+            JOptionPane.showMessageDialog(this, "Please complete all fields.");
             return;
         }
 
         String serviceName = service;
-        String pesoString = null;
+        String price = "₱0";
         int index = service.indexOf("–");
         if (index > -1) {
             serviceName = service.substring(0, index).trim();
-            String right = service.substring(index + 1).trim();
-            pesoString = right;
+            price = service.substring(index + 1).trim();
         }
 
-        java.text.SimpleDateFormat simpleDateFormat = new java.text.SimpleDateFormat("yyyy-MM-dd");
-        String date = simpleDateFormat.format(chosenDate);
-
-        String price = (pesoString != null) ? pesoString : "₱0";
-        String totalAmount = price;
+        String date = new java.text.SimpleDateFormat("yyyy-MM-dd").format(chosenDate);
 
         if (editingIndex >= 0) {
-            List<Reservation> reservations = ReservationsData.getReservations();
-            if (editingIndex < reservations.size()) {
-                Reservation oldReservation = reservations.get(editingIndex);
-
-                ReservationsData.removeReservation(oldReservation);
-
-                boolean success = ReservationsData.addReservation(fullName, contactNumber, serviceName, barber, date, time, 
-                    oldReservation.getPaymentMethod(), totalAmount, oldReservation.getPaymentRendered());
-
-                if (success) {
-                    javax.swing.JOptionPane.showMessageDialog(this, "Reservation updated successfully!");
-                    EditQueuePage editQueuePage = new EditQueuePage();
-                    editQueuePage.setLocationRelativeTo(null);
-                    editQueuePage.setResizable(false);
-                    editQueuePage.setVisible(true);
-                    this.dispose();
-                } else {
-                    javax.swing.JOptionPane.showMessageDialog(this, "Failed to update reservation. It may already exist.");
-                }
-            }
+            updateReservation(fullName, contactNumber, serviceName, barber, date, time, price);
         } else {
-            PaymentDetailsPage paymentDetails = new PaymentDetailsPage(fullName, contactNumber, serviceName, barber, date, time, price, totalAmount, true);
-            paymentDetails.setLocationRelativeTo(null);
-            paymentDetails.setResizable(false);
-            paymentDetails.setVisible(true);
-            this.dispose();
+            createNewReservation(fullName, contactNumber, serviceName, barber, date, time, price);
         }
     }//GEN-LAST:event_addToQueueButtonActionPerformed
 
@@ -422,19 +415,13 @@ public class EditQueueEntryPage extends javax.swing.JFrame {
 
         if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
             evt.consume();
-            javax.swing.JOptionPane.showMessageDialog(
-                this,
-                "Invalid character. Only letters and spaces are allowed."
-            );
+            JOptionPane.showMessageDialog(this, "Invalid character. Only letters and spaces are allowed.");
             return;
         }
 
         if (fullNameTextField.getText().length() >= 30) {
             evt.consume(); 
-            javax.swing.JOptionPane.showMessageDialog(
-                this,
-                "Barber name cannot exceed 30 characters."
-            );
+            JOptionPane.showMessageDialog(this, "Barber name cannot exceed 30 characters.");
         }
     }//GEN-LAST:event_fullNameTextFieldKeyTyped
 
@@ -447,10 +434,7 @@ public class EditQueueEntryPage extends javax.swing.JFrame {
 
         if (!Character.isDigit(c)) {
             evt.consume();
-            javax.swing.JOptionPane.showMessageDialog(
-                this,
-                "Invalid input. Only numbers are allowed."
-            );
+            JOptionPane.showMessageDialog(this, "Invalid input. Only numbers are allowed.");
             return;
         }
 
@@ -458,10 +442,7 @@ public class EditQueueEntryPage extends javax.swing.JFrame {
 
         if (currentText.length() >= 11) {
             evt.consume();
-            javax.swing.JOptionPane.showMessageDialog(
-                this,
-                "Contact number cannot exceed 11 digits."
-            );
+            JOptionPane.showMessageDialog(this, "Contact number cannot exceed 11 digits.");
             return;
         }
 
@@ -493,10 +474,7 @@ public class EditQueueEntryPage extends javax.swing.JFrame {
             }
 
             if (!isValidPrefix) {
-                javax.swing.JOptionPane.showMessageDialog(
-                    this,
-                    "Invalid Contact Number Prefix."
-                );
+                JOptionPane.showMessageDialog(this, "Invalid Contact Number Prefix.");
                 contactNumberTextField.setText("");
                 evt.consume();
             }
