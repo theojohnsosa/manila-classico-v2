@@ -13,26 +13,88 @@ import java.util.Locale;
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
 
-
 public class ReservationsData {
     
     private static final String[] COLS = {"Full Name", "Contact", "Service", "Barber", "Date", "Time", "Payment Method", "Total"};
     
+    private static final SimpleDateFormat DATETIME_FORMAT = new SimpleDateFormat("yyyy-MM-dd h:mm a", Locale.ENGLISH);
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("h:mm a", Locale.ENGLISH);
     private static final DateTimeFormatter DATETIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd h:mm a", Locale.ENGLISH);
+    
+    private static final DefaultTableModel TABLE_MODEL = createNonEditableTableModel();
+    private static final DefaultTableModel SALES_TABLE_MODEL = createNonEditableTableModel();
+    
+    private static final List<Reservation> RES_LIST = new ArrayList<>();
+    private static final Set<String> RES_KEYS = new HashSet<>();
+    private static final Set<String> COMPLETED_RESERVATION_KEYS = new HashSet<>();
+    
+    private static Reservation lastAddedReservation = null;
+    
+    private static DefaultTableModel createNonEditableTableModel() {
+        return new DefaultTableModel(COLS, 0) {
+            @Override 
+            public boolean isCellEditable(int r, int c) { 
+                return false; 
+            }
+        };
+    }
+    
+    private static String keyOf(Reservation r) {
+        return keyOf(r.getFullName(), r.getContactNumber(), r.getService(), r.getBarber(), r.getDate(), r.getTime(), r.getPaymentRendered(), r.getTotalAmount());
+    }
+    
+    private static String keyOf(String fullName, String contact, String service, String barber, String date, String time, String paymentRendered, String totalAmount) {
+        return String.join("|", norm(fullName), norm(contact), norm(service), norm(barber), norm(date), norm(time), norm(paymentRendered), norm(totalAmount));
+    }
+    
+    private static String norm(String s) {
+        return s == null ? "" : s.trim().toLowerCase(Locale.ENGLISH); 
+    }
+    
+    public static boolean isValidFutureDateTime(String date, String time) {
+        try {
+            LocalDate reservationDate = LocalDate.parse(date, DATE_FORMATTER);
+            LocalDate today = LocalDate.now();
+            
+            if (reservationDate.isAfter(today)) return true;
+            if (reservationDate.isBefore(today)) return false;
+            
+            LocalDateTime reservationDateTime = LocalDateTime.parse(date + " " + time, DATETIME_FORMATTER);
+            return reservationDateTime.isAfter(LocalDateTime.now());
+            
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    
+    public static synchronized boolean addReservation(String fullName, String contact, String service, String barber, String date, String time, String paymentMethod, String totalAmount, String paymentRendered) {
+        String key = keyOf(fullName, contact, service, barber, date, time, paymentRendered, totalAmount);
+        
+        if (RES_KEYS.contains(key)) return false;
+        
+        Reservation r = new Reservation(fullName, contact, service, barber, date, time, paymentMethod, totalAmount, paymentRendered);
+        RES_LIST.add(r);
+        RES_KEYS.add(key);
+        lastAddedReservation = r;
+        
+        sortByDateTime();
+        rebuildBothTables();
+        return true;
+    }
+    
+    public static synchronized Reservation getLastAddedReservation() {
+        return lastAddedReservation;
+    }
     
     public static synchronized Reservation getLatestReservation() {
         if (RES_LIST.isEmpty()) return null;
 
-        final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd h:mm a", Locale.ENGLISH);
         Reservation latest = RES_LIST.get(0);
-
         try {
-            Date latestDate = simpleDateFormat.parse(latest.getDate() + " " + latest.getTime());
+            Date latestDate = DATETIME_FORMAT.parse(latest.getDate() + " " + latest.getTime());
 
             for (Reservation r : RES_LIST) {
-                Date currentDate = simpleDateFormat.parse(r.getDate() + " " + r.getTime());
+                Date currentDate = DATETIME_FORMAT.parse(r.getDate() + " " + r.getTime());
                 if (currentDate.after(latestDate)) {
                     latest = r;
                     latestDate = currentDate;
@@ -45,138 +107,42 @@ public class ReservationsData {
         return latest;
     }
     
-    private static final DefaultTableModel TABLE_MODEL = new DefaultTableModel(COLS, 0) {
-        @Override 
-        public boolean isCellEditable(int r, int c) { 
-            return false; 
-        }
-    };
-    
-    private static final DefaultTableModel SALES_TABLE_MODEL = new DefaultTableModel(COLS, 0) {
-        @Override 
-        public boolean isCellEditable(int r, int c) { 
-            return false; 
-        }
-    };
-    
-    private static final List<Reservation> RES_LIST = new ArrayList<>();
-    private static final Set<String> RES_KEYS = new HashSet<>();
-    
-    // NEW: Track completed reservations separately
-    private static final Set<String> COMPLETED_RESERVATION_KEYS = new HashSet<>();
-    
-    private static Reservation lastAddedReservation = null;
-    
-    private static String norm(String s) {
-        return s==null ? "" : s.trim().toLowerCase(Locale.ENGLISH); 
-    }
-    
-    private static String keyOf(String fullName,String contact,String service,String barber,String date,String time, String paymentRendered, String totalAmount) {
-        return String.join("|", norm(fullName), norm(contact), norm(service), norm(barber), norm(date), norm(time), norm(paymentRendered), norm(totalAmount));
-    }
-    
-    public static boolean isValidFutureDateTime(String date, String time) {
-        try {
-            LocalDate reservationDate = LocalDate.parse(date, DATE_FORMATTER);
-            LocalDate today = LocalDate.now();
-            
-            if (reservationDate.isAfter(today)) {
-                return true;
-            }
-            
-            if (reservationDate.isEqual(today)) {
-                String dateTimeStr = date + " " + time;
-                LocalDateTime reservationDateTime = LocalDateTime.parse(dateTimeStr, DATETIME_FORMATTER);
-                LocalDateTime now = LocalDateTime.now();
-                return reservationDateTime.isAfter(now);
-            }
-            
-            return false;
-            
-        } catch (Exception e) {
-            return false;
-        }
-    }
-    
-    public static synchronized boolean addReservation(String fullName, String contact, String service, String barber, String date, String time, String paymentMethod, String totalAmount, String paymentRendered) {
-
-        String key = keyOf(fullName, contact, service, barber, date, time, paymentRendered, totalAmount);
-        
-        if (RES_KEYS.contains(key)) {
-            return false;
-        }
-        
-        Reservation r = new Reservation(fullName, contact, service, barber, date, time, paymentMethod, totalAmount, paymentRendered);
-        RES_LIST.add(r);
-        RES_KEYS.add(key);
-        lastAddedReservation = r;
-        sortByDateTime();
-        rebuildTableModel();
-        rebuildSalesTableModel();
-        return true;
-    }
-    
-    public static synchronized Reservation getLastAddedReservation() {
-        return lastAddedReservation;
-    }
-    
-    // MODIFIED: Mark first uncompleted reservation as completed
     public static synchronized boolean removeFirstReservation() {
-        // Find the first uncompleted reservation
-        for (Reservation reservation : RES_LIST) {
-            String key = keyOf(
-                reservation.getFullName(),
-                reservation.getContactNumber(),
-                reservation.getService(),
-                reservation.getBarber(),
-                reservation.getDate(),
-                reservation.getTime(),
-                reservation.getPaymentRendered(),
-                reservation.getTotalAmount()
-            );
-            
-            // Check if this reservation is not yet completed and is a future reservation
-            if (!COMPLETED_RESERVATION_KEYS.contains(key) && 
-                isValidFutureDateTime(reservation.getDate(), reservation.getTime())) {
-                
-                // Mark as completed
-                COMPLETED_RESERVATION_KEYS.add(key);
-                
-                // Rebuild only the queue table (not sales table)
+        for (Reservation r : RES_LIST) {
+            if (isUncompleted(r) && isValidFutureDateTime(r.getDate(), r.getTime())) {
+                COMPLETED_RESERVATION_KEYS.add(keyOf(r));
                 rebuildTableModel();
                 return true;
             }
         }
-        
         return false;
     }
     
-    // NEW: Remove reservation by table index (from the queue table)
     public static synchronized boolean removeReservationByIndex(int tableIndex) {
         List<Reservation> futureReservations = getFutureReservations();
         
-        if (tableIndex < 0 || tableIndex >= futureReservations.size()) {
-            return false;
-        }
+        if (tableIndex < 0 || tableIndex >= futureReservations.size()) return false;
         
         Reservation toComplete = futureReservations.get(tableIndex);
-        String key = keyOf(
-            toComplete.getFullName(),
-            toComplete.getContactNumber(),
-            toComplete.getService(),
-            toComplete.getBarber(),
-            toComplete.getDate(),
-            toComplete.getTime(),
-            toComplete.getPaymentRendered(),
-            toComplete.getTotalAmount()
-        );
-        
-        // Mark as completed
-        COMPLETED_RESERVATION_KEYS.add(key);
-        
-        // Rebuild only the queue table (not sales table)
+        COMPLETED_RESERVATION_KEYS.add(keyOf(toComplete));
         rebuildTableModel();
         return true;
+    }
+    
+    public static synchronized boolean removeReservation(Reservation reservation) {
+        String key = keyOf(reservation);
+        
+        if (RES_LIST.remove(reservation)) {
+            RES_KEYS.remove(key);
+            COMPLETED_RESERVATION_KEYS.remove(key);
+            rebuildBothTables();
+            return true;
+        }
+        return false;
+    }
+    
+    public static synchronized boolean isSlotTaken(String barber, String date, String time) {
+        return RES_LIST.stream().anyMatch(r -> r.getBarber().equalsIgnoreCase(barber) && r.getDate().equals(date) && r.getTime().equalsIgnoreCase(time) && isUncompleted(r));
     }
     
     public static synchronized DefaultTableModel getTableModel() { 
@@ -195,117 +161,55 @@ public class ReservationsData {
     
     public static synchronized List<Reservation> getFutureReservations() {
         List<Reservation> futureReservations = new ArrayList<>();
-        for (Reservation reservation : RES_LIST) {
-            // Only include if it's a future reservation AND not completed
-            String key = keyOf(
-                reservation.getFullName(),
-                reservation.getContactNumber(),
-                reservation.getService(),
-                reservation.getBarber(),
-                reservation.getDate(),
-                reservation.getTime(),
-                reservation.getPaymentRendered(),
-                reservation.getTotalAmount()
-            );
-            
-            if (isValidFutureDateTime(reservation.getDate(), reservation.getTime()) 
-                && !COMPLETED_RESERVATION_KEYS.contains(key)) {
-                futureReservations.add(reservation);
+        for (Reservation r : RES_LIST) {
+            if (isValidFutureDateTime(r.getDate(), r.getTime()) && isUncompleted(r)) {
+                futureReservations.add(r);
             }
         }
         return futureReservations;
     }
     
+    private static boolean isUncompleted(Reservation r) {
+        return !COMPLETED_RESERVATION_KEYS.contains(keyOf(r));
+    }
+    
     private static void rebuildTableModel() {
         TABLE_MODEL.setRowCount(0);
-        
-        List<Reservation> futureReservations = getFutureReservations();
-        
-        for (Reservation reservation : futureReservations) {
-            TABLE_MODEL.addRow(new Object[]{
-                reservation.getFullName(),
-                reservation.getContactNumber(),
-                reservation.getService(),
-                reservation.getBarber(),
-                reservation.getDate(),
-                reservation.getTime(),
-                reservation.getPaymentMethod(),
-                reservation.getTotalAmount()
-            });
+        for (Reservation r : getFutureReservations()) {
+            TABLE_MODEL.addRow(createRow(r));
         }
     }
     
-    // UNCHANGED: Sales table shows ALL reservations
     private static void rebuildSalesTableModel() {
         SALES_TABLE_MODEL.setRowCount(0);
-        
-        for (Reservation reservation : RES_LIST) {
-            SALES_TABLE_MODEL.addRow(new Object[]{
-                reservation.getFullName(),
-                reservation.getContactNumber(),
-                reservation.getService(),
-                reservation.getBarber(),
-                reservation.getDate(),
-                reservation.getTime(),
-                reservation.getPaymentMethod(),
-                reservation.getTotalAmount()
-            });
+        for (Reservation r : RES_LIST) {
+            SALES_TABLE_MODEL.addRow(createRow(r));
         }
     }
     
-    public static synchronized boolean removeReservation(Reservation reservation) {
-        String key = keyOf(
-            reservation.getFullName(),
-            reservation.getContactNumber(),
-            reservation.getService(),
-            reservation.getBarber(),
-            reservation.getDate(),
-            reservation.getTime(),
-            reservation.getTotalAmount(),
-            reservation.getPaymentRendered()  
-        );
-        
-        if (RES_LIST.remove(reservation)) {
-            RES_KEYS.remove(key);
-            COMPLETED_RESERVATION_KEYS.remove(key); // Also remove from completed if present
-            rebuildTableModel();
-            rebuildSalesTableModel();
-            return true;
-        }
-        return false;
+    private static void rebuildBothTables() {
+        rebuildTableModel();
+        rebuildSalesTableModel();
     }
     
-    public static synchronized boolean isSlotTaken(String barber, String date, String time) {
-        for (Reservation existing : RES_LIST) {
-            // Check if the slot is taken by a non-completed reservation
-            String key = keyOf(
-                existing.getFullName(),
-                existing.getContactNumber(),
-                existing.getService(),
-                existing.getBarber(),
-                existing.getDate(),
-                existing.getTime(),
-                existing.getPaymentRendered(),
-                existing.getTotalAmount()
-            );
-            
-            if (existing.getBarber().equalsIgnoreCase(barber) &&
-                existing.getDate().equals(date) &&
-                existing.getTime().equalsIgnoreCase(time) &&
-                !COMPLETED_RESERVATION_KEYS.contains(key)) {
-                return true;
-            }
-        }
-        return false; 
+    private static Object[] createRow(Reservation r) {
+        return new Object[]{
+            r.getFullName(),
+            r.getContactNumber(),
+            r.getService(),
+            r.getBarber(),
+            r.getDate(),
+            r.getTime(),
+            r.getPaymentMethod(),
+            r.getTotalAmount()
+        };
     }
-     
+    
     private static void sortByDateTime() {
-        final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd h:mm a", Locale.ENGLISH);
         RES_LIST.sort((a, b) -> {
             try {
-                Date dateA = simpleDateFormat.parse(a.getDate() + " " + a.getTime());
-                Date dateB = simpleDateFormat.parse(b.getDate() + " " + b.getTime());
-                // Para descending order, baliktarin ang compareTo
+                Date dateA = DATETIME_FORMAT.parse(a.getDate() + " " + a.getTime());
+                Date dateB = DATETIME_FORMAT.parse(b.getDate() + " " + b.getTime());
                 return dateB.compareTo(dateA);
             } catch (ParseException e) {
                 return 0;
