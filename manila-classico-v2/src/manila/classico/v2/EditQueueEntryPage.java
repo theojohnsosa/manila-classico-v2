@@ -52,7 +52,7 @@ public class EditQueueEntryPage extends javax.swing.JFrame {
     private void loadServicesIntoComboBox() {
         serviceComboBox.removeAllItems(); 
         for (Service service : ServiceManager.getServices()) {
-            serviceComboBox.addItem(service.getName() + " – ₱" + service.getPrice());
+            serviceComboBox.addItem(service.getServiceName() + " – ₱" + service.getServicePrice());
         }
     }
     

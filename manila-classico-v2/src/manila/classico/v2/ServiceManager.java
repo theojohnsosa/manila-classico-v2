@@ -2,18 +2,17 @@ package manila.classico.v2;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ServiceManager {
-    private static final List<Service> services = new ArrayList<>();
-
-    static {
-        services.add(new Service("Haircut", 150));
-        services.add(new Service("Haircut and Shampoo", 300));
-        services.add(new Service("Haircut and Shave", 300));
-        services.add(new Service("Haircut Delux", 300));
-        services.add(new Service("Classico Signature", 300));
-        services.add(new Service("Beard Trim", 300));
-    }
+    private static final List<Service> services = new ArrayList<>(List.of(
+        new Service("Haircut", 150),
+        new Service("Haircut and Shampoo", 300),
+        new Service("Haircut and Shave", 300),
+        new Service("Haircut Delux", 300),
+        new Service("Classico Signature", 300),
+        new Service("Beard Trim", 300)
+    ));
 
     public static List<Service> getServices() {
         return services;
@@ -34,16 +33,11 @@ public class ServiceManager {
     }
     
     public static boolean removeService(String serviceName) {
-        return services.removeIf(service -> service.getName().equalsIgnoreCase(serviceName));
+        return services.removeIf(s -> s.getServiceName().equalsIgnoreCase(serviceName));
     }
 
     public static List<Service> searchServices(String keyword) {
-        List<Service> result = new ArrayList<>();
-        for (Service service : services) {
-            if (service.getName().toLowerCase().contains(keyword.toLowerCase())) {
-                result.add(service);
-            }
-        }
-        return result;
+        String lower = keyword.toLowerCase();
+        return services.stream().filter(s -> s.getServiceName().toLowerCase().contains(lower)).collect(Collectors.toList());
     }
 }

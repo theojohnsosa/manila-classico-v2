@@ -2,37 +2,29 @@ package manila.classico.v2;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ServicesData {
     private static final List<Service> SERVICES = new ArrayList<>();
 
-    public static boolean addService(String serviceName, double servicePrice) {
-        return SERVICES.add(new Service(serviceName, servicePrice));
+    public static void addService(String name, double price) {
+        SERVICES.add(new Service(name, price));
     }
 
     public static boolean removeService(String name) {
-        return SERVICES.removeIf(service -> service.getName().equalsIgnoreCase(name));
+        return SERVICES.removeIf(s -> s.getServiceName().equalsIgnoreCase(name));
     }
 
     public static boolean removeLastService() {
-        if (!SERVICES.isEmpty()) {
-            SERVICES.remove(SERVICES.size() - 1);
-            return true;
-        }
-        return false;
+        return !SERVICES.isEmpty() && SERVICES.remove(SERVICES.size() - 1) != null;
     }
 
     public static List<Service> getServices() {
-        return new ArrayList<>(SERVICES);
+        return List.copyOf(SERVICES);
     }
 
     public static List<Service> searchServices(String query) {
-        List<Service> results = new ArrayList<>();
-        for (Service service : SERVICES) {
-            if (service.getName().toLowerCase().contains(query.toLowerCase())) {
-                results.add(service);
-            }
-        }
-        return results;
+        String q = query.toLowerCase();
+        return SERVICES.stream().filter(s -> s.getServiceName().toLowerCase().contains(q)).collect(Collectors.toList());
     }
 }

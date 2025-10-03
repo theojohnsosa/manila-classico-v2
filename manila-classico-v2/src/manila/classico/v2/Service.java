@@ -9,11 +9,11 @@ public class Service {
         this.servicePrice = servicePrice;
     }
 
-    public String getName() {
+    public String getServiceName() {
         return serviceName;
     }
 
-    public double getPrice() {
+    public double getServicePrice() {
         return servicePrice;
     }
 }

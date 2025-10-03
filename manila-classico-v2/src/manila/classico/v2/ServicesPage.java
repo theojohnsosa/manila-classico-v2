@@ -162,6 +162,10 @@ public class ServicesPage extends javax.swing.JFrame {
         });
     }
     
+    public void refreshTable() {
+        loadServicesToTable(ServiceManager.getServices());
+    }
+    
     private void setupTable() {
         tableModel = new DefaultTableModel(new Object[]{"Service", "Price"}, 0);
         servicesTable.setModel(tableModel);
@@ -170,7 +174,7 @@ public class ServicesPage extends javax.swing.JFrame {
     private void loadServicesToTable(java.util.List<Service> services) {
         tableModel.setRowCount(0);
         for (Service service : services) {
-            tableModel.addRow(new Object[]{service.getName(), service.getPrice()});
+            tableModel.addRow(new Object[]{service.getServiceName(), service.getServicePrice()});
         }
     }
     
@@ -577,18 +581,17 @@ public class ServicesPage extends javax.swing.JFrame {
 
     private void deleteServiceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteServiceButtonActionPerformed
         int selectedRow = servicesTable.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "No services to delete.");
+            return;
+        }
 
-        if (selectedRow >= 0) {
-            String serviceName = (String) servicesTable.getValueAt(selectedRow, 0);
-            boolean success = ServiceManager.removeService(serviceName);  
-            if (success) {
-                loadServicesToTable(ServiceManager.getServices());  
-                JOptionPane.showMessageDialog(this, "Service deleted successfully!");
-            } else {
-                JOptionPane.showMessageDialog(this, "Failed to delete service.");
-            }
+        String serviceName = (String) servicesTable.getValueAt(selectedRow, 0);
+        if (ServiceManager.removeService(serviceName)) {
+            loadServicesToTable(ServiceManager.getServices());
+            JOptionPane.showMessageDialog(this, "Service deleted successfully!");
         } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "No services to delete.");
+            JOptionPane.showMessageDialog(this, "Failed to delete service.");
         }
     }//GEN-LAST:event_deleteServiceButtonActionPerformed
 
@@ -652,10 +655,6 @@ public class ServicesPage extends javax.swing.JFrame {
         dashboardPage.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_dashboardButtonActionPerformed
-
-    public void refreshTable() {
-        loadServicesToTable(ServiceManager.getServices());
-    }
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
