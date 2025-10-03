@@ -160,7 +160,7 @@ public class ProfilesPage extends javax.swing.JFrame {
         });
     }
     
-    public void refreshBarberTable() {
+    private void refreshBarberTable() {
         loadBarbersToTable(BarberManager.getBarbers());
     }
     
@@ -579,20 +579,20 @@ public class ProfilesPage extends javax.swing.JFrame {
     }//GEN-LAST:event_addBarberButtonActionPerformed
 
     private void deleteBarberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBarberButtonActionPerformed
-    int selectedRow = barbersTable.getSelectedRow();
-    
-    if (selectedRow >= 0) {
-        String barberName = (String) barbersTable.getValueAt(selectedRow, 0);
-        boolean success = BarberManager.removeBarber(barberName);  
-            if (success) {
-                refreshBarberTable();  
-                JOptionPane.showMessageDialog(this, "Barber deleted successfully!");
-            } else {
-                JOptionPane.showMessageDialog(this, "Failed to delete barber.");
-            }
-    } else {
-        javax.swing.JOptionPane.showMessageDialog(this, "No barber selected to be delete.");
-    }
+        int selectedRow = barbersTable.getSelectedRow();
+
+        if (selectedRow >= 0) {
+            String barberName = (String) barbersTable.getValueAt(selectedRow, 0);
+            boolean success = BarberManager.removeBarber(barberName);  
+                if (success) {
+                    refreshBarberTable();  
+                    JOptionPane.showMessageDialog(this, "Barber deleted successfully!");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Failed to delete barber.");
+                }
+        } else {
+            JOptionPane.showMessageDialog(this, "No barber selected to be delete.");
+        }
         refreshBarberTable();
     }//GEN-LAST:event_deleteBarberButtonActionPerformed
 
