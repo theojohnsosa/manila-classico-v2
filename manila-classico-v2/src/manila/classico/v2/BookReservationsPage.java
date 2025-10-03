@@ -16,7 +16,6 @@ public class BookReservationsPage extends javax.swing.JFrame {
         
         initComponents();
         loadServicesIntoComboBox();
-        loadBarbersIntoComboBox();
         
         bookNowButton.addMouseListener(new java.awt.event.MouseAdapter() {
            public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -62,15 +61,6 @@ public class BookReservationsPage extends javax.swing.JFrame {
             barberComboBox.addItem(barber.getName());
         }
     }
-    
-//    private String generateUniqueReferenceNumber() {
-//        Random random = new Random();
-//        String reference;
-//        do {
-//            reference = String.valueOf(100000 + random.nextInt(900000));
-//        } while (CustomerManager.referenceExists(reference));
-//        return reference;
-//    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -337,45 +327,31 @@ public class BookReservationsPage extends javax.swing.JFrame {
         String barber = (String) barberComboBox.getSelectedItem();
         java.util.Date chosenDate = dateDateChooser.getDate();
         String time = (String) timeComboBox.getSelectedItem();
-       
+
         if (fullName.isEmpty() || contactNumber.isEmpty() || chosenDate == null || time == null) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Please complete all fields.");
+            JOptionPane.showMessageDialog(this, "Please complete all fields.");
             return;
         }
 
         String serviceName = service;
-        String pesoString = null;
+        String price = "₱0";
         int index = service.indexOf("–");
         if (index > -1) {
             serviceName = service.substring(0, index).trim();
-            String right = service.substring(index + 1).trim();
-            pesoString = right;
+            price = service.substring(index + 1).trim();
         }
 
-        java.text.SimpleDateFormat simpleDateFormat = new java.text.SimpleDateFormat("yyyy-MM-dd");
-        String date = simpleDateFormat.format(chosenDate);
-
+        String date = new java.text.SimpleDateFormat("yyyy-MM-dd").format(chosenDate);
         if (ReservationsData.isSlotTaken(barber, date, time)) {
             JOptionPane.showMessageDialog(this, "This time slot is already booked!");
             return; 
         }
-        
-        String price = (pesoString != null) ? pesoString : "₱0";
-        String totalAmount = price;
 
-        if (fromEditQueue) {
-            PaymentDetailsPage paymentDetails = new PaymentDetailsPage(fullName, contactNumber, serviceName, barber, date, time, price, totalAmount, true);
-            paymentDetails.setLocationRelativeTo(null);
-            paymentDetails.setResizable(false);
-            paymentDetails.setVisible(true);
-            this.dispose();
-        } else {
-            PaymentDetailsPage paymentDetails = new PaymentDetailsPage(fullName, contactNumber, serviceName, barber, date, time, price, totalAmount, false);
-            paymentDetails.setLocationRelativeTo(null);
-            paymentDetails.setResizable(false);
-            paymentDetails.setVisible(true);
-            this.dispose();
-        }
+        PaymentDetailsPage paymentDetails = new PaymentDetailsPage(fullName, contactNumber, serviceName, barber, date, time, price, price, fromEditQueue);
+        paymentDetails.setLocationRelativeTo(null);
+        paymentDetails.setResizable(false);
+        paymentDetails.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_bookNowButtonActionPerformed
 
     private void fullNameTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fullNameTextFieldKeyTyped
@@ -387,19 +363,13 @@ public class BookReservationsPage extends javax.swing.JFrame {
 
         if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
             evt.consume();
-            javax.swing.JOptionPane.showMessageDialog(
-                this,
-                "Invalid character. Only letters and spaces are allowed."
-            );
+            JOptionPane.showMessageDialog(this, "Invalid character. Only letters and spaces are allowed.");
             return;
         }
 
         if (fullNameTextField.getText().length() >= 30) {
             evt.consume(); 
-            javax.swing.JOptionPane.showMessageDialog(
-                this,
-                "Barber name cannot exceed 30 characters."
-            );
+            JOptionPane.showMessageDialog(this, "Barber name cannot exceed 30 characters.");
         }
     }//GEN-LAST:event_fullNameTextFieldKeyTyped
 
@@ -412,10 +382,7 @@ public class BookReservationsPage extends javax.swing.JFrame {
 
         if (!Character.isDigit(c)) {
             evt.consume();
-            javax.swing.JOptionPane.showMessageDialog(
-                this,
-                "Invalid input. Only numbers are allowed."
-            );
+            JOptionPane.showMessageDialog(this, "Invalid input. Only numbers are allowed.");
             return;
         }
 
@@ -423,10 +390,7 @@ public class BookReservationsPage extends javax.swing.JFrame {
 
         if (currentText.length() >= 11) {
             evt.consume();
-            javax.swing.JOptionPane.showMessageDialog(
-                this,
-                "Contact number cannot exceed 11 digits."
-            );
+            JOptionPane.showMessageDialog(this, "Contact number cannot exceed 11 digits.");
             return;
         }
 
@@ -458,10 +422,7 @@ public class BookReservationsPage extends javax.swing.JFrame {
             }
 
             if (!isValidPrefix) {
-                javax.swing.JOptionPane.showMessageDialog(
-                    this,
-                    "Invalid Contact Number Prefix."
-                );
+                JOptionPane.showMessageDialog(this, "Invalid Contact Number Prefix.");
                 contactNumberTextField.setText("");
                 evt.consume();
             }
