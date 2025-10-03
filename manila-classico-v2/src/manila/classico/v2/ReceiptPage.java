@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package manila.classico.v2;
 import java.util.Random;
 import java.text.DecimalFormat;
@@ -9,59 +5,43 @@ import java.text.DecimalFormat;
 public class ReceiptPage extends javax.swing.JFrame {
    
     public ReceiptPage() {
-        Reservation reservations = ReservationsData.getLastAddedReservation();
         initComponents();
-        
-        Random randomNum = new Random();
-        int receiptNum = randomNum.nextInt(1000000000)+ 1;
-        receiptTextField.setText("" + receiptNum);
-        
-        if (reservations != null) {
-            String date = reservations.getDate();
-            String name = reservations.getFullName();
-            String service = reservations.getService();
-            String barber = reservations.getBarber();
-            String paymentMethod = reservations.getPaymentMethod();
-            String total = reservations.getTotalAmount();
-            String paymentRendered = reservations.getPaymentRendered();
 
-            double totalVal = Double.parseDouble(total.replace("₱", "").trim());
-            double renderedPayment = Double.parseDouble(paymentRendered.replace("₱", "").trim());
+        Reservation reservation = ReservationsData.getLastAddedReservation();
+        if (reservation == null) return;
 
-            DecimalFormat df = new DecimalFormat("###0.0");
-            df.setPositivePrefix("₱");
-            String formattedAmount = df.format(renderedPayment);
+        int receiptNumber = new Random().nextInt(1000000000) + 1;
+        receiptTextField.setText(String.valueOf(receiptNumber));
 
-            dateTextField.setText(date);
-            cashierTextField.setText("admin");
-            customerTextField.setText(name);
-            serviceTextField.setText(service);
+        double totalVal = parseAmount(reservation.getTotalAmount());
+        double renderedPayment = parseAmount(reservation.getPaymentRendered());
 
-            DecimalFormat totalFormat = new DecimalFormat("###0.0");
-            totalFormat.setPositivePrefix("₱");
-            totalAmountTextField1.setText(totalFormat.format(totalVal));
-
-            double change = 0;
-            if ("Cash".equalsIgnoreCase(paymentMethod)) {
-                if (renderedPayment > totalVal) {
-                    change = renderedPayment - totalVal;
-                }
-            }
-
-            DecimalFormat changeFormat = new DecimalFormat("###0.0");
-            changeFormat.setPositivePrefix("₱");
-            changeTextField.setText(changeFormat.format(change));
-
-            paymentMethodTextField.setText(paymentMethod);
-            amountRenderedTextField.setText(formattedAmount);
-            barberTextField.setText(barber);
+        double change = 0;
+        if ("Cash".equalsIgnoreCase(reservation.getPaymentMethod()) && renderedPayment > totalVal) {
+            change = renderedPayment - totalVal;
         }
 
-        
+        dateTextField.setText(reservation.getDate());
+        cashierTextField.setText("admin");
+        customerTextField.setText(reservation.getFullName());
+        serviceTextField.setText(reservation.getService());
+        barberTextField.setText(reservation.getBarber());
+        paymentMethodTextField.setText(reservation.getPaymentMethod());
+        totalAmountTextField1.setText(formatCurrency(totalVal));
+        amountRenderedTextField.setText(formatCurrency(renderedPayment));
+        changeTextField.setText(formatCurrency(change));
     }
     
-    
+    private double parseAmount(String amount) {
+        return Double.parseDouble(amount.replace("₱", "").trim());
+    }
 
+    private String formatCurrency(double amount) {
+        DecimalFormat decimalFormat = new DecimalFormat("###0.0");
+        decimalFormat.setPositivePrefix("₱");
+        return decimalFormat.format(amount);
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -286,11 +266,7 @@ public class ReceiptPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -313,7 +289,6 @@ public class ReceiptPage extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ReceiptPage().setVisible(true);
