@@ -1,18 +1,13 @@
 package manila.classico.v2;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Comparator;
-import java.util.Locale;
+import java.util.List;
 import javax.swing.border.BevelBorder;
-import javax.swing.table.DefaultTableModel;
 
 public class DashboardPage extends javax.swing.JFrame {
 
     public DashboardPage() {
         initComponents();
         updateDashboardStats();
-    //    loadLiveQueueTable();
         liveQueueTable.setModel(ReservationsData.getTableModel());
         
         dashboardButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -128,58 +123,35 @@ public class DashboardPage extends javax.swing.JFrame {
         int customerCount = CustomerManager.getCustomers().size();
         totalCustomersTextField.setText(String.valueOf(customerCount));
 
-        int totalBookings = ReservationsData.getReservations().size();
-        totalBookingsTextField.setText(String.valueOf(totalBookings));
+        List<Reservation> reservations = ReservationsData.getReservations();
+        totalBookingsTextField.setText(String.valueOf(reservations.size()));
 
-        long scheduledCount = ReservationsData.getReservations().stream()
-            .filter(reservation -> {
-                try {
-                    java.text.SimpleDateFormat simpleDateFormat = new java.text.SimpleDateFormat("yyyy-MM-dd h:mm a");
-                    java.util.Date reservationDate = simpleDateFormat.parse(reservation.getDate() + " " + reservation.getTime());
-                    return reservationDate.after(new java.util.Date());
-                } catch (Exception e) {
-                    return false;
-                }
-            })
-            .count();
+        java.text.SimpleDateFormat dateFormat = new java.text.SimpleDateFormat("yyyy-MM-dd h:mm a");
+        java.util.Date now = new java.util.Date();
+
+        long scheduledCount = reservations.stream().filter(r -> isAfterNow(r, dateFormat, now)).count();
         scheduledReservationTextField.setText(String.valueOf(scheduledCount));
 
-        double totalSales = ReservationsData.getReservations().stream()
-            .mapToDouble(reservation -> {
-                try {
-                    String amount = reservation.getTotalAmount()
-                        .replace("₱", "")
-                        .replace("PHP", "")
-                        .replace(",", "")
-                        .trim();
-                    return Double.parseDouble(amount);
-                } catch (Exception e) {
-                    return 0.0;
-                }
-            })
-            .sum();
+        double totalSales = reservations.stream().mapToDouble(this::parseAmount).sum();
         totalSalesTextField.setText("₱" + totalSales);
     }
-    
-    private void loadLiveQueueTable() {
-        DefaultTableModel model = (DefaultTableModel) liveQueueTable.getModel();
-        model.setRowCount(0); 
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd h:mm a", Locale.ENGLISH);
+    private boolean isAfterNow(Reservation reservation, java.text.SimpleDateFormat dateFormat, java.util.Date now) {
+        try {
+            java.util.Date reservationDate = dateFormat.parse(reservation.getDate() + " " + reservation.getTime());
+            return reservationDate.after(now);
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
-        ReservationsData.getReservations().stream()
-            .sorted(Comparator.comparing(reservation -> 
-                LocalDateTime.parse(reservation.getDate() + " " + reservation.getTime(), formatter)))
-            .forEach(reservation -> model.addRow(new Object[] {
-                reservation.getFullName(),
-                reservation.getContactNumber(),
-                reservation.getService(),
-                reservation.getBarber(),
-                reservation.getDate(),
-                reservation.getTime(),
-                reservation.getPaymentMethod(),
-                reservation.getTotalAmount()
-            }));
+    private double parseAmount(Reservation reservation) {
+        try {
+            String amount = reservation.getTotalAmount().replace("₱", "").replace("PHP", "").replace(",", "").trim();
+            return Double.parseDouble(amount);
+        } catch (Exception e) {
+            return 0.0;
+        }
     }
     
     @SuppressWarnings("unchecked")
@@ -485,7 +457,7 @@ public class DashboardPage extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("SF Pro Display", 1, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Live Queue");
+        jLabel5.setText("Reservations");
 
         liveQueueTable.setBackground(new java.awt.Color(253, 253, 254));
         liveQueueTable.setFont(new java.awt.Font("SF Pro Display", 0, 13)); // NOI18N
