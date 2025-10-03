@@ -23,9 +23,9 @@ public class ReservationsData {
     private static final DateTimeFormatter DATETIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd h:mm a", Locale.ENGLISH);
     
     public static synchronized Reservation getLatestReservation() {
-    if (RES_LIST.isEmpty()) return null;
+        if (RES_LIST.isEmpty()) return null;
 
-    final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd h:mm a", Locale.ENGLISH);
+        final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd h:mm a", Locale.ENGLISH);
         Reservation latest = RES_LIST.get(0);
 
         try {
@@ -61,6 +61,9 @@ public class ReservationsData {
     
     private static final List<Reservation> RES_LIST = new ArrayList<>();
     private static final Set<String> RES_KEYS = new HashSet<>();
+    
+    // NEW: Track completed reservations separately
+    private static final Set<String> COMPLETED_RESERVATION_KEYS = new HashSet<>();
     
     private static Reservation lastAddedReservation = null;
     
@@ -117,21 +120,62 @@ public class ReservationsData {
         return lastAddedReservation;
     }
     
+    // MODIFIED: Mark first uncompleted reservation as completed
     public static synchronized boolean removeFirstReservation() {
-        if (RES_LIST.isEmpty()) return false;
-        Reservation removed = RES_LIST.remove(0);
-        RES_KEYS.remove(keyOf(
-            removed.getFullName(), 
-            removed.getContactNumber(), 
-            removed.getService(),
-            removed.getBarber(), 
-            removed.getDate(), 
-            removed.getTime(),
-            removed.getPaymentRendered(),
-            removed.getTotalAmount()
-        ));
+        // Find the first uncompleted reservation
+        for (Reservation reservation : RES_LIST) {
+            String key = keyOf(
+                reservation.getFullName(),
+                reservation.getContactNumber(),
+                reservation.getService(),
+                reservation.getBarber(),
+                reservation.getDate(),
+                reservation.getTime(),
+                reservation.getPaymentRendered(),
+                reservation.getTotalAmount()
+            );
+            
+            // Check if this reservation is not yet completed and is a future reservation
+            if (!COMPLETED_RESERVATION_KEYS.contains(key) && 
+                isValidFutureDateTime(reservation.getDate(), reservation.getTime())) {
+                
+                // Mark as completed
+                COMPLETED_RESERVATION_KEYS.add(key);
+                
+                // Rebuild only the queue table (not sales table)
+                rebuildTableModel();
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
+    // NEW: Remove reservation by table index (from the queue table)
+    public static synchronized boolean removeReservationByIndex(int tableIndex) {
+        List<Reservation> futureReservations = getFutureReservations();
+        
+        if (tableIndex < 0 || tableIndex >= futureReservations.size()) {
+            return false;
+        }
+        
+        Reservation toComplete = futureReservations.get(tableIndex);
+        String key = keyOf(
+            toComplete.getFullName(),
+            toComplete.getContactNumber(),
+            toComplete.getService(),
+            toComplete.getBarber(),
+            toComplete.getDate(),
+            toComplete.getTime(),
+            toComplete.getPaymentRendered(),
+            toComplete.getTotalAmount()
+        );
+        
+        // Mark as completed
+        COMPLETED_RESERVATION_KEYS.add(key);
+        
+        // Rebuild only the queue table (not sales table)
         rebuildTableModel();
-        rebuildSalesTableModel();
         return true;
     }
     
@@ -152,7 +196,20 @@ public class ReservationsData {
     public static synchronized List<Reservation> getFutureReservations() {
         List<Reservation> futureReservations = new ArrayList<>();
         for (Reservation reservation : RES_LIST) {
-            if (isValidFutureDateTime(reservation.getDate(), reservation.getTime())) {
+            // Only include if it's a future reservation AND not completed
+            String key = keyOf(
+                reservation.getFullName(),
+                reservation.getContactNumber(),
+                reservation.getService(),
+                reservation.getBarber(),
+                reservation.getDate(),
+                reservation.getTime(),
+                reservation.getPaymentRendered(),
+                reservation.getTotalAmount()
+            );
+            
+            if (isValidFutureDateTime(reservation.getDate(), reservation.getTime()) 
+                && !COMPLETED_RESERVATION_KEYS.contains(key)) {
                 futureReservations.add(reservation);
             }
         }
@@ -178,6 +235,7 @@ public class ReservationsData {
         }
     }
     
+    // UNCHANGED: Sales table shows ALL reservations
     private static void rebuildSalesTableModel() {
         SALES_TABLE_MODEL.setRowCount(0);
         
@@ -209,6 +267,7 @@ public class ReservationsData {
         
         if (RES_LIST.remove(reservation)) {
             RES_KEYS.remove(key);
+            COMPLETED_RESERVATION_KEYS.remove(key); // Also remove from completed if present
             rebuildTableModel();
             rebuildSalesTableModel();
             return true;
@@ -218,9 +277,22 @@ public class ReservationsData {
     
     public static synchronized boolean isSlotTaken(String barber, String date, String time) {
         for (Reservation existing : RES_LIST) {
+            // Check if the slot is taken by a non-completed reservation
+            String key = keyOf(
+                existing.getFullName(),
+                existing.getContactNumber(),
+                existing.getService(),
+                existing.getBarber(),
+                existing.getDate(),
+                existing.getTime(),
+                existing.getPaymentRendered(),
+                existing.getTotalAmount()
+            );
+            
             if (existing.getBarber().equalsIgnoreCase(barber) &&
                 existing.getDate().equals(date) &&
-                existing.getTime().equalsIgnoreCase(time)) {
+                existing.getTime().equalsIgnoreCase(time) &&
+                !COMPLETED_RESERVATION_KEYS.contains(key)) {
                 return true;
             }
         }
@@ -241,4 +313,3 @@ public class ReservationsData {
         });
     }
 }
-
