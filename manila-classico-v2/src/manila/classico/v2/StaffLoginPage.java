@@ -1,5 +1,6 @@
 package manila.classico.v2;
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 public class StaffLoginPage extends javax.swing.JFrame {
@@ -262,70 +263,54 @@ public class StaffLoginPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
 
+    private static final String ADMIN_ID = "admin";
+    private static final String ADMIN_CODE = "1234";
+    
     private void loginToDashboardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginToDashboardButtonActionPerformed
-        String adminId = "admin";
-        String adminCode = "1234";
+        String idInput = adminIdTextField.getText();
+        String codeInput = new String(adminCodePasswordField.getPassword());
 
-        String adminIdInput = adminIdTextField.getText();
-        String adminCodeInput = new String(adminCodePasswordField.getPassword());
-
-        if (adminIdInput.length() < 4) {
-            JOptionPane.showMessageDialog(
-                this,
-                "Admin ID should have at least 4 characters.",
-                "Invalid Admin ID",
-                JOptionPane.WARNING_MESSAGE
-            );
+        if (idInput.length() < 4) {
+            JOptionPane.showMessageDialog(this, "Admin ID should have at least 4 characters.", "Invalid Admin ID", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
-        if (adminIdInput.equals(adminId) && adminCodeInput.equals(adminCode)) {
-            DashboardPage dashboardPage = new DashboardPage();
-            dashboardPage.setLocationRelativeTo(null);
-            dashboardPage.setResizable(false);
-            dashboardPage.setVisible(true);
+        if (idInput.equals(ADMIN_ID) && codeInput.equals(ADMIN_CODE)) {
+            DashboardPage dashboard = new DashboardPage();
+            dashboard.setLocationRelativeTo(null);
+            dashboard.setResizable(false);
+            dashboard.setVisible(true);
             this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(null, "Invalid Credentials.", "Incorrect Credentials", JOptionPane.INFORMATION_MESSAGE);
-            adminIdTextField.setText("");
-            adminCodePasswordField.setText("");
+            return;
         }
+
+        JOptionPane.showMessageDialog(this, "Invalid Credentials.", "Incorrect Credentials", JOptionPane.INFORMATION_MESSAGE);
+        adminIdTextField.setText("");
+        adminCodePasswordField.setText("");
     }//GEN-LAST:event_loginToDashboardButtonActionPerformed
 
     private void adminCodePasswordFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_adminCodePasswordFieldKeyTyped
         char c = evt.getKeyChar();
-        
-        if (c == java.awt.event.KeyEvent.VK_BACK_SPACE || c == java.awt.event.KeyEvent.VK_DELETE) {
-            return;
-        }
 
-        if (!Character.isDigit(c)) {
+        if (!Character.isDigit(c) && c != KeyEvent.VK_BACK_SPACE && c != KeyEvent.VK_DELETE) {
             evt.consume();
             return;
         }
 
-        String currentText = new String(adminCodePasswordField.getPassword());
-
-        if (currentText.length() >= 10) {
+        if (adminCodePasswordField.getPassword().length >= 10) {
             evt.consume();
         }
     }//GEN-LAST:event_adminCodePasswordFieldKeyTyped
 
     private void adminIdTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_adminIdTextFieldKeyTyped
         char c = evt.getKeyChar();
-        
-        if (c == java.awt.event.KeyEvent.VK_BACK_SPACE || c == java.awt.event.KeyEvent.VK_DELETE) {
-            return;
-        }
 
-        if (!Character.isLetterOrDigit(c)) {
+        if (!Character.isLetterOrDigit(c) && c != KeyEvent.VK_BACK_SPACE && c != KeyEvent.VK_DELETE) {
             evt.consume();
             return;
         }
 
-        String currentText = adminIdTextField.getText();
-
-        if (currentText.length() >= 10) {
+        if (adminIdTextField.getText().length() >= 10) {
             evt.consume();
         }
     }//GEN-LAST:event_adminIdTextFieldKeyTyped
