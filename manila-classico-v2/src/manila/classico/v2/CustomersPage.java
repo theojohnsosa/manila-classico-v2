@@ -141,9 +141,7 @@ public class CustomersPage extends javax.swing.JFrame {
     
     private void initCustom() {
         if (customersTable.getModel().getColumnCount() != 3) {
-            customersTable.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[]{"Name", "Contact", "Reference Number"}, 0
-            ));
+            customersTable.setModel(new DefaultTableModel(new Object[]{"Name", "Contact", "Reference Number"}, 0));
         }
         refreshCustomersTable();
     }
@@ -153,7 +151,7 @@ public class CustomersPage extends javax.swing.JFrame {
         model.setRowCount(0);
 
         for (Customer customer : list) {
-            model.addRow(new Object[]{ customer.getName(), customer.getContact(), customer.getReference() });
+            model.addRow(new Object[]{ customer.getCustomerName(), customer.getCustomerContact(), customer.getCustomerReferenceNumber() });
         }
     }
     

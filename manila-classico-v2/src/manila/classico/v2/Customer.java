@@ -4,22 +4,22 @@ public class Customer {
     private String customerName;
     private String customerContact;
     private String customerReferenceNumber;
-
+    
     public Customer(String customerName, String customerContact, String customerReferenceNumber) {
         this.customerName = customerName;
         this.customerContact = customerContact;
         this.customerReferenceNumber = customerReferenceNumber;
     }
-
-    public String getName() { 
+    
+    public String getCustomerName() { 
         return customerName; 
     }
     
-    public String getContact() { 
+    public String getCustomerContact() { 
         return customerContact; 
     }
     
-    public String getReference() { 
+    public String getCustomerReferenceNumber() { 
         return customerReferenceNumber; 
     }
 }
