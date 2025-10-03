@@ -3,6 +3,7 @@ package manila.classico.v2;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Random;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -10,6 +11,8 @@ import javax.swing.event.DocumentListener;
 public class PaymentDetailsPage extends javax.swing.JFrame {
     
     private boolean payNowProcessed = false;
+    private boolean fromEditQueue;
+    private static ViewQueuePage queuePage;
     
     public PaymentDetailsPage(String fullName, String contact, String service, String barber, String date, String time, String price, String totalAmount, boolean isFromEditQueue) {
         this.fromEditQueue = isFromEditQueue;
@@ -24,34 +27,13 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         totalAmountTextField.setText(totalAmount);
 
         payNowButton.setEnabled(false);
-
         cashToggleButton.setSelected(false);
         gcashToggleButton.setSelected(false);
 
         Runnable validate = () -> {
-            String paymentAmountInput = paymentAmountTextField.getText().trim();
-            String totalAmountInput = totalAmountTextField.getText()
-                    .replace("₱", "")
-                    .replace(".0", "")
-                    .trim();
-            String contactInput = contactTextField.getText().trim();
-
             boolean methodSelected = cashToggleButton.isSelected() || gcashToggleButton.isSelected();
-            boolean hasContact = !contactInput.isEmpty();
-            boolean correctAmount = false;
-            if (!paymentAmountInput.isEmpty()) {
-                try {
-                    double entered = Double.parseDouble(paymentAmountInput);
-                    double total = Double.parseDouble(totalAmountInput);
-                    if (cashToggleButton.isSelected()) {
-                        correctAmount = entered >= total; // allow overpayment
-                    } else if (gcashToggleButton.isSelected()) {
-                        correctAmount = entered == total; // GCash must match exactly
-                    }
-                } catch (NumberFormatException ex) {
-                    correctAmount = false;
-                }
-            }
+            boolean hasContact = !contactTextField.getText().trim().isEmpty();
+            boolean correctAmount = isPaymentAmountValid();
 
             payNowButton.setEnabled(methodSelected && hasContact && correctAmount);
         };
@@ -80,55 +62,6 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
                 cashToggleButton.setSelected(false);
             }
             validate.run();
-        });
-
-        payNowButton.addActionListener(e -> {
-            String paymentMethod = cashToggleButton.isSelected() ? "Cash" : "GCash";
-            String customerFullName = customerTextField.getText().trim();
-            String customerContact = contactTextField.getText().trim();
-            String chosenService = serviceTextField.getText().trim();
-            String chosenBarber = barberTextField.getText().trim();
-            String chosenDate = dateTextField.getText().trim();
-            String chosenTime = timeTextField.getText().trim();
-            String totalPaymentAmount = totalAmountTextField.getText().trim();
-            String paymentRendered = paymentAmountTextField.getText().trim();
-
-            ReservationsData.addReservation(
-                    customerFullName,
-                    customerContact,
-                    chosenService,
-                    chosenBarber,
-                    chosenDate,
-                    chosenTime,
-                    paymentMethod,
-                    totalPaymentAmount,
-                    paymentRendered
-            );
-
-            ReceiptPage receiptPage = new ReceiptPage();
-            receiptPage.setDefaultCloseOperation(ReceiptPage.DISPOSE_ON_CLOSE);
-            receiptPage.setResizable(false);
-            receiptPage.setVisible(true);
-
-            this.dispose();
-
-            receiptPage.addWindowListener(new WindowAdapter() {
-                public void windowClosing(WindowEvent e) {
-                    if(fromEditQueue){
-                        EditQueuePage editQueuePage = new EditQueuePage();
-                        editQueuePage.setLocationRelativeTo(null);
-                        editQueuePage.setResizable(false);
-                        editQueuePage.setVisible(true);
-                    } else {
-                        UserSelectPage userSelectPage = new UserSelectPage();
-                        userSelectPage.setLocationRelativeTo(null);
-                        userSelectPage.setResizable(false);
-                        userSelectPage.setVisible(true);
-                    }
-
-                    receiptPage.dispose();
-                }
-            });
         });
         
         cashToggleButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -180,6 +113,28 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
                paymentAmountTextField.setBackground(new java.awt.Color(253, 253, 254));
            } 
         });
+    }
+    
+    private boolean isPaymentAmountValid() {
+        String paymentInput = paymentAmountTextField.getText().trim();
+        String totalInput = totalAmountTextField.getText().replace("₱", "").replace(".0", "").trim();
+
+        if (paymentInput.isEmpty()) return false;
+
+        try {
+            double entered = Double.parseDouble(paymentInput);
+            double total = Double.parseDouble(totalInput);
+
+            if (cashToggleButton.isSelected()) {
+                return entered >= total;
+            } else if (gcashToggleButton.isSelected()) {
+                return entered == total; 
+            }
+        } catch (NumberFormatException ex) {
+            return false;
+        }
+
+        return false;
     }
     
     private String generateUniqueReferenceNumber() {
@@ -571,6 +526,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
     private void payNowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payNowButtonActionPerformed
         if (payNowProcessed) return;
         payNowProcessed = true;
+        payNowButton.setEnabled(false);
 
         String paymentMethod = cashToggleButton.isSelected() ? "Cash" : "GCash";
         String customerFullName = customerTextField.getText().trim();
@@ -583,27 +539,51 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         String paymentRendered = paymentAmountTextField.getText().trim();
         String reference = generateUniqueReferenceNumber();
 
-        ReservationsData.addReservation(
-            customerFullName,
-            customerContact,
-            chosenService,
-            chosenBarber,
-            chosenDate,
-            chosenTime,
-            paymentMethod,
-            totalPaymentAmount,
-            paymentRendered
-        );
-
+        ReservationsData.addReservation(customerFullName, customerContact, chosenService, chosenBarber, chosenDate, chosenTime, paymentMethod, totalPaymentAmount, paymentRendered);
+        CustomerManager.addCustomer(new Customer(customerFullName, customerContact, reference));
         queueDisplayUpdate();
-        Customer customer = new Customer(customerFullName, customerContact, reference);
-        CustomerManager.addCustomer(customer);
 
         JOptionPane.showMessageDialog(null, "Payment successful! Reservation confirmed. Reference Number: " + reference);
-        payNowButton.setEnabled(false);
 
+        showReceiptWithNavigation();
     }//GEN-LAST:event_payNowButtonActionPerformed
 
+    public static void queueDisplayUpdate() {
+        if (queuePage != null ) {
+            queuePage.refreshQueueDisplay();
+
+        }
+    }
+    
+    private void showReceiptWithNavigation() {
+        ReceiptPage receiptPage = new ReceiptPage();
+        receiptPage.setDefaultCloseOperation(ReceiptPage.DISPOSE_ON_CLOSE);
+        receiptPage.setResizable(false);
+        receiptPage.setVisible(true);
+        this.dispose();
+
+        receiptPage.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                navigateAfterReceipt();
+                receiptPage.dispose();
+            }
+        });
+    }
+
+    private void navigateAfterReceipt() {
+        if (fromEditQueue) {
+            showPage(new EditQueuePage());
+        } else {
+            showPage(new UserSelectPage());
+        }
+    }
+    
+    private void showPage(JFrame page) {
+        page.setLocationRelativeTo(null);
+        page.setResizable(false);
+        page.setVisible(true);
+    }
+    
     private void phoneNumberTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNumberTextFieldKeyTyped
         char c = evt.getKeyChar();
         
@@ -613,10 +593,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
 
         if (!Character.isDigit(c)) {
             evt.consume();
-            javax.swing.JOptionPane.showMessageDialog(
-                this,
-                "Invalid input. Only numbers are allowed."
-            );
+            JOptionPane.showMessageDialog(this, "Invalid input. Only numbers are allowed.");
             return;
         }
 
@@ -624,10 +601,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
 
         if (currentText.length() >= 11) {
             evt.consume();
-            javax.swing.JOptionPane.showMessageDialog(
-                this,
-                "Contact number cannot exceed 11 digits."
-            );
+            JOptionPane.showMessageDialog(this, "Phone number cannot exceed 11 digits.");
             return;
         }
 
@@ -659,10 +633,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
             }
 
             if (!isValidPrefix) {
-                javax.swing.JOptionPane.showMessageDialog(
-                    this,
-                    "Invalid Contact Number Prefix."
-                );
+                JOptionPane.showMessageDialog(this, "Invalid Contact Number Prefix.");
                 phoneNumberTextField.setText("");
                 evt.consume();
             }
@@ -678,20 +649,10 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
 
         if (!Character.isDigit(c)) {
             evt.consume();
-            javax.swing.JOptionPane.showMessageDialog(
-                this,
-                "Invalid input. Payment can only contain numbers."
-            );
-            return;
+            JOptionPane.showMessageDialog(this, "Invalid input. Payment can only contain numbers.");
         }
     }//GEN-LAST:event_paymentAmountTextFieldKeyTyped
-
-    public static void queueDisplayUpdate() {
-        if (queuePage != null ) {
-            queuePage.refreshQueueDisplay();
-
-        }
-    }
+    
     public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -710,9 +671,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
             }
         });
     }
-
-    private boolean fromEditQueue;
-    private static ViewQueuePage queuePage;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
     private javax.swing.JTextField barberTextField;
