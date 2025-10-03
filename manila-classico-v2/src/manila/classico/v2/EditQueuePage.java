@@ -1,5 +1,6 @@
 package manila.classico.v2;
 
+import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -276,37 +277,23 @@ public class EditQueuePage extends javax.swing.JFrame {
             editQueueEntryPage.setVisible(true);
             this.dispose();
         } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "Please select a reservation to edit.");
+            JOptionPane.showMessageDialog(this, "Please select a reservation to edit.");
         }
     }//GEN-LAST:event_editQueueEntryButtonActionPerformed
 
     private void removeFromQueueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeFromQueueButtonActionPerformed
         int selectedRow = reservationsTable.getSelectedRow();
-        if (selectedRow >= 0) {
-            // Get the reservation data from the selected row
-            String fullName = reservationsTable.getValueAt(selectedRow, 0).toString();
-            String contact = reservationsTable.getValueAt(selectedRow, 1).toString();
-            String service = reservationsTable.getValueAt(selectedRow, 2).toString();
-            String barber = reservationsTable.getValueAt(selectedRow, 3).toString();
-            String date = reservationsTable.getValueAt(selectedRow, 4).toString();
-            String time = reservationsTable.getValueAt(selectedRow, 5).toString();
 
-            // Remove the selected reservation
-            if (ReservationsData.removeReservationByIndex(selectedRow)) {
-                reservationsTable.setModel(ReservationsData.getTableModel());
-                javax.swing.JOptionPane.showMessageDialog(this, 
-                    "Reservation completed successfully!", 
-                    "Success", 
-                    javax.swing.JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                javax.swing.JOptionPane.showMessageDialog(this, 
-                    "Failed to complete reservation.", 
-                    "Error", 
-                    javax.swing.JOptionPane.ERROR_MESSAGE);
-            }
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a reservation to complete.");
+            return;
+        }
+
+        if (ReservationsData.removeReservationByIndex(selectedRow)) {
+            reservationsTable.setModel(ReservationsData.getTableModel());
+            JOptionPane.showMessageDialog(this, "Reservation completed successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            javax.swing.JOptionPane.showMessageDialog(this, 
-                "Please select a reservation to complete.");
+            JOptionPane.showMessageDialog(this, "Failed to complete reservation.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_removeFromQueueButtonActionPerformed
     
