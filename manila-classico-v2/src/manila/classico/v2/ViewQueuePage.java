@@ -7,7 +7,6 @@ import javax.swing.Timer;
 
 public class ViewQueuePage extends javax.swing.JFrame {
 
-
     public ViewQueuePage() {
         initComponents();
         refreshQueueDisplay();
@@ -15,47 +14,43 @@ public class ViewQueuePage extends javax.swing.JFrame {
     }
 
     public void refreshQueueDisplay() {
-        List<Reservation> list = ReservationsData.getReservations();
-        
-        LocalDate dateToday = LocalDate.now();
-        String dateTodayString = dateToday.toString();
-        
-        List <Reservation> reservationsToday = list.stream()
-                .filter(reservation -> reservation.getDate().equals(dateTodayString))
+        List<Reservation> reservationsToday = ReservationsData.getReservations().stream()
+                .filter(r -> r.getDate().equals(LocalDate.now().toString()))
                 .collect(Collectors.toList());
-        
-        if (reservationsToday == null || reservationsToday.isEmpty()) {
-            queueNumberTextField.setText("—");
-            customerNameTextField.setText("No reservations");
-            nextQueueTextField.setText("—");
-            nextCustomerTextField.setText("—");
+
+        if (reservationsToday.isEmpty()) {
+            setQueueDisplay("—", "No reservations", "—", "—");
             return;
         }
 
         Reservation current = reservationsToday.get(0);
-        queueNumberTextField.setText(String.format("%03d", 1));
+        queueNumberTextField.setText("001");
         customerNameTextField.setText(current.getFullName());
 
         if (reservationsToday.size() > 1) {
             Reservation next = reservationsToday.get(1);
-            nextQueueTextField.setText(String.format("%03d", 2));
+            nextQueueTextField.setText("002");
             nextCustomerTextField.setText(next.getFullName());
         } else {
-            nextQueueTextField.setText("—");
-            nextCustomerTextField.setText("—");
+            setQueueDisplay(null, null, "—", "—");
         }
     }
     
-     private void startAutoRefresh() {
+    private void setQueueDisplay(String q1, String c1, String q2, String c2) {
+        if (q1 != null) queueNumberTextField.setText(q1);
+        if (c1 != null) customerNameTextField.setText(c1);
+        nextQueueTextField.setText(q2);
+        nextCustomerTextField.setText(c2);
+    }
+
+    private void startAutoRefresh() {
         autoRefreshTimer = new Timer(1000, e -> refreshQueueDisplay());
         autoRefreshTimer.start();
     }
-     
+
     @Override
     public void dispose() {
-        if (autoRefreshTimer != null) {
-            autoRefreshTimer.stop();
-        }
+        if (autoRefreshTimer != null) autoRefreshTimer.stop();
         super.dispose();
     }
 
