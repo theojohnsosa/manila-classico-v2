@@ -14,7 +14,7 @@ public class ViewQueuePage extends javax.swing.JFrame {
     }
 
     public void refreshQueueDisplay() {
-        List<Reservation> reservationsToday = ReservationsData.getReservations().stream()
+        List<Reservation> reservationsToday = ReservationsData.getFutureReservations().stream()
                 .filter(r -> r.getDate().equals(LocalDate.now().toString()))
                 .collect(Collectors.toList());
 
