@@ -55,12 +55,7 @@ public class BookReservationsPage extends javax.swing.JFrame {
         List<Service> services = ServiceManager.getServices();
 
         if (services.isEmpty()) {
-            JOptionPane.showMessageDialog(
-                null,
-                "No services available. Please add at least one service before booking.",
-                "No Services Found",
-                JOptionPane.WARNING_MESSAGE
-            );
+            JOptionPane.showMessageDialog(this, "No services available. Please add at least one service before booking.", "No Services Found", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
