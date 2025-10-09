@@ -641,6 +641,7 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
     }//GEN-LAST:event_phoneNumberTextFieldKeyTyped
 
     private void paymentAmountTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_paymentAmountTextFieldKeyTyped
+        String text = paymentAmountTextField.getText().trim();
         char c = evt.getKeyChar();
         
         if (c == java.awt.event.KeyEvent.VK_BACK_SPACE || c == java.awt.event.KeyEvent.VK_DELETE) {
@@ -650,6 +651,11 @@ public class PaymentDetailsPage extends javax.swing.JFrame {
         if (!Character.isDigit(c)) {
             evt.consume();
             JOptionPane.showMessageDialog(this, "Invalid input. Payment can only contain numbers.");
+        }
+        
+        if (text.length() >= 5) {
+            evt.consume();
+            JOptionPane.showMessageDialog(this, "Payment can only be up to 5 digits.");
         }
     }//GEN-LAST:event_paymentAmountTextFieldKeyTyped
     

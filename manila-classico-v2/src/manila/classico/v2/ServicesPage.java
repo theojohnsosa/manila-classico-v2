@@ -1,5 +1,6 @@
 package manila.classico.v2;
 
+import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
 import javax.swing.border.BevelBorder;
 import javax.swing.table.DefaultTableModel;
@@ -172,9 +173,11 @@ public class ServicesPage extends javax.swing.JFrame {
     }
 
     private void loadServicesToTable(java.util.List<Service> services) {
+        DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
         tableModel.setRowCount(0);
         for (Service service : services) {
-            tableModel.addRow(new Object[]{service.getServiceName(), service.getServicePrice()});
+            String formattedPrice = "₱" + decimalFormat.format(service.getServicePrice());
+            tableModel.addRow(new Object[]{service.getServiceName(), formattedPrice});
         }
     }
     

@@ -268,6 +268,11 @@ public class AddBarberPage extends javax.swing.JFrame {
             return;
         }
 
+        if (!barberEmail.contains("@") || !barberEmail.contains(".com")) {
+            JOptionPane.showMessageDialog(null, "Please enter a valid email address.");
+            return;
+        }
+
         BarberManager.addBarber(new Barber(barberName, barberContact, barberEmail, dateJoined));
 
         if (bookPage != null) {
@@ -275,7 +280,7 @@ public class AddBarberPage extends javax.swing.JFrame {
         }
 
         JOptionPane.showMessageDialog(null, "New barber added successfully.");
-        
+
         ProfilesPage profilesPage = new ProfilesPage();
         profilesPage.setLocationRelativeTo(null);
         profilesPage.setResizable(false);

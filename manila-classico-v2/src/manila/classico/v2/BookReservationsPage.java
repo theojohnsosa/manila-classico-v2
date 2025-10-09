@@ -1,5 +1,6 @@
 package manila.classico.v2;
 
+import java.util.List;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
@@ -16,6 +17,7 @@ public class BookReservationsPage extends javax.swing.JFrame {
         
         initComponents();
         loadServicesIntoComboBox();
+        loadBarbersIntoComboBox();
         
         bookNowButton.addMouseListener(new java.awt.event.MouseAdapter() {
            public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -50,10 +52,23 @@ public class BookReservationsPage extends javax.swing.JFrame {
     
     private void loadServicesIntoComboBox() {
         serviceComboBox.removeAllItems(); 
-        for (Service service : ServiceManager.getServices()) {
+        List<Service> services = ServiceManager.getServices();
+
+        if (services.isEmpty()) {
+            JOptionPane.showMessageDialog(
+                null,
+                "No services available. Please add at least one service before booking.",
+                "No Services Found",
+                JOptionPane.WARNING_MESSAGE
+            );
+            return;
+        }
+
+        for (Service service : services) {
             serviceComboBox.addItem(service.getServiceName() + " – ₱" + service.getServicePrice());
         }
     }
+
     
     public void loadBarbersIntoComboBox() {
         barberComboBox.removeAllItems();
