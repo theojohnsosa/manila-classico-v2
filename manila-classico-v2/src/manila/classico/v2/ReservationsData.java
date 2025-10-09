@@ -210,7 +210,7 @@ public class ReservationsData {
             try {
                 Date dateA = DATETIME_FORMAT.parse(a.getDate() + " " + a.getTime());
                 Date dateB = DATETIME_FORMAT.parse(b.getDate() + " " + b.getTime());
-                return dateB.compareTo(dateA);
+                return dateA.compareTo(dateB);
             } catch (ParseException e) {
                 return 0;
             }
