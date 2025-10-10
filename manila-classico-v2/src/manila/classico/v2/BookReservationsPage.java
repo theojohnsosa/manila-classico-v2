@@ -105,7 +105,6 @@ public class BookReservationsPage extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(253, 253, 254));
 
         jLabel7.setFont(new java.awt.Font("SF Pro Display", 1, 30)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("<html><div style=\"text-align: center;\">Book Reservation</div></html>");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -115,7 +114,6 @@ public class BookReservationsPage extends javax.swing.JFrame {
 
         backButton.setBackground(new java.awt.Color(253, 253, 254));
         backButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        backButton.setForeground(new java.awt.Color(0, 0, 0));
         backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-left-arrow-20.png"))); // NOI18N
         backButton.setText("Back");
         backButton.setBorder(null);
@@ -135,6 +133,11 @@ public class BookReservationsPage extends javax.swing.JFrame {
         fullNameTextField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
         fullNameTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(155, 164, 177), 1, true));
         fullNameTextField.setOpaque(true);
+        fullNameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fullNameTextFieldActionPerformed(evt);
+            }
+        });
         fullNameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 fullNameTextFieldKeyTyped(evt);
@@ -152,11 +155,9 @@ public class BookReservationsPage extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Full Name");
 
         jLabel2.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Contact Number");
 
         serviceComboBox.setBackground(new java.awt.Color(253, 253, 254));
@@ -166,7 +167,6 @@ public class BookReservationsPage extends javax.swing.JFrame {
         serviceComboBox.setOpaque(true);
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Service");
 
         barberComboBox.setBackground(new java.awt.Color(253, 253, 254));
@@ -176,14 +176,12 @@ public class BookReservationsPage extends javax.swing.JFrame {
         barberComboBox.setOpaque(true);
 
         jLabel4.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Barber");
 
         dateDateChooser.setBackground(new java.awt.Color(253, 253, 254));
         dateDateChooser.setForeground(new java.awt.Color(155, 164, 177));
 
         jLabel5.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Date");
 
         timeComboBox.setBackground(new java.awt.Color(253, 253, 254));
@@ -193,7 +191,6 @@ public class BookReservationsPage extends javax.swing.JFrame {
         timeComboBox.setOpaque(true);
 
         jLabel6.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Time");
 
         bookNowButton.setBackground(new java.awt.Color(164, 145, 129));
@@ -384,7 +381,7 @@ public class BookReservationsPage extends javax.swing.JFrame {
 
         if (fullNameTextField.getText().length() >= 30) {
             evt.consume(); 
-            JOptionPane.showMessageDialog(this, "Barber name cannot exceed 30 characters.");
+            JOptionPane.showMessageDialog(this, "Customer name cannot exceed 30 characters.");
         }
     }//GEN-LAST:event_fullNameTextFieldKeyTyped
 
@@ -443,6 +440,10 @@ public class BookReservationsPage extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_contactNumberTextFieldKeyTyped
+
+    private void fullNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullNameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fullNameTextFieldActionPerformed
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

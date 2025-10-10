@@ -117,7 +117,6 @@ public class SendEmailPage extends javax.swing.JFrame {
 
         backButton.setBackground(new java.awt.Color(253, 253, 254));
         backButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        backButton.setForeground(new java.awt.Color(0, 0, 0));
         backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-left-arrow-20.png"))); // NOI18N
         backButton.setText("Back to Support");
         backButton.setBorder(null);
@@ -131,7 +130,6 @@ public class SendEmailPage extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("SF Pro Display", 1, 40)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("<html><div style=\"text-align: center;\">Send an Email</div></html>");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -157,7 +155,6 @@ public class SendEmailPage extends javax.swing.JFrame {
 
         emailTextField.setBackground(new java.awt.Color(253, 253, 254));
         emailTextField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
-        emailTextField.setForeground(new java.awt.Color(0, 0, 0));
         emailTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(154, 164, 177), 1, true));
         emailTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -166,12 +163,10 @@ public class SendEmailPage extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Email");
 
         subjectTextField.setBackground(new java.awt.Color(253, 253, 254));
         subjectTextField.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
-        subjectTextField.setForeground(new java.awt.Color(0, 0, 0));
         subjectTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(154, 164, 177), 1, true));
         subjectTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -180,17 +175,14 @@ public class SendEmailPage extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Subject");
 
         jLabel5.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Message");
 
         messageTextArea.setBackground(new java.awt.Color(253, 253, 254));
         messageTextArea.setColumns(20);
         messageTextArea.setFont(new java.awt.Font("SF Pro Display", 1, 16)); // NOI18N
-        messageTextArea.setForeground(new java.awt.Color(0, 0, 0));
         messageTextArea.setRows(5);
         messageTextArea.setBorder(null);
         jScrollPane1.setViewportView(messageTextArea);
@@ -281,6 +273,12 @@ public class SendEmailPage extends javax.swing.JFrame {
         String recipient = emailTextField.getText().trim();
         String subject = subjectTextField.getText().trim();
         String content = messageTextArea.getText().trim();
+        String email = emailTextField.getText().trim();
+        
+        if (!email.contains("@") || !email.contains(".com")) {
+            JOptionPane.showMessageDialog(null, "Please enter a valid email address.");
+            return;
+        }
 
         if (!recipient.isEmpty() && !subject.isEmpty() && !content.isEmpty()) {
             sendEmail(recipient, subject, content);

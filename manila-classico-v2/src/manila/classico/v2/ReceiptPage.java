@@ -37,7 +37,7 @@ public class ReceiptPage extends javax.swing.JFrame {
     }
 
     private String formatCurrency(double amount) {
-        DecimalFormat decimalFormat = new DecimalFormat("###0.0");
+        DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
         decimalFormat.setPositivePrefix("₱");
         return decimalFormat.format(amount);
     }

@@ -16,6 +16,7 @@ public class EditQueueEntryPage extends javax.swing.JFrame {
     
     public EditQueueEntryPage() {
         initComponents();
+        loadBarbersIntoComboBox();
         loadServicesIntoComboBox();
         
         addToQueueButton.addMouseListener(new java.awt.event.MouseAdapter() {

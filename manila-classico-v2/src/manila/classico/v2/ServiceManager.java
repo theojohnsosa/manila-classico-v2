@@ -7,11 +7,10 @@ import java.util.stream.Collectors;
 public class ServiceManager {
     private static final List<Service> services = new ArrayList<>(List.of(
         new Service("Haircut", 150),
-        new Service("Haircut and Shampoo", 300),
-        new Service("Haircut and Shave", 300),
-        new Service("Haircut Delux", 300),
-        new Service("Classico Signature", 300),
-        new Service("Beard Trim", 300)
+        new Service("Haircut and Shampoo", 250),
+        new Service("Haircut and Shave", 600),
+        new Service("Classico Signature", 500),
+        new Service("Beard Trim", 120)
     ));
 
     public static List<Service> getServices() {
