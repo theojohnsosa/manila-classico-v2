@@ -233,13 +233,13 @@ public class AddServicePage extends javax.swing.JFrame {
 
         if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
             evt.consume();
-            javax.swing.JOptionPane.showMessageDialog(this, "Invalid input. Service name can only contain letters and spaces.");
+            JOptionPane.showMessageDialog(this, "Invalid input. Service name can only contain letters and spaces.");
             return;
         }
 
         if (serviceNameTextField.getText().length() >= 30) {
             evt.consume(); 
-            javax.swing.JOptionPane.showMessageDialog(this, "Service name cannot exceed 30 characters.");
+            JOptionPane.showMessageDialog(this, "Service name cannot exceed 30 characters.");
         }
     }//GEN-LAST:event_serviceNameTextFieldKeyTyped
 
@@ -252,13 +252,13 @@ public class AddServicePage extends javax.swing.JFrame {
 
         if (!Character.isDigit(c)) {
             evt.consume();
-            javax.swing.JOptionPane.showMessageDialog(this, "Invalid input. Price can only contain numbers.");
+            JOptionPane.showMessageDialog(this, "Invalid input. Price can only contain numbers.");
             return;
         }
 
         if (servicePriceTextField.getText().length() >= 4) {
             evt.consume();
-            javax.swing.JOptionPane.showMessageDialog(this, "Service price cannot exceed 4 digits.");
+            JOptionPane.showMessageDialog(this, "Service price cannot exceed 4 digits.");
         }
     }//GEN-LAST:event_servicePriceTextFieldKeyTyped
 
