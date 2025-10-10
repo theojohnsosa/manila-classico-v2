@@ -14,22 +14,25 @@ public class ViewQueuePage extends javax.swing.JFrame {
     }
 
     public void refreshQueueDisplay() {
-        List<Reservation> reservationsToday = ReservationsData.getFutureReservations().stream()
-                .filter(r -> r.getDate().equals(LocalDate.now().toString()))
-                .collect(Collectors.toList());
+        List<Reservation> reservationsToday = ReservationsData.getFutureReservations().stream().filter(r -> r.getDate().equals(LocalDate.now().toString())).collect(Collectors.toList());
 
         if (reservationsToday.isEmpty()) {
             setQueueDisplay("—", "No reservations", "—", "—");
             return;
         }
+        
+        List<Reservation> queueReservations = ReservationsData.getReservations().stream().filter(r -> r.getDate().equals(LocalDate.now().toString())).collect(Collectors.toList());
 
         Reservation current = reservationsToday.get(0);
-        queueNumberTextField.setText("001");
+        int queueNumber = queueReservations.indexOf(current) + 1;
+        
+        queueNumberTextField.setText(String.format("%03d", queueNumber));
         customerNameTextField.setText(current.getFullName());
 
         if (reservationsToday.size() > 1) {
             Reservation next = reservationsToday.get(1);
-            nextQueueTextField.setText("002");
+            int nextQueueNumber = queueReservations.indexOf(next) + 1;
+            nextQueueTextField.setText(String.format("%03d", nextQueueNumber));
             nextCustomerTextField.setText(next.getFullName());
         } else {
             setQueueDisplay(null, null, "—", "—");
