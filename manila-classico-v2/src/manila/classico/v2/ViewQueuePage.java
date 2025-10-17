@@ -20,8 +20,6 @@ public class ViewQueuePage extends javax.swing.JFrame {
             setQueueDisplay("—", "No reservations", "—", "—");
             return;
         }
-        
-        List<Reservation> queueReservations = ReservationsData.getReservations().stream().filter(r -> r.getDate().equals(LocalDate.now().toString())).collect(Collectors.toList());
 
         List<Reservation> queueReservations = ReservationsData.getReservations().stream()
                 .filter(r -> r.getDate().equals(LocalDate.now().toString()))
@@ -84,17 +82,14 @@ public class ViewQueuePage extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(253, 253, 254));
 
         jLabel7.setFont(new java.awt.Font("SF Pro Display", 1, 30)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("<html><div style=\"text-align: center;\">Queue Status</div></html>");
+        jLabel7.setText("<html><div style=\"text-align: center;\">Slot Status</div></html>");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel8.setFont(new java.awt.Font("SF Pro Display", 0, 15)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("<html><div style=\"text-align: center;\">Current barbershop queue information</div></html>");
+        jLabel8.setText("<html><div style=\"text-align: center;\">Current barbershop slot information</div></html>");
 
         backButton.setBackground(new java.awt.Color(253, 253, 254));
         backButton.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        backButton.setForeground(new java.awt.Color(0, 0, 0));
         backButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-left-arrow-20.png"))); // NOI18N
         backButton.setText("Back");
         backButton.setBorder(null);
@@ -108,7 +103,6 @@ public class ViewQueuePage extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("SF Pro Display", 0, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("<html><div style=\"text-align: center;\">Currently Being Served</div></html>");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -124,7 +118,6 @@ public class ViewQueuePage extends javax.swing.JFrame {
 
         customerNameTextField.setBackground(new java.awt.Color(253, 253, 254));
         customerNameTextField.setFont(new java.awt.Font("SF Pro Display", 1, 15)); // NOI18N
-        customerNameTextField.setForeground(new java.awt.Color(0, 0, 0));
         customerNameTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         customerNameTextField.setBorder(null);
         customerNameTextField.setFocusable(false);
@@ -137,7 +130,6 @@ public class ViewQueuePage extends javax.swing.JFrame {
         nextQueueTextField.setFocusable(false);
 
         jLabel2.setFont(new java.awt.Font("SF Pro Display", 1, 13)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Next in Line:");
 
         nextCustomerTextField.setBackground(new java.awt.Color(253, 253, 254));
@@ -160,14 +152,11 @@ public class ViewQueuePage extends javax.swing.JFrame {
                         .addGap(410, 410, 410)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(437, 437, 437)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(434, 434, 434)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(388, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 362, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -179,12 +168,15 @@ public class ViewQueuePage extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(customerNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(queueNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(334, 334, 334))))
+                        .addGap(334, 334, 334))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(431, 431, 431))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(99, Short.MAX_VALUE)
+                .addContainerGap(91, Short.MAX_VALUE)
                 .addComponent(backButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
