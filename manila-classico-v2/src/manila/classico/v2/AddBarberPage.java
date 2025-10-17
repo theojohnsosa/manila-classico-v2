@@ -293,19 +293,13 @@ public class AddBarberPage extends javax.swing.JFrame {
 
         if (!Character.isLetter(c) && !Character.isWhitespace(c)) {
             evt.consume();
-            javax.swing.JOptionPane.showMessageDialog(
-                this,
-                "Invalid character. Only letters and spaces are allowed."
-            );
+            JOptionPane.showMessageDialog(this, "Invalid character. Only letters and spaces are allowed.");
             return;
         }
 
         if (barberNameTextField.getText().length() >= 30) {
             evt.consume(); 
-            javax.swing.JOptionPane.showMessageDialog(
-                this,
-                "Barber name cannot exceed 30 characters."
-            );
+            JOptionPane.showMessageDialog(this, "Barber name cannot exceed 30 characters.");
         }
     }//GEN-LAST:event_barberNameTextFieldKeyTyped
 
@@ -318,7 +312,7 @@ public class AddBarberPage extends javax.swing.JFrame {
 
         if (!Character.isDigit(c)) {
             evt.consume();
-            javax.swing.JOptionPane.showMessageDialog(this, "Invalid input. Only numbers are allowed.");
+            JOptionPane.showMessageDialog(this, "Invalid input. Only numbers are allowed.");
             return;
         }
 
@@ -326,7 +320,7 @@ public class AddBarberPage extends javax.swing.JFrame {
 
         if (currentText.length() >= 11) {
             evt.consume();
-            javax.swing.JOptionPane.showMessageDialog(this, "Contact number cannot exceed 11 digits.");
+            JOptionPane.showMessageDialog(this, "Contact number cannot exceed 11 digits.");
             return;
         }
 
@@ -358,7 +352,7 @@ public class AddBarberPage extends javax.swing.JFrame {
             }
 
             if (!isValidPrefix) {
-                javax.swing.JOptionPane.showMessageDialog(this, "Invalid Contact Number Prefix.");
+                JOptionPane.showMessageDialog(this, "Invalid Contact Number Prefix.");
                 barberContactTextField.setText("");
                 evt.consume();
             }

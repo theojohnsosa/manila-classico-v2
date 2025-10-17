@@ -14,14 +14,14 @@ public class ViewQueuePage extends javax.swing.JFrame {
     }
 
     public void refreshQueueDisplay() {
-        List<Reservation> reservationsToday = ReservationsData.getFutureReservations().stream()
-                .filter(r -> r.getDate().equals(LocalDate.now().toString()))
-                .collect(Collectors.toList());
+        List<Reservation> reservationsToday = ReservationsData.getFutureReservations().stream().filter(r -> r.getDate().equals(LocalDate.now().toString())).collect(Collectors.toList());
 
         if (reservationsToday.isEmpty()) {
             setQueueDisplay("—", "No reservations", "—", "—");
             return;
         }
+        
+        List<Reservation> queueReservations = ReservationsData.getReservations().stream().filter(r -> r.getDate().equals(LocalDate.now().toString())).collect(Collectors.toList());
 
         List<Reservation> queueReservations = ReservationsData.getReservations().stream()
                 .filter(r -> r.getDate().equals(LocalDate.now().toString()))
