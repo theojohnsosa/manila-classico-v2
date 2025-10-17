@@ -9,7 +9,7 @@ public class ServiceManager {
         new Service("Haircut", 150),
         new Service("Haircut and Shampoo", 250),
         new Service("Haircut and Shave", 600),
-        new Service("Classico Signature", 450),
+        new Service("Classico Signature", 500),
         new Service("Beard Trim", 120)
     ));
 

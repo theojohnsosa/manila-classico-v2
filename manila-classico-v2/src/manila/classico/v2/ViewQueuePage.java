@@ -23,16 +23,23 @@ public class ViewQueuePage extends javax.swing.JFrame {
         
         List<Reservation> queueReservations = ReservationsData.getReservations().stream().filter(r -> r.getDate().equals(LocalDate.now().toString())).collect(Collectors.toList());
 
+        List<Reservation> queueReservations = ReservationsData.getReservations().stream()
+                .filter(r -> r.getDate().equals(LocalDate.now().toString()))
+                .collect(Collectors.toList());
+        
+        
         Reservation current = reservationsToday.get(0);
         int queueNumber = queueReservations.indexOf(current) + 1;
         
-        queueNumberTextField.setText(String.format("%03d", queueNumber));
+        queueNumberTextField.setText(String.format("%03d",queueNumber));
         customerNameTextField.setText(current.getFullName());
 
+        
         if (reservationsToday.size() > 1) {
             Reservation next = reservationsToday.get(1);
             int nextQueueNumber = queueReservations.indexOf(next) + 1;
-            nextQueueTextField.setText(String.format("%03d", nextQueueNumber));
+            
+            nextQueueTextField.setText(String.format("%03d",nextQueueNumber));
             nextCustomerTextField.setText(next.getFullName());
         } else {
             setQueueDisplay(null, null, "—", "—");

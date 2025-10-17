@@ -1,5 +1,7 @@
 package manila.classico.v2;
 
+import javax.swing.JOptionPane;
+
 public class UserSelectPage extends javax.swing.JFrame {
 
     public UserSelectPage() {
@@ -265,6 +267,17 @@ public class UserSelectPage extends javax.swing.JFrame {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void makeReservationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makeReservationButtonActionPerformed
+        if(BarberManager.getBarbers().isEmpty() && ServiceManager.getServices().isEmpty()){
+            JOptionPane.showMessageDialog(this, "No Services and Barbers Available ", "Invalid", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }else if(ServiceManager.getServices().isEmpty()){
+            JOptionPane.showMessageDialog(this, "No Services Available ", "Invalid", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }else if(BarberManager.getBarbers().isEmpty()){
+            JOptionPane.showMessageDialog(this, "No Barbers Available ", "Invalid", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
         BookReservationsPage bookReservationPage = new BookReservationsPage();
         bookReservationPage.setLocationRelativeTo(null);
         bookReservationPage.setResizable(false);

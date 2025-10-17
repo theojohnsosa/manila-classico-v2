@@ -261,6 +261,17 @@ public class EditQueuePage extends javax.swing.JFrame {
     }//GEN-LAST:event_searchButtonActionPerformed
 
     private void addQueueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addQueueButtonActionPerformed
+        if(BarberManager.getBarbers().isEmpty() && ServiceManager.getServices().isEmpty()){
+            JOptionPane.showMessageDialog(this, "No Services and Barbers Available ", "Invalid", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }else if(ServiceManager.getServices().isEmpty()){
+            JOptionPane.showMessageDialog(this, "No Services Available ", "Invalid", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }else if(BarberManager.getBarbers().isEmpty()){
+            JOptionPane.showMessageDialog(this, "No Barbers Available ", "Invalid", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        
         BookReservationsPage bookReservationsPage = new BookReservationsPage(true);
         bookReservationsPage.setLocationRelativeTo(null);
         bookReservationsPage.setResizable(false);
@@ -291,7 +302,7 @@ public class EditQueuePage extends javax.swing.JFrame {
 
         if (ReservationsData.removeReservationByIndex(selectedRow)) {
             reservationsTable.setModel(ReservationsData.getTableModel());
-            JOptionPane.showMessageDialog(this, "Reservation completed successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Reservation removed successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(this, "Failed to complete reservation.", "Error", JOptionPane.ERROR_MESSAGE);
         }
